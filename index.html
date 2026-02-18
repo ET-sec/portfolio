@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emmanuel Tigoue | Security Engineer | CASP+ CCNA SSCP</title>
+<meta name="description" content="Emmanuel Tigoue — Security Engineer delivering AI-augmented cloud security platforms on AWS. Zero Trust architecture, SOAR orchestration, Terraform IaC. CASP+ (SecurityX), SSCP, CCNA certified.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Emmanuel Tigoue | Security Engineer">
+<meta property="og:description" content="Security Engineer. CASP+ (DoD 8140), SSCP, CCNA certified. Cloud security, Zero Trust, SOAR automation.">
+<meta property="og:url" content="https://etcodin.github.io/portfolio/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Emmanuel Tigoue | Security Engineer">
+<meta name="twitter:description" content="Security Engineer. CASP+ (DoD 8140), SSCP, CCNA certified. Cloud security, Zero Trust, SOAR automation.">
+<link rel="canonical" href="https://etcodin.github.io/portfolio/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --void: #0A0A0A; --dark: #1A1A1A; --mid: #333333; --light: #888888;
+  --green: #00FF41; --red: #FF3366; --gold: #FFB800; --cyan: #00D4FF; --purple: #BF5AF2;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--void); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+.hud { position: relative; background: var(--dark); border: 1px solid var(--mid); padding: 28px; }
+.hud::before { content: ''; position: absolute; top: -1px; left: -1px; width: 20px; height: 20px; border-top: 2px solid var(--green); border-left: 2px solid var(--green); }
+.hud::after { content: ''; position: absolute; top: -1px; right: -1px; width: 20px; height: 20px; border-top: 2px solid var(--green); border-right: 2px solid var(--green); }
+.hud .bl { position: absolute; bottom: -1px; left: -1px; width: 20px; height: 20px; border-bottom: 2px solid var(--green); border-left: 2px solid var(--green); }
+.hud .br { position: absolute; bottom: -1px; right: -1px; width: 20px; height: 20px; border-bottom: 2px solid var(--green); border-right: 2px solid var(--green); }
+
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+section { padding: 80px 0; border-bottom: 1px solid var(--mid); }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,255,65,0.03) 0%, transparent 70%); }
+.hero-badge { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+.hero h1 { font-size: clamp(36px, 7vw, 72px); font-weight: 800; letter-spacing: 2px; margin-bottom: 12px; }
+.hero h1 .icon { color: var(--green); }
+.hero .tagline { font-family: 'JetBrains Mono', monospace; font-size: clamp(14px, 2.5vw, 20px); color: var(--green); margin-bottom: 8px; letter-spacing: 2px; }
+.hero .sub-tagline { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--gold); margin-bottom: 24px; letter-spacing: 1px; }
+.hero .intro { max-width: 600px; margin: 0 auto 32px; color: var(--light); font-size: 16px; line-height: 1.7; }
+.btn { display: inline-block; padding: 14px 28px; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 1px solid; cursor: pointer; transition: all 0.2s; text-decoration: none !important; }
+.btn-primary { background: var(--green); color: var(--void); border-color: var(--green); }
+.btn-primary:hover { background: transparent; color: var(--green); }
+.btn-outline { background: transparent; color: var(--cyan); border-color: var(--cyan); }
+.btn-outline:hover { background: var(--cyan); color: var(--void); }
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.status-line { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); margin-top: 40px; }
+.status-line .pulse { display: inline-block; color: var(--green); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* TYPING CURSOR */
+.typing-cursor::after { content: '\2588'; color: var(--green); animation: blink 0.8s step-end infinite; margin-left: 2px; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* GLITCH HOVER */
+.glitch-hover { position: relative; display: inline-block; }
+.glitch-hover:hover { animation: glitch 0.3s ease-in-out; }
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); text-shadow: 2px 0 var(--red), -2px 0 var(--cyan); }
+  40% { transform: translate(3px, -2px); text-shadow: -2px 0 var(--red), 2px 0 var(--cyan); }
+  60% { transform: translate(-2px, 1px); text-shadow: 1px 0 var(--red), -1px 0 var(--cyan); }
+  80% { transform: translate(2px, -1px); text-shadow: -1px 0 var(--red), 1px 0 var(--cyan); }
+  100% { transform: translate(0); text-shadow: none; }
+}
+
+/* MATRIX CANVAS */
+#matrix-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.08; pointer-events: none; }
+
+/* SCAN LINE */
+.hero::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,65,0.015) 2px, rgba(0,255,65,0.015) 4px); pointer-events: none; z-index: 1; }
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+/* STAGGERED CARDS */
+.stagger-card { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.stagger-card.visible { opacity: 1; transform: translateY(0); }
+
+/* CERT CARD GLOW */
+.cert-card .hud { transition: border-color 0.6s, box-shadow 0.6s; }
+.cert-card.glow .hud { border-color: var(--green); box-shadow: 0 0 16px rgba(0,255,65,0.2); }
+
+/* HUD CORNER DRAW-IN */
+.hud-animate::before, .hud-animate::after, .hud-animate .bl, .hud-animate .br {
+  width: 0; height: 0; transition: width 0.4s ease, height 0.4s ease;
+}
+.hud-animate.drawn::before, .hud-animate.drawn::after, .hud-animate.drawn .bl, .hud-animate.drawn .br {
+  width: 20px; height: 20px;
+}
+
+/* RADAR PING */
+.radar-ping { position: relative; }
+.radar-ping::before { content: ''; position: absolute; top: 50%; left: -12px; width: 8px; height: 8px; background: var(--green); border-radius: 50%; transform: translateY(-50%); }
+.radar-ping::after { content: ''; position: absolute; top: 50%; left: -12px; width: 8px; height: 8px; border: 2px solid var(--green); border-radius: 50%; transform: translateY(-50%); animation: radar 2s ease-out infinite; }
+@keyframes radar { 0% { width: 8px; height: 8px; opacity: 1; left: -12px; } 100% { width: 28px; height: 28px; opacity: 0; left: -22px; top: 40%; } }
+
+/* NAV GLOW ON SCROLL */
+nav { transition: box-shadow 0.3s; }
+nav.scrolled { box-shadow: 0 2px 20px rgba(0,255,65,0.1); }
+
+/* BUTTON HOVER GLOW */
+.btn-primary:hover { box-shadow: 0 0 20px rgba(0,255,65,0.3); }
+.btn-outline:hover { box-shadow: 0 0 20px rgba(0,212,255,0.3); }
+
+/* Section Headers */
+.section-header { margin-bottom: 48px; }
+.section-header .label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--green); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+.section-header h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; }
+.section-header .line { width: 60px; height: 2px; background: var(--green); margin-top: 12px; }
+
+/* PROOF OF WORK STATS */
+.pow-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin: 32px 0; }
+.pow-stat { background: var(--void); border: 1px solid var(--mid); padding: 20px; text-align: center; transition: border-color 0.3s, box-shadow 0.3s; }
+.pow-stat:hover { border-color: var(--green); box-shadow: 0 0 12px rgba(0,255,65,0.15); }
+.pow-stat .num { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--green); }
+.pow-stat .lbl { font-size: 11px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; font-family: 'JetBrains Mono', monospace; }
+
+/* ARCHITECTURE DIAGRAM */
+.arch-diagram { position: relative; padding: 32px 16px; background: var(--void); border: 1px solid var(--mid); overflow-x: auto; }
+.arch-layer { border: 1px dashed rgba(0,255,65,0.2); padding: 16px; margin: 8px 0; position: relative; }
+.arch-layer-label { position: absolute; top: -10px; left: 16px; background: var(--void); padding: 0 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--green); letter-spacing: 2px; text-transform: uppercase; }
+.arch-nodes { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.arch-node { display: inline-flex; align-items: center; gap: 8px; background: var(--dark); border: 1px solid var(--mid); padding: 10px 14px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--white); transition: border-color 0.3s, box-shadow 0.3s; }
+.arch-node:hover { border-color: var(--green); box-shadow: 0 0 12px rgba(0,255,65,0.15); }
+.arch-node .port { color: var(--light); font-size: 10px; }
+.arch-connector { width: 2px; height: 20px; background: var(--green); margin: 0 auto; opacity: 0.4; }
+
+/* CERTS */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.cert-card .hud { padding: 24px; transition: border-color 0.3s, box-shadow 0.3s; }
+.cert-card .hud:hover { border-color: var(--green); box-shadow: 0 0 12px rgba(0,255,65,0.15); }
+.cert-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 3px 8px; border: 1px solid; display: inline-block; margin-bottom: 12px; }
+.badge-cleared { color: var(--green); border-color: var(--green); }
+.cert-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.cert-card .cert-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); margin-bottom: 4px; }
+.cert-card .cert-note { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green); margin-top: 12px; opacity: 0.7; }
+
+/* EXPERIENCE */
+.exp-entry { margin-bottom: 48px; }
+.exp-entry:last-child { margin-bottom: 0; }
+.exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.exp-company { font-size: 22px; font-weight: 700; }
+.exp-role { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--green); }
+.exp-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); }
+.exp-bullets { list-style: none; }
+.exp-bullets li { font-size: 14px; color: #ccc; padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.7; }
+.exp-bullets li::before { content: '\203A'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 18px; line-height: 1.4; }
+.exp-bullets .m { color: var(--green); font-weight: 600; }
+
+/* CONTACT */
+.contact-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
+.contact-link { display: flex; align-items: center; gap: 10px; background: var(--dark); border: 1px solid var(--mid); padding: 14px 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--white); transition: border-color 0.2s, color 0.2s; }
+.contact-link:hover { border-color: var(--green); color: var(--green); text-decoration: none; }
+.contact-email { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--green); margin-top: 24px; }
+
+/* FOOTER */
+footer { padding: 40px 0; text-align: center; }
+footer .logo { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--light); margin-bottom: 8px; }
+footer .copy { font-size: 12px; color: #555; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--mid); padding: 12px 0; }
+nav .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+nav .brand { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 14px; color: var(--white); }
+nav .brand .g { color: var(--green); }
+nav .nav-links { display: flex; gap: 24px; }
+nav .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); letter-spacing: 1px; text-transform: uppercase; }
+nav .nav-links a:hover { color: var(--green); text-decoration: none; }
+.menu-toggle { display: none; background: none; border: 1px solid var(--mid); color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 6px 12px; cursor: pointer; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none !important; }
+  .nav-links.open { display: flex !important; position: absolute; top: 100%; left: 0; right: 0; background: var(--void); flex-direction: column; padding: 16px 20px; border-bottom: 1px solid var(--mid); gap: 12px; }
+  .menu-toggle { display: block; }
+  section { padding: 60px 0; }
+  .exp-header { flex-direction: column; }
+  .pow-stats { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+}
+@media (max-width: 480px) {
+  .cert-grid { grid-template-columns: 1fr; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .pow-stats { grid-template-columns: 1fr 1fr; }
+  .arch-nodes { gap: 8px; }
+  .arch-node { font-size: 11px; padding: 8px 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Emmanuel Tigoue",
+  "jobTitle": "Security Engineer",
+  "description": "Security Engineer delivering AI-augmented cloud security platforms on AWS. Zero Trust architecture, SOAR orchestration, Terraform IaC.",
+  "url": "https://etcodin.github.io/portfolio/",
+  "sameAs": [
+    "https://www.linkedin.com/in/emmanuel-tigoue-672378307",
+    "https://github.com/ETcodin"
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand"><span class="g">&#9673;</span> EMMANUEL TIGOUE</div>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">MENU</button>
+    <div class="nav-links">
+      <a href="#proof">Proof of Work</a>
+      <a href="#certs">Certifications</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="matrix-bg"></canvas>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="hero-badge">[ Security Engineer ] // Atlanta, GA</div>
+    <h1><span class="icon">&#9673;</span> <span class="glitch-hover">EMMANUEL TIGOUE</span></h1>
+    <div class="tagline" id="typed-tagline"></div>
+    <div class="sub-tagline">CASP+ (SecurityX) &bull; SSCP &bull; CCNA &bull; DoD 8140 IAT/IAM III</div>
+    <p class="intro">Security Engineer delivering AI-augmented cloud security platforms for 12 clients on AWS. Integrates LLM-driven automation with SOAR orchestration for threat detection and incident response. Reduced attack surface by 85% through Zero Trust architecture.</p>
+    <div class="hero-buttons">
+      <a href="EmmanuelTigoue_SE.pdf" download class="btn btn-primary">Download Resume</a>
+      <a href="https://github.com/ETcodin/cyber-squire1" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View on GitHub</a>
+    </div>
+    <div class="status-line"><span class="pulse">&#9673;</span> OPEN TO WORK // SECURITY ENGINEER</div>
+  </div>
+</section>
+
+<!-- PROOF OF WORK -->
+<section id="proof">
+  <div class="container">
+    <div class="section-header reveal-left">
+      <div class="label">// Proof of Work</div>
+      <h2>What I Built</h2>
+      <div class="line"></div>
+    </div>
+    <p class="reveal" style="color:#ccc;max-width:720px;margin-bottom:32px;line-height:1.8;">
+      CoreDirective Automation Engine &mdash; a production security platform on AWS serving 12 clients.
+      5-service containerized stack, 17 integrated services, zero external AI costs.
+      Every metric below is verifiable in the <a href="https://github.com/ETcodin/cyber-squire1" target="_blank" rel="noopener noreferrer">public repository</a>.
+    </p>
+
+    <!-- STATS GRID -->
+    <div class="pow-stats">
+      <div class="pow-stat stagger-card"><div class="num">17</div><div class="lbl">Integrated Services</div></div>
+      <div class="pow-stat stagger-card"><div class="num">89%</div><div class="lbl">NIST/CIS Coverage</div></div>
+      <div class="pow-stat stagger-card"><div class="num">85%</div><div class="lbl">Attack Surface Reduction</div></div>
+      <div class="pow-stat stagger-card"><div class="num">$0</div><div class="lbl">AI Inference Cost</div></div>
+      <div class="pow-stat stagger-card"><div class="num">99.2%</div><div class="lbl">Workflow Success Rate</div></div>
+      <div class="pow-stat stagger-card"><div class="num">$135</div><div class="lbl">Monthly Infrastructure</div></div>
+    </div>
+
+    <!-- ARCHITECTURE DIAGRAM -->
+    <div class="hud hud-animate reveal" style="margin-top:40px;">
+      <span class="bl"></span><span class="br"></span>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">
+        System Architecture // CoreDirective Automation Engine
+      </div>
+      <div class="arch-diagram">
+        <div class="arch-layer">
+          <div class="arch-layer-label">Layer 1 // Perimeter</div>
+          <div class="arch-nodes">
+            <div class="arch-node">&#9673; Cloudflare Tunnel <span class="port">TLS 1.3</span></div>
+            <div class="arch-node">&#9673; AWS Security Groups <span class="port">DEFAULT DENY</span></div>
+            <div class="arch-node">&#9673; SELinux Enforcing <span class="port">container_t</span></div>
+          </div>
+        </div>
+        <div class="arch-connector"></div>
+        <div class="arch-layer">
+          <div class="arch-layer-label">Layer 2 // Zero Trust</div>
+          <div class="arch-nodes">
+            <div class="arch-node">&#9673; Identity-Aware Proxy <span class="port">OTP AUTH</span></div>
+            <div class="arch-node">&#9673; Docker Bridge Isolation <span class="port">172.28.0.0/16</span></div>
+            <div class="arch-node">&#9673; Credential Rotation <span class="port">QUARTERLY</span></div>
+          </div>
+        </div>
+        <div class="arch-connector"></div>
+        <div class="arch-layer">
+          <div class="arch-layer-label">Layer 3 // Services</div>
+          <div class="arch-nodes">
+            <div class="arch-node">&#9673; PostgreSQL 16 <span class="port">:5432</span></div>
+            <div class="arch-node">&#9673; n8n SOAR <span class="port">:5678</span></div>
+            <div class="arch-node">&#9673; Ollama / Qwen <span class="port">:11434</span></div>
+            <div class="arch-node">&#9673; Whisper STT <span class="port">:8000</span></div>
+            <div class="arch-node">&#9673; OpenClaw AI <span class="port">:18789</span></div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:16px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--light);">
+            AWS EC2 t3.xlarge &bull; 16GB RAM &bull; 100GB gp3 &bull; Terraform IaC
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NARRATIVE CARDS -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-top:32px;">
+      <div class="hud hud-animate stagger-card">
+        <span class="bl"></span><span class="br"></span>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Zero Trust</div>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">3-Layer Security Architecture</h3>
+        <p style="font-size:14px;color:var(--light);line-height:1.7;">Cloudflare Tunnel + AWS Security Groups + SELinux container confinement. No exposed ports. 16/18 NIST 800-53 controls implemented. Quarterly credential rotation enforced.</p>
+      </div>
+      <div class="hud hud-animate stagger-card">
+        <span class="bl"></span><span class="br"></span>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Cost Engineering</div>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">72% Cost Reduction</h3>
+        <p style="font-size:14px;color:var(--light);line-height:1.7;">Self-hosted Qwen 2.5 7B (4-bit quantized) replaces $400/mo GPU instances. Self-managed NAT instance saves $367/year vs AWS NAT Gateway. Production Terraform with S3+KMS state backend.</p>
+      </div>
+      <div class="hud hud-animate stagger-card">
+        <span class="bl"></span><span class="br"></span>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Automation</div>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">17-Service Orchestration</h3>
+        <p style="font-size:14px;color:var(--light);line-height:1.7;">Single webhook-driven control plane. Google Workspace, Telegram, PostgreSQL, Ollama, Cloudflare, GitHub, and 11 more services. 99.2% success rate across 700+ workflow executions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="container">
+    <div class="section-header reveal-left">
+      <div class="label">// Clearance Stack</div>
+      <h2>Certifications</h2>
+      <div class="line"></div>
+    </div>
+    <div class="cert-grid">
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/15cf6f50-9a78-4405-9cde-3998c8117f84/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>CompTIA CASP+ (SecurityX)</h3>
+        <div class="cert-meta">Advanced Security Practitioner</div>
+        <div class="cert-meta">DoD 8140 IAT/IAM Level III</div>
+        <div class="cert-note">Expires Jun 2028 &bull; Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3d58011f-2130-4a86-818d-f8bc414bbb41/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>ISC2 SSCP</h3>
+        <div class="cert-meta">Systems Security Certified Practitioner</div>
+        <div class="cert-meta">Operational Security</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/6b1b0280-9d26-4b26-a368-0094ee0096b4/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>Cisco CCNA</h3>
+        <div class="cert-meta">Certified Network Associate</div>
+        <div class="cert-meta">Enterprise Networking</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/9277770f-fe46-481b-912d-caed05b03034/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>CompTIA Security+</h3>
+        <div class="cert-meta">Security Fundamentals</div>
+        <div class="cert-meta">DoD 8140 Baseline</div>
+        <div class="cert-note">Expires Jun 2028 &bull; Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/a92ce870-953e-49a0-ab8c-c929121e00e0/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>CompTIA Network+</h3>
+        <div class="cert-meta">Networking Fundamentals</div>
+        <div class="cert-meta">Infrastructure Foundation</div>
+        <div class="cert-note">Expires Jun 2028 &bull; Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3b1a8cb0-61b8-48c9-9f74-86db203e942d/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>ISC2 CC</h3>
+        <div class="cert-meta">Certified in Cybersecurity</div>
+        <div class="cert-meta">Security Foundations</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header reveal-left">
+      <div class="label">// Service Record</div>
+      <h2>Experience</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="exp-entry reveal">
+      <div class="exp-header">
+        <div>
+          <span class="exp-company">CoreDirective</span>
+          <span class="exp-role"> &mdash; Security Engineer</span>
+        </div>
+        <div>
+          <span class="exp-date">Atlanta, GA &bull; Sep 2025 &ndash; Present</span>
+        </div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Delivered AI-augmented cloud security platforms for clients, integrating LLM orchestration, automated threat detection, and SOAR workflows processing live traffic <span class="m">24/7</span> on AWS infrastructure</li>
+        <li>Architected a Zero Trust access framework using Cloudflare Tunnels and identity-aware proxy across <span class="m">6 production services</span>, eliminating all exposed ports and reducing lateral movement risk by <span class="m">85%</span></li>
+        <li>Deployed production LLM infrastructure (Claude, Ollama) behind API gateway authentication with container isolation, enabling AI-driven security analysis and automated incident response</li>
+        <li>Engineered AWS-native threat detection (GuardDuty, CloudTrail, Security Hub) processing <span class="m">10,000+ daily events</span>, reducing mean time to detect from <span class="m">48 hours to 4 hours</span></li>
+        <li>Automated <span class="m">12</span> security operations workflows integrating Claude AI and SOAR orchestration, eliminating <span class="m">20+ hours/month</span> of manual alert triage and enrichment</li>
+        <li>Codified <span class="m">30+</span> AWS resources via Terraform with enforced security baselines across VPC, IAM, EC2, and S3, eliminating configuration drift</li>
+        <li>Hardened <span class="m">8</span> Docker containers on Linux with network segmentation, unprivileged execution, and read-only filesystems, reducing container attack surface by <span class="m">90%</span></li>
+      </ul>
+    </div>
+
+    <div class="exp-entry reveal">
+      <div class="exp-header">
+        <div>
+          <span class="exp-company">Texaco</span>
+          <span class="exp-role"> &mdash; IT Operations Manager</span>
+        </div>
+        <div>
+          <span class="exp-date">Atlanta, GA &bull; Mar 2022 &ndash; Feb 2026</span>
+        </div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Sustained <span class="m">99.5%</span> network uptime over <span class="m">2.5 years</span> across routers, switches, firewalls, and DNS infrastructure supporting continuous retail operations</li>
+        <li>Segmented POS payment traffic into dedicated VLANs, reducing broadcast domains by <span class="m">70%</span> and aligning network architecture with PCI-DSS requirements</li>
+        <li>Administered Active Directory group policies enforcing password complexity, least-privilege access, and software restriction, preventing unauthorized application installs across all endpoints</li>
+        <li>Automated user provisioning and credential rotation via PowerShell, reducing onboarding from <span class="m">2 hours to 20 minutes</span> per account</li>
+        <li>Led incident response for <span class="m">95%</span> of network security incidents within <span class="m">2-hour SLA</span>, performing traffic analysis with Wireshark for root cause identification</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="border-bottom:none;">
+  <div class="container">
+    <div class="section-header reveal-left">
+      <div class="label">// Connect</div>
+      <h2>Contact</h2>
+      <div class="line"></div>
+    </div>
+    <p class="reveal" style="color:var(--light);max-width:500px;margin-bottom:8px;">Open to Security Engineer roles. Available for interviews and technical discussions.</p>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/emmanuel-tigoue-672378307" target="_blank" rel="noopener noreferrer" class="contact-link">&#9654; LinkedIn</a>
+      <a href="https://github.com/ETcodin" target="_blank" rel="noopener noreferrer" class="contact-link">&#9654; GitHub</a>
+      <a href="mailto:emmanueltigoue@gmail.com" class="contact-link" style="border-color:var(--green);">&#9654; Email</a>
+      <a href="EmmanuelTigoue_SE.pdf" download class="contact-link">&#9654; Resume (PDF)</a>
+    </div>
+    <a href="mailto:emmanueltigoue@gmail.com" class="contact-email" style="display:block;text-decoration:none;">emmanueltigoue@gmail.com</a>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);margin-top:12px;">(404) 839-2214</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo"><span style="color:var(--green);">&#9673;</span> EMMANUEL TIGOUE</div>
+    <div class="copy" style="font-family:'JetBrains Mono',monospace;">Security Engineer // 2026</div>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="display:inline-block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);letter-spacing:2px;text-transform:uppercase;text-decoration:none;cursor:pointer;">&#9650; BACK TO TOP</a>
+  </div>
+</footer>
+
+<script>
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+// TYPING EFFECT
+(function() {
+  const text = 'Zero Trust Architecture \u2022 SOAR Automation \u2022 Cloud Security (AWS)';
+  const el = document.getElementById('typed-tagline');
+  let i = 0;
+  el.classList.add('typing-cursor');
+  function type() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 40 + Math.random() * 30);
+    } else {
+      setTimeout(() => el.classList.remove('typing-cursor'), 2000);
+    }
+  }
+  setTimeout(type, 800);
+})();
+
+// MATRIX RAIN
+(function() {
+  const canvas = document.getElementById('matrix-bg');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, columns, drops;
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>{}[]';
+  function resize() {
+    w = canvas.width = canvas.parentElement.offsetWidth;
+    h = canvas.height = canvas.parentElement.offsetHeight;
+    columns = Math.floor(w / 14);
+    drops = Array(columns).fill(1);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  let running = true;
+  const heroEl = canvas.parentElement;
+  const matrixObs = new IntersectionObserver(entries => {
+    running = entries[0].isIntersecting;
+    if (running) requestAnimationFrame(draw);
+  }, { threshold: 0 });
+  matrixObs.observe(heroEl);
+  function draw() {
+    if (!running) return;
+    ctx.fillStyle = 'rgba(10,10,10,0.15)';
+    ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = '#00FF41';
+    ctx.font = '12px JetBrains Mono, monospace';
+    for (let i = 0; i < drops.length; i++) {
+      const char = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(char, i * 14, drops[i] * 14);
+      if (drops[i] * 14 > h && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// COUNTER ANIMATION (scroll-triggered, handles %, $, decimals)
+(function() {
+  const stats = document.querySelectorAll('.pow-stat .num');
+  const observed = new Set();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !observed.has(entry.target)) {
+        observed.add(entry.target);
+        const el = entry.target;
+        const text = el.textContent.trim();
+        const match = text.match(/^(\$?)(\d+\.?\d*)([\+%]?)$/);
+        if (match) {
+          const prefix = match[1];
+          const target = parseFloat(match[2]);
+          const suffix = match[3];
+          const isDecimal = match[2].includes('.');
+          let frame = 0;
+          const steps = 30;
+          const interval = setInterval(() => {
+            frame++;
+            const current = Math.min(target, (target / steps) * frame);
+            if (frame >= steps) {
+              el.textContent = prefix + (isDecimal ? target.toFixed(1) : target) + suffix;
+              clearInterval(interval);
+            } else {
+              el.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.round(current)) + suffix;
+            }
+          }, 40);
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+  stats.forEach(s => observer.observe(s));
+})();
+
+// SCROLL REVEALS
+(function() {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObserver.observe(el));
+
+  // Staggered cards
+  const staggerTimers = new Map();
+  const cardObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const parent = entry.target.parentElement;
+      const cards = parent.querySelectorAll('.stagger-card');
+      if (entry.isIntersecting) {
+        const timers = [];
+        cards.forEach((card, i) => {
+          timers.push(setTimeout(() => card.classList.add('visible'), i * 120));
+        });
+        staggerTimers.set(parent, timers);
+      } else {
+        const timers = staggerTimers.get(parent) || [];
+        timers.forEach(t => clearTimeout(t));
+        staggerTimers.delete(parent);
+        cards.forEach(card => card.classList.remove('visible'));
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.stagger-card:first-child').forEach(el => cardObserver.observe(el));
+
+  // Cert glow
+  const glowObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const cards = entry.target.closest('.cert-grid').querySelectorAll('.cert-card');
+        cards.forEach((card, i) => {
+          setTimeout(() => {
+            card.classList.add('glow');
+            setTimeout(() => card.classList.remove('glow'), 1200);
+          }, i * 150);
+        });
+        glowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  const firstCert = document.querySelector('.cert-card');
+  if (firstCert) glowObserver.observe(firstCert);
+
+  // HUD corner draw-in
+  const hudObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('drawn');
+      } else {
+        entry.target.classList.remove('drawn');
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.hud-animate').forEach(el => hudObserver.observe(el));
+
+  // Nav glow on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
+  });
+})();
+</script>
+
+</body>
+</html>
