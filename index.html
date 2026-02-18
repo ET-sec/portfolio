@@ -342,6 +342,86 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 
 /* MAGNETIC BUTTONS */
 .btn { transition: all 0.2s ease-out; }
+
+/* RADAR CHART */
+.radar-container { display: flex; justify-content: center; margin: 32px 0; }
+#radar-chart { width: 100%; max-width: 340px; }
+#radar-chart svg { width: 100%; height: auto; }
+.radar-fill { transform-origin: 150px 150px; }
+.radar-fill.animate { animation: radarGrow 1.2s ease-out forwards; }
+@keyframes radarGrow { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+/* CODE SHOWCASE */
+.code-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-top: 32px; }
+.code-block { background: var(--void); border: 1px solid var(--mid); overflow: hidden; transition: border-color 0.3s; }
+.code-block:hover { border-color: var(--green); }
+.code-block-header { padding: 8px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green); letter-spacing: 2px; border-bottom: 1px solid var(--mid); background: rgba(0,255,65,0.03); }
+.code-block pre { padding: 14px; margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--light); line-height: 1.7; overflow-x: auto; white-space: pre; }
+.code-block .kw { color: var(--cyan); }
+.code-block .str { color: var(--gold); }
+.code-block .cm { color: #555; }
+.code-block .fn { color: var(--green); }
+
+/* KEYBOARD OVERLAY */
+.kb-overlay { position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+.kb-overlay.open { display: flex; }
+.kb-panel { background: var(--void); border: 1px solid var(--green); padding: 28px; max-width: 380px; width: 90%; box-shadow: 0 0 30px rgba(0,255,65,0.1); }
+.kb-title { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--green); letter-spacing: 2px; margin-bottom: 20px; }
+.kb-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; }
+.kb-key { background: var(--dark); border: 1px solid var(--mid); padding: 2px 8px; color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 11px; min-width: 28px; text-align: center; }
+.kb-desc { color: var(--light); font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+
+/* KONAMI OVERLAY */
+.konami-overlay { position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.95); display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+.konami-overlay.open { display: flex; }
+.konami-panel { background: var(--void); border: 1px solid var(--red); padding: 32px; max-width: 520px; width: 90%; box-shadow: 0 0 40px rgba(255,51,102,0.15); }
+.konami-panel .classified { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--red); letter-spacing: 3px; margin-bottom: 16px; }
+.konami-panel h3 { font-size: 22px; font-weight: 800; margin-bottom: 16px; }
+.konami-panel p { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--light); line-height: 1.8; margin-bottom: 12px; }
+.konami-panel .sig { color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 12px; margin-top: 20px; }
+
+/* ARCH TOOLTIP */
+.arch-tooltip { position: fixed; background: var(--void); border: 1px solid var(--green); padding: 10px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--light); max-width: 280px; z-index: 50; box-shadow: 0 0 12px rgba(0,255,65,0.15); pointer-events: none; opacity: 0; transition: opacity 0.2s; line-height: 1.6; }
+.arch-tooltip.visible { opacity: 1; }
+.arch-node[data-info] { cursor: pointer; }
+
+/* COPY LINK */
+.copy-link-btn { display: flex; align-items: center; gap: 10px; background: var(--dark); border: 1px solid var(--mid); padding: 14px 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--white); cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+.copy-link-btn:hover { border-color: var(--green); color: var(--green); }
+.copy-link-btn.copied { border-color: var(--green); color: var(--green); }
+
+/* VISITOR DESIGNATION */
+.visitor-id { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(51,51,51,0.8); margin-top: 10px; letter-spacing: 2px; }
+
+/* PRINT STYLESHEET */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  nav, .boot-overlay, .noise-overlay, .cursor-glow, .scroll-progress,
+  #particle-bg, #matrix-bg, .hero::after, .hero::before,
+  .terminal-overlay, .kb-overlay, .konami-overlay, .arch-tooltip,
+  .threat-strip, .arch-connector::after, .footer-status,
+  .menu-toggle, .visitor-id, .hero-buttons .btn-outline { display: none !important; }
+  .hero { min-height: auto !important; padding: 40px 0 !important; }
+  section { border-bottom: 1px solid #ddd !important; padding: 30px 0 !important; page-break-inside: avoid; }
+  a { color: #000 !important; }
+  .hud { background: #fff !important; border-color: #ddd !important; }
+  .hud::before, .hud::after, .hud .bl, .hud .br { display: none !important; }
+  .reveal, .reveal-left, .stagger-card { opacity: 1 !important; transform: none !important; }
+  .section-header .label, .cert-badge, .cert-note { color: #333 !important; }
+  .exp-role { color: #333 !important; }
+  .pow-stat .num { color: #000 !important; }
+  .pow-stat { border-color: #ddd !important; background: #fff !important; }
+  .exp-bullets li::before { color: #000 !important; }
+  .exp-bullets .m { color: #000 !important; font-weight: 700 !important; }
+  .btn-primary { background: #fff !important; color: #000 !important; border-color: #000 !important; }
+  .contact-link { background: #fff !important; border-color: #ddd !important; color: #000 !important; }
+  .arch-node { background: #fff !important; border-color: #ddd !important; color: #000 !important; }
+  .code-block { border-color: #ddd !important; }
+  .code-block pre { color: #333 !important; }
+  .code-block .kw, .code-block .fn { color: #000 !important; font-weight: 700 !important; }
+  .code-block .str { color: #333 !important; }
+  footer { display: none !important; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -391,6 +471,37 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
   </div>
 </div>
 
+<!-- KEYBOARD SHORTCUTS OVERLAY -->
+<div class="kb-overlay" id="kb-overlay">
+  <div class="kb-panel">
+    <div class="kb-title">KEYBOARD SHORTCUTS</div>
+    <div class="kb-row"><span class="kb-key">J</span><span class="kb-desc">Next section</span></div>
+    <div class="kb-row"><span class="kb-key">K</span><span class="kb-desc">Previous section</span></div>
+    <div class="kb-row"><span class="kb-key">T</span><span class="kb-desc">Open terminal</span></div>
+    <div class="kb-row"><span class="kb-key">R</span><span class="kb-desc">Download resume</span></div>
+    <div class="kb-row"><span class="kb-key">?</span><span class="kb-desc">Toggle this panel</span></div>
+    <div class="kb-row"><span class="kb-key">ESC</span><span class="kb-desc">Close overlays</span></div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mid);margin-top:16px;letter-spacing:1px;">Press any key to close</div>
+  </div>
+</div>
+
+<!-- KONAMI CODE OVERLAY -->
+<div class="konami-overlay" id="konami-overlay">
+  <div class="konami-panel">
+    <div class="classified">&#9608; CLASSIFICATION: TOP SECRET // EYES ONLY</div>
+    <h3>Agent Dossier</h3>
+    <p>Codename: CORE_DIRECTIVE<br>Origin: Cameroon &rarr; Atlanta, GA<br>Clearance: IAT/IAM Level III</p>
+    <p>Objective: Build the future of autonomous security operations. One infrastructure at a time.</p>
+    <p>Current Status: Armed with 6 certifications, a production security platform running 24/7, and an unreasonable amount of determination.</p>
+    <p style="color:var(--gold);">// If you found this, you're probably an engineer.<br>// We should talk.</p>
+    <div class="sig">&#9673; emmanueltigoue@gmail.com<br>&#9673; (404) 839-2214</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mid);margin-top:20px;">Press ESC or click to close</div>
+  </div>
+</div>
+
+<!-- ARCH TOOLTIP -->
+<div class="arch-tooltip" id="arch-tooltip"></div>
+
 <!-- BOOT SEQUENCE OVERLAY -->
 <div class="boot-overlay" id="boot-overlay">
   <div class="boot-line" id="boot-line-1">ESTABLISHING SECURE CONNECTION<span class="cursor">&#9608;</span></div>
@@ -405,6 +516,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
       <a href="#proof">Proof of Work</a>
       <a href="#certs">Certifications</a>
       <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -424,6 +536,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
       <a href="https://github.com/ETcodin/cyber-squire1" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View on GitHub</a>
     </div>
     <div class="status-line"><span class="pulse">&#9673;</span> OPEN TO WORK // SECURITY ENGINEER</div>
+    <div class="visitor-id" id="visitor-id"></div>
   </div>
 </section>
 
@@ -469,29 +582,29 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <div class="arch-layer">
           <div class="arch-layer-label">Layer 1 // Perimeter</div>
           <div class="arch-nodes">
-            <div class="arch-node">&#9673; Cloudflare Tunnel <span class="port">TLS 1.3</span></div>
-            <div class="arch-node">&#9673; AWS Security Groups <span class="port">DEFAULT DENY</span></div>
-            <div class="arch-node">&#9673; SELinux Enforcing <span class="port">container_t</span></div>
+            <div class="arch-node" data-info="Zero-trust access proxy. No ports exposed to public internet. All traffic routed through encrypted tunnel.">&#9673; Cloudflare Tunnel <span class="port">TLS 1.3</span></div>
+            <div class="arch-node" data-info="Default-deny ingress. Only Cloudflare tunnel IPs whitelisted. Egress restricted to required ports only.">&#9673; AWS Security Groups <span class="port">DEFAULT DENY</span></div>
+            <div class="arch-node" data-info="Mandatory access control. Each container in container_t domain with minimum required permissions.">&#9673; SELinux Enforcing <span class="port">container_t</span></div>
           </div>
         </div>
         <div class="arch-connector"></div>
         <div class="arch-layer">
           <div class="arch-layer-label">Layer 2 // Zero Trust</div>
           <div class="arch-nodes">
-            <div class="arch-node">&#9673; Identity-Aware Proxy <span class="port">OTP AUTH</span></div>
-            <div class="arch-node">&#9673; Docker Bridge Isolation <span class="port">172.28.0.0/16</span></div>
-            <div class="arch-node">&#9673; Credential Rotation <span class="port">QUARTERLY</span></div>
+            <div class="arch-node" data-info="OTP-authenticated access for management. No static credentials. Session-based authorization enforced.">&#9673; Identity-Aware Proxy <span class="port">OTP AUTH</span></div>
+            <div class="arch-node" data-info="Custom bridge network. Inter-container traffic restricted. No host network access permitted.">&#9673; Docker Bridge Isolation <span class="port">172.28.0.0/16</span></div>
+            <div class="arch-node" data-info="Automated quarterly rotation of all API keys, database credentials, and tunnel tokens.">&#9673; Credential Rotation <span class="port">QUARTERLY</span></div>
           </div>
         </div>
         <div class="arch-connector"></div>
         <div class="arch-layer">
           <div class="arch-layer-label">Layer 3 // Services</div>
           <div class="arch-nodes">
-            <div class="arch-node">&#9673; PostgreSQL 16 <span class="port">:5432</span></div>
-            <div class="arch-node">&#9673; n8n SOAR <span class="port">:5678</span></div>
-            <div class="arch-node">&#9673; Ollama / Qwen <span class="port">:11434</span></div>
-            <div class="arch-node">&#9673; Whisper STT <span class="port">:8000</span></div>
-            <div class="arch-node">&#9673; OpenClaw AI <span class="port">:18789</span></div>
+            <div class="arch-node" data-info="Primary data store. Workflow state, automation logs, credential vault. Encrypted at rest via gp3.">&#9673; PostgreSQL 16 <span class="port">:5432</span></div>
+            <div class="arch-node" data-info="Security orchestration hub. 17 integrated services. Webhook-driven. 99.2% success rate across 700+ executions.">&#9673; n8n SOAR <span class="port">:5678</span></div>
+            <div class="arch-node" data-info="Self-hosted LLM inference. Qwen 2.5 7B (4-bit quantized). Zero external API costs. Fully local processing.">&#9673; Ollama / Qwen <span class="port">:11434</span></div>
+            <div class="arch-node" data-info="On-premise voice transcription. Faster-Whisper model. Privacy-first: no audio leaves the server.">&#9673; Whisper STT <span class="port">:8000</span></div>
+            <div class="arch-node" data-info="Claude AI gateway. Proxied through authenticated local endpoint. Rate-limited. API key rotation enforced.">&#9673; OpenClaw AI <span class="port">:18789</span></div>
           </div>
         </div>
         <div style="text-align:center;margin-top:16px;">
@@ -521,6 +634,61 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Automation</div>
         <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">17-Service Orchestration</h3>
         <p style="font-size:14px;color:var(--light);line-height:1.7;">Single webhook-driven control plane. Google Workspace, Telegram, PostgreSQL, Ollama, Cloudflare, GitHub, and 11 more services. 99.2% success rate across 700+ workflow executions.</p>
+      </div>
+    </div>
+
+    <!-- SKILL RADAR -->
+    <div class="radar-container reveal">
+      <div id="radar-chart"></div>
+    </div>
+
+    <!-- CODE SHOWCASE -->
+    <div class="code-grid">
+      <div class="code-block stagger-card">
+        <div class="code-block-header">TERRAFORM // zero-trust-sg.tf</div>
+        <pre><span class="kw">resource</span> <span class="str">"aws_security_group"</span> <span class="str">"zero_trust"</span> {
+  <span class="fn">name</span>   = <span class="str">"cd-zero-trust-sg"</span>
+  <span class="fn">vpc_id</span> = aws_vpc.main.id
+
+  <span class="fn">ingress</span> {
+    <span class="cm"># No inbound rules - tunnel access only</span>
+    <span class="fn">from_port</span>   = <span class="str">0</span>
+    <span class="fn">to_port</span>     = <span class="str">0</span>
+    <span class="fn">protocol</span>    = <span class="str">"-1"</span>
+    <span class="fn">cidr_blocks</span> = [] <span class="cm"># DEFAULT DENY</span>
+  }
+
+  <span class="fn">egress</span> {
+    <span class="fn">from_port</span>   = <span class="str">443</span>
+    <span class="fn">to_port</span>     = <span class="str">443</span>
+    <span class="fn">protocol</span>    = <span class="str">"tcp"</span>
+    <span class="fn">cidr_blocks</span> = [<span class="str">"0.0.0.0/0"</span>]
+  }
+
+  <span class="fn">tags</span> = { Name = <span class="str">"CoreDirective-ZeroTrust"</span> }
+}</pre>
+      </div>
+      <div class="code-block stagger-card">
+        <div class="code-block-header">DOCKER // container-hardening.yml</div>
+        <pre><span class="fn">services</span>:
+  <span class="fn">cd-service-n8n</span>:
+    <span class="fn">image</span>: <span class="str">n8nio/n8n:latest</span>
+    <span class="fn">security_opt</span>:
+      - <span class="str">no-new-privileges:true</span>
+    <span class="fn">read_only</span>: <span class="str">true</span>
+    <span class="fn">tmpfs</span>:
+      - <span class="str">/tmp</span>
+    <span class="fn">networks</span>:
+      - <span class="str">cd-internal</span> <span class="cm"># isolated bridge</span>
+    <span class="fn">deploy</span>:
+      <span class="fn">resources</span>:
+        <span class="fn">limits</span>:
+          <span class="fn">memory</span>: <span class="str">2G</span>
+          <span class="fn">cpus</span>: <span class="str">"1.0"</span>
+    <span class="fn">cap_drop</span>:
+      - <span class="str">ALL</span> <span class="cm"># drop all capabilities</span>
+    <span class="fn">cap_add</span>:
+      - <span class="str">NET_BIND_SERVICE</span></pre>
       </div>
     </div>
   </div>
@@ -648,6 +816,32 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
   </div>
 </section>
 
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header reveal-left">
+      <div class="label">// Academic Record</div>
+      <h2>Education</h2>
+      <div class="line"></div>
+    </div>
+    <div class="exp-entry reveal">
+      <div class="exp-header">
+        <div>
+          <span class="exp-company">Georgia State University</span>
+          <span class="exp-role"> &mdash; B.S. Computer Information Systems</span>
+        </div>
+        <div>
+          <span class="exp-date">Atlanta, GA &bull; Expected May 2026</span>
+        </div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Concentration in cybersecurity and enterprise network infrastructure</li>
+        <li>GPA: <span class="m">3.7</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact" style="border-bottom:none;">
   <div class="container">
@@ -662,6 +856,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
       <a href="https://github.com/ETcodin" target="_blank" rel="noopener noreferrer" class="contact-link">&#9654; GitHub</a>
       <a href="mailto:emmanueltigoue@gmail.com" class="contact-link" style="border-color:var(--green);">&#9654; Email</a>
       <a href="EmmanuelTigoue_SE.pdf" download class="contact-link">&#9654; Resume (PDF)</a>
+      <button class="copy-link-btn" id="copy-link-btn" onclick="navigator.clipboard.writeText('https://etcodin.github.io/portfolio/').then(function(){var b=document.getElementById('copy-link-btn');b.textContent='\u2713 LINK SECURED';b.classList.add('copied');setTimeout(function(){b.textContent='\u25B6 Copy Link';b.classList.remove('copied');},2000);})">&#9654; Copy Link</button>
     </div>
     <a href="mailto:emmanueltigoue@gmail.com" class="contact-email" style="display:block;text-decoration:none;">emmanueltigoue@gmail.com</a>
     <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);margin-top:12px;">(404) 839-2214</div>
@@ -1178,6 +1373,177 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     btn.addEventListener('mouseleave', function() {
       btn.style.transform = 'translate(0, 0)';
     });
+  });
+})();
+
+// TIME-BASED GREETING
+(function() {
+  var badge = document.querySelector('.hero-badge');
+  if (!badge) return;
+  var h = new Date().getHours();
+  var greeting = h >= 5 && h < 12 ? 'GOOD MORNING' : h >= 12 && h < 17 ? 'GOOD AFTERNOON' : h >= 17 && h < 21 ? 'GOOD EVENING' : 'NIGHT OPS ACTIVE';
+  badge.textContent = greeting + ', OPERATOR // Security Engineer // Atlanta, GA';
+})();
+
+// VISITOR DESIGNATION
+(function() {
+  var el = document.getElementById('visitor-id');
+  if (!el) return;
+  var hex = Math.floor(Math.random() * 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
+  el.textContent = 'VISITOR DESIGNATION: VX-' + hex;
+})();
+
+// SKILL RADAR CHART (SVG)
+(function() {
+  var el = document.getElementById('radar-chart');
+  if (!el) return;
+  var skills = [
+    ['CLOUD\nSECURITY', 0.90],
+    ['NETWORK\nDEFENSE', 0.85],
+    ['SECURITY\nOPS', 0.88],
+    ['IaC', 0.82],
+    ['AI/ML', 0.78]
+  ];
+  var cx = 150, cy = 150, R = 100, n = skills.length;
+  function pt(i, r) {
+    var a = (Math.PI * 2 * i / n) - Math.PI / 2;
+    return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+  }
+  function poly(r) {
+    return skills.map(function(_, i) { return pt(i, r).join(','); }).join(' ');
+  }
+  var svg = '<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">';
+  // Grid rings
+  [0.33, 0.66, 1].forEach(function(level) {
+    svg += '<polygon points="' + poly(R * level) + '" fill="none" stroke="rgba(0,255,65,0.12)" stroke-width="1"/>';
+  });
+  // Axis lines
+  for (var i = 0; i < n; i++) {
+    var p = pt(i, R);
+    svg += '<line x1="' + cx + '" y1="' + cy + '" x2="' + p[0] + '" y2="' + p[1] + '" stroke="rgba(0,255,65,0.15)" stroke-width="1"/>';
+  }
+  // Skill polygon
+  var skillPoly = skills.map(function(s, i) { return pt(i, R * s[1]).join(','); }).join(' ');
+  svg += '<polygon class="radar-fill" points="' + skillPoly + '" fill="rgba(0,255,65,0.12)" stroke="#00FF41" stroke-width="2"/>';
+  // Dots + labels
+  skills.forEach(function(s, i) {
+    var p = pt(i, R * s[1]);
+    svg += '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="3.5" fill="#00FF41"/>';
+    var lp = pt(i, R + 30);
+    var anchor = 'middle';
+    if (lp[0] > cx + 15) anchor = 'start';
+    if (lp[0] < cx - 15) anchor = 'end';
+    var lines = s[0].split('\n');
+    lines.forEach(function(line, li) {
+      svg += '<text x="' + lp[0] + '" y="' + (lp[1] + li * 13 - (lines.length > 1 ? 6 : 0)) + '" fill="#888" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="' + anchor + '" dominant-baseline="middle">' + line + '</text>';
+    });
+    var pctY = lp[1] + (lines.length > 1 ? 13 : 12);
+    svg += '<text x="' + lp[0] + '" y="' + pctY + '" fill="#00FF41" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700" text-anchor="' + anchor + '" dominant-baseline="middle">' + Math.round(s[1] * 100) + '%</text>';
+  });
+  svg += '</svg>';
+  el.innerHTML = svg;
+  // Animate on scroll
+  var fill = el.querySelector('.radar-fill');
+  if (fill) {
+    var obs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) { fill.classList.add('animate'); obs.disconnect(); }
+    }, { threshold: 0.3 });
+    obs.observe(el);
+  }
+})();
+
+// INTERACTIVE ARCHITECTURE TOOLTIPS
+(function() {
+  var tooltip = document.getElementById('arch-tooltip');
+  if (!tooltip) return;
+  var activeNode = null;
+  document.querySelectorAll('.arch-node[data-info]').forEach(function(node) {
+    node.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (activeNode === node) {
+        tooltip.classList.remove('visible');
+        activeNode = null;
+        return;
+      }
+      activeNode = node;
+      tooltip.textContent = node.getAttribute('data-info');
+      var r = node.getBoundingClientRect();
+      tooltip.style.left = Math.min(r.left, window.innerWidth - 290) + 'px';
+      tooltip.style.top = (r.bottom + 8) + 'px';
+      tooltip.classList.add('visible');
+    });
+  });
+  document.addEventListener('click', function() {
+    tooltip.classList.remove('visible');
+    activeNode = null;
+  });
+})();
+
+// KEYBOARD NAVIGATION
+(function() {
+  var sections = ['proof', 'certs', 'experience', 'education', 'contact'];
+  var kbOverlay = document.getElementById('kb-overlay');
+  var termOverlay = document.getElementById('terminal-overlay');
+  var konamiOverlay = document.getElementById('konami-overlay');
+  var currentSection = -1;
+  function anyOverlayOpen() {
+    return (kbOverlay && kbOverlay.classList.contains('open')) ||
+           (termOverlay && termOverlay.classList.contains('open')) ||
+           (konamiOverlay && konamiOverlay.classList.contains('open'));
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    // Close overlays on Escape
+    if (e.key === 'Escape') {
+      if (kbOverlay) kbOverlay.classList.remove('open');
+      if (konamiOverlay) konamiOverlay.classList.remove('open');
+      return;
+    }
+    // Close keyboard overlay on any key
+    if (kbOverlay && kbOverlay.classList.contains('open') && e.key !== '?') {
+      kbOverlay.classList.remove('open');
+      return;
+    }
+    if (anyOverlayOpen()) return;
+    var key = e.key.toLowerCase();
+    if (key === '?') {
+      e.preventDefault();
+      kbOverlay.classList.toggle('open');
+    } else if (key === 'j') {
+      currentSection = Math.min(currentSection + 1, sections.length - 1);
+      document.getElementById(sections[currentSection]).scrollIntoView({ behavior: 'smooth' });
+    } else if (key === 'k') {
+      if (currentSection <= 0) { window.scrollTo({ top: 0, behavior: 'smooth' }); currentSection = -1; }
+      else { currentSection--; document.getElementById(sections[currentSection]).scrollIntoView({ behavior: 'smooth' }); }
+    } else if (key === 't') {
+      if (termOverlay) termOverlay.classList.add('open');
+      var ti = document.getElementById('terminal-input');
+      if (ti) ti.focus();
+    } else if (key === 'r') {
+      var a = document.createElement('a'); a.href = 'EmmanuelTigoue_SE.pdf'; a.download = ''; a.click();
+    }
+  });
+  // Close konami on click
+  if (konamiOverlay) konamiOverlay.addEventListener('click', function() { konamiOverlay.classList.remove('open'); });
+})();
+
+// KONAMI CODE (up up down down left right left right b a)
+(function() {
+  var overlay = document.getElementById('konami-overlay');
+  if (!overlay) return;
+  var seq = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  var pos = 0;
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT') return;
+    if (e.key === seq[pos] || e.key.toLowerCase() === seq[pos]) {
+      pos++;
+      if (pos === seq.length) {
+        pos = 0;
+        overlay.classList.add('open');
+      }
+    } else {
+      pos = 0;
+    }
   });
 })();
 </script>
