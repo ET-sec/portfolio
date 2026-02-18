@@ -246,6 +246,102 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
   color: var(--light); margin-top: 12px; letter-spacing: 1px;
 }
 .footer-status .online { color: var(--green); }
+
+/* SCROLL PROGRESS BAR */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0;
+  background: var(--green); z-index: 200;
+  box-shadow: 0 0 10px rgba(0,255,65,0.6), 0 0 20px rgba(0,255,65,0.3);
+  transition: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor-glow {
+  position: fixed; width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,65,0.04) 0%, transparent 70%);
+  pointer-events: none; z-index: 0; transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+/* 3D TILT CARDS */
+.tilt-target { transition: transform 0.15s ease-out; transform-style: preserve-3d; }
+
+/* TERMINAL EASTER EGG */
+.terminal-overlay {
+  position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.92);
+  display: none; align-items: center; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.terminal-overlay.open { display: flex; }
+.terminal-window {
+  width: 90%; max-width: 640px; max-height: 70vh; background: var(--void);
+  border: 1px solid var(--green); padding: 0; font-family: 'JetBrains Mono', monospace;
+  box-shadow: 0 0 40px rgba(0,255,65,0.15), inset 0 0 60px rgba(0,255,65,0.02);
+  display: flex; flex-direction: column;
+}
+.terminal-titlebar {
+  background: rgba(0,255,65,0.08); padding: 8px 14px; font-size: 11px;
+  color: var(--green); letter-spacing: 2px; border-bottom: 1px solid var(--green);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.terminal-close { color: var(--red); cursor: pointer; font-size: 14px; }
+.terminal-close:hover { text-shadow: 0 0 8px var(--red); }
+.terminal-body {
+  padding: 16px; overflow-y: auto; flex: 1; max-height: 50vh;
+  scrollbar-width: thin; scrollbar-color: var(--green) var(--void);
+}
+.terminal-body::-webkit-scrollbar { width: 4px; }
+.terminal-body::-webkit-scrollbar-track { background: var(--void); }
+.terminal-body::-webkit-scrollbar-thumb { background: var(--green); }
+.terminal-line { font-size: 13px; color: var(--green); margin-bottom: 4px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+.terminal-line.output { color: var(--light); }
+.terminal-line.error { color: var(--red); }
+.terminal-line.gold { color: var(--gold); }
+.terminal-input-row {
+  display: flex; align-items: center; padding: 10px 16px;
+  border-top: 1px solid rgba(0,255,65,0.15);
+}
+.terminal-prompt { color: var(--green); font-size: 13px; white-space: nowrap; margin-right: 8px; }
+.terminal-input {
+  background: none; border: none; outline: none; color: var(--white);
+  font-family: 'JetBrains Mono', monospace; font-size: 13px; flex: 1; caret-color: var(--green);
+}
+
+/* THREAT COUNTER */
+.threat-strip {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  padding: 14px 20px; margin-top: 20px;
+  border: 1px solid rgba(255,51,102,0.3); background: rgba(255,51,102,0.04);
+  font-family: 'JetBrains Mono', monospace;
+}
+.threat-strip .threat-dot {
+  width: 8px; height: 8px; background: var(--red); border-radius: 50%;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 8px rgba(255,51,102,0.5);
+}
+.threat-strip .threat-label { font-size: 11px; color: var(--red); letter-spacing: 2px; text-transform: uppercase; }
+.threat-strip .threat-num { font-size: 24px; font-weight: 700; color: var(--white); letter-spacing: 1px; }
+.threat-strip .threat-status { font-size: 11px; color: var(--light); letter-spacing: 1px; }
+
+/* PARTICLE CANVAS */
+#particle-bg {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1; pointer-events: none; opacity: 0.4;
+}
+
+/* NOISE OVERLAY */
+.noise-overlay {
+  position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat; background-size: 256px;
+}
+
+/* TYPEWRITER HEADERS */
+.section-header h2 .tw-cursor::after { content: '\2588'; color: var(--green); animation: blink 0.6s step-end infinite; margin-left: 2px; }
+
+/* MAGNETIC BUTTONS */
+.btn { transition: all 0.2s ease-out; }
 </style>
 <script type="application/ld+json">
 {
@@ -263,6 +359,37 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 </script>
 </head>
 <body>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- CURSOR GLOW -->
+<div class="cursor-glow" id="cursor-glow"></div>
+
+<!-- PARTICLE NETWORK -->
+<canvas id="particle-bg"></canvas>
+
+<!-- NOISE TEXTURE -->
+<div class="noise-overlay"></div>
+
+<!-- TERMINAL EASTER EGG -->
+<div class="terminal-overlay" id="terminal-overlay">
+  <div class="terminal-window">
+    <div class="terminal-titlebar">
+      <span>SECURE TERMINAL // CLEARANCE: VISITOR</span>
+      <span class="terminal-close" id="terminal-close">&#10005;</span>
+    </div>
+    <div class="terminal-body" id="terminal-body">
+      <div class="terminal-line gold">CoreDirective Security Terminal v2.1</div>
+      <div class="terminal-line output">Type "help" for available commands.</div>
+      <div class="terminal-line output">&nbsp;</div>
+    </div>
+    <div class="terminal-input-row">
+      <span class="terminal-prompt">visitor@coredirective:~$</span>
+      <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+</div>
 
 <!-- BOOT SEQUENCE OVERLAY -->
 <div class="boot-overlay" id="boot-overlay">
@@ -322,6 +449,14 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
       <div class="pow-stat stagger-card"><div class="num">$0</div><div class="lbl">AI Inference Cost</div></div>
       <div class="pow-stat stagger-card"><div class="num">99.2%</div><div class="lbl">Workflow Success Rate</div></div>
       <div class="pow-stat stagger-card"><div class="num">$135</div><div class="lbl">Monthly Infrastructure</div></div>
+    </div>
+
+    <!-- THREAT COUNTER -->
+    <div class="threat-strip reveal">
+      <span class="threat-dot"></span>
+      <span class="threat-label">Threats Analyzed</span>
+      <span class="threat-num" id="threat-counter">10,847</span>
+      <span class="threat-status">// MONITORING ACTIVE</span>
     </div>
 
     <!-- ARCHITECTURE DIAGRAM -->
@@ -725,6 +860,320 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   // Nav glow on scroll
   window.addEventListener('scroll', () => {
     document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
+  });
+})();
+
+// SCROLL PROGRESS BAR
+(function() {
+  var bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  });
+})();
+
+// CURSOR GLOW (ambient scanner light following mouse)
+(function() {
+  var glow = document.getElementById('cursor-glow');
+  if (!glow || window.innerWidth < 768) return;
+  document.addEventListener('mousemove', function(e) {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+})();
+
+// 3D TILT ON CARDS
+(function() {
+  if (window.innerWidth < 768) return;
+  document.querySelectorAll('.cert-card .hud, .hud-animate, .pow-stat').forEach(function(card) {
+    card.classList.add('tilt-target');
+    card.addEventListener('mousemove', function(e) {
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(800px) rotateX(' + (y * -10) + 'deg) rotateY(' + (x * 10) + 'deg) scale(1.02)';
+    });
+    card.addEventListener('mouseleave', function() {
+      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
+    });
+  });
+})();
+
+// SECRET TERMINAL (triple-click brand logo)
+(function() {
+  var brand = document.querySelector('nav .brand');
+  var overlay = document.getElementById('terminal-overlay');
+  var input = document.getElementById('terminal-input');
+  var body = document.getElementById('terminal-body');
+  var closeBtn = document.getElementById('terminal-close');
+  if (!brand || !overlay) return;
+  var clicks = 0, timer = null;
+  brand.style.cursor = 'pointer';
+  brand.addEventListener('click', function(e) {
+    e.preventDefault();
+    clicks++;
+    clearTimeout(timer);
+    timer = setTimeout(function() { clicks = 0; }, 600);
+    if (clicks >= 3) {
+      clicks = 0;
+      overlay.classList.add('open');
+      input.focus();
+    }
+  });
+  function closeTerminal() { overlay.classList.remove('open'); }
+  closeBtn.addEventListener('click', closeTerminal);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeTerminal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeTerminal(); });
+  var commands = {
+    help: function() {
+      return [
+        {t:'gold', m:'Available Commands:'},
+        {t:'output', m:'  help        Show this menu'},
+        {t:'output', m:'  whoami      Display identity'},
+        {t:'output', m:'  certs       List certifications'},
+        {t:'output', m:'  skills      List core skills'},
+        {t:'output', m:'  stack       Show tech stack'},
+        {t:'output', m:'  hire        Get contact info'},
+        {t:'output', m:'  status      System status'},
+        {t:'output', m:'  cat resume  Download resume'},
+        {t:'output', m:'  ping        Test connection'},
+        {t:'output', m:'  clear       Clear terminal'},
+        {t:'output', m:'  exit        Close terminal'}
+      ];
+    },
+    whoami: function() {
+      return [
+        {t:'', m:'Emmanuel Tigoue'},
+        {t:'output', m:'Role:      Security Engineer'},
+        {t:'output', m:'Location:  Atlanta, GA'},
+        {t:'output', m:'Clearance: CASP+ (DoD 8140 IAT/IAM III)'},
+        {t:'output', m:'Status:    Open to Work'}
+      ];
+    },
+    certs: function() {
+      return [
+        {t:'gold', m:'Certification Stack (6 active):'},
+        {t:'', m:'  [VERIFIED] CompTIA CASP+ (SecurityX)'},
+        {t:'', m:'  [VERIFIED] ISC2 SSCP'},
+        {t:'', m:'  [VERIFIED] Cisco CCNA'},
+        {t:'', m:'  [VERIFIED] CompTIA Security+'},
+        {t:'', m:'  [VERIFIED] CompTIA Network+'},
+        {t:'', m:'  [VERIFIED] ISC2 CC'},
+        {t:'output', m:'  [PENDING]  AWS Security Specialty'}
+      ];
+    },
+    skills: function() {
+      return [
+        {t:'gold', m:'Core Skills:'},
+        {t:'output', m:'  Cloud:   AWS (EC2, VPC, IAM, GuardDuty, CloudTrail, S3)'},
+        {t:'output', m:'  IaC:     Terraform, Docker, Ansible'},
+        {t:'output', m:'  SecOps:  SOAR, Zero Trust, SIEM, Splunk, Nessus'},
+        {t:'output', m:'  AI/ML:   LLM orchestration, Claude, Ollama'},
+        {t:'output', m:'  Network: Wireshark, Burp Suite, VLAN, firewall'}
+      ];
+    },
+    stack: function() {
+      return [
+        {t:'gold', m:'Production Stack:'},
+        {t:'output', m:'  PostgreSQL 16    :5432   Database'},
+        {t:'output', m:'  n8n SOAR         :5678   Orchestration'},
+        {t:'output', m:'  Ollama/Qwen      :11434  AI Inference'},
+        {t:'output', m:'  Whisper STT      :8000   Voice'},
+        {t:'output', m:'  OpenClaw AI      :18789  Agent Gateway'},
+        {t:'output', m:'  Cloudflare Tunnel TLS    Zero Trust Access'}
+      ];
+    },
+    hire: function() {
+      return [
+        {t:'gold', m:'Contact Information:'},
+        {t:'', m:'  Email:    emmanueltigoue@gmail.com'},
+        {t:'', m:'  Phone:    (404) 839-2214'},
+        {t:'', m:'  LinkedIn: linkedin.com/in/emmanuel-tigoue-672378307'},
+        {t:'', m:'  GitHub:   github.com/ETcodin'},
+        {t:'output', m:''},
+        {t:'', m:'  Ready for interviews and technical discussions.'}
+      ];
+    },
+    status: function() {
+      return [
+        {t:'', m:'SYSTEM STATUS: OPERATIONAL'},
+        {t:'output', m:'  Uptime:       99.5%'},
+        {t:'output', m:'  Services:     17/17 active'},
+        {t:'output', m:'  Threat Level: LOW'},
+        {t:'output', m:'  Last Scan:    ' + new Date().toISOString().slice(0,19) + 'Z'}
+      ];
+    },
+    ping: function() {
+      return [
+        {t:'', m:'PING coredirective.local (172.28.0.1)'},
+        {t:'output', m:'64 bytes: seq=1 ttl=64 time=0.312 ms'},
+        {t:'output', m:'64 bytes: seq=2 ttl=64 time=0.289 ms'},
+        {t:'output', m:'64 bytes: seq=3 ttl=64 time=0.301 ms'},
+        {t:'', m:'--- 3 packets transmitted, 0% loss ---'}
+      ];
+    },
+    sudo: function() {
+      return [{t:'error', m:'ACCESS DENIED. Incident logged. Nice try.'}];
+    },
+    rm: function() {
+      return [{t:'error', m:'Permission denied. This is a read-only filesystem.'}];
+    },
+    ls: function() {
+      return [
+        {t:'output', m:'drwxr-x--- proof-of-work/'},
+        {t:'output', m:'drwxr-x--- certifications/'},
+        {t:'output', m:'drwxr-x--- experience/'},
+        {t:'output', m:'-rw-r----- resume.pdf'},
+        {t:'output', m:'-rw-r----- contact.txt'}
+      ];
+    }
+  };
+  commands['cat resume'] = function() {
+    var a = document.createElement('a'); a.href = 'EmmanuelTigoue_SE.pdf'; a.download = ''; a.click();
+    return [{t:'', m:'Downloading resume.pdf...'}];
+  };
+  function addLine(cls, text) {
+    var d = document.createElement('div');
+    d.className = 'terminal-line' + (cls ? ' ' + cls : '');
+    d.textContent = text;
+    body.appendChild(d);
+    body.scrollTop = body.scrollHeight;
+  }
+  input.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    var cmd = input.value.trim().toLowerCase();
+    input.value = '';
+    addLine('', 'visitor@coredirective:~$ ' + cmd);
+    if (cmd === 'clear') { body.innerHTML = ''; return; }
+    if (cmd === 'exit') { closeTerminal(); return; }
+    if (cmd === '') return;
+    var fn = commands[cmd];
+    if (!fn) {
+      addLine('error', 'Command not found: ' + cmd + '. Type "help" for available commands.');
+      return;
+    }
+    var lines = fn();
+    lines.forEach(function(l) { addLine(l.t, l.m); });
+    addLine('output', '');
+  });
+})();
+
+// THREAT COUNTER (slow increment)
+(function() {
+  var el = document.getElementById('threat-counter');
+  if (!el) return;
+  var count = 10847;
+  function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  setInterval(function() {
+    count += Math.floor(Math.random() * 3) + 1;
+    el.textContent = fmt(count);
+  }, 3000);
+})();
+
+// PARTICLE NETWORK
+(function() {
+  var canvas = document.getElementById('particle-bg');
+  if (!canvas || window.innerWidth < 768) return;
+  var ctx = canvas.getContext('2d');
+  var w, h, particles = [], mouseX = -1000, mouseY = -1000;
+  var N = 40, DIST = 120;
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', function(e) { mouseX = e.clientX; mouseY = e.clientY; });
+  for (var i = 0; i < N; i++) {
+    particles.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4
+    });
+  }
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      var dx = mouseX - p.x, dy = mouseY - p.y;
+      var md = Math.sqrt(dx * dx + dy * dy);
+      if (md < 200) {
+        p.x -= dx * 0.008;
+        p.y -= dy * 0.008;
+      }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,255,65,0.5)';
+      ctx.fill();
+      for (var j = i + 1; j < particles.length; j++) {
+        var q = particles[j];
+        var ddx = p.x - q.x, ddy = p.y - q.y;
+        var dist = Math.sqrt(ddx * ddx + ddy * ddy);
+        if (dist < DIST) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(0,255,65,' + (0.15 * (1 - dist / DIST)) + ')';
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// TYPEWRITER SECTION HEADERS
+(function() {
+  var headers = document.querySelectorAll('.section-header h2');
+  var done = new Set();
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !done.has(entry.target)) {
+        done.add(entry.target);
+        var el = entry.target;
+        var text = el.getAttribute('data-text');
+        el.textContent = '';
+        el.innerHTML = '<span class="tw-cursor"></span>';
+        var span = el.querySelector('.tw-cursor');
+        var i = 0;
+        function type() {
+          if (i < text.length) {
+            span.textContent = text.substring(0, i + 1);
+            i++;
+            setTimeout(type, 50);
+          } else {
+            setTimeout(function() { span.classList.remove('tw-cursor'); }, 1500);
+          }
+        }
+        setTimeout(type, 200);
+      }
+    });
+  }, { threshold: 0.5 });
+  headers.forEach(function(h) {
+    h.setAttribute('data-text', h.textContent);
+    obs.observe(h);
+  });
+})();
+
+// MAGNETIC BUTTONS
+(function() {
+  if (window.innerWidth < 768) return;
+  document.querySelectorAll('.btn').forEach(function(btn) {
+    btn.addEventListener('mousemove', function(e) {
+      var r = btn.getBoundingClientRect();
+      var x = e.clientX - r.left - r.width / 2;
+      var y = e.clientY - r.top - r.height / 2;
+      btn.style.transform = 'translate(' + (x * 0.25) + 'px, ' + (y * 0.25) + 'px)';
+    });
+    btn.addEventListener('mouseleave', function() {
+      btn.style.transform = 'translate(0, 0)';
+    });
   });
 })();
 </script>
