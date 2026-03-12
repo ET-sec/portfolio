@@ -1,0 +1,4 @@
+Contact: mailto:etigoue@tigouetheory.com
+Expires: 2027-03-12T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://et-sec.github.io/portfolio/.well-known/security.txt
