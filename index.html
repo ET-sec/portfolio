@@ -924,7 +924,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
   "email": "etigoue@tigouetheory.com",
   "url": "https://et-sec.github.io/portfolio/",
   "sameAs": [
-    "https://www.linkedin.com/in/emmanuel-tigoue-672378307",
+    "https://www.linkedin.com/in/emmanuel-tigoue/",
     "https://github.com/et-sec",
     "https://www.credly.com/users/emmanuel-tigoue"
   ],
@@ -2242,14 +2242,12 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         </div>
       </div>
       <ul class="exp-bullets">
-        <li>Architected <span class="m">14-container</span> Zero Trust platform and executed full cloud migration from AWS EC2 to DigitalOcean &mdash; cut infrastructure costs <span class="m">65%</span> ($135/mo &rarr; $48/mo) with zero downtime</li>
-        <li>Built <span class="m">31-document</span> GRC library (<span class="m">15,000+</span> lines) mapping <span class="m">170+</span> NIST 800-53 controls across <span class="m">16 families</span>, producing audit-ready SSP, POA&amp;M, and risk assessments</li>
-        <li>Engineered <span class="m">4-stage</span> CI/CD security pipeline (Gitleaks + Trivy + Semgrep + Cosign) &mdash; catches secrets, CVEs, and SAST findings before merge; generates signed SBOMs on every deploy</li>
-        <li>Deployed Falco eBPF runtime detection with <span class="m">custom per-container rules</span>, routing anomalies through Falcosidekick to Datadog SOC dashboards and Telegram alerts for real-time response</li>
-        <li>Implemented <span class="m">4-layer Zero Trust</span>: Cloudflare Tunnel (zero exposed ports) &rarr; Teleport PAM with JIT session recording &rarr; Keycloak RBAC with admin/operator/read-only role separation</li>
-        <li>Automated operational intelligence via <span class="m">15 n8n SOAR workflows</span> integrating 16 services (Telegram, PostgreSQL, Gmail, GitHub, Cloudflare, Ollama) into a single webhook-driven control plane</li>
-        <li>Authored AI Governance Policy aligned to <span class="m">ISO 42001, ISO 27701, and NIST AI RMF</span> &mdash; governing 3 deployed AI systems with risk tiering, prompt injection defenses, and output validation</li>
-        <li>Enforced infrastructure-as-code compliance with <span class="m">8 OPA/Rego policies</span> in CI pipeline and pre-commit hooks &mdash; blocking non-compliant Terraform plans before they reach production</li>
+        <li>Secured OpenClaw production AI gateway running Claude Opus <span class="m">4</span> inference against OWASP Top <span class="m">10</span> for LLM Applications and MITRE ATLAS threat models, securing all AI-powered services before launch</li>
+        <li>Cut security alert noise from <span class="m">200+</span> daily events to <span class="m">12</span> actionable findings by tuning Falco eBPF runtime rules and routing critical alerts to Datadog dashboards via Falcosidekick</li>
+        <li>Built shift-left CI/CD pipeline with Trivy container scans, Semgrep SAST, Gitleaks secrets detection, and OPA policy gates on every pull request. Signed all images with Cosign and generated SBOMs with Syft for supply chain security</li>
+        <li>Reduced the external attack surface to zero exposed ports by routing all traffic through Cloudflare Zero Trust tunnels with mTLS certificate authentication</li>
+        <li>Automated security operations through n8n SOAR with Claude LLM-powered alert triage, credential rotation alerts, compliance monitoring, and incident escalation. Reduced routine triage overhead by over <span class="m">80%</span></li>
+        <li>Authored <span class="m">31</span> GRC documents from scratch including SSP with NIST <span class="m">800-53</span> control mapping, POA&amp;M tracking <span class="m">37</span> findings across <span class="m">4</span> assessment sources, <span class="m">10</span> security policies, <span class="m">5</span> IR playbooks, a risk assessment, and a tabletop exercise</li>
       </ul>
     </div>
 
@@ -2257,18 +2255,19 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
       <div class="exp-header">
         <div>
           <span class="exp-company">Texaco</span>
-          <span class="exp-role"> &mdash; IT Operations Manager</span>
+          <span class="exp-role"> &mdash; IT Security &amp; Operations Manager</span>
         </div>
         <div>
-          <span class="exp-date">Atlanta, GA &bull; Mar 2022 &ndash; Feb 2026</span>
+          <span class="exp-date">Fairburn, GA &bull; Mar 2022 &ndash; Feb 2026</span>
         </div>
       </div>
       <ul class="exp-bullets">
-        <li>Maintained <span class="m">99%+ uptime</span> across multi-location retail IT infrastructure for <span class="m">4 years</span> &mdash; managing routers, switches, firewalls, POS systems, and DNS for continuous business operations</li>
-        <li>Segmented network into dedicated VLANs, <span class="m">isolating POS payment traffic</span> from general operations to meet PCI-DSS requirements and reduce attack surface</li>
-        <li>Hardened endpoints via Active Directory group policies &mdash; enforced password complexity, least-privilege access, and software restriction across <span class="m">all workstations</span></li>
-        <li>Automated user provisioning and credential rotation with PowerShell scripts, cutting onboarding time <span class="m">83%</span> (2 hours &rarr; 20 minutes per account)</li>
-        <li>Led incident response and root cause analysis for network security events, using <span class="m">Wireshark packet capture</span> to identify and remediate threats</li>
+        <li>Led incident response across <span class="m">3</span> retail locations, handling POS skimmer investigations with Wireshark packet analysis, credential compromises, and suspicious vendor access</li>
+        <li>Developed a <span class="m">6</span>-step IR runbook that cut average containment time from <span class="m">8</span> hours to <span class="m">90</span> minutes</li>
+        <li>Segmented a flat network into <span class="m">4</span> VLANs isolating POS payment traffic, back-office systems, guest Wi-Fi, and management. Validated with Nmap network scans. Reduced lateral movement to near zero</li>
+        <li>Deployed Splunk for SIEM log aggregation across all endpoints and network devices with correlation rules that cut mean time to detect from <span class="m">48</span> hours to under <span class="m">4</span> hours</li>
+        <li>Locked down Active Directory with Group Policy baselines, stale account removal, least-privilege admin rights, and automated credential rotation. Reduced critical audit findings from <span class="m">14</span> to <span class="m">2</span></li>
+        <li>Built Python and PowerShell scripts automating patch deployment, user provisioning, compliance reporting, and service contract tracking. Recovered roughly <span class="m">12</span> hours per week</li>
       </ul>
     </div>
 
@@ -2333,7 +2332,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
     </div>
     <p class="reveal" style="color:var(--light);max-width:500px;margin-bottom:8px;">Currently evaluating roles.</p>
     <div class="contact-links">
-      <a href="https://www.linkedin.com/in/emmanuel-tigoue-672378307" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn profile">&#9654; LinkedIn</a>
+      <a href="https://www.linkedin.com/in/emmanuel-tigoue/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn profile">&#9654; LinkedIn</a>
       <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub repository">&#9654; GitHub</a>
       <a href="mailto:etigoue@tigouetheory.com" class="contact-link" style="border-color:var(--green);" aria-label="Send email">&#9654; Email</a>
       <a href="Emmanuel_Tigoue_AISecurity_Engineer.pdf" download class="contact-link" aria-label="Download resume PDF">&#9654; Resume (PDF)</a>
@@ -3303,7 +3302,7 @@ function aiTreeReset() {
     {t:'gold', m:' EXPERIENCE'},
     {t:'output', m:' \u251C\u2500 CoreDirective \u2014 AI Security Engineer'},
     {t:'output', m:' \u2502  Sep 2025 \u2013 Present | Atlanta, GA'},
-    {t:'output', m:' \u2514\u2500 Texaco \u2014 IT Operations Manager'},
+    {t:'output', m:' \u2514\u2500 Texaco \u2014 IT Security &amp; Operations Manager'},
     {t:'output', m:'    Mar 2022 \u2013 Feb 2026 | Atlanta, GA'},
     {t:'output', m:''},
     {t:'gold', m:' EDUCATION'},
@@ -3324,7 +3323,7 @@ function aiTreeReset() {
   var track = document.getElementById('timeline-track');
   if (!track) return;
   var events = [
-    { date: 'Mar 2022', title: 'IT Operations Manager', sub: 'Texaco', detail: '4-year role managing multi-location retail IT. 99%+ uptime, VLAN segmentation, AD hardening, POS security.', status: 'done' },
+    { date: 'Mar 2022', title: 'IT Security & Operations Manager', sub: 'Texaco', detail: '4-year role managing multi-location retail IT security. VLAN segmentation, AD hardening, POS security, Splunk SIEM.', status: 'done' },
     { date: 'Oct 2024', title: 'Cisco CCNA', sub: '200-301 v1.1', detail: 'Enterprise networking. Routing, switching, network automation. Verified on Credly.', status: 'done' },
     { date: 'Nov 2024', title: 'CompTIA Network+', sub: 'N10-008', detail: 'Networking fundamentals, infrastructure foundation. Expires Jun 2028. Verified on Credly.', status: 'done' },
     { date: 'Dec 2024', title: 'ISC\u00B2 CC', sub: 'Certified in Cybersecurity', detail: 'Security foundations. Entry-level ISC\u00B2 certification. Verified on Credly.', status: 'done' },
