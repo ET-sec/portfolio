@@ -1489,12 +1489,14 @@ html.light .hero .scan-line { display: none; }
         </div>
       </div>
       <ul class="exp-bullets">
-        <li>Secured OpenClaw production AI gateway running Claude Opus <span class="m">4</span> inference against OWASP Top <span class="m">10</span> for LLM Applications and MITRE ATLAS threat models, securing all AI-powered services before launch</li>
-        <li>Cut security alert noise from <span class="m">200+</span> daily events to <span class="m">12</span> actionable findings by tuning Falco eBPF runtime rules and routing critical alerts to Datadog dashboards via Falcosidekick</li>
-        <li>Built shift-left CI/CD pipeline with Trivy container scans, Semgrep SAST, Gitleaks secrets detection, and OPA policy gates on every pull request. Signed all images with Cosign and generated SBOMs with Syft for supply chain security</li>
-        <li>Reduced the external attack surface to zero exposed ports by routing all traffic through Cloudflare Zero Trust tunnels with mTLS certificate authentication</li>
-        <li>Automated security operations through n8n SOAR with Claude LLM-powered alert triage, credential rotation alerts, compliance monitoring, and incident escalation. Reduced routine triage overhead by over <span class="m">80%</span></li>
-        <li>Authored <span class="m">37</span> GRC documents from scratch including SSP with NIST <span class="m">800-53</span> control mapping, POA&amp;M tracking <span class="m">27</span> findings across <span class="m">4</span> assessment sources, <span class="m">10</span> security policies, <span class="m">5</span> IR playbooks, a risk assessment, and a tabletop exercise</li>
+        <li>Secured AI gateway (Claude Opus <span class="m">4.6</span>, OWASP LLM Top 10, MITRE ATLAS) and red teamed <span class="m">25</span> test cases for prompt injection, jailbreak, and data exfiltration pre-launch</li>
+        <li>Built shift-left CI/CD (Trivy, Semgrep, Gitleaks, OPA, Cosign, SBOM) and executed DAST with OWASP ZAP: <span class="m">zero</span> injection vulns across <span class="m">8</span> categories, <span class="m">4</span> header fixes same-day</li>
+        <li>Cut alert noise from <span class="m">200+</span> to <span class="m">12</span> actionable findings by tuning Falco eBPF rules with Datadog routing via Falcosidekick</li>
+        <li>Defined <span class="m">16</span> Terraform files, <span class="m">30+</span> resources, <span class="m">8</span> OPA policies. Deployed Teleport PAM (JIT) and Keycloak SSO (<span class="m">3</span>-tier RBAC)</li>
+        <li>Reduced external attack surface to <span class="m">zero</span> exposed ports through Cloudflare Zero Trust tunnels with mTLS</li>
+        <li>Assessed Google Cloud IAM across <span class="m">7</span> APIs: OAuth 2.0 lifecycle, org-level policies, cross-domain identity federation</li>
+        <li>Automated ops via n8n SOAR with NeMo-sandboxed AI and Ollama local inference, cutting triage by <span class="m">80%</span></li>
+        <li>Authored <span class="m">37</span> GRC documents: SSP (<span class="m">133</span> NIST 800-53 controls), POA&amp;M (<span class="m">27</span> findings), <span class="m">10</span> policies, <span class="m">5</span> IR playbooks, DAST assessment, pen test</li>
       </ul>
     </div>
 
@@ -1527,12 +1529,13 @@ html.light .hero .scan-line { display: none; }
         </div>
       </div>
       <ul class="exp-bullets">
-        <li>Led incident response across <span class="m">3</span> retail locations, handling POS skimmer investigations with Wireshark packet analysis, credential compromises, and suspicious vendor access</li>
-        <li>Developed a <span class="m">6</span>-step IR runbook that cut average containment time from <span class="m">8</span> hours to <span class="m">90</span> minutes</li>
-        <li>Segmented a flat network into <span class="m">4</span> VLANs isolating POS payment traffic, back-office systems, guest Wi-Fi, and management. Validated with Nmap network scans. Reduced lateral movement to near zero</li>
-        <li>Deployed Splunk for SIEM log aggregation across all endpoints and network devices with correlation rules that cut mean time to detect from <span class="m">48</span> hours to under <span class="m">4</span> hours</li>
-        <li>Locked down Active Directory with Group Policy baselines, stale account removal, least-privilege admin rights, and automated credential rotation. Reduced critical audit findings from <span class="m">14</span> to <span class="m">2</span></li>
-        <li>Built Python and PowerShell scripts automating patch deployment, user provisioning, compliance reporting, and service contract tracking. Recovered roughly <span class="m">12</span> hours per week</li>
+        <li>Led incident response across <span class="m">3</span> locations: POS skimmer investigations, credential compromises, and vendor access incidents. Built <span class="m">6</span>-step IR runbook cutting containment from <span class="m">8</span> hours to <span class="m">90</span> minutes</li>
+        <li>Segmented flat network into <span class="m">4</span> VLANs isolating POS payment, back-office, guest Wi-Fi, and management. Validated with Nmap scans</li>
+        <li>Deployed Splunk SIEM with correlation rules cutting mean time to detect from <span class="m">48</span> hours to under <span class="m">4</span> hours</li>
+        <li>Hardened Active Directory with GPO baselines, least-privilege enforcement, and credential rotation. Reduced audit findings from <span class="m">14</span> to <span class="m">2</span></li>
+        <li>Maintained PCI DSS compliance across <span class="m">45+</span> devices with quarterly Nessus scans, segmentation validation, and SAQ documentation</li>
+        <li>Automated patch deployment, provisioning, and compliance reporting with Python and PowerShell, recovering <span class="m">12</span> hours weekly</li>
+        <li>Established AI governance aligned to NIST AI RMF with LLM-powered phishing detection and incident prioritization</li>
       </ul>
     </div>
 
