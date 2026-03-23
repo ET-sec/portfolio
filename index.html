@@ -19,16 +19,19 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Emmanuel Tigoue | AI Security Engineer | SecurityX · SSCP · CCNA</title>
-<meta name="description" content="Emmanuel Tigoue | AI Security Engineer. 14-container Zero Trust architecture, SOAR orchestration, DevSecOps CI/CD pipeline, AI governance (ISO 42001), 31-document GRC library, LLM threat modeling. SecurityX (CASP+), SSCP, CCNA certified.">
+<meta name="description" content="Emmanuel Tigoue | AI Security Engineer. 14-container Zero Trust architecture, SOAR orchestration, DevSecOps CI/CD pipeline, AI governance (ISO 42001), 37-document GRC library, LLM threat modeling. SecurityX, SSCP, CCNA certified.">
 <meta name="theme-color" content="#0A0A0A">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Emmanuel Tigoue | AI Security Engineer">
-<meta property="og:description" content="AI Security Engineer. SecurityX (CASP+), SSCP, CCNA certified. Zero Trust architecture, SOAR automation, LLM security, AI governance (ISO 42001).">
+<meta property="og:description" content="AI Security Engineer. SecurityX, SSCP, CCNA certified. Zero Trust architecture, SOAR automation, LLM security, AI governance (ISO 42001).">
 <meta property="og:url" content="https://et-sec.github.io/portfolio/">
+<meta property="og:image" content="https://et-sec.github.io/portfolio/emmanuel-tigoue.jpg">
+<meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Emmanuel Tigoue | AI Security Engineer">
-<meta name="twitter:description" content="AI Security Engineer. SecurityX (CASP+), SSCP, CCNA certified. Zero Trust architecture, SOAR automation, LLM security, AI governance (ISO 42001).">
+<meta name="twitter:description" content="AI Security Engineer. SecurityX, SSCP, CCNA certified. Zero Trust architecture, SOAR automation, LLM security, AI governance (ISO 42001).">
+<meta name="twitter:image" content="https://et-sec.github.io/portfolio/emmanuel-tigoue.jpg">
 <link rel="canonical" href="https://et-sec.github.io/portfolio/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,6 +77,14 @@ body { background: var(--void); color: var(--white); font-family: 'Inter', sans-
 .hud-red .bl { position: absolute; bottom: -1px; left: -1px; width: 20px; height: 20px; border-bottom: 2px solid var(--red); border-left: 2px solid var(--red); }
 .hud-red .br { position: absolute; bottom: -1px; right: -1px; width: 20px; height: 20px; border-bottom: 2px solid var(--red); border-right: 2px solid var(--red); }
 .hud-red:hover { border-color: var(--red); box-shadow: 0 0 16px rgba(255,51,102,0.15); }
+
+/* CYAN HUD VARIANT */
+.hud-cyan { position: relative; background: var(--dark); border: 1px solid var(--mid); padding: 28px; }
+.hud-cyan::before { content: ''; position: absolute; top: -1px; left: -1px; width: 20px; height: 20px; border-top: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+.hud-cyan::after { content: ''; position: absolute; top: -1px; right: -1px; width: 20px; height: 20px; border-top: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
+.hud-cyan .bl { position: absolute; bottom: -1px; left: -1px; width: 20px; height: 20px; border-bottom: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+.hud-cyan .br { position: absolute; bottom: -1px; right: -1px; width: 20px; height: 20px; border-bottom: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
+.hud-cyan:hover { border-color: var(--cyan); box-shadow: 0 0 16px rgba(0,212,255,0.15); }
 
 .body-text { color: #ccc; }
 a { color: var(--green); text-decoration: none; }
@@ -245,8 +256,8 @@ html.light .nav-dropdown-parent > a:hover { color: var(--green); }
 .cert-card-blue .hud:hover { border-color: var(--mid); border-left-color: var(--gold); box-shadow: 0 0 8px rgba(255,184,0,0.08); }
 .cert-card-blue .hud::before, .cert-card-blue .hud::after, .cert-card-blue .hud .bl, .cert-card-blue .hud .br { display: none; }
 .cert-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
-.cert-card .cert-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--light); margin-bottom: 4px; }
-.cert-card .cert-note { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--light); margin-top: 16px; opacity: 0.5; }
+.cert-card .cert-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #999; margin-bottom: 4px; }
+.cert-card .cert-note { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #888; margin-top: 16px; }
 
 /* EXPERIENCE */
 .exp-entry { margin-bottom: 48px; }
@@ -300,13 +311,15 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
   .nav-links { display: none !important; }
   .nav-links.open { display: flex !important; position: absolute; top: 100%; left: 0; right: 0; background: var(--void); flex-direction: column; padding: 16px 20px; border-bottom: 1px solid var(--mid); gap: 12px; }
   .menu-toggle { display: block; }
-  section { padding: 60px 0; }
+  section { padding: 60px 0; overflow-x: hidden; }
   .exp-header { flex-direction: column; }
-  .exp-entry [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
+  .exp-entry [style*="grid-template-columns"] { grid-template-columns: repeat(2, 1fr) !important; }
   .pow-stats { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
   .migration-card { grid-template-columns: 1fr; }
   .migration-card .mc-col { border: 1px solid var(--mid) !important; }
   #grc .reveal[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  #tm-appsec [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  #contact [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 480px) {
   .cert-grid { grid-template-columns: 1fr; }
@@ -314,8 +327,6 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
   .pow-stats { grid-template-columns: 1fr 1fr; }
   .arch-nodes { gap: 8px; }
   .arch-node { font-size: 11px; padding: 8px 10px; }
-  #contact [style*="grid-template-columns:1.5fr"] { grid-template-columns: 1fr !important; }
-  .exp-entry [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
@@ -345,13 +356,14 @@ html.light .menu-toggle { color: var(--green); border-color: #C8C8C8; }
 html.light #theme-toggle { background: #C8C8C8; }
 
 /* Light: surfaces — cards get white bg + subtle shadow for depth */
-html.light .hud, html.light .hud-purple, html.light .hud-gold, html.light .hud-red {
+html.light .hud, html.light .hud-purple, html.light .hud-gold, html.light .hud-red, html.light .hud-cyan {
   background: #FFFFFF; border-color: #D0D0D0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 html.light .hud::before, html.light .hud::after, html.light .hud .bl, html.light .hud .br { border-color: var(--green); }
 html.light .hud-purple::before, html.light .hud-purple::after, html.light .hud-purple .bl, html.light .hud-purple .br { border-color: var(--purple); }
 html.light .hud-gold::before, html.light .hud-gold::after, html.light .hud-gold .bl, html.light .hud-gold .br { border-color: var(--gold); }
 html.light .hud-red::before, html.light .hud-red::after, html.light .hud-red .bl, html.light .hud-red .br { border-color: var(--red); }
+html.light .hud-cyan::before, html.light .hud-cyan::after, html.light .hud-cyan .bl, html.light .hud-cyan .br { border-color: var(--cyan); }
 
 /* Light: cert cards */
 html.light .cert-card .hud { background: #FFFFFF; border-color: #D0D0D0; border-left-color: var(--green); }
@@ -394,7 +406,7 @@ html.light .section-header .line-red { background: var(--red); }
 html.light .cert-badge.badge-cleared { color: var(--green); border-color: var(--green); }
 html.light .cert-note { color: #666; }
 html.light .cert-card h3 { color: #111; }
-html.light .cert-card .cert-meta { color: #555; }
+html.light .cert-card .cert-meta { color: #444; }
 
 /* Light: hero */
 html.light .hero { background: #E4E4E4; }
@@ -434,7 +446,9 @@ html.light .atk-step-brief { color: #444; }
 html.light .atk-summary { background: rgba(176,16,48,0.04); border-color: rgba(176,16,48,0.25); }
 html.light .agent-chain-warning { background: rgba(176,16,48,0.04); border-color: rgba(176,16,48,0.25); }
 html.light .ap-flow .ap-node { background: #F5F5F5; border-color: #D0D0D0; color: #111; }
-html.light .ap-badge { color: #FFFFFF; }
+html.light .ap-badge.high { color: #B01030; border-color: rgba(176,16,48,0.5); background: rgba(176,16,48,0.1); }
+html.light .ap-badge.medium { color: #996600; border-color: rgba(153,102,0,0.5); background: rgba(153,102,0,0.1); }
+html.light .ap-badge.low { color: #006622; border-color: rgba(0,102,34,0.5); background: rgba(0,102,34,0.1); }
 
 /* Light: GRC — comprehensive */
 html.light .ir-flow-node { background: #FFFFFF; border-color: #D0D0D0; color: #111; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
@@ -1060,11 +1074,12 @@ html.light .hero .scan-line { display: none; }
   .hero { min-height: auto !important; padding: 40px 0 !important; }
   section { border-bottom: 1px solid #ddd !important; padding: 30px 0 !important; page-break-inside: avoid; }
   a { color: #000 !important; }
-  .hud, .hud-purple, .hud-gold, .hud-red { background: #fff !important; border-color: #ddd !important; }
+  .hud, .hud-purple, .hud-gold, .hud-red, .hud-cyan { background: #fff !important; border-color: #ddd !important; }
   .hud::before, .hud::after, .hud .bl, .hud .br,
   .hud-purple::before, .hud-purple::after, .hud-purple .bl, .hud-purple .br,
   .hud-gold::before, .hud-gold::after, .hud-gold .bl, .hud-gold .br,
-  .hud-red::before, .hud-red::after, .hud-red .bl, .hud-red .br { display: none !important; }
+  .hud-red::before, .hud-red::after, .hud-red .bl, .hud-red .br,
+  .hud-cyan::before, .hud-cyan::after, .hud-cyan .bl, .hud-cyan .br { display: none !important; }
   .reveal, .reveal-left, .stagger-card { opacity: 1 !important; transform: none !important; }
   .section-header .label, .section-header .label-purple, .section-header .label-gold, .section-header .label-red, .cert-badge, .cert-note { color: #333 !important; }
   .exp-role { color: #333 !important; }
@@ -1230,7 +1245,7 @@ html.light .hero .scan-line { display: none; }
     "name": "Georgia State University"
   },
   "hasCredential": [
-    {"@type": "EducationalOccupationalCredential", "name": "CompTIA SecurityX (CASP+)", "credentialCategory": "certification"},
+    {"@type": "EducationalOccupationalCredential", "name": "CompTIA SecurityX", "credentialCategory": "certification"},
     {"@type": "EducationalOccupationalCredential", "name": "ISC2 SSCP", "credentialCategory": "certification"},
     {"@type": "EducationalOccupationalCredential", "name": "Cisco CCNA", "credentialCategory": "certification"},
     {"@type": "EducationalOccupationalCredential", "name": "CompTIA Security+", "credentialCategory": "certification"},
@@ -1322,9 +1337,9 @@ html.light .hero .scan-line { display: none; }
     <div class="brand" aria-label="Emmanuel Tigoue"><span class="g">&#9673;</span> EMMANUEL TIGOUE</div>
     <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation menu">MENU</button>
     <div class="nav-links">
+      <a href="#certs">Certs</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
-      <a href="#certs">Certs</a>
       <a href="#proof">Work</a>
       <div class="nav-dropdown-parent" style="position:relative;display:inline-block;">
         <a href="#threat-modeling" style="display:block;">Sec Eng &#9662;</a>
@@ -1353,12 +1368,84 @@ html.light .hero .scan-line { display: none; }
   <div class="container" style="position:relative;z-index:1;">
     <h1><span class="icon">&#9673;</span> <span class="glitch-hover">EMMANUEL TIGOUE</span></h1>
     <div class="sub-tagline" style="margin-bottom:20px;">AI Security Engineer &bull; SecurityX &bull; SSCP &bull; CCNA</div>
-    <p class="intro">I secure AI systems and build the governance around them. 14-container Zero Trust platform, 31 GRC documents, detection to alert in under 30 seconds.</p>
+    <p class="intro">I secure AI systems and build the governance around them. 14-container Zero Trust platform, 37 GRC documents, detection to alert in under 30 seconds.</p>
     <div class="hero-buttons">
       <a href="#contact" class="btn btn-gradient" aria-label="Get in touch">Get In Touch</a>
       <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="View project on GitHub">View on GitHub</a>
     </div>
     <div class="status-line"><span class="pulse">&#9673;</span> CISSP IN PROGRESS // SPRING 2026</div>
+  </div>
+</section>
+
+
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="container">
+    <div class="section-header reveal-left">
+      <div class="label">// Clearance Stack</div>
+      <h2>Certifications</h2>
+      <div class="line"></div>
+    </div>
+    <div class="cert-grid">
+
+      <div class="cert-card cert-card-blue stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-blue">&#9673; IN PROGRESS</span>
+        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> CISSP</h3>
+        <div class="cert-meta">Certified Information Systems Security Professional</div>
+        <div class="cert-meta">Security Architecture &amp; Engineering</div>
+        <div class="cert-note">Spring 2026</div>
+      </div></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/15cf6f50-9a78-4405-9cde-3998c8117f84/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify SecurityX on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>CompTIA SecurityX</h3>
+        <div class="cert-meta">CASP+ &bull; Advanced Security Practitioner</div>
+        <div class="cert-meta">DoD 8140 IAT/IAM Level III</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/6b1b0280-9d26-4b26-a368-0094ee0096b4/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify CCNA on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>Cisco CCNA</h3>
+        <div class="cert-meta">Certified Network Associate</div>
+        <div class="cert-meta">Enterprise Networking</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3d58011f-2130-4a86-818d-f8bc414bbb41/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify SSCP on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> SSCP</h3>
+        <div class="cert-meta">Systems Security Certified Practitioner</div>
+        <div class="cert-meta">Operational Security</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/9277770f-fe46-481b-912d-caed05b03034/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Security+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>CompTIA Security+</h3>
+        <div class="cert-meta">Security Fundamentals</div>
+        <div class="cert-meta">DoD 8140 Baseline</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/a92ce870-953e-49a0-ab8c-c929121e00e0/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Network+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>CompTIA Network+</h3>
+        <div class="cert-meta">Networking Fundamentals</div>
+        <div class="cert-meta">Infrastructure Foundation</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3b1a8cb0-61b8-48c9-9f74-86db203e942d/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify ISC2 CC on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> CC</h3>
+        <div class="cert-meta">Certified in Cybersecurity</div>
+        <div class="cert-meta">Security Foundations</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+    </div>
   </div>
 </section>
 
@@ -1389,7 +1476,7 @@ html.light .hero .scan-line { display: none; }
           <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Container Stack</div>
         </div>
         <div style="background:var(--void);border:1px solid var(--mid);border-left:3px solid var(--green);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--green);">31</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--green);">37</div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">GRC Documents</div>
         </div>
         <div style="background:var(--void);border:1px solid var(--mid);border-left:3px solid var(--green);padding:16px;text-align:center;">
@@ -1407,7 +1494,7 @@ html.light .hero .scan-line { display: none; }
         <li>Built shift-left CI/CD pipeline with Trivy container scans, Semgrep SAST, Gitleaks secrets detection, and OPA policy gates on every pull request. Signed all images with Cosign and generated SBOMs with Syft for supply chain security</li>
         <li>Reduced the external attack surface to zero exposed ports by routing all traffic through Cloudflare Zero Trust tunnels with mTLS certificate authentication</li>
         <li>Automated security operations through n8n SOAR with Claude LLM-powered alert triage, credential rotation alerts, compliance monitoring, and incident escalation. Reduced routine triage overhead by over <span class="m">80%</span></li>
-        <li>Authored <span class="m">31</span> GRC documents from scratch including SSP with NIST <span class="m">800-53</span> control mapping, POA&amp;M tracking <span class="m">37</span> findings across <span class="m">4</span> assessment sources, <span class="m">10</span> security policies, <span class="m">5</span> IR playbooks, a risk assessment, and a tabletop exercise</li>
+        <li>Authored <span class="m">37</span> GRC documents from scratch including SSP with NIST <span class="m">800-53</span> control mapping, POA&amp;M tracking <span class="m">27</span> findings across <span class="m">4</span> assessment sources, <span class="m">10</span> security policies, <span class="m">5</span> IR playbooks, a risk assessment, and a tabletop exercise</li>
       </ul>
     </div>
 
@@ -1483,77 +1570,6 @@ html.light .hero .scan-line { display: none; }
 
 
 
-<!-- CERTIFICATIONS -->
-<section id="certs">
-  <div class="container">
-    <div class="section-header reveal-left">
-      <div class="label">// Clearance Stack</div>
-      <h2>Certifications</h2>
-      <div class="line"></div>
-    </div>
-    <div class="cert-grid">
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/15cf6f50-9a78-4405-9cde-3998c8117f84/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify SecurityX on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
-        <h3>CompTIA SecurityX (CASP+)</h3>
-        <div class="cert-meta">Advanced Security Practitioner</div>
-        <div class="cert-meta">DoD 8140 IAT/IAM Level III</div>
-        <div class="cert-note">Expires Jun 2028 &bull; Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3d58011f-2130-4a86-818d-f8bc414bbb41/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify SSCP on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
-        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> SSCP</h3>
-        <div class="cert-meta">Systems Security Certified Practitioner</div>
-        <div class="cert-meta">Operational Security</div>
-        <div class="cert-note">Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/6b1b0280-9d26-4b26-a368-0094ee0096b4/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify CCNA on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
-        <h3>Cisco CCNA</h3>
-        <div class="cert-meta">Certified Network Associate</div>
-        <div class="cert-meta">Enterprise Networking</div>
-        <div class="cert-note">Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/9277770f-fe46-481b-912d-caed05b03034/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Security+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
-        <h3>CompTIA Security+</h3>
-        <div class="cert-meta">Security Fundamentals</div>
-        <div class="cert-meta">DoD 8140 Baseline</div>
-        <div class="cert-note">Expires Jun 2028 &bull; Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/a92ce870-953e-49a0-ab8c-c929121e00e0/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Network+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
-        <h3>CompTIA Network+</h3>
-        <div class="cert-meta">Networking Fundamentals</div>
-        <div class="cert-meta">Infrastructure Foundation</div>
-        <div class="cert-note">Expires Jun 2028 &bull; Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3b1a8cb0-61b8-48c9-9f74-86db203e942d/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify ISC2 CC on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
-        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> CC</h3>
-        <div class="cert-meta">Certified in Cybersecurity</div>
-        <div class="cert-meta">Security Foundations</div>
-        <div class="cert-note">Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card cert-card-blue stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-blue">&#9673; SCHEDULED</span>
-        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> CISSP</h3>
-        <div class="cert-meta">Certified Information Systems Security Professional</div>
-        <div class="cert-note" style="color:#2196F3;">In Progress // Spring 2026</div>
-      </div></div>
-
-    </div>
-  </div>
-</section>
-
-
-
 <!-- PROOF OF WORK -->
 <section id="proof">
   <div class="container">
@@ -1562,7 +1578,7 @@ html.light .hero .scan-line { display: none; }
       <h2>What I Built</h2>
       <div class="line"></div>
     </div>
-    <p class="reveal" class="body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
+    <p class="reveal body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
       Operational security platform built on DigitalOcean, migrated from AWS EC2 for cost optimization. STRIDE threat-modeled, then deployed.
       Every metric below is verifiable in the <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer">public repository</a>.
     </p>
@@ -1575,8 +1591,8 @@ html.light .hero .scan-line { display: none; }
       <div class="pow-stat stagger-card"><div class="num">8</div><div class="lbl">OPA Policies</div></div>
       <div class="pow-stat stagger-card"><div class="num">15</div><div class="lbl">SOAR Workflows</div></div>
       <div class="pow-stat stagger-card"><div class="num-gold">&lt;30s</div><div class="lbl">Detection to Alert</div></div>
-      <div class="pow-stat stagger-card"><div class="num-gold">31</div><div class="lbl">GRC Documents</div></div>
-      <div class="pow-stat stagger-card"><div class="num">170+</div><div class="lbl">NIST Controls Mapped</div></div>
+      <div class="pow-stat stagger-card"><div class="num-gold">37</div><div class="lbl">GRC Documents</div></div>
+      <div class="pow-stat stagger-card"><div class="num">133</div><div class="lbl">NIST Controls Mapped</div></div>
       <div class="pow-stat stagger-card"><div class="num">5</div><div class="lbl">IR Playbooks</div></div>
     </div>
 
@@ -1596,7 +1612,7 @@ html.light .hero .scan-line { display: none; }
             <div class="arch-node" data-info="Zero-trust access proxy. No ports exposed to public internet. All traffic routed through encrypted tunnel.">&#9673; Cloudflare Tunnel <span class="port">TLS 1.3</span></div>
             <div class="arch-node" data-info="DNS, WAF, DDoS protection, rate limiting, bot management. All traffic filtered at the edge.">&#9673; Cloudflare DNS/WAF <span class="port">EDGE</span></div>
           </div>
-          <div class="arch-layer-detail" style="border-left-color:var(--cyan);">Zero public ports exposed. All ingress through Cloudflare encrypted tunnels. WAF rules filter malicious traffic at the edge. DDoS protection and bot management at no additional cost. Tunnel routes: n8n.tigouetheory.com, SSH access.</div>
+          <div class="arch-layer-detail" style="border-left-color:var(--cyan);">Zero public ports exposed. All ingress through Cloudflare encrypted tunnels. WAF rules filter malicious traffic at the edge. DDoS protection and bot management at no additional cost. All services accessed through encrypted tunnel routes.</div>
         </div>
         <div class="arch-connector"></div>
 
@@ -1759,7 +1775,7 @@ html.light .hero .scan-line { display: none; }
     <span class="fn">environment</span>:
       - <span class="str">TUNNEL_TOKEN=${CD_TUNNEL_TOKEN}</span>
 
-  <span class="fn">cd-service-n8n</span>:
+  <span class="fn">svc-automation</span>:
     <span class="fn">image</span>: <span class="str">n8nio/n8n:latest</span>
     <span class="fn">security_opt</span>:
       - <span class="str">no-new-privileges:true</span>
@@ -1808,10 +1824,10 @@ html.light .hero .scan-line { display: none; }
       </div>
     </div>
 
-    <p class="reveal" class="body-text" style="max-width:720px;margin-bottom:12px;line-height:1.8;">
+    <p class="reveal body-text" style="max-width:720px;margin-bottom:12px;line-height:1.8;">
       This is not generic threat modeling. This is adversarial analysis of an <span style="color:var(--red);font-weight:600;">autonomous AI agent with tool-use capabilities</span>: an LLM that can browse the web, execute code, query databases, trigger SOAR workflows, and push to GitHub. One compromised prompt can chain through 6 active skills into 16 downstream service integrations.
     </p>
-    <p class="reveal" class="body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
+    <p class="reveal body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
       Every threat below was identified through STRIDE decomposition of the full agentic pipeline, then cross-referenced against MITRE ATT&amp;CK/ATLAS, OWASP LLM Top 10, NIST 800-53, and ISO 42001. The result: 29 categorized threats, 4 mapped kill chains, and a clear picture of where the controls hold and where the gaps remain.
     </p>
 
@@ -2339,53 +2355,140 @@ html.light .hero .scan-line { display: none; }
 
     <!-- APPLICATION SECURITY -->
     <div id="tm-appsec" style="margin-top:60px;scroll-margin-top:80px;" class="reveal">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Application Security // Web &amp; API Testing</div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mid);margin-bottom:20px;">OWASP Top 10 methodology applied to production web services and API endpoints</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Application Security // Assessments &amp; Pipeline</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mid);margin-bottom:24px;">Vulnerability research, secure SDLC, code review, and IAM governance. Click any card for full documentation.</div>
 
+      <!-- SECURE SDLC PIPELINE VISUALIZATION -->
+      <div class="hud reveal" style="padding:20px;margin-bottom:24px;border-left:3px solid var(--cyan);overflow-x:auto;">
+        <span class="bl"></span><span class="br"></span>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--white);margin-bottom:16px;">CI/CD Security Pipeline</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;line-height:2.2;">
+          <div><span style="color:var(--cyan);font-size:10px;">PR</span> <span style="color:var(--mid);">&#9654;</span> <span style="color:var(--white);background:var(--void);padding:3px 8px;border:1px solid var(--mid);font-size:10px;">fmt</span> <span style="color:var(--mid);">&#9654;</span> <span style="color:var(--white);background:var(--void);padding:3px 8px;border:1px solid var(--mid);font-size:10px;">validate</span> <span style="color:var(--mid);">&#9654;</span> <span style="color:var(--white);background:var(--void);padding:3px 8px;border:1px solid var(--mid);font-size:10px;">TFLint</span> <span style="color:var(--mid);">&#9654;</span> <span style="color:var(--white);background:var(--void);padding:3px 8px;border:1px solid var(--mid);font-size:10px;">Checkov</span> <span style="color:var(--mid);">&#9654;</span> <span style="color:var(--white);background:var(--void);padding:3px 8px;border:1px solid var(--mid);font-size:10px;">plan</span> <span style="color:var(--mid);">&#9654;</span> <span style="color:var(--white);background:var(--void);padding:3px 8px;border:1px solid var(--mid);font-size:10px;">OPA</span> <span style="color:var(--green);font-size:10px;margin-left:4px;">&#10003; 7 gates</span></div>
+          <div style="margin-top:4px;"><span style="color:var(--cyan);font-size:10px;">MERGE</span> <span style="color:var(--mid);">&#9654;</span> <span style="color:var(--white);background:var(--void);padding:3px 8px;border:1px solid var(--mid);font-size:10px;">Gitleaks</span> <span style="color:var(--mid);">&#9654;</span> <span style="color:var(--white);background:var(--void);padding:3px 8px;border:1px solid var(--mid);font-size:10px;">Trivy</span> <span style="color:var(--mid);">&#9654;</span> <span style="color:var(--white);background:var(--void);padding:3px 8px;border:1px solid var(--mid);font-size:10px;">Semgrep</span> <span style="color:var(--mid);">&#9654;</span> <span style="color:var(--white);background:var(--void);padding:3px 8px;border:1px solid var(--mid);font-size:10px;">Cosign</span> <span style="color:var(--mid);">&#9654;</span> <span style="color:var(--white);background:var(--void);padding:3px 8px;border:1px solid var(--mid);font-size:10px;">SBOM</span> <span style="color:var(--green);font-size:10px;margin-left:4px;">&#10003; 5 gates</span></div>
+        </div>
+      </div>
+
+      <!-- APPSEC PROOF CARDS -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+        <!-- VULNERABILITY ASSESSMENT -->
+        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/VULN_WRITEUP_N8N_CREDENTIAL_EXPOSURE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Vulnerability Assessment on GitHub">
+          <div class="hud-cyan stagger-card" style="padding:18px;border-left:3px solid var(--red);transition:border-color 0.3s,box-shadow 0.3s;">
+            <span class="bl"></span><span class="br"></span>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:1px;margin-bottom:8px;">VULNERABILITY ASSESSMENT</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--white);font-weight:700;margin-bottom:6px;">SOAR Credential Exposure</div>
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--red);color:var(--void);padding:2px 8px;font-weight:700;">CVSS 8.1 HIGH</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);">CWE-200</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:8px;">44 secrets exposed via process.env. Manual discovery. Remediated same day.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">AC-6</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">OWASP A01</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);border:1px solid var(--mid);padding:1px 6px;">REMEDIATED</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);opacity:0.7;">View on GitHub &#8594;</div>
+          </div>
+        </a>
+
+        <!-- SECURE SDLC -->
+        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/SECURE_SDLC.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Secure SDLC on GitHub">
+          <div class="hud-cyan stagger-card" style="padding:18px;border-left:3px solid var(--cyan);transition:border-color 0.3s,box-shadow 0.3s;">
+            <span class="bl"></span><span class="br"></span>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:1px;margin-bottom:8px;">SECURE SDLC</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--white);font-weight:700;margin-bottom:6px;">CI/CD Security Pipeline</div>
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--cyan);color:var(--void);padding:2px 8px;font-weight:700;">7 PR GATES</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--cyan);color:var(--void);padding:2px 8px;font-weight:700;">5 MERGE GATES</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:8px;">Gitleaks, Trivy, Semgrep, Checkov, OPA, Cosign, SBOM. 8 custom Rego policies.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">SA-11</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">SA-15</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">CM-3</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);opacity:0.7;">View on GitHub &#8594;</div>
+          </div>
+        </a>
+
+        <!-- CODE REVIEW FINDINGS -->
+        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/CODE_REVIEW_FINDINGS.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Code Review Findings on GitHub">
+          <div class="hud-cyan stagger-card" style="padding:18px;border-left:3px solid var(--gold);transition:border-color 0.3s,box-shadow 0.3s;">
+            <span class="bl"></span><span class="br"></span>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:1px;margin-bottom:8px;">CODE REVIEW</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--white);font-weight:700;margin-bottom:6px;">Manual Security Assessment</div>
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--red);color:var(--void);padding:2px 8px;font-weight:700;">1 HIGH</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--gold);color:var(--void);padding:2px 8px;font-weight:700;">3 MEDIUM</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--mid);color:var(--white);padding:2px 8px;font-weight:700;">1 LOW</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:8px;">5 findings from manual infrastructure code review. Logic flaws no scanner catches.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">SA-11</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">CM-4</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);opacity:0.7;">View on GitHub &#8594;</div>
+          </div>
+        </a>
+
+        <!-- DAST METHODOLOGY -->
+        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/DAST_METHODOLOGY.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View DAST Methodology on GitHub">
+          <div class="hud-cyan stagger-card" style="padding:18px;border-left:3px solid var(--cyan);transition:border-color 0.3s,box-shadow 0.3s;">
+            <span class="bl"></span><span class="br"></span>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:1px;margin-bottom:8px;">DAST METHODOLOGY</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--white);font-weight:700;margin-bottom:6px;">Dynamic Application Security Testing</div>
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--cyan);color:var(--void);padding:2px 8px;font-weight:700;">OWASP ZAP</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);">Testing Guide v4.2</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:8px;">Zero exposed ports. All traffic through Cloudflare Tunnel. Quarterly assessment cadence.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">RA-5</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">CA-8</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);opacity:0.7;">View on GitHub &#8594;</div>
+          </div>
+        </a>
+
+        <!-- GOOGLE CLOUD IAM ASSESSMENT -->
+        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/GOOGLE_CLOUD_IAM_ASSESSMENT.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Google Cloud IAM Assessment on GitHub">
+          <div class="hud-cyan stagger-card" style="padding:18px;border-left:3px solid var(--purple);transition:border-color 0.3s,box-shadow 0.3s;">
+            <span class="bl"></span><span class="br"></span>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:1px;margin-bottom:8px;">CLOUD IAM ASSESSMENT</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--white);font-weight:700;margin-bottom:6px;">Google Cloud IAM Governance</div>
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--purple);color:var(--white);padding:2px 8px;font-weight:700;">OAuth 2.0</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--purple);color:var(--white);padding:2px 8px;font-weight:700;">7 APIs</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);">Org Policy</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:8px;">Least-privilege IAM, credential lifecycle, cross-domain identity federation, org policy governance.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">AC-2</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">AC-6</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);border:1px solid var(--mid);padding:1px 6px;">IA-2</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);opacity:0.7;">View on GitHub &#8594;</div>
+          </div>
+        </a>
+
         <!-- OWASP TOP 10 COVERAGE -->
-        <div class="hud" style="padding:20px;border-left:3px solid var(--cyan);transition:border-color 0.3s;">
+        <div class="hud stagger-card" style="padding:18px;border-left:3px solid var(--green);transition:border-color 0.3s;">
           <span class="bl"></span><span class="br"></span>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--white);margin-bottom:16px;">OWASP Top 10 (2021)</div>
-          <div style="display:grid;gap:6px;">
-            <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);">A01: Broken Access Control</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">CONTROLLED</span></div>
-            <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);">A02: Cryptographic Failures</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">CONTROLLED</span></div>
-            <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);">A03: Injection</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">CONTROLLED</span></div>
-            <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);">A04: Insecure Design</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">CONTROLLED</span></div>
-            <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);">A05: Security Misconfiguration</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">CONTROLLED</span></div>
-            <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);">A06: Vulnerable Components</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">CONTROLLED</span></div>
-            <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);">A07: Auth Failures</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">CONTROLLED</span></div>
-            <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);">A08: Software/Data Integrity</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">CONTROLLED</span></div>
-            <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);">A09: Logging/Monitoring Gaps</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">CONTROLLED</span></div>
-            <div style="display:flex;justify-content:space-between;padding:6px 0;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);">A10: SSRF</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">CONTROLLED</span></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;margin-bottom:8px;">OWASP TOP 10 (2025)</div>
+          <div style="display:grid;gap:4px;">
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white);">A01: Broken Access Control</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">&#10003;</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white);">A02: Security Misconfiguration</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">&#10003;</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white);">A03: Supply Chain Failures</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">&#10003;</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white);">A04: Insecure Design</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">&#10003;</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white);">A05: Injection</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">&#10003;</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white);">A06: Vulnerable Components</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">&#10003;</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white);">A07: Auth Failures</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">&#10003;</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white);">A08: Data Integrity Failures</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">&#10003;</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(51,51,51,0.5);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white);">A09: Logging &amp; Alerting</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">&#10003;</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white);">A10: Exceptional Conditions</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);">&#10003;</span></div>
           </div>
         </div>
 
-        <!-- TESTING METHODOLOGY & TOOLS -->
-        <div>
-          <div class="hud" style="padding:20px;border-left:3px solid var(--cyan);margin-bottom:16px;transition:border-color 0.3s;">
-            <span class="bl"></span><span class="br"></span>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--white);margin-bottom:12px;">Security Testing Toolkit</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-              <a href="https://portswigger.net/burp" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);padding:8px;background:var(--void);border:1px solid var(--mid);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--cyan)'" onmouseout="this.style.borderColor='var(--mid)'">Burp Suite &#8599;</a>
-              <a href="https://www.zaproxy.org/" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);padding:8px;background:var(--void);border:1px solid var(--mid);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--cyan)'" onmouseout="this.style.borderColor='var(--mid)'">OWASP ZAP &#8599;</a>
-              <a href="https://nmap.org/" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);padding:8px;background:var(--void);border:1px solid var(--mid);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--cyan)'" onmouseout="this.style.borderColor='var(--mid)'">Nmap &#8599;</a>
-              <a href="https://www.wireshark.org/" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);padding:8px;background:var(--void);border:1px solid var(--mid);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--cyan)'" onmouseout="this.style.borderColor='var(--mid)'">Wireshark &#8599;</a>
-              <a href="https://sqlmap.org/" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);padding:8px;background:var(--void);border:1px solid var(--mid);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--cyan)'" onmouseout="this.style.borderColor='var(--mid)'">sqlmap &#8599;</a>
-              <a href="https://cirt.net/Nikto2" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);padding:8px;background:var(--void);border:1px solid var(--mid);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--cyan)'" onmouseout="this.style.borderColor='var(--mid)'">Nikto &#8599;</a>
-            </div>
-          </div>
-
-          <div class="hud" style="padding:20px;border-left:3px solid var(--cyan);transition:border-color 0.3s;">
-            <span class="bl"></span><span class="br"></span>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--white);margin-bottom:12px;">Applied in Production</div>
-            <div style="font-size:13px;color:var(--light);line-height:1.7;">
-              <div style="margin-bottom:8px;"><span style="color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:10px;">INJECTION</span><br>Parameterized queries in PostgreSQL. Input validation on all n8n webhook endpoints. Prompt sanitization on AI gateway inputs.</div>
-              <div style="margin-bottom:8px;"><span style="color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:10px;">SSRF</span><br>AI agent browser skill restricted to domain allowlist. net-ai network blocks outbound connections. URL validation before fetch operations.</div>
-              <div><span style="color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:10px;">BROKEN AUTH</span><br>Keycloak SSO with 3-tier RBAC. Teleport JIT access with session recording. Vault dynamic credentials with automatic rotation. No static API keys in code.</div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -2404,7 +2507,7 @@ html.light .hero .scan-line { display: none; }
       <div class="line-purple"></div>
     </div>
 
-    <p class="reveal" class="body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
+    <p class="reveal body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
       AI Governance Policy aligned to three international frameworks, governing 3 deployed AI systems with documented risk profiles, prompt injection defenses, and behavioral monitoring.
     </p>
 
@@ -2474,7 +2577,7 @@ html.light .hero .scan-line { display: none; }
         <pre><span class="yk">- rule</span>: <span class="yv">Unexpected outbound connection from n8n</span>
   <span class="yk">desc</span>: <span class="yv">Detects n8n container making connections to non-whitelisted IPs</span>
   <span class="yk">condition</span>: <span class="yq">&gt;</span>
-    <span class="yn">container.name</span> = <span class="yv">"cd-service-n8n"</span> and
+    <span class="yn">container.name</span> = <span class="yv">"svc-automation"</span> and
     <span class="yn">evt.type</span> in (<span class="yv">connect</span>) and
     <span class="yn">fd.typechar</span> = <span class="yv">"4"</span> and
     not <span class="yn">fd.rip</span> in (<span class="yv">rfc_1918_addresses</span>)
@@ -2488,7 +2591,7 @@ html.light .hero .scan-line { display: none; }
         <div class="rule-explanation-title">Rule Breakdown</div>
         <div class="rule-exp-item">
           <span class="rule-exp-tag">condition</span>
-          <span>Scopes the rule to the <strong style="color:var(--white);">cd-service-n8n</strong> container only. Prevents false positives from other services. Monitors <strong style="color:var(--white);">connect()</strong> syscalls caught by Falco eBPF.</span>
+          <span>Scopes the rule to the <strong style="color:var(--white);">svc-automation</strong> container only. Prevents false positives from other services. Monitors <strong style="color:var(--white);">connect()</strong> syscalls caught by Falco eBPF.</span>
         </div>
         <div class="rule-exp-item">
           <span class="rule-exp-tag">fd.typechar</span>
@@ -2540,13 +2643,13 @@ html.light .hero .scan-line { display: none; }
     <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
       <!-- LEFT: Stats & Bars -->
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--gold);margin-bottom:4px;">31 Documents</div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--light);margin-bottom:24px;">15,000+ lines of compliance documentation</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--gold);margin-bottom:4px;">37 Documents</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--light);margin-bottom:24px;">~20,000 lines of compliance documentation</div>
 
         <div style="display:grid;gap:8px;">
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/SSP_SYSTEM_SECURITY_PLAN.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border:1px solid var(--mid);background:var(--void);transition:border-color 0.3s;cursor:pointer;min-height:44px;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--mid)'">
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">NIST SP 800-53</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;">MAPPED &bull; 170+ controls / 16 families</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;">MAPPED &bull; 133 controls / 16 families</span>
           </div></a>
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/CIS_RISK_REGISTER.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border:1px solid var(--mid);background:var(--void);transition:border-color 0.3s;cursor:pointer;min-height:44px;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--mid)'">
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">CIS Controls</span>
@@ -2598,7 +2701,7 @@ html.light .hero .scan-line { display: none; }
             <div class="sc-bar-row" data-pct="90">
               <div class="sc-bar-meta"><span class="sc-bar-cat">Compliance</span><span class="sc-bar-pct">90%</span></div>
               <div class="sc-bar-track"><div class="sc-bar-fill"></div></div>
-              <div class="sc-bar-sub">31 GRC docs, 170+ NIST controls</div>
+              <div class="sc-bar-sub">37 GRC docs, 133 NIST controls</div>
             </div>
             <div class="sc-bar-row" data-pct="94">
               <div class="sc-bar-meta"><span class="sc-bar-cat">CI/CD Security</span><span class="sc-bar-pct">94%</span></div>
@@ -2644,13 +2747,13 @@ html.light .hero .scan-line { display: none; }
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/SSP_SYSTEM_SECURITY_PLAN.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View System Security Plan on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s,box-shadow 0.3s;">
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">System Security Plan (SSP)</div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">NIST 800-53 &bull; 170+ controls &bull; 16 families</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">NIST 800-53 &bull; 133 controls &bull; 16 families</div>
             <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
           </div></a>
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/POAM_PLAN_OF_ACTION.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View POA&amp;M on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s,box-shadow 0.3s;">
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">POA&amp;M + Risk Assessment</div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">22 entries &bull; 17 threats &bull; MITRE ATT&amp;CK mapped</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">27 entries &bull; 17 threats &bull; MITRE ATT&amp;CK mapped</div>
             <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
           </div></a>
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/README.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Security Policies on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s,box-shadow 0.3s;">
@@ -2705,7 +2808,7 @@ html.light .hero .scan-line { display: none; }
                 <div class="ir-flow-node node-action" tabindex="0" role="button" aria-expanded="false" onclick="irToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
                   <div class="ir-flow-node-label">ACTION</div>
                   Isolate immediately (network disconnect)
-                  <div class="ir-detail-panel">docker network disconnect to cut external access. Block Cloudflare tunnel route. Preserve container state. Do NOT stop or remove. Log isolation timestamp for SLA tracking.</div>
+                  <div class="ir-detail-panel">Docker network disconnect to cut external access. Block Cloudflare tunnel route. Preserve container state. Do NOT stop or remove. Log isolation timestamp for SLA tracking.</div>
                 </div>
               </div>
               <div class="ir-flow-branch-no">
@@ -2714,7 +2817,7 @@ html.light .hero .scan-line { display: none; }
                 <div class="ir-flow-node node-action" tabindex="0" role="button" aria-expanded="false" onclick="irToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
                   <div class="ir-flow-node-label">ACTION</div>
                   Assess blast radius
-                  <div class="ir-detail-panel">Review docker network topology. Identify containers on same bridge network. Check shared volumes. Assess if internal service credentials are in scope. Correlate with Datadog alerts.</div>
+                  <div class="ir-detail-panel">Review Docker network topology. Identify containers on same bridge network. Check shared volumes. Assess if internal service credentials are in scope. Correlate with Datadog alerts.</div>
                 </div>
               </div>
             </div>
@@ -2725,7 +2828,7 @@ html.light .hero .scan-line { display: none; }
             <div class="ir-flow-node node-action stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="irToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
               <div class="ir-flow-node-label">FORENSICS</div>
               Capture snapshot + analyze Falco audit logs
-              <div class="ir-detail-panel">docker export for filesystem snapshot. Teleport session recordings capture any interactive access. Pull Falco audit trail from Datadog. Preserve evidence before remediation.</div>
+              <div class="ir-detail-panel">Docker export for filesystem snapshot. Teleport session recordings capture any interactive access. Pull Falco audit trail from Datadog. Preserve evidence before remediation.</div>
             </div>
 
             <div class="ir-flow-connector"><div class="conn-line"></div><span class="conn-arrow">&#9660;</span></div>
@@ -3110,7 +3213,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     certs: function() {
       return [
         {t:'gold', m:'Certification Stack (6 verified):'},
-        {t:'', m:'  [VERIFIED] CompTIA SecurityX (CASP+)'},
+        {t:'', m:'  [VERIFIED] CompTIA SecurityX'},
         {t:'', m:'  [VERIFIED] ISC\u00B2 SSCP'},
         {t:'', m:'  [VERIFIED] Cisco CCNA'},
         {t:'', m:'  [VERIFIED] CompTIA Security+'},
@@ -3155,9 +3258,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     },
     grc: function() {
       return [
-        {t:'gold', m:'GRC Library (31 documents, 15,000+ lines):'},
-        {t:'', m:'  System Security Plan (NIST 800-53, 170+ controls)'},
-        {t:'', m:'  POA&M (22 entries)'},
+        {t:'gold', m:'GRC Library (37 documents, ~20,000 lines):'},
+        {t:'', m:'  System Security Plan (NIST 800-53, 133 controls)'},
+        {t:'', m:'  POA&M (27 entries)'},
         {t:'', m:'  Risk Assessment (17 threats, MITRE ATT&CK)'},
         {t:'', m:'  10 Security Policies (incl. AI Governance)'},
         {t:'', m:'  5 IR Playbooks + Tabletop Exercise'},
