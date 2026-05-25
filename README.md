@@ -27,10 +27,10 @@ Interactive sections covering the full security program:
   - Google Cloud IAM assessment
   - OWASP Top 10 (2025) coverage checklist
 - **AI Security** - LLM threat modeling, prompt injection defenses, OWASP LLM Top 10 mapping, AI governance (ISO 42001)
-- **GRC** - 37-document compliance library stats, NIST 800-53 control heatmap, POA&M scorecard, interactive IR flowchart
+- **GRC** - 54-document compliance library stats (with HIPAA, SOC 2, ISO 27001 crosswalks), NIST 800-53 control heatmap, POA&M scorecard, interactive IR flowchart
 
 ### Architecture
-Expandable architecture layers showing the 14-container Zero Trust platform: Cloudflare tunnels, Falco eBPF detection, n8n SOAR, network segmentation across 3 Docker networks.
+Expandable architecture layers showing the 18-container Zero Trust platform: Cloudflare tunnels, Falco eBPF detection, n8n SOAR, network segmentation across 4 Docker networks.
 
 ## Features
 
@@ -53,6 +53,6 @@ Single `index.html` with all CSS and JS inline. Zero dependencies. Zero build st
 ## Links
 
 - **Live:** [et-sec.github.io/portfolio](https://et-sec.github.io/portfolio/)
-- **Infrastructure Repo:** [cyber-squire1](https://github.com/ET-sec/cyber-squire1) (37 GRC documents, CI/CD pipelines, Terraform IaC)
+- **Infrastructure Repo:** [cyber-squire1](https://github.com/ET-sec/cyber-squire1) (54 GRC documents, CI/CD pipelines, Terraform IaC)
 - **LinkedIn:** [Emmanuel Tigoue](https://www.linkedin.com/in/emmanuel-tigoue-672378307)
 - **Credly:** [Certifications](https://www.credly.com/users/emmanuel-tigoue)
