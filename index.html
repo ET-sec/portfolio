@@ -1400,8 +1400,9 @@ html.light .hero .scan-line { display: none; }
       <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/15cf6f50-9a78-4405-9cde-3998c8117f84/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify SecurityX on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
         <h3>CompTIA SecurityX</h3>
-        <div class="cert-meta">Advanced Security Practitioner</div>
-        <div class="cert-meta">DoD 8140 IAT/IAM Level III</div>
+        <div class="cert-meta">Advanced Security Practitioner (CASP+ successor)</div>
+        <div class="cert-meta">Architecture, engineering, GRC, threat operations</div>
+        <div class="cert-meta">DoD 8140 IAT/IAM Level III approved</div>
         <div class="cert-note">Click to verify on Credly</div>
       </div></a></div>
 
@@ -1646,7 +1647,7 @@ html.light .hero .scan-line { display: none; }
             <div class="arch-node" style="border-color:var(--purple);" data-info="AI inference network. Ollama, Whisper. internal:true flag blocks all internet access. Air-gapped by design.">&#9673; net-ai <span class="port">AIR-GAP</span></div>
             <div class="arch-node" style="border-color:var(--red);" data-info="Security monitoring network. Falco, Falcosidekick, Fluentd, Datadog. Isolated from service traffic.">&#9673; net-monitoring <span class="port">MONITOR</span></div>
           </div>
-          <div class="arch-layer-detail">Three isolated Docker networks. net-core for service communication. net-ai is air-gapped (internal:true) so AI models cannot reach the internet at runtime. net-monitoring isolates the security stack from service traffic. n8n bridges net-core and net-ai. Event handler bridges net-core and net-monitoring.</div>
+          <div class="arch-layer-detail">Four Docker networks total: three isolated bridges plus one host-mode interface for the edge tunnel. net-core for service communication. net-ai is air-gapped (internal:true) so AI models cannot reach the internet at runtime. net-monitoring isolates the security stack from service traffic. The edge tunnel runs on host network mode so it can bind low-level sockets without exposing ports to the public internet. n8n bridges net-core and net-ai. Event handler bridges net-core and net-monitoring.</div>
         </div>
         <div class="arch-connector"></div>
 
@@ -1655,9 +1656,9 @@ html.light .hero .scan-line { display: none; }
           <div class="arch-layer-label" style="color:var(--cyan);" tabindex="0" role="button" aria-expanded="false" onclick="var d=this.parentElement.querySelector('.arch-layer-detail');d.classList.toggle('expanded');var ex=d.classList.contains('expanded');this.setAttribute('aria-expanded',ex);this.querySelector('.toggle-icon').textContent=ex?'\u25BE':'\u25B8'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><span class="toggle-icon">&#9656;</span>Layer 4 // Core Services</div>
           <div class="arch-nodes">
             <div class="arch-node" data-info="Primary data store. Workflow state, automation logs. Encrypted at rest. Daily backups.">&#9673; PostgreSQL 16 <span class="port">DB</span></div>
-            <div class="arch-node" data-info="Security orchestration. 6 active workflows. 16 service integrations. Webhook-driven automation.">&#9673; n8n SOAR <span class="port">SOAR</span></div>
+            <div class="arch-node" data-info="Security orchestration. 14 workflows. 16 service integrations. Webhook-driven master orchestrator pattern.">&#9673; n8n SOAR <span class="port">SOAR</span></div>
           </div>
-          <div class="arch-layer-detail" style="border-left-color:var(--cyan);">PostgreSQL stores workflow state with encrypted-at-rest storage and daily automated backups. n8n orchestrates 6 SOAR workflows across 16 integrated services: incident response, health monitoring, compliance checks, and operational intelligence.</div>
+          <div class="arch-layer-detail" style="border-left-color:var(--cyan);">PostgreSQL stores workflow state with encrypted-at-rest storage and daily automated backups. The pgvector extension powers Squire RAG retrieval over the GRC corpus. n8n orchestrates 14 SOAR workflows across 16 integrated services: incident response, health monitoring, compliance checks, content pipelines, and operational intelligence.</div>
         </div>
         <div class="arch-connector"></div>
 
@@ -1668,8 +1669,10 @@ html.light .hero .scan-line { display: none; }
             <div class="arch-node" data-info="Self-hosted LLM. Qwen 3 8B. Zero external API costs. Fully local inference on net-ai.">&#9673; Ollama <span class="port">LLM</span></div>
             <div class="arch-node" data-info="On-premise voice transcription. Privacy-first: no audio leaves the server. Air-gapped on net-ai.">&#9673; Whisper STT <span class="port">STT</span></div>
             <div class="arch-node" data-info="Claude Opus 4.7 gateway. 6 tool-use skills. Prompt injection defenses. Output validation.">&#9673; OpenClaw <span class="port">AGENT</span></div>
+            <div class="arch-node" data-info="AI safety sidecar. NVIDIA NeMo Guardrails with GLiNER PII redaction and PINT v2 prompt injection scoring. Every inbound prompt and outbound response inspected.">&#9673; NeMo Guardrails <span class="port">GUARD</span></div>
+            <div class="arch-node" data-info="Squire autonomous SOC analyst. LangGraph orchestration with pgvector RAG over GRC corpus, Voyage AI embeddings, cost ceiling enforcement, human-in-the-loop gates on destructive actions. Telegram triage interface.">&#9673; Squire SOC Agent <span class="port">RAG</span></div>
           </div>
-          <div class="arch-layer-detail" style="border-left-color:var(--purple);">AI inference runs on an air-gapped network (net-ai, internal:true). Ollama and Whisper cannot reach the internet at runtime. OpenClaw gateway provides authenticated access to Claude Opus 4.7 with 6 active tool-use skills. Prompt injection defenses and output validation layers enforce AI safety.</div>
+          <div class="arch-layer-detail" style="border-left-color:var(--purple);">AI inference runs on an air-gapped network (net-ai, internal:true). Ollama and Whisper cannot reach the internet at runtime. OpenClaw gateway provides authenticated access to Claude Opus 4.7 with 6 active tool-use skills. NeMo Guardrails sidecar inspects every prompt and response with GLiNER PII redaction and PINT v2 injection scoring before they reach the model. Squire is the autonomous SOC analyst built on LangGraph with pgvector RAG over the GRC corpus, cost ceilings, and human-in-the-loop approval gates on any destructive action.</div>
         </div>
         <div class="arch-connector"></div>
 
@@ -1690,13 +1693,14 @@ html.light .hero .scan-line { display: none; }
           <div class="arch-layer-label" style="color:var(--gold);" tabindex="0" role="button" aria-expanded="false" onclick="var d=this.parentElement.querySelector('.arch-layer-detail');d.classList.toggle('expanded');var ex=d.classList.contains('expanded');this.setAttribute('aria-expanded',ex);this.querySelector('.toggle-icon').textContent=ex?'\u25BE':'\u25B8'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><span class="toggle-icon">&#9656;</span>Layer 7 // Observability &amp; Supply Chain</div>
           <div class="arch-nodes">
             <div class="arch-node" data-info="Full observability: APM, infrastructure metrics, log aggregation, custom SOC dashboards.">&#9673; Datadog <span class="port">APM</span></div>
+            <div class="arch-node" data-info="LLM observability. Self-hosted Langfuse v3 with ClickHouse and Redis. Captures every Squire agent trace, prompt, response, latency, token cost, and tool call. Backbone for cost ceilings and audit trail.">&#9673; Langfuse <span class="port">LLM-OBS</span></div>
             <div class="arch-node" data-info="Unified log pipeline. Container logs aggregated and shipped to Datadog.">&#9673; Fluentd <span class="port">LOGS</span></div>
             <div class="arch-node" data-info="Container vulnerability scanning. Blocks deployments with critical CVEs.">&#9673; Trivy <span class="port">CVE</span></div>
             <div class="arch-node" data-info="Static analysis security testing in CI pipeline.">&#9673; Semgrep <span class="port">SAST</span></div>
             <div class="arch-node" data-info="Secret detection. Prevents credential leaks before they reach the repo.">&#9673; Gitleaks <span class="port">SECRETS</span></div>
             <div class="arch-node" data-info="Container image signing + SBOM generation. Supply chain integrity.">&#9673; Cosign/Syft <span class="port">SBOM</span></div>
           </div>
-          <div class="arch-layer-detail" style="border-left-color:var(--gold);">Datadog provides full-stack observability with custom SOC dashboards. Fluentd aggregates container logs into a unified pipeline. CI/CD security gates: Trivy scans for CVEs, Semgrep performs SAST, Gitleaks prevents credential leaks, OPA/Rego enforces infrastructure policies, Cosign signs images, and Syft generates SBOMs for supply chain verification.</div>
+          <div class="arch-layer-detail" style="border-left-color:var(--gold);">Datadog provides full-stack observability with custom SOC dashboards. Langfuse v3 self-hosted on ClickHouse and Redis captures every Squire agent trace, prompt, response, token cost, and tool call for the AI audit trail. Fluentd aggregates container logs into a unified pipeline. CI/CD security gates: Trivy scans for CVEs, Semgrep performs SAST, Gitleaks prevents credential leaks, OPA/Rego enforces infrastructure policies, Cosign signs images, and Syft generates SBOMs for supply chain verification.</div>
         </div>
 
         <div style="text-align:center;margin-top:16px;">
@@ -1943,7 +1947,7 @@ html.light .hero .scan-line { display: none; }
 
     <!-- STRIDE INTERACTIVE GRID -->
     <div id="tm-stride" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;scroll-margin-top:80px;" class="reveal">Interactive // STRIDE Threat Decomposition</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mid);margin-bottom:16px;" class="reveal">Click any category to expand findings &middot; 29 threats identified across 18 services</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mid);margin-bottom:16px;" class="reveal">Click any category to expand findings &middot; 29 threats identified across 19 services</div>
 
     <div class="stride-grid reveal">
       <div class="hud-red stride-card stagger-card" onclick="strideToggle(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
@@ -2319,7 +2323,7 @@ html.light .hero .scan-line { display: none; }
         <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
           <span class="bl"></span><span class="br"></span>
           <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">STRIDE Threat Model</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">29 threats &bull; 18 services &bull; 10 trust boundaries &bull; AI extensions</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">29 threats &bull; 19 services &bull; 7 trust boundaries &bull; AI extensions</div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
         </div></a>
         <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/ATTACK_TREE_AI_PIPELINE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
@@ -2337,7 +2341,7 @@ html.light .hero .scan-line { display: none; }
         <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/DATA_FLOW_DIAGRAM.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
           <span class="bl"></span><span class="br"></span>
           <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">Data Flow Diagram</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">30+ data flows &bull; 10 trust boundaries &bull; NIST SP 800-154</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">30+ data flows &bull; 7 trust boundaries &bull; NIST SP 800-154</div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
         </div></a>
         <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/AI_SUPPLY_CHAIN_RISK.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
@@ -2349,7 +2353,7 @@ html.light .hero .scan-line { display: none; }
         <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/AI_RED_TEAM_PLAN.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
           <span class="bl"></span><span class="br"></span>
           <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">AI Red Team Plan</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">Adversarial testing &bull; OWASP LLM Top 10 test cases</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">2 cycles &bull; 20 test cases &bull; OWASP LLM01, LLM06, LLM09 covered</div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
         </div></a>
         <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/PLAYBOOK_AI_INCIDENT.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
@@ -2673,6 +2677,18 @@ html.light .hero .scan-line { display: none; }
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">NIST AI RMF</span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;">MAPPED &bull; Risk Management</span>
           </div></a>
+          <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/HIPAA_SECURITY_RULE_CROSSWALK.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border:1px solid var(--mid);background:var(--void);transition:border-color 0.3s;cursor:pointer;min-height:44px;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--mid)'">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">HIPAA Security Rule</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;">CROSSWALK &bull; ePHI Handling</span>
+          </div></a>
+          <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/FRAMEWORK_CROSSWALK_SOC2_ISO27001.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border:1px solid var(--mid);background:var(--void);transition:border-color 0.3s;cursor:pointer;min-height:44px;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--mid)'">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">SOC 2 / ISO 27001</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;">CROSSWALK &bull; Trust Services Criteria</span>
+          </div></a>
+          <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/SSP_SYSTEM_SECURITY_PLAN.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border:1px solid var(--mid);background:var(--void);transition:border-color 0.3s;cursor:pointer;min-height:44px;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--mid)'">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">FedRAMP Moderate</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;">INHERITED &bull; via NIST 800-53</span>
+          </div></a>
         </div>
 
         <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mid);margin-top:12px;letter-spacing:0.5px;">Self-assessed against NIST SP 800-53 Rev 5 Moderate baseline</div>
@@ -2782,6 +2798,24 @@ html.light .hero .scan-line { display: none; }
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">8 OPA/Rego Policies</div>
             <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">Infrastructure enforcement &bull; CI pipeline &bull; Pre-commit hooks</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
+          </div></a>
+          <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Threat Modeling Suite on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s,box-shadow 0.3s;">
+            <span class="bl"></span><span class="br"></span>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">Threat Modeling Suite</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">STRIDE (29 threats, 7 trust boundaries) &bull; AI Threat Catalog &bull; Attack trees &bull; Squire threat model</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
+          </div></a>
+          <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/AGENT_SIGNING.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View AI Governance Engineering on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s,box-shadow 0.3s;">
+            <span class="bl"></span><span class="br"></span>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">AI Governance Engineering</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">Agent signing &bull; AI audit trail spec &bull; Supply chain register &bull; OWASP MCP Top 10 audit &bull; HITL policy</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
+          </div></a>
+          <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/REDTEAM_RESULTS.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Red Team Results on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s,box-shadow 0.3s;">
+            <span class="bl"></span><span class="br"></span>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">Red Team + Pen Test Results</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">20 test cases across OWASP LLM01, LLM06, LLM09 &bull; Zero injection bypasses &bull; Pen test self-assessment</div>
             <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
           </div></a>
         </div>
