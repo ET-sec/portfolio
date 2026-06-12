@@ -1400,9 +1400,8 @@ html.light .hero .scan-line { display: none; }
       <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/15cf6f50-9a78-4405-9cde-3998c8117f84/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify SecurityX on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
         <h3>CompTIA SecurityX</h3>
-        <div class="cert-meta">Advanced Security Practitioner (CASP+ successor)</div>
-        <div class="cert-meta">Architecture, engineering, GRC, threat operations</div>
-        <div class="cert-meta">DoD 8140 IAT/IAM Level III approved</div>
+        <div class="cert-meta">Advanced Security Practitioner (CASP+)</div>
+        <div class="cert-meta">DoD 8140 IAT/IAM Level III</div>
         <div class="cert-note">Click to verify on Credly</div>
       </div></a></div>
 
@@ -1668,11 +1667,11 @@ html.light .hero .scan-line { display: none; }
           <div class="arch-nodes">
             <div class="arch-node" data-info="Self-hosted LLM. Qwen 3 8B. Zero external API costs. Fully local inference on net-ai.">&#9673; Ollama <span class="port">LLM</span></div>
             <div class="arch-node" data-info="On-premise voice transcription. Privacy-first: no audio leaves the server. Air-gapped on net-ai.">&#9673; Whisper STT <span class="port">STT</span></div>
-            <div class="arch-node" data-info="Claude Opus 4.7 gateway. 6 tool-use skills. Prompt injection defenses. Output validation.">&#9673; OpenClaw <span class="port">AGENT</span></div>
+            <div class="arch-node" data-info="Claude Opus 4.8 gateway. 6 tool-use skills. Prompt injection defenses. Output validation.">&#9673; OpenClaw <span class="port">AGENT</span></div>
             <div class="arch-node" data-info="AI safety sidecar. NVIDIA NeMo Guardrails with GLiNER PII redaction and PINT v2 prompt injection scoring. Every inbound prompt and outbound response inspected.">&#9673; NeMo Guardrails <span class="port">GUARD</span></div>
             <div class="arch-node" data-info="Squire autonomous SOC analyst. LangGraph orchestration with pgvector RAG over GRC corpus, Voyage AI embeddings, cost ceiling enforcement, human-in-the-loop gates on destructive actions. Telegram triage interface.">&#9673; Squire SOC Agent <span class="port">RAG</span></div>
           </div>
-          <div class="arch-layer-detail" style="border-left-color:var(--purple);">AI inference runs on an air-gapped network (net-ai, internal:true). Ollama and Whisper cannot reach the internet at runtime. OpenClaw gateway provides authenticated access to Claude Opus 4.7 with 6 active tool-use skills. NeMo Guardrails sidecar inspects every prompt and response with GLiNER PII redaction and PINT v2 injection scoring before they reach the model. Squire is the autonomous SOC analyst built on LangGraph with pgvector RAG over the GRC corpus, cost ceilings, and human-in-the-loop approval gates on any destructive action.</div>
+          <div class="arch-layer-detail" style="border-left-color:var(--purple);">AI inference runs on an air-gapped network (net-ai, internal:true). Ollama and Whisper cannot reach the internet at runtime. OpenClaw gateway provides authenticated access to Claude Opus 4.8 with 6 active tool-use skills. NeMo Guardrails sidecar inspects every prompt and response with GLiNER PII redaction and PINT v2 injection scoring before they reach the model. Squire is the autonomous SOC analyst built on LangGraph with pgvector RAG over the GRC corpus, cost ceilings, and human-in-the-loop approval gates on any destructive action.</div>
         </div>
         <div class="arch-connector"></div>
 
@@ -1861,7 +1860,7 @@ html.light .hero .scan-line { display: none; }
 
     <div class="agent-surface-grid reveal">
       <div class="agent-core">
-        <div class="agent-core-label">CLAUDE OPUS 4.7 // AGENTIC GATEWAY</div>
+        <div class="agent-core-label">CLAUDE OPUS 4.8 // AGENTIC GATEWAY</div>
         <div class="agent-core-sub">Autonomous AI agent with 6 active tool-use skills &middot; Telegram-facing &middot; No human-in-the-loop</div>
       </div>
       <div class="agent-skills-grid">
@@ -2564,7 +2563,7 @@ html.light .hero .scan-line { display: none; }
           <p style="font-size:12px;color:var(--light);line-height:1.6;">Self-hosted LLM. No data leaves server. Quantized for efficiency. Used for security analysis and automation tasks.</p>
         </div>
         <div style="background:var(--void);border:1px solid var(--mid);padding:16px;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--white);margin-bottom:6px;">OpenClaw / Claude Opus 4.7</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--white);margin-bottom:6px;">OpenClaw / Claude Opus 4.8</div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);margin-bottom:8px;">Risk: MEDIUM // External API</div>
           <p style="font-size:12px;color:var(--light);line-height:1.6;">Authenticated gateway. Rate-limited. API key rotation enforced. Prompt injection defenses. Output validation layer.</p>
         </div>
@@ -3265,7 +3264,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         {t:'output', m:'  n8n SOAR              Orchestration (6 workflows)'},
         {t:'output', m:'  Ollama/Qwen 3         AI Inference (local)'},
         {t:'output', m:'  Whisper STT           Voice Transcription'},
-        {t:'output', m:'  OpenClaw Gateway      Claude Opus 4.7 Agent'},
+        {t:'output', m:'  OpenClaw Gateway      Claude Opus 4.8 Agent'},
         {t:'output', m:'  Teleport v18          PAM / JIT Access'},
         {t:'output', m:'  Keycloak v26          RBAC / SSO'},
         {t:'output', m:'  Vault                 Secrets Management'},
