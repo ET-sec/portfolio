@@ -244,8 +244,11 @@ html.light .nav-dropdown-parent > a:hover { color: var(--green); }
 }
 
 /* CERTS */
-.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.cert-card .hud { padding: 20px 24px; transition: border-color 0.3s, box-shadow 0.3s; border-left: 3px solid var(--green); }
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; grid-auto-rows: 1fr; }
+.cert-card { display: flex; }
+.cert-card > a, .cert-card > div { display: flex; flex-direction: column; width: 100%; }
+.cert-card .hud { padding: 20px 24px; transition: border-color 0.3s, box-shadow 0.3s; border-left: 3px solid var(--green); flex: 1; display: flex; flex-direction: column; }
+.cert-card .cert-note { margin-top: auto !important; padding-top: 16px; }
 .cert-card .hud::before, .cert-card .hud::after, .cert-card .hud .bl, .cert-card .hud .br { display: none; }
 .cert-card .hud:hover { border-color: var(--mid); border-left-color: var(--green); box-shadow: 0 0 8px rgba(0,255,65,0.08); }
 .cert-badge { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1px; padding: 2px 6px; border: 1px solid; display: inline-block; margin-bottom: 16px; opacity: 0.7; }
