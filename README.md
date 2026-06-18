@@ -1,6 +1,7 @@
 # Emmanuel Tigoue - AI Security Engineer Portfolio
 
 [![Live Site](https://img.shields.io/badge/Site-Live-00FF41?style=flat-square)](https://et-sec.github.io/portfolio/)
+[![CISSP](https://img.shields.io/badge/CISSP-Certified-FFB800?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
 [![SecurityX](https://img.shields.io/badge/SecurityX-Certified-00FF41?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
 [![SSCP](https://img.shields.io/badge/SSCP-Certified-00FF41?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
 [![CCNA](https://img.shields.io/badge/CCNA-Certified-00FF41?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
@@ -10,7 +11,7 @@ Interactive portfolio showcasing AI security engineering work: Zero Trust archit
 ## What's Here
 
 ### Certifications
-7 cert cards with Credly verification links. CISSP (in progress), SecurityX, CCNA, SSCP, Security+, Network+, ISC2 CC.
+7 cert cards with Credly verification links. CISSP, SecurityX, CCNA, SSCP, Security+, Network+, ISC2 CC. All verified.
 
 ### Experience
 Two roles with metric stat grids: CoreDirective (AI Security Engineer) and Texaco (IT Security and Operations Manager).
@@ -54,5 +55,5 @@ Single `index.html` with all CSS and JS inline. Zero dependencies. Zero build st
 
 - **Live:** [et-sec.github.io/portfolio](https://et-sec.github.io/portfolio/)
 - **Infrastructure Repo:** [cyber-squire1](https://github.com/ET-sec/cyber-squire1) (54 GRC documents, CI/CD pipelines, Terraform IaC)
-- **LinkedIn:** [Emmanuel Tigoue](https://www.linkedin.com/in/emmanuel-tigoue-672378307)
+- **LinkedIn:** [Emmanuel Tigoue](https://www.linkedin.com/in/emmanuel-tigoue)
 - **Credly:** [Certifications](https://www.credly.com/users/emmanuel-tigoue)
