@@ -1500,14 +1500,13 @@ html.light .hero .scan-line { display: none; }
         </div>
       </div>
       <ul class="exp-bullets">
-        <li>Secured AI gateway (Claude Fable <span class="m">5</span>, OWASP LLM Top 10, MITRE ATLAS) and red teamed <span class="m">25</span> test cases for prompt injection, jailbreak, and data exfiltration pre-launch</li>
-        <li>Built shift-left CI/CD (Trivy, Semgrep, Gitleaks, OPA, Cosign, SBOM) and executed DAST with OWASP ZAP: <span class="m">zero</span> injection vulns across <span class="m">8</span> categories, <span class="m">4</span> header fixes same-day</li>
-        <li>Cut alert noise from <span class="m">200+</span> to <span class="m">12</span> actionable findings by tuning Falco eBPF rules with Datadog routing via Falcosidekick</li>
-        <li>Defined <span class="m">20</span> Terraform files, <span class="m">30+</span> resources, <span class="m">8</span> OPA policies. Deployed Teleport PAM (JIT) and Keycloak SSO (<span class="m">3</span>-tier RBAC)</li>
-        <li>Reduced external attack surface to <span class="m">zero</span> exposed ports through Cloudflare Zero Trust tunnels with mTLS</li>
-        <li>Assessed Google Cloud IAM across <span class="m">7</span> APIs: OAuth 2.0 lifecycle, org-level policies, cross-domain identity federation</li>
-        <li>Automated ops via n8n SOAR with NeMo-sandboxed AI and Ollama local inference, cutting triage by <span class="m">80%</span></li>
-        <li>Authored <span class="m">57</span> GRC documents: SSP (<span class="m">135</span> NIST 800-53 controls), POA&amp;M (<span class="m">27</span> findings), <span class="m">10</span> policies, <span class="m">5</span> IR playbooks, DAST assessment, pen test</li>
+        <li>Architected Squire, an AI SOC analyst that drafts a triage verdict for every alert and cuts manual triage time per alert <span class="m">80%</span>. Built on LangGraph with human approval gates, pgvector RAG, NeMo Guardrails PII redaction, and Langfuse tracing</li>
+        <li>Threat modeled the OpenClaw gateway (Claude Fable <span class="m">5</span>) against the OWASP LLM Top 10 and MITRE ATLAS, then set the guardrail and access requirements the platform shipped with</li>
+        <li>Ran structured red team assessments on production AI stacks and web applications: prompt injection, jailbreaks, data leakage, excessive agency, and OWASP web risks. Remediated all <span class="m">6</span> high and medium findings in <span class="m">5</span> attack classes before launch</li>
+        <li>Embedded Semgrep SAST, Trivy container image and dependency scanning, Gitleaks secrets scanning, and OPA policy gates for infrastructure as code into CI/CD. Added OWASP ZAP DAST against staging and Cosign image signing, with deploys rejecting unsigned images</li>
+        <li>Placed every admin surface behind Cloudflare Zero Trust, defined in Terraform with <span class="m">zero</span> public ports and separate policies for human and service accounts</li>
+        <li>Tuned Falco eBPF container runtime detection shipped to Datadog and mapped to MITRE ATT&amp;CK, cutting daily alerts from <span class="m">200+</span> to <span class="m">12</span> without losing coverage</li>
+        <li>Authored <span class="m"><!-- METRIC:grc.total_documents -->57<!-- /METRIC --></span> GRC documents mapping <span class="m"><!-- METRIC:grc.nist_800_53_controls_cited -->133<!-- /METRIC --></span> NIST 800-53 controls plus NIST AI RMF, SOC 2, and ISO 27001, and built a Promptfoo eval harness that regression tests the AI guardrail controls</li>
       </ul>
     </div>
 
@@ -1540,13 +1539,12 @@ html.light .hero .scan-line { display: none; }
         </div>
       </div>
       <ul class="exp-bullets">
-        <li>Led incident response across <span class="m">3</span> locations: POS skimmer investigations, credential compromises, and vendor access incidents. Built <span class="m">6</span>-step IR runbook cutting containment from <span class="m">8</span> hours to <span class="m">90</span> minutes</li>
-        <li>Segmented flat network into <span class="m">4</span> VLANs isolating POS payment, back-office, guest Wi-Fi, and management. Validated with Nmap scans</li>
-        <li>Deployed Splunk SIEM with correlation rules cutting mean time to detect from <span class="m">48</span> hours to under <span class="m">4</span> hours</li>
-        <li>Hardened Active Directory with GPO baselines, least-privilege enforcement, and credential rotation. Reduced audit findings from <span class="m">14</span> to <span class="m">2</span></li>
-        <li>Maintained PCI DSS compliance across <span class="m">45+</span> devices with quarterly Nessus scans, segmentation validation, and SAQ documentation</li>
-        <li>Automated patch deployment, provisioning, and compliance reporting with Python and PowerShell, recovering <span class="m">12</span> hours weekly</li>
-        <li>Established AI governance aligned to NIST AI RMF with LLM-powered phishing detection and incident prioritization</li>
+        <li>Led incident response for <span class="m">3</span> retail locations: POS skimmer attempts, credential compromise, unauthorized vendor access. Wrote a <span class="m">6</span> step IR runbook that cut containment from <span class="m">8</span> hours to <span class="m">90</span> minutes</li>
+        <li>Deployed Splunk as the SIEM with log ingestion from <span class="m">45+</span> endpoints and network devices across <span class="m">3</span> sites, then built correlation rules and response automations on top. Detection time fell from <span class="m">48</span> hours to under <span class="m">4</span></li>
+        <li>Segmented a flat network into isolated VLANs for POS, back office, guest WiFi, and management traffic, then proved the separation with Nmap scans</li>
+        <li>Hardened Active Directory with GPO baselines, stale account cleanup, removal of standing admin rights, and automated credential rotation. Closed <span class="m">12</span> of <span class="m">14</span> critical audit findings</li>
+        <li>Uncovered <span class="m">$18K</span> a year in card fraud losses tied to payment terminals that failed PCI compliance; closed the exposure across <span class="m">45+</span> endpoints with a quarterly vulnerability management cycle of internal Nessus scans, risk ranked fixes, and a current SAQ</li>
+        <li>Automated patch deployment, user provisioning, and compliance reporting with Python, PowerShell, and REST APIs, freeing <span class="m">12</span> hours a week of manual ops work</li>
       </ul>
     </div>
 
