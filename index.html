@@ -244,7 +244,10 @@ html.light .nav-dropdown-parent > a:hover { color: var(--green); }
 }
 
 /* CERTS */
-.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; grid-auto-rows: 1fr; }
+.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; grid-auto-rows: 1fr; }
+.cert-ghost { border: 1px dashed rgba(51,51,51,0.8); display: flex; align-items: center; justify-content: center; min-height: 120px; }
+.cert-ghost span { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #444; letter-spacing: 2px; text-transform: uppercase; }
+@media (max-width: 768px) { .cert-ghost { display: none; } }
 .cert-card { display: flex; }
 .cert-card > a, .cert-card > div { display: flex; flex-direction: column; width: 100%; }
 .cert-card .hud { padding: 20px 24px; transition: border-color 0.3s, box-shadow 0.3s; border-left: 3px solid var(--green); flex: 1; display: flex; flex-direction: column; }
@@ -1409,23 +1412,23 @@ html.light .hero .scan-line { display: none; }
         <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
         <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> CISSP</h3>
         <div class="cert-meta">Information Systems Security Professional</div>
-        <div class="cert-meta">Security Architecture &amp; Engineering</div>
+        <div class="cert-meta">Security Architecture &amp; Risk Management</div>
         <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card cert-card-blue stagger-card"><a href="https://aws.amazon.com/certification/certified-security-specialty/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Learn about AWS Certified Security Specialty"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-blue">&#9673; IN PROGRESS</span>
+        <h3>AWS Security Specialty</h3>
+        <div class="cert-meta">AWS Certified Security &ndash; Specialty</div>
+        <div class="cert-meta">Cloud Security Engineering</div>
+        <div class="cert-note">Click to view exam details</div>
       </div></a></div>
 
       <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/15cf6f50-9a78-4405-9cde-3998c8117f84/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify SecurityX on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
         <h3>CompTIA SecurityX</h3>
         <div class="cert-meta">Advanced Security Practitioner (CASP+)</div>
-        <div class="cert-meta">DoD 8140 IAT/IAM Level III</div>
-        <div class="cert-note">Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/6b1b0280-9d26-4b26-a368-0094ee0096b4/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify CCNA on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
-        <h3>Cisco CCNA</h3>
-        <div class="cert-meta">Certified Network Associate</div>
-        <div class="cert-meta">Enterprise Networking</div>
+        <div class="cert-meta">Enterprise Security Engineering</div>
         <div class="cert-note">Click to verify on Credly</div>
       </div></a></div>
 
@@ -1437,19 +1440,19 @@ html.light .hero .scan-line { display: none; }
         <div class="cert-note">Click to verify on Credly</div>
       </div></a></div>
 
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/9277770f-fe46-481b-912d-caed05b03034/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Security+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/6b1b0280-9d26-4b26-a368-0094ee0096b4/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify CCNA on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
-        <h3>CompTIA Security+</h3>
-        <div class="cert-meta">Security Fundamentals</div>
-        <div class="cert-meta">DoD 8140 Baseline</div>
+        <h3>Cisco CCNA</h3>
+        <div class="cert-meta">Certified Network Associate</div>
+        <div class="cert-meta">Enterprise Networking</div>
         <div class="cert-note">Click to verify on Credly</div>
       </div></a></div>
 
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/a92ce870-953e-49a0-ab8c-c929121e00e0/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Network+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/9277770f-fe46-481b-912d-caed05b03034/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Security+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
-        <h3>CompTIA Network+</h3>
-        <div class="cert-meta">Networking Fundamentals</div>
-        <div class="cert-meta">Infrastructure Foundation</div>
+        <h3>CompTIA Security+</h3>
+        <div class="cert-meta">Security Operations Fundamentals</div>
+        <div class="cert-meta">DoD 8140 Baseline</div>
         <div class="cert-note">Click to verify on Credly</div>
       </div></a></div>
 
@@ -1461,12 +1464,14 @@ html.light .hero .scan-line { display: none; }
         <div class="cert-note">Click to verify on Credly</div>
       </div></a></div>
 
-      <div class="cert-card cert-card-blue stagger-card"><a href="https://aws.amazon.com/certification/certified-security-specialty/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Learn about AWS Certified Security Specialty"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-blue">&#9673; IN PROGRESS</span>
-        <h3>AWS Security Specialty</h3>
-        <div class="cert-meta">AWS Certified Security &ndash; Specialty</div>
-        <div class="cert-meta">Cloud Security Engineering</div>
-        <div class="cert-note">Click to view exam details</div>
+      <div class="cert-ghost stagger-card"><span>// next objective</span></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/a92ce870-953e-49a0-ab8c-c929121e00e0/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Network+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>CompTIA Network+</h3>
+        <div class="cert-meta">Networking Fundamentals</div>
+        <div class="cert-meta">Infrastructure Foundation</div>
+        <div class="cert-note">Click to verify on Credly</div>
       </div></a></div>
 
     </div>
