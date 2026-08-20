@@ -605,12 +605,15 @@ html.light .hero .scan-line { display: none; }
   transition: opacity 0.6s ease;
 }
 .boot-overlay.fade-out { opacity: 0; pointer-events: none; }
-.boot-line {
-  font-family: 'JetBrains Mono', monospace; font-size: clamp(14px, 2.5vw, 18px);
-  color: var(--green); letter-spacing: 2px; opacity: 0; white-space: nowrap;
+.boot-lock-svg { filter: drop-shadow(0 0 10px rgba(0,255,65,0.35)); transition: filter 0.4s ease; }
+.boot-overlay.unlocked .boot-lock-svg { filter: drop-shadow(0 0 26px rgba(0,255,65,0.8)); }
+#lock-shackle { transform-origin: 16.5px 10px; transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1); }
+.boot-overlay.unlocked #lock-shackle { transform: rotate(30deg); }
+.boot-lock-caption {
+  font-family: 'JetBrains Mono', monospace; font-size: clamp(11px, 1.8vw, 14px);
+  color: var(--green); letter-spacing: 3px; margin-top: 22px; text-transform: uppercase;
 }
-.boot-line.show { opacity: 1; }
-.boot-line .cursor { animation: blink 0.6s step-end infinite; }
+.boot-lock-caption .cursor { animation: blink 0.6s step-end infinite; }
 
 /* DATA FLOW ANIMATION ON CONNECTORS */
 .arch-connector { position: relative; overflow: visible; }
@@ -1321,12 +1324,12 @@ html.light .hero .scan-line { display: none; }
 <div class="konami-overlay" id="konami-overlay" role="dialog" aria-label="Secret dossier">
   <div class="konami-panel">
     <div class="classified">&#9608; CLASSIFICATION: TOP SECRET // EYES ONLY</div>
-    <h3>Agent Dossier</h3>
-    <p>Codename: CORE_DIRECTIVE<br>Origin: Cameroon &rarr; Atlanta, GA<br>DoD 8140 Baseline: IAT/IAM Level III</p>
-    <p>Objective: autonomous AI security operations, deployed and documented.</p>
-    <p>Current Status: AI Security Engineer armed with 7 certifications, a 20-container security platform on its third cloud (AWS, DigitalOcean, now Oracle Cloud), and the documentation to prove it.</p>
-    <p style="color:var(--gold);">// If you found this, you're probably an engineer.<br>// We should talk.</p>
-    <div class="sig">&#9673; etigoue@tigouetheory.com</div>
+    <h3>Operator File</h3>
+    <p>Callsign: DIRECTED_SIGNAL<br>Base of Operations: Atlanta, GA<br>Specialty: agentic AI security // adversarial testing // the paperwork that proves it</p>
+    <p>Objective: make autonomous AI systems safe enough to trust in production.</p>
+    <p>Current Status: OPERATIONAL // accepting new missions.</p>
+    <p style="color:var(--gold);">// If you found this, you're probably an engineer.</p>
+    <a href="#contact" onclick="document.getElementById('konami-overlay').classList.remove('open')" class="sig" style="display:inline-block;text-decoration:none;border:1px solid var(--green);padding:8px 16px;letter-spacing:1px;">&#9673; WE SHOULD TALK &rarr;</a>
     <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mid);margin-top:20px;">Press ESC or click to close</div>
   </div>
 </div>
@@ -1336,14 +1339,12 @@ html.light .hero .scan-line { display: none; }
 
 <!-- BOOT SEQUENCE OVERLAY -->
 <div class="boot-overlay" id="boot-overlay">
-  <div class="boot-line" id="boot-line-1">ESTABLISHING SECURE CONNECTION<span class="cursor">&#9608;</span></div>
-  <div class="boot-line" id="boot-line-1b" style="margin-top:8px;font-size:clamp(11px,1.8vw,14px);">&gt; BIOS: CoreDirective Security Platform v2026.3</div>
-  <div class="boot-line" id="boot-line-1c" style="margin-top:4px;font-size:clamp(11px,1.8vw,14px);">&gt; CPU: ARM64 // ONLINE</div>
-  <div class="boot-line" id="boot-line-1d" style="margin-top:4px;font-size:clamp(11px,1.8vw,14px);">&gt; MEM: OK</div>
-  <div class="boot-line" id="boot-line-1e" style="margin-top:4px;font-size:clamp(11px,1.8vw,14px);">&gt; SERVICES: n8n[SOAR] vault[KMS] falco[eBPF] ollama[LLM] // RUNNING</div>
-  <div class="boot-line" id="boot-line-1f" style="margin-top:4px;font-size:clamp(11px,1.8vw,14px);">&gt; TUNNEL: cloudflare // CONNECTED</div>
-  <div class="boot-line" id="boot-line-1g" style="margin-top:4px;font-size:clamp(11px,1.8vw,14px);">&gt; ZERO TRUST: ENFORCED</div>
-  <div class="boot-line" id="boot-line-2" style="margin-top:12px;color:var(--gold);">&gt; VERIFIED. ACCESS GRANTED.</div>
+  <svg class="boot-lock-svg" width="76" height="76" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path id="lock-shackle" d="M7.5 10.5V7.5a4.5 4.5 0 0 1 9 0v3" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round"/>
+    <rect x="4.75" y="10.5" width="14.5" height="10" rx="1.5" stroke="var(--green)" stroke-width="1.5"/>
+    <circle cx="12" cy="15.5" r="1.3" fill="var(--green)"/>
+  </svg>
+  <div class="boot-lock-caption" id="boot-caption">Verifying Operative<span class="cursor">&#9608;</span></div>
 </div>
 
 <nav>
@@ -1384,8 +1385,7 @@ html.light .hero .scan-line { display: none; }
     <h1><span class="icon">&#9673;</span> <span class="glitch-hover">EMMANUEL TIGOUE</span></h1>
     <div class="sub-tagline" style="margin-bottom:10px;font-size:17px;letter-spacing:3px;text-transform:uppercase;">AI Security Engineer</div>
     <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);letter-spacing:2px;margin-bottom:20px;opacity:0.85;">CISSP &bull; SecurityX &bull; CCNA</div>
-    <p class="intro">I build and break agentic AI systems, then write the GRC that lets compliance sign off: inference guardrails, agent audit trails, identity federation, controls mapped to NIST 800-53 and ISO 42001.</p>
-    <p class="intro" style="font-size:14px;color:var(--light);margin-top:12px;opacity:0.85;"><!-- METRIC:stack.containers_public -->20<!-- /METRIC --> containers &bull; <!-- METRIC:grc.total_documents -->57<!-- /METRIC --> GRC documents &bull; <!-- METRIC:grc.attack_paths_total -->7<!-- /METRIC --> attack paths modeled &bull; <!-- METRIC:grc.poam_findings_closed -->7<!-- /METRIC --> red-team findings fixed</p>
+    <p class="intro">I build and break agentic AI systems, then ship the guardrails and audit trails that survive a compliance review. NIST 800-53 and ISO 42001, cloud edge to local model.</p>
     <div class="hero-buttons">
       <a href="#contact" class="btn btn-gradient" aria-label="Get in touch">Get In Touch</a>
       <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="View project on GitHub">View on GitHub</a>
@@ -1464,8 +1464,8 @@ html.light .hero .scan-line { display: none; }
       <div class="cert-card cert-card-blue stagger-card"><a href="https://aws.amazon.com/certification/certified-security-specialty/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Learn about AWS Certified Security Specialty"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-blue">&#9673; IN PROGRESS</span>
         <h3>AWS Security Specialty</h3>
-        <div class="cert-meta">AWS Certified Security &ndash; Specialty (SCS-C02)</div>
-        <div class="cert-meta">Cloud Security &amp; AI Workloads</div>
+        <div class="cert-meta">AWS Certified Security &ndash; Specialty</div>
+        <div class="cert-meta">Cloud Security Engineering</div>
         <div class="cert-note">Click to view exam details</div>
       </div></a></div>
 
@@ -1604,7 +1604,7 @@ html.light .hero .scan-line { display: none; }
       <div class="line"></div>
     </div>
     <p class="reveal body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
-      Security platform built cloud-agnostic and now on its third provider: deployed on AWS, rebuilt on DigitalOcean, currently redeploying to Oracle Cloud ARM. STRIDE threat-modeled, then deployed.
+      Multi-cloud security platform: one Terraform codebase, proven on AWS, DigitalOcean, and Oracle Cloud ARM. STRIDE threat-modeled, then deployed.
       Every metric below is verifiable in the <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer">public repository</a>.
     </p>
 
@@ -1718,8 +1718,8 @@ html.light .hero .scan-line { display: none; }
 
         <div style="text-align:center;margin-top:16px;">
           <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--light);">
-            Terraform IaC &bull; Docker Compose &bull; Cloud-agnostic
-            <br><span style="color:var(--gold);font-size:10px;">Three clouds, one codebase: AWS &rarr; DigitalOcean &rarr; Oracle Cloud ARM (rebuild in progress)</span>
+            Oracle Cloud Ampere ARM &bull; Terraform IaC &bull; Docker Compose
+            <br><span style="color:var(--gold);font-size:10px;">One codebase, multi-cloud: proven on AWS, DigitalOcean, and Oracle Cloud</span>
           </div>
         </div>
       </div>
@@ -1727,7 +1727,7 @@ html.light .hero .scan-line { display: none; }
 
     <!-- CLOUD MIGRATION CASE STUDY -->
     <div class="reveal" style="margin-top:40px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">// Cloud Migration Case Study</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">// Multi-Cloud Cost Engineering</div>
       <div class="migration-card">
         <div class="mc-col">
           <div class="mc-label">Problem</div>
@@ -1741,8 +1741,8 @@ html.light .hero .scan-line { display: none; }
         </div>
         <div class="mc-col">
           <div class="mc-label">Result</div>
-          <h4 style="color:var(--green);">$48 &rarr; $0/mo</h4>
-          <p>DigitalOcean cut cost 65%. The Oracle Cloud ARM rebuild targets $0 on Always Free. Same stack, same security posture, multi-cloud proven twice.</p>
+          <h4 style="color:var(--green);">$0/mo</h4>
+          <p>65% cut on DigitalOcean, then to zero on Oracle Cloud Always Free ARM. Same stack, same security posture, three clouds proven.</p>
         </div>
       </div>
     </div>
@@ -1758,8 +1758,8 @@ html.light .hero .scan-line { display: none; }
       <div class="hud hud-animate stagger-card">
         <span class="bl"></span><span class="br"></span>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Cost Engineering</div>
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">65% Infrastructure Cost Reduction</h3>
-        <p style="font-size:14px;color:var(--light);line-height:1.7;">AWS EC2 $135/mo down to DigitalOcean $48/mo, now rebuilding on Oracle Cloud Always Free ARM. Self-hosted Qwen 3 8B handles local inference at zero marginal cost. Terraform IaC enables cloud-agnostic redeployment.</p>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">$135/mo to $0: Multi-Cloud IaC</h3>
+        <p style="font-size:14px;color:var(--light);line-height:1.7;">AWS EC2 $135/mo, DigitalOcean $48/mo, Oracle Cloud Always Free ARM at $0. Self-hosted Qwen 3 8B handles local inference at zero marginal cost. Terraform IaC redeploys the same stack to any provider.</p>
       </div>
       <div class="hud hud-animate stagger-card">
         <span class="bl"></span><span class="br"></span>
@@ -1772,19 +1772,20 @@ html.light .hero .scan-line { display: none; }
     <!-- CODE SHOWCASE -->
     <div class="code-grid">
       <div class="code-block stagger-card">
-        <div class="code-block-header">TERRAFORM // compute.tf (DigitalOcean deployment)</div>
-        <pre><span class="kw">resource</span> <span class="str">"digitalocean_droplet"</span> <span class="str">"production"</span> {
-  <span class="fn">name</span>     = <span class="fn">var</span>.droplet_name
-  <span class="fn">region</span>   = <span class="fn">var</span>.region
-  <span class="fn">size</span>     = <span class="fn">var</span>.droplet_size
-  <span class="fn">image</span>    = <span class="fn">var</span>.image
-  <span class="fn">vpc_uuid</span> = digitalocean_vpc.default.id
-  <span class="fn">ssh_keys</span> = [digitalocean_ssh_key.deployer.id]
-  <span class="fn">tags</span>     = <span class="fn">var</span>.tags
+        <div class="code-block-header">TERRAFORM // compute.tf (Oracle Cloud)</div>
+        <pre><span class="kw">resource</span> <span class="str">"oci_core_instance"</span> <span class="str">"cd_alpha"</span> {
+  <span class="fn">compartment_id</span> = local.compartment
+  <span class="fn">display_name</span>   = <span class="fn">var</span>.instance_name
+  <span class="fn">shape</span>          = <span class="str">"VM.Standard.A1.Flex"</span>
 
-  <span class="kw">lifecycle</span> {
-    <span class="fn">prevent_destroy</span> = <span class="str">true</span>
-    <span class="fn">ignore_changes</span>  = [image, ssh_keys]
+  <span class="kw">shape_config</span> {
+    <span class="fn">ocpus</span>         = <span class="fn">var</span>.instance_ocpus
+    <span class="fn">memory_in_gbs</span> = <span class="fn">var</span>.instance_memory_gb
+  }
+
+  <span class="kw">source_details</span> {
+    <span class="fn">source_type</span> = <span class="str">"image"</span>
+    <span class="fn">source_id</span>   = data.oci_core_images.ubuntu_arm.images[0].id
   }
 }</pre>
       </div>
@@ -1810,21 +1811,19 @@ html.light .hero .scan-line { display: none; }
       - <span class="str">cd-internal</span> <span class="cm"># isolated bridge</span></pre>
       </div>
       <div class="code-block stagger-card">
-        <div class="code-block-header">OPA/REGO // enforce_vpc.rego (DigitalOcean deployment)</div>
-        <pre><span class="kw">package</span> <span class="fn">terraform</span>.<span class="fn">digitalocean</span>
+        <div class="code-block-header">OPA/REGO // deny_missing_prevent_destroy.rego</div>
+        <pre><span class="kw">package</span> <span class="fn">main</span>
 
-<span class="kw">deny</span>[msg] {
-  <span class="fn">resource</span> := <span class="fn">input</span>.resource_changes[_]
-  <span class="fn">resource</span>.<span class="fn">type</span> == <span class="str">"digitalocean_droplet"</span>
-  not <span class="fn">resource</span>.<span class="fn">change</span>.<span class="fn">after</span>.<span class="fn">vpc_uuid</span>
-  msg := <span class="str">"Droplet must be in a VPC"</span>
-}
+<span class="kw">import</span> <span class="fn">rego</span>.<span class="fn">v1</span>
 
-<span class="kw">deny</span>[msg] {
-  <span class="fn">resource</span> := <span class="fn">input</span>.resource_changes[_]
-  <span class="fn">resource</span>.<span class="fn">type</span> == <span class="str">"digitalocean_droplet"</span>
-  not <span class="fn">contains_tag</span>(<span class="fn">resource</span>, <span class="str">"managed-by:terraform"</span>)
-  msg := <span class="str">"All resources must be tagged"</span>
+<span class="kw">deny</span> <span class="kw">contains</span> msg <span class="kw">if</span> {
+  <span class="kw">some</span> rc <span class="kw">in</span> <span class="fn">input</span>.resource_changes
+  rc.<span class="fn">type</span> <span class="kw">in</span> <span class="fn">production_types</span>
+  <span class="fn">action_includes_delete</span>(rc)
+  msg := <span class="fn">sprintf</span>(
+    <span class="str">"DENY: deletion of production resource '%s'"</span>,
+    [rc.address],
+  )
 }</pre>
       </div>
     </div>
@@ -3016,10 +3015,6 @@ html.light .hero .scan-line { display: none; }
     </div>
     <div class="reveal" style="display:grid;grid-template-columns:1fr;gap:16px;max-width:820px;">
       <p style="color:var(--muted);margin:0 0 8px 0;">Short notes on AI security, GRC, and building things. Full feed on LinkedIn.</p>
-      <a href="https://www.linkedin.com/feed/update/urn:li:activity:7475899372644421632/" target="_blank" rel="noopener" style="display:block;padding:16px;border:1px solid var(--mid);border-radius:6px;text-decoration:none;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);letter-spacing:1px;">POST</div>
-        <div style="font-size:16px;font-weight:600;color:var(--light);margin-top:4px;">Who is responsible for the AI your firm already shipped?</div>
-      </a>
       <a href="https://www.linkedin.com/feed/update/urn:li:activity:7447995509937467393/" target="_blank" rel="noopener" style="display:block;padding:16px;border:1px solid var(--mid);border-radius:6px;text-decoration:none;">
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);letter-spacing:1px;">POST &bull; 96K IMPRESSIONS</div>
         <div style="font-size:16px;font-weight:600;color:var(--light);margin-top:4px;">The cert cycle: why my certs alone never got me a callback</div>
@@ -3027,6 +3022,10 @@ html.light .hero .scan-line { display: none; }
       <a href="https://www.linkedin.com/feed/update/urn:li:activity:7442567243067965440/" target="_blank" rel="noopener" style="display:block;padding:16px;border:1px solid var(--mid);border-radius:6px;text-decoration:none;">
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);letter-spacing:1px;">POST &bull; 33K IMPRESSIONS</div>
         <div style="font-size:16px;font-weight:600;color:var(--light);margin-top:4px;">"What have you built?" The question that goes silent</div>
+      </a>
+      <a href="https://www.linkedin.com/feed/update/urn:li:activity:7450543617833758720/" target="_blank" rel="noopener" style="display:block;padding:16px;border:1px solid var(--mid);border-radius:6px;text-decoration:none;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);letter-spacing:1px;">POST &bull; 20K IMPRESSIONS</div>
+        <div style="font-size:16px;font-weight:600;color:var(--light);margin-top:4px;">The certs debate: the people getting hired stopped having it</div>
       </a>
       <a href="https://www.linkedin.com/in/emmanuel-tigoue/recent-activity/all/" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);margin-top:8px;">READ MORE ON LINKEDIN &rarr;</a>
     </div>
@@ -3098,7 +3097,7 @@ html.light .hero .scan-line { display: none; }
 </footer>
 
 <script>
-// BOOT SEQUENCE (plays once per session)
+// BOOT SEQUENCE (lock unlock, plays once per session; click / Space / Esc skip silently)
 (function() {
   var overlay = document.getElementById('boot-overlay');
   if (!overlay) return;
@@ -3107,17 +3106,25 @@ html.light .hero .scan-line { display: none; }
     return;
   }
   sessionStorage.setItem('booted', '1');
-  function skipBoot() { overlay.classList.add('fade-out'); setTimeout(function() { overlay.remove(); }, 300); }
-  overlay.addEventListener('click', skipBoot);
-  document.addEventListener('keydown', function onBootKey(e) { if (e.key === 'Escape' || e.key === 'Enter') { skipBoot(); document.removeEventListener('keydown', onBootKey); } });
-  var lineIds = ['boot-line-1','boot-line-1b','boot-line-1c','boot-line-1d','boot-line-1e','boot-line-1f','boot-line-1g','boot-line-2'];
-  var delays  = [300, 800, 1100, 1400, 1700, 2000, 2300, 2800];
-  lineIds.forEach(function(id, i) {
-    var el = document.getElementById(id);
-    if (el) setTimeout(function() { el.classList.add('show'); }, delays[i]);
-  });
-  setTimeout(function() { overlay.classList.add('fade-out'); }, 3900);
-  setTimeout(function() { overlay.remove(); }, 4500);
+  var done = false;
+  function endBoot(fast) {
+    if (done) return;
+    done = true;
+    document.removeEventListener('keydown', onBootKey);
+    overlay.classList.add('fade-out');
+    setTimeout(function() { overlay.remove(); }, fast ? 250 : 600);
+  }
+  function onBootKey(e) {
+    if (e.key === 'Escape' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); endBoot(true); }
+  }
+  overlay.addEventListener('click', function() { endBoot(true); });
+  document.addEventListener('keydown', onBootKey);
+  setTimeout(function() {
+    overlay.classList.add('unlocked');
+    var cap = document.getElementById('boot-caption');
+    if (cap) cap.innerHTML = 'Access Granted';
+  }, 700);
+  setTimeout(function() { endBoot(false); }, 1500);
 })();
 
 // Smooth scroll for nav links
@@ -3389,7 +3396,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     },
     stack: function() {
       return [
-        {t:'gold', m:'Platform Stack (20 containers, Oracle Cloud ARM rebuild in progress):'},
+        {t:'gold', m:'Platform Stack (20 containers // Oracle Cloud ARM):'},
         {t:'output', m:'  PostgreSQL            Database'},
         {t:'output', m:'  n8n SOAR              Orchestration (14 workflows)'},
         {t:'output', m:'  Ollama/Qwen 3         AI Inference (local)'},
@@ -3435,9 +3442,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     },
     status: function() {
       return [
-        {t:'', m:'SYSTEM STATUS: REBUILDING'},
+        {t:'', m:'SYSTEM STATUS: OPERATIONAL'},
         {t:'output', m:'  Platform:     Oracle Cloud (Ampere ARM)'},
-        {t:'output', m:'  Containers:   core services live; full stack in ARM rebuild'},
+        {t:'output', m:'  Containers:   core services online'},
         {t:'output', m:'  Workflows:    14 configured'},
         {t:'output', m:'  Cost:         $0/mo (Always Free)'},
         {t:'output', m:'  Threat Level: LOW'},
@@ -4160,6 +4167,29 @@ function aiTreeReset() {
     }
   }, { threshold: 0.3 });
   obs.observe(scorecard);
+})();
+
+// STAT COUNT-UP (Proof of Work grid + threat modeling stats row)
+(function() {
+  var els = document.querySelectorAll('.pow-stat .num, .pow-stat .num-gold, .tm-stat .num');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(en) {
+      if (!en.isIntersecting) return;
+      var el = en.target;
+      obs.unobserve(el);
+      var m = el.textContent.trim().match(/^(\d+)(\+?)$/);
+      if (!m) return;
+      var target = parseInt(m[1], 10), suffix = m[2] || '';
+      var steps = 24, frame = 0;
+      var iv = setInterval(function() {
+        frame++;
+        el.textContent = Math.min(target, Math.round((target / steps) * frame)) + suffix;
+        if (frame >= steps) clearInterval(iv);
+      }, 30);
+    });
+  }, { threshold: 0.5 });
+  els.forEach(function(el) { obs.observe(el); });
 })();
 
 // IR PLAYBOOK FLOWCHART TOGGLE
