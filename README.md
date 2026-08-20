@@ -6,7 +6,7 @@
 [![SSCP](https://img.shields.io/badge/SSCP-Certified-00FF41?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
 [![CCNA](https://img.shields.io/badge/CCNA-Certified-00FF41?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
 
-Interactive portfolio showcasing AI security engineering work: Zero Trust architecture, SOAR automation, application security testing, GRC documentation, and infrastructure-as-code on a production DigitalOcean stack.
+Interactive portfolio showcasing AI security engineering work: Zero Trust architecture, SOAR automation, application security testing, GRC documentation, and cloud-agnostic infrastructure-as-code (deployed on AWS, DigitalOcean, and now Oracle Cloud ARM).
 
 ## What's Here
 
@@ -19,7 +19,7 @@ Two roles with metric stat grids: CoreDirective (AI Security Engineer) and Texac
 ### Security Engineering
 Interactive sections covering the full security program:
 
-- **Threat Modeling** - STRIDE analysis with 29 threats, 4 AI kill chains, red team walkthrough, framework mapping (MITRE ATLAS, OWASP LLM)
+- **Threat Modeling** - STRIDE analysis with 29 threats, 7 attack paths, red team walkthrough, framework mapping (MITRE ATLAS, OWASP LLM)
 - **Application Security** - 6 proof cards linking to real GRC documents:
   - Vulnerability writeup (CVSS 8.1 HIGH, remediated)
   - Security code review (5 findings)
@@ -28,10 +28,10 @@ Interactive sections covering the full security program:
   - Google Cloud IAM assessment
   - OWASP Top 10 (2025) coverage checklist
 - **AI Security** - LLM threat modeling, prompt injection defenses, OWASP LLM Top 10 mapping, AI governance (ISO 42001)
-- **GRC** - 54-document compliance library stats (with HIPAA, SOC 2, ISO 27001 crosswalks), NIST 800-53 control heatmap, POA&M scorecard, interactive IR flowchart
+- **GRC** - 57-document compliance library stats (with HIPAA, SOC 2, ISO 27001 crosswalks), NIST 800-53 control heatmap, POA&M scorecard, interactive IR flowchart
 
 ### Architecture
-Expandable architecture layers showing the 18-container Zero Trust platform: Cloudflare tunnels, Falco eBPF detection, n8n SOAR, network segmentation across 4 Docker networks.
+Expandable architecture layers showing the 20-container Zero Trust platform: Cloudflare tunnels, Falco eBPF detection, n8n SOAR, network segmentation across 4 Docker networks.
 
 ## Features
 
@@ -54,6 +54,6 @@ Single `index.html` with all CSS and JS inline. Zero dependencies. Zero build st
 ## Links
 
 - **Live:** [et-sec.github.io/portfolio](https://et-sec.github.io/portfolio/)
-- **Infrastructure Repo:** [cyber-squire1](https://github.com/ET-sec/cyber-squire1) (54 GRC documents, CI/CD pipelines, Terraform IaC)
+- **Infrastructure Repo:** [cyber-squire1](https://github.com/ET-sec/cyber-squire1) (57 GRC documents, CI/CD pipelines, Terraform IaC)
 - **LinkedIn:** [Emmanuel Tigoue](https://www.linkedin.com/in/emmanuel-tigoue)
 - **Credly:** [Certifications](https://www.credly.com/users/emmanuel-tigoue)
