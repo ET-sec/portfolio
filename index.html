@@ -1955,13 +1955,13 @@ html.light .hero .scan-line { display: none; }
       <div style="background:var(--void);border:1px solid var(--mid);border-left:3px solid var(--gold);padding:20px;" class="stagger-card">
         <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-07 / Cost Tradeoff</div>
         <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Deferred Lakera Guard.</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">Kept NeMo Guardrails plus a pre-graph PII scanner instead. Cost-conscious AI guardrails on a small operating budget. Documented for the next budget cycle review.</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">NeMo Guardrails plus a custom pre-graph PII scanner cover the same input rails the commercial add-on would. The gap and its revisit gate are documented for the next budget cycle.</div>
       </div>
 
       <div style="background:var(--void);border:1px solid var(--mid);border-left:3px solid var(--gold);padding:20px;" class="stagger-card">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-15 / Rate Limit Constraint</div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Capped red-team concurrency at 2.</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">Cycle 2 hit Anthropic rate limits at concurrency 5. Ollama fallback was unreachable across the net-ai isolation boundary. Documented as availability-class, not integrity-class, failure.</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-15 / Throughput Tradeoff</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Sequenced red-team cycles under API quotas.</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">Parallel runs hit provider rate limits, and the local fallback stayed unreachable because the net-ai isolation boundary held rather than open a path out. Classified as an availability failure, not an integrity failure, and the cycles completed sequenced.</div>
       </div>
 
       <div style="background:var(--void);border:1px solid var(--mid);border-left:3px solid var(--gold);padding:20px;" class="stagger-card">
@@ -1972,13 +1972,13 @@ html.light .hero .scan-line { display: none; }
 
       <div style="background:var(--void);border:1px solid var(--mid);border-left:3px solid var(--gold);padding:20px;" class="stagger-card">
         <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-007 / Host Audit Coverage</div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">No auditd on the 8GB host.</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">Memory-constrained single-node host. eBPF runtime detection covers the same syscall surface as auditd at a fraction of the resource cost. Disk monitoring at 80% threshold.</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Falco eBPF instead of auditd.</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">One kernel-level detector, not two overlapping ones. eBPF covers the same syscall surface auditd would at a fraction of the overhead, with disk monitoring alerting at an 80% threshold.</div>
       </div>
 
       <div style="background:var(--void);border:1px solid var(--mid);border-left:3px solid var(--gold);padding:20px;" class="stagger-card">
         <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-13 / RAG Trust Surface</div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Tavily enrichment is untrusted text.</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">External enrichment treated as hostile input.</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">A poisoned index entry could inject directives at the enrichment merge point. Critique-consistency check is the sole behavioral override. Red-team cycle 2 will execute attack tree leaf A.3.a to quantify.</div>
       </div>
 
