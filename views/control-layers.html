@@ -47,9 +47,10 @@
   figcaption b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px;font-weight:700}
   .g b{color:var(--green)} .b b{color:var(--orange)} .a b{color:var(--amber)} .v b{color:var(--bone)}
 
-  .head .back{margin-left:18px;font-family:var(--mono);font-size:12px;color:var(--green);text-decoration:none;letter-spacing:.02em}
+  .head .back{margin-left:18px;font-family:var(--mono);font-size:12px;color:var(--green);text-decoration:none;letter-spacing:.02em;display:inline-block;padding:12px 0}
   .head .back:hover{text-decoration:underline}
-  @media (max-width:900px){svg{max-height:none;min-width:1100px} figure{overflow-x:auto;-webkit-overflow-scrolling:touch} .head{gap:6px 14px}}
+  @media (max-width:900px){svg{max-height:none;min-width:1100px} figure{overflow-x:auto;-webkit-overflow-scrolling:touch} .head{gap:6px 14px} .head p::after{content:". Scroll sideways to see the whole drawing.";color:var(--bone)}}
+  @media (max-width:600px){figcaption{grid-template-columns:1fr}}
 </style>
 </head>
 <body>

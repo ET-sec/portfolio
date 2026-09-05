@@ -31,9 +31,10 @@
   figcaption b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px;font-weight:700}
   .g b{color:var(--green)} .c b{color:var(--bone)} .a b{color:var(--amber)} .r b{color:var(--red)}
 
-  .head .back{margin-left:18px;font-family:var(--mono);font-size:12px;color:var(--green);text-decoration:none;letter-spacing:.02em}
+  .head .back{margin-left:18px;font-family:var(--mono);font-size:12px;color:var(--green);text-decoration:none;letter-spacing:.02em;display:inline-block;padding:12px 0}
   .head .back:hover{text-decoration:underline}
-  @media (max-width:900px){svg{max-height:none;min-width:1100px} figure{overflow-x:auto;-webkit-overflow-scrolling:touch} .head{gap:6px 14px}}
+  @media (max-width:900px){svg{max-height:none;min-width:1100px} figure{overflow-x:auto;-webkit-overflow-scrolling:touch} .head{gap:6px 14px} .head p::after{content:". Scroll sideways to see the whole drawing.";color:var(--bone)}}
+  @media (max-width:600px){figcaption{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -124,7 +125,7 @@
 
   <figcaption>
     <div class="g"><b>Edge</b>identity → filter → tunnel, host dials out, no origin address anywhere</div>
-    <div class="c"><b>Identity</b>one GitHub JWT → two clouds, pinned to main, short-lived, read-only, zero stored keys in CI</div>
+    <div class="c"><b>Identity</b>one GitHub JWT → two clouds, pinned to main, short-lived, read-only, no stored cloud key in CI</div>
     <div class="a"><b>Evidence</b>nightly, one way, write-only, Object Lock, survives the runtime cloud</div>
     <div class="r"><b>Break-glass</b>sealed credential in the other cloud, any read → page in 2 min</div>
   </figcaption>
