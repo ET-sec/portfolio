@@ -1,59 +1,45 @@
 # Emmanuel Tigoue - AI Security Engineer Portfolio
 
-[![Live Site](https://img.shields.io/badge/Site-Live-00FF41?style=flat-square)](https://et-sec.github.io/portfolio/)
-[![CISSP](https://img.shields.io/badge/CISSP-Certified-FFB800?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
-[![SecurityX](https://img.shields.io/badge/SecurityX-Certified-00FF41?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
-[![SSCP](https://img.shields.io/badge/SSCP-Certified-00FF41?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
-[![CCNA](https://img.shields.io/badge/CCNA-Certified-00FF41?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
+[![Live Site](https://img.shields.io/badge/Site-Live-3dff8b?style=flat-square)](https://et-sec.github.io/portfolio/)
+[![CISSP](https://img.shields.io/badge/CISSP-Certified-ffc247?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
+[![SecurityX](https://img.shields.io/badge/SecurityX-Certified-3dff8b?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
+[![SSCP](https://img.shields.io/badge/SSCP-Certified-3dff8b?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
+[![CCNA](https://img.shields.io/badge/CCNA-Certified-3dff8b?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
 
-Interactive portfolio showcasing AI security engineering work: Zero Trust architecture, SOAR automation, application security testing, GRC documentation, and cloud-agnostic infrastructure-as-code (deployed on AWS, DigitalOcean, and now Oracle Cloud ARM).
+Portfolio for AI security engineering work: a multi-cloud reference platform, its threat model, the AI trust boundary, and the GRC library that documents it. One Terraform codebase proven on AWS, DigitalOcean, and Oracle Cloud ARM.
 
 ## What's Here
 
-### Certifications
-7 cert cards with Credly verification links. CISSP, SecurityX, CCNA, SSCP, Security+, Network+, ISC2 CC. All verified.
+### Platform
+Seven architecture views drawn from the reference design, each with its own full-size page under `views/`:
+topology and flows, multi-cloud planes, threat model, identity and access, AI trust, control layers, authorization boundary.
+Every view is sanitized: no addresses, ports, hostnames, account IDs, or image versions. Live state per control lives in the POA&M, not on the drawings.
 
-### Experience
-Two roles with metric stat grids: CoreDirective (AI Security Engineer) and Texaco (IT Security and Operations Manager).
+### Certifications, Experience, Education
+Cert cards with Credly verification links. Two roles with metric grids: CoreDirective (AI Security Engineer) and Texaco (IT Security and Operations Manager).
 
 ### Security Engineering
-Interactive sections covering the full security program:
+Threat model view, STRIDE decomposition (29 threats), attack trees (7 paths), red team walkthrough, framework coverage matrix, identity and access view, application security proof cards linking to the GRC documents.
 
-- **Threat Modeling** - STRIDE analysis with 29 threats, 7 attack paths, red team walkthrough, framework mapping (MITRE ATLAS, OWASP LLM)
-- **Application Security** - 6 proof cards linking to real GRC documents:
-  - Vulnerability writeup (CVSS 8.1 HIGH, remediated)
-  - Security code review (5 findings)
-  - Secure SDLC with CI/CD pipeline visualization (12 security gates)
-  - DAST methodology with OWASP ZAP scan results
-  - Google Cloud IAM assessment
-  - OWASP Top 10 (2025) coverage checklist
-- **AI Security** - LLM threat modeling, prompt injection defenses, OWASP LLM Top 10 mapping, AI governance (ISO 42001)
-- **GRC** - 57-document compliance library stats (with HIPAA, SOC 2, ISO 27001 crosswalks), NIST 800-53 control heatmap, POA&M scorecard, interactive IR flowchart
+### AI Security and Governance
+Framework cards (ISO 42001, ISO 27701, NIST AI RMF), the AI trust view, a shipped Falco rule with its breakdown, and an interactive deployment decision tree.
 
-### Architecture
-Expandable architecture layers showing the 20-container Zero Trust platform: Cloudflare tunnels, Falco eBPF detection, n8n SOAR, network segmentation across 4 Docker networks.
+### GRC
+Control layers view, 57-document library stats, NIST 800-53 coverage by family, POA&M scorecard, IR flowchart, authorization boundary view.
 
-## Features
+## How the numbers and drawings stay true
 
-- Dark/military HUD aesthetic with matrix rain canvas
-- Light mode toggle with full theme support
-- Skill radar chart with animated fill
-- Falco runtime detection rule showcase
-- CI/CD pipeline visualization (PR + merge gates)
-- Terminal Easter egg (triple-click the logo)
-- Keyboard navigation (J/K/T/R/?)
-- Konami code Easter egg
-- Responsive design with mobile grid collapse
-- Print CSS for clean output
-- Schema.org structured data and OpenGraph tags for SEO
+- Numbers on the page sit inside `<!-- METRIC:key -->` markers and are written from `metrics.yaml` in the [cyber-squire1](https://github.com/ET-sec/cyber-squire1) repo by `scripts/sync_portfolio.py`.
+- Six views are generated from Python data files in `docs/architecture/views/` of the same repo (`render_views.py`); the topology view is hand-authored beside them. `scripts/sync_views.py` publishes them here, writing `views/*.html` and the inline `<!-- VIEW:slug -->` blocks in `index.html`. `--check` fails on drift and runs in that repo's `portfolio-sync` workflow.
+- Change a fact once in the source repo, regenerate, sync, open a PR.
 
 ## Stack
 
-Single `index.html` with all CSS and JS inline. Zero dependencies. Zero build step. Google Fonts (JetBrains Mono, Inter) loaded via CDN.
+Single `index.html` with CSS and JS inline, plus seven standalone view pages. No build step, no dependencies. Google Fonts (IBM Plex Sans, JetBrains Mono). Dark and light themes.
 
 ## Links
 
 - **Live:** [et-sec.github.io/portfolio](https://et-sec.github.io/portfolio/)
-- **Infrastructure Repo:** [cyber-squire1](https://github.com/ET-sec/cyber-squire1) (57 GRC documents, CI/CD pipelines, Terraform IaC)
+- **Infrastructure repo:** [cyber-squire1](https://github.com/ET-sec/cyber-squire1) (GRC library, CI/CD pipelines, Terraform, view generators)
 - **LinkedIn:** [Emmanuel Tigoue](https://www.linkedin.com/in/emmanuel-tigoue)
 - **Credly:** [Certifications](https://www.credly.com/users/emmanuel-tigoue)
