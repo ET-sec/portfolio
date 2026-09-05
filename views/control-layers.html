@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none';">
 <link rel="icon" href="../favicon.svg">
 <title>CoreDirective Control Layers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,6 +51,9 @@
   .head .back:hover{text-decoration:underline}
   @media (max-width:900px){svg{max-height:none;min-width:1100px} figure{overflow-x:auto;-webkit-overflow-scrolling:touch} .head{gap:6px 14px} .head p::after{content:". Scroll sideways to see the whole drawing.";color:var(--bone)}}
   @media (max-width:600px){figcaption{grid-template-columns:1fr}}
+.cd-packet { pointer-events: none; opacity: .9; stroke-dashoffset: var(--cdlen); }
+@keyframes cdpacket { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .cd-packet { display: none; } }
 </style>
 </head>
 <body>
@@ -335,5 +338,25 @@
   </figure>
 </div>
 
+<script>
+// ANIMATED FLOW: packets ride every arrow in the architecture views
+(function() {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.cd-view-frame svg, figure > svg').forEach(function(svg) {
+    svg.querySelectorAll('line[marker-end], path[marker-end], polyline[marker-end]').forEach(function(el, i) {
+      var len = el.getTotalLength ? el.getTotalLength() : 0; if (!len || len < 24) return;
+      var c = el.cloneNode(false);
+      ['marker-end', 'marker-start', 'stroke-dasharray', 'id'].forEach(function(a) { c.removeAttribute(a); });
+      c.setAttribute('class', 'cd-packet');
+      c.setAttribute('stroke-width', String(parseFloat(el.getAttribute('stroke-width') || '1.5') + 1.2));
+      c.setAttribute('stroke-linecap', 'round');
+      c.setAttribute('stroke-dasharray', '5 ' + Math.ceil(len + 5));
+      c.style.setProperty('--cdlen', String(Math.ceil(len + 10)));
+      c.style.animation = 'cdpacket ' + Math.max(1.8, len / 80).toFixed(2) + 's linear ' + (-(i % 9) * 0.4).toFixed(2) + 's infinite';
+      el.parentNode.insertBefore(c, el.nextSibling);
+    });
+  });
+})();
+</script>
 </body>
 </html>
