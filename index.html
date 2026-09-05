@@ -1039,7 +1039,7 @@ html.light nav { background: rgba(233,236,230,0.97); }
   .cd-view-frame { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .cd-view-frame svg { min-width: 1100px; }
   .cd-view-head { gap: 4px 14px; } .cd-view-open { margin-left: 0; }
-  .cd-view-sub::after { content: " Scroll sideways, or open the full view."; color: #e8dcc0; }
+  .cd-view-sub::after { content: ". Scroll sideways, or open the full view."; color: #e8dcc0; }
 }
 @media (max-width: 600px) { .cd-view-cap { grid-template-columns: 1fr; } .cd-view { padding: 12px 12px 14px; } }
 /* Mobile: dropdown links inline in the open menu, inline two-column grids collapse */
@@ -1068,6 +1068,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 .trio { grid-template-columns: 1.3fr 1fr 1fr !important; }
 @media (max-width: 960px) { .trio { grid-template-columns: 1fr 1fr !important; } }
 @media (max-width: 600px) { .trio { grid-template-columns: 1fr !important; } }
+@media (max-width: 600px) { .code-grid { display: none; } .pow-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; } .pow-stat .num, .pow-stat .num-gold { font-size: 22px; } .pow-stat .lbl { font-size: 9px; } }
 </style>
 <script type="application/ld+json">
 {
@@ -1217,7 +1218,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <h1>EMMANUEL TIGOUE</h1>
     <div class="sub-tagline" style="margin-bottom:10px;font-size:17px;letter-spacing:3px;text-transform:uppercase;">AI Security Engineer</div>
     <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);letter-spacing:2px;margin-bottom:20px;opacity:0.85;">CISSP, SecurityX, CCNA</div>
-    <p class="intro">I build and break agentic AI systems, then ship the guardrails and audit trails that survive a compliance review. NIST 800-53 and ISO 42001, cloud edge to local model.</p>
+    <p class="intro">I build and break agentic AI systems, then ship the guardrails and audit trails that survive a compliance review. The controls map to NIST 800-53 and ISO 42001, from the cloud edge to the local model.</p>
     <div class="hero-buttons">
       <a href="#contact" class="btn btn-solid" aria-label="Get in touch">Get In Touch</a>
       <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="View project on GitHub">View on GitHub</a>
@@ -1235,8 +1236,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
       <div class="line"></div>
     </div>
     <p class="reveal body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
-      Multi-cloud security platform: one Terraform codebase, proven on AWS, DigitalOcean, and Oracle Cloud ARM. STRIDE threat-modeled, then deployed.
-      Every metric on this page is verifiable in the <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer">public repository</a>.
+      A security platform I designed, threat modeled, and run. One Terraform codebase that has deployed to AWS and DigitalOcean and runs on Oracle Cloud today. Nineteen services designed, three live, and every number on this page traces to the <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer">public repository</a>.
     </p>
 
     <div class="cd-view-wrap" id="platform-topology">
@@ -1246,12 +1246,12 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
   <a class="cd-view-frame" href="views/topology.html" aria-label="Open the topology and flows view full size">
 <svg viewBox="0 0 1700 790" role="img" aria-label="Reference topology of the CoreDirective platform. Users reach services through Cloudflare Access and WAF over a tunnel the host dials outbound, so no application port listens publicly. Inside the host, three bridge networks separate core services, a sealed AI inference segment with no internet route, and a monitoring segment. The SOC agent's model calls pass through a guardrails container before leaving the host, with a local model as fallback on the sealed segment. Falco reads kernel syscalls and ships alerts to Datadog; Teleport session events leave over mTLS. State and backups are encrypted with a customer managed key in retention-locked object storage. Infrastructure changes arrive only through a pipeline with OIDC credentials, OPA policy gates, human review, and a nightly drift check. One inbound port remains: SSH from an allowlisted source range as break-glass.">
     <defs>
-      <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3dff8b"/></marker>
-      <marker id="m-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff9b3d"/></marker>
-      <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ffc247"/></marker>
-      <marker id="m-bone" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8dcc0"/></marker>
-      <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b5e"/></marker>
-      <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a3ada1"/></marker>
+      <marker id="m-topology-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3dff8b"/></marker>
+      <marker id="m-topology-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff9b3d"/></marker>
+      <marker id="m-topology-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ffc247"/></marker>
+      <marker id="m-topology-bone" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8dcc0"/></marker>
+      <marker id="m-topology-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b5e"/></marker>
+      <marker id="m-topology-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a3ada1"/></marker>
     </defs>
 
     <!-- ================= LEGEND ================= -->
@@ -1414,11 +1414,11 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
     <!-- GREEN: request path -->
     <g stroke="#3dff8b" stroke-width="2.5" fill="none">
-      <line x1="280" y1="70" x2="280" y2="149" marker-end="url(#m-green)"/>
-      <line x1="330" y1="170" x2="399" y2="170" marker-end="url(#m-green)"/>
-      <line x1="475" y1="262" x2="475" y2="191" marker-end="url(#m-green)"/>
-      <line x1="475" y1="302" x2="475" y2="394" marker-end="url(#m-green)"/>
-      <line x1="420" y1="415" x2="306" y2="415" marker-end="url(#m-green)"/>
+      <line x1="280" y1="70" x2="280" y2="149" marker-end="url(#m-topology-green)"/>
+      <line x1="330" y1="170" x2="399" y2="170" marker-end="url(#m-topology-green)"/>
+      <line x1="475" y1="262" x2="475" y2="191" marker-end="url(#m-topology-green)"/>
+      <line x1="475" y1="302" x2="475" y2="394" marker-end="url(#m-topology-green)"/>
+      <line x1="420" y1="415" x2="306" y2="415" marker-end="url(#m-topology-green)"/>
     </g>
     <g font-size="11.5" fill="#3dff8b" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">
       <text x="290" y="112">HTTPS</text>
@@ -1429,9 +1429,9 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
     <!-- BLUE: AI path -->
     <g stroke="#ff9b3d" stroke-width="2.5" fill="none">
-      <line x1="560" y1="525" x2="599" y2="525" marker-end="url(#m-orange)"/>
-      <path d="M740,525 H760 V71" marker-end="url(#m-orange)"/>
-      <line x1="420" y1="525" x2="306" y2="525" stroke-dasharray="6 5" marker-end="url(#m-orange)"/>
+      <line x1="560" y1="525" x2="599" y2="525" marker-end="url(#m-topology-orange)"/>
+      <path d="M740,525 H760 V71" marker-end="url(#m-topology-orange)"/>
+      <line x1="420" y1="525" x2="306" y2="525" stroke-dasharray="6 5" marker-end="url(#m-topology-orange)"/>
     </g>
     <g font-size="11.5" fill="#ff9b3d" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">
       <text x="770" y="200">leaves the host only here</text>
@@ -1440,10 +1440,10 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
     <!-- GRAY: internal dependencies -->
     <g stroke="#a3ada1" stroke-width="2" fill="none">
-      <line x1="670" y1="505" x2="670" y2="436" marker-end="url(#m-gray)"/>
-      <line x1="790" y1="435" x2="790" y2="504" marker-end="url(#m-gray)"/>
-      <line x1="968" y1="435" x2="968" y2="504" marker-end="url(#m-gray)"/>
-      <line x1="1420" y1="310" x2="1469" y2="310" marker-end="url(#m-gray)"/>
+      <line x1="670" y1="505" x2="670" y2="436" marker-end="url(#m-topology-gray)"/>
+      <line x1="790" y1="435" x2="790" y2="504" marker-end="url(#m-topology-gray)"/>
+      <line x1="968" y1="435" x2="968" y2="504" marker-end="url(#m-topology-gray)"/>
+      <line x1="1420" y1="310" x2="1469" y2="310" marker-end="url(#m-topology-gray)"/>
     </g>
     <g font-size="11" fill="#a3ada1" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">
       <text x="678" y="474">trace</text>
@@ -1454,12 +1454,12 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
     <!-- AMBER: detection and audit -->
     <g stroke="#ffc247" stroke-width="2.5" fill="none">
-      <line x1="1290" y1="438" x2="1290" y2="455" marker-end="url(#m-amber)"/>
-      <line x1="1365" y1="475" x2="1469" y2="475" marker-end="url(#m-amber)"/>
-      <path d="M1100,525 H1157 V531 H1214" marker-end="url(#m-amber)"/>
-      <line x1="1290" y1="550" x2="1290" y2="567" marker-end="url(#m-amber)"/>
-      <line x1="1365" y1="587" x2="1469" y2="587" marker-end="url(#m-amber)"/>
-      <line x1="1365" y1="643" x2="1469" y2="643" marker-end="url(#m-amber)"/>
+      <line x1="1290" y1="438" x2="1290" y2="455" marker-end="url(#m-topology-amber)"/>
+      <line x1="1365" y1="475" x2="1469" y2="475" marker-end="url(#m-topology-amber)"/>
+      <path d="M1100,525 H1157 V531 H1214" marker-end="url(#m-topology-amber)"/>
+      <line x1="1290" y1="550" x2="1290" y2="567" marker-end="url(#m-topology-amber)"/>
+      <line x1="1365" y1="587" x2="1469" y2="587" marker-end="url(#m-topology-amber)"/>
+      <line x1="1365" y1="643" x2="1469" y2="643" marker-end="url(#m-topology-amber)"/>
     </g>
     <g font-size="11.5" fill="#ffc247" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">
       <text x="1417" y="466" text-anchor="middle">alerts</text>
@@ -1471,13 +1471,13 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
     <!-- VIOLET: delivery -->
     <g stroke="#e8dcc0" stroke-width="2.5" fill="none">
-      <line x1="300" y1="738" x2="339" y2="738" marker-end="url(#m-bone)"/>
-      <line x1="500" y1="738" x2="539" y2="738" marker-end="url(#m-bone)"/>
-      <line x1="700" y1="738" x2="739" y2="738" marker-end="url(#m-bone)"/>
-      <line x1="900" y1="738" x2="939" y2="738" marker-end="url(#m-bone)"/>
-      <line x1="1100" y1="738" x2="1139" y2="738" marker-end="url(#m-bone)"/>
-      <line x1="1220" y1="718" x2="1220" y2="681" marker-end="url(#m-bone)"/>
-      <line x1="1400" y1="680" x2="1400" y2="717" marker-end="url(#m-bone)"/>
+      <line x1="300" y1="738" x2="339" y2="738" marker-end="url(#m-topology-bone)"/>
+      <line x1="500" y1="738" x2="539" y2="738" marker-end="url(#m-topology-bone)"/>
+      <line x1="700" y1="738" x2="739" y2="738" marker-end="url(#m-topology-bone)"/>
+      <line x1="900" y1="738" x2="939" y2="738" marker-end="url(#m-topology-bone)"/>
+      <line x1="1100" y1="738" x2="1139" y2="738" marker-end="url(#m-topology-bone)"/>
+      <line x1="1220" y1="718" x2="1220" y2="681" marker-end="url(#m-topology-bone)"/>
+      <line x1="1400" y1="680" x2="1400" y2="717" marker-end="url(#m-topology-bone)"/>
     </g>
     <g font-size="11.5" fill="#e8dcc0" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">
       <text x="1230" y="703">applies</text>
@@ -1485,7 +1485,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     </g>
 
     <!-- RED: the one inbound exception -->
-    <line x1="1015" y1="70" x2="1015" y2="233" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-red)"/>
+    <line x1="1015" y1="70" x2="1015" y2="233" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-topology-red)"/>
     <g font-size="11.5" fill="#ff6b5e" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">
       <text x="1026" y="140">SSH, break-glass</text>
       <text x="1026" y="155" fill="#a3ada1">source-restricted</text>
@@ -1500,7 +1500,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
   </figcaption>
 </figure>
 <!-- /VIEW -->
-    <p class="cd-view-note"><!-- METRIC:stack.containers_designed -->19<!-- /METRIC --> services designed, <!-- METRIC:stack.containers_live -->3<!-- /METRIC --> live on Oracle ARM today. The drawing is the reference design. Live state per control sits in the POA&amp;M, linked in the GRC section.</p>
+    <p class="cd-view-note"><!-- METRIC:stack.containers_designed -->19<!-- /METRIC --> services designed, <!-- METRIC:stack.containers_live -->3<!-- /METRIC --> live on Oracle ARM today. The drawing is the reference design. Live state per control sits in the <a href="#grc">POA&amp;M in the GRC section</a>.</p>
     </div>
     <!-- STATS GRID -->
     <div class="pow-stats">
@@ -1518,10 +1518,10 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <div class="cd-view-wrap">
 <!-- VIEW:multi-cloud -->
 <figure class="cd-view" id="view-multi-cloud">
-  <div class="cd-view-head"><span class="cd-view-title">Multi-cloud planes</span><span class="cd-view-sub">three planes, three vendors, split by blast radius, sanitized, no accounts, regions, or bucket names</span><a class="cd-view-open" href="views/multi-cloud.html">Open full view</a></div>
+  <div class="cd-view-head"><span class="cd-view-title">Multi-cloud planes</span><span class="cd-view-sub">three planes, three vendors, split by blast radius</span><a class="cd-view-open" href="views/multi-cloud.html">Open full view</a></div>
   <a class="cd-view-frame" href="views/multi-cloud.html" aria-label="Open the multi-cloud planes view full size">
 <svg viewBox="0 0 1700 750" role="img" aria-label="Multi-cloud planes view of the CoreDirective platform. Three planes on three vendors, split by blast radius. The edge plane on Cloudflare holds Access with one-time PIN and service tokens, WAF and rate limits, the tunnel edge the host dials out to, a DNS proxy with no origin address, one webhook carve-out for Telegram's published ranges, and the versioned Terraform state bucket, kept off the runtime cloud so state and compute never share a failure domain. The runtime plane on Oracle Cloud holds the hardened host with the compose stack, a VCN with one inbound port for SSH from allowlisted sources, an identity domain that trades a GitHub JWT for a token that lives minutes, a backup bucket with a 30 day retention rule, a KMS vault and customer managed key, an instance identity that can write backups but not delete them, block storage encrypted with the provider key, and a monthly timed restore. The security plane on AWS holds OIDC federation pinned to one repo and the main branch, a sealed break-glass credential for the runtime cloud whose every read pages the operator with the caller named, an evidence vault with Object Lock in compliance mode and a customer managed key, a multi-region account trail with log validation, a region guard that denies everything outside one region, and a write-only evidence uploader. What crosses: users enter at the edge and reach the host over a tunnel the host dials out; one GitHub identity federates into both clouds with no stored keys; evidence flows one way from the runtime into the vault nightly; no automation in the security plane reaches back into the runtime.">
-    <defs><marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b5e"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3dff8b"/></marker><marker id="m-bone" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8dcc0"/></marker><marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ffc247"/></marker></defs>
+    <defs><marker id="m-multi-cloud-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b5e"/></marker><marker id="m-multi-cloud-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3dff8b"/></marker><marker id="m-multi-cloud-bone" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8dcc0"/></marker><marker id="m-multi-cloud-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ffc247"/></marker></defs>
     <rect x="28" y="150" width="472" height="460" rx="9" fill="rgba(61,255,139,0.03)" stroke="#27342b" stroke-width="2"/>
     <text x="46" y="174" font-size="12" font-weight="700" fill="#3dff8b" letter-spacing="2">EDGE  CLOUDFLARE</text>
     <text x="46" y="191" font-size="11.5" fill="#a3ada1">identity, ingress, state</text>
@@ -1559,24 +1559,24 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <rect x="1220" y="435" width="190" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="1315" y="460" font-size="15" font-weight="500" fill="#e6ebe4" text-anchor="middle">account trail</text><text x="1315" y="492" font-size="11.5" fill="#a3ada1" text-anchor="middle">multi-region, validated</text>
     <rect x="1450" y="435" width="190" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="1545" y="460" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">region guard</text><text x="1545" y="492" font-size="11.5" fill="#a3ada1" text-anchor="middle">deny outside one region</text>
     <rect x="1220" y="535" width="190" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="1315" y="560" font-size="14" font-weight="500" fill="#e6ebe4" text-anchor="middle">evidence uploader</text><text x="1315" y="592" font-size="11.5" fill="#a3ada1" text-anchor="middle">write-only, no delete</text>
-    <path d="M230,70 V234" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
+    <path d="M230,70 V234" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-multi-cloud-green)"/>
     <text x="240" y="112" font-size="11.5" fill="#3dff8b" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">one-time PIN, service tokens</text>
-    <path d="M250,255 H289" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
-    <path d="M560,255 H481" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
-    <path d="M1110,70 V120 H1035 V234" fill="none" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-bone)"/>
+    <path d="M250,255 H289" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-multi-cloud-green)"/>
+    <path d="M560,255 H481" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-multi-cloud-green)"/>
+    <path d="M1110,70 V120 H1035 V234" fill="none" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-multi-cloud-bone)"/>
     <text x="1100" y="112" font-size="11.5" fill="#e8dcc0" text-anchor="end" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">signed JWT, main only</text>
-    <path d="M1175,70 V255 H1219" fill="none" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-bone)"/>
+    <path d="M1175,70 V255 H1219" fill="none" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-multi-cloud-bone)"/>
     <text x="1185" y="112" font-size="11.5" fill="#e8dcc0" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">same JWT, role pinned</text>
-    <path d="M710,255 H735 V318 H1205 V355 H1219" fill="none" stroke="#ffc247" stroke-width="2.5" marker-end="url(#m-amber)"/>
+    <path d="M710,255 H735 V318 H1205 V355 H1219" fill="none" stroke="#ffc247" stroke-width="2.5" marker-end="url(#m-multi-cloud-amber)"/>
     <text x="970" y="312" font-size="11.5" fill="#ffc247" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">nightly evidence, one way, write-only</text>
-    <path d="M700,235 V71" fill="none" stroke="#ffc247" stroke-width="2.5" marker-end="url(#m-amber)"/>
+    <path d="M700,235 V71" fill="none" stroke="#ffc247" stroke-width="2.5" marker-end="url(#m-multi-cloud-amber)"/>
     <text x="710" y="112" font-size="11.5" fill="#ffc247" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">logs, alerts, metrics</text>
-    <path d="M1640,355 H1660 V50 H1641" fill="none" stroke="#ffc247" stroke-width="2.5" marker-end="url(#m-amber)"/>
+    <path d="M1640,355 H1660 V50 H1641" fill="none" stroke="#ffc247" stroke-width="2.5" marker-end="url(#m-multi-cloud-amber)"/>
     <text x="1555" y="126" font-size="11.5" fill="#ffc247" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">pages in 2 min</text>
     <text x="1555" y="141" font-size="11.5" fill="#ffc247" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">caller named</text>
-    <path d="M1545,70 V234" fill="none" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-red)"/>
+    <path d="M1545,70 V234" fill="none" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-multi-cloud-red)"/>
     <text x="1535" y="112" font-size="11.5" fill="#ff6b5e" text-anchor="end" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">emergency read only</text>
-    <path d="M1545,275 V334" fill="none" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-red)"/>
+    <path d="M1545,275 V334" fill="none" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-multi-cloud-red)"/>
     <text x="1555" y="307" font-size="11.5" fill="#ff6b5e" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">any read</text>
     <text x="46" y="640" font-size="12" font-weight="700" fill="#3dff8b" letter-spacing="2">IF THIS ACCOUNT FALLS</text>
     <text x="46" y="658" font-size="11.5" fill="#a3ada1">the front door and its policies fall, not the host; revoke the</text>
@@ -1608,7 +1608,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
     <!-- CLOUD MIGRATION CASE STUDY -->
     <div class="reveal" style="margin-top:40px;">
-      <h3 class="sub" style="color:var(--cyan);">Multi-Cloud Cost Engineering</h3>
+      <h3 class="sub" style="color:var(--cyan);">What it costs to run</h3>
       <div class="migration-card">
         <div class="mc-col">
           <div class="mc-label">Problem</div>
@@ -1618,32 +1618,13 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
         <div class="mc-col" style="border-right:1px solid var(--mid);">
           <div class="mc-label">Solution</div>
           <h4 style="color:var(--cyan);">Multi-Cloud IaC</h4>
-          <p>Terraform-managed infrastructure. Cloudflare zero-trust overlay. Full stack in Docker Compose. Cloud-agnostic architecture. Can redeploy to any provider in hours. Security plane split (designed, apply scheduled): evidence, backup replicas, and break-glass take custody in AWS behind Object Lock, so the watcher never shares a failure domain with the workloads.</p>
+          <p>Terraform builds the whole stack, Docker Compose runs it, and Cloudflare handles identity at the edge, so the same platform can stand up on a new provider in an afternoon. The evidence copies, backups, and break-glass credential are designed to live in a separate AWS account behind Object Lock, so the watcher never shares a failure domain with the workloads. That plane is written and waiting on apply.</p>
         </div>
         <div class="mc-col">
           <div class="mc-label">Result</div>
           <h4 style="color:var(--green);">$0/mo</h4>
-          <p>65% cut on DigitalOcean, then to zero on Oracle Cloud Always Free ARM. Same stack, same security posture, three clouds proven.</p>
+          <p>65% cut on DigitalOcean, then to zero on Oracle Cloud Always Free ARM. Same Terraform, same controls, three providers so far.</p>
         </div>
-      </div>
-    </div>
-
-    <!-- NARRATIVE CARDS -->
-    <div class="trio" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-top:32px;">
-      <div class="hud hud-animate stagger-card">
-        <span class="bl"></span><span class="br"></span>
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">4-Layer Security Architecture</h3>
-        <p style="font-size:14px;color:var(--light);line-height:1.7;">STRIDE threat-modeled, then deployed on x86. Cloudflare Tunnel (no exposed ports) + Teleport PAM with recorded sessions + Keycloak RBAC with 3-tier role separation. Falco eBPF runtime detection feeding SOC dashboards. Vault for secrets management. Edge is live today; the identity and detection tiers are codified and queued for ARM rebuild.</p>
-      </div>
-      <div class="hud hud-animate stagger-card">
-        <span class="bl"></span><span class="br"></span>
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">$135/mo to $0: Multi-Cloud IaC</h3>
-        <p style="font-size:14px;color:var(--light);line-height:1.7;">AWS EC2 $135/mo, DigitalOcean $48/mo, Oracle Cloud Always Free ARM at $0. Self-hosted <!-- METRIC:ai.ollama_model -->Qwen 3 8B<!-- /METRIC --> handled local inference at zero marginal cost. Terraform IaC redeploys the same stack to any provider.</p>
-      </div>
-      <div class="hud hud-animate stagger-card">
-        <span class="bl"></span><span class="br"></span>
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">14-Workflow SOAR Orchestration</h3>
-        <p style="font-size:14px;color:var(--light);line-height:1.7;">Single webhook-driven control plane integrating 16 services: Google Workspace, Telegram, PostgreSQL, Ollama, Cloudflare, GitHub, Gmail, and more.</p>
       </div>
     </div>
 
@@ -1773,8 +1754,6 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
         <div class="cert-note">Click to verify on Credly</div>
       </div></a></div>
 
-      <div class="cert-ghost stagger-card"><span>// next objective</span></div>
-
       <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/a92ce870-953e-49a0-ab8c-c929121e00e0/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Network+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">VERIFIED</span>
         <h3>CompTIA Network+</h3>
@@ -1822,15 +1801,15 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
         </div>
         <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
           <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--green);">0</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Inbound Ports</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">App Ports Exposed</div>
         </div>
       </div>
       <ul class="exp-bullets">
         <li>Architected Squire, an AI SOC analyst that drafts a triage verdict for every alert and cuts manual triage time per alert <span class="m">80%</span>. Built on LangGraph with human approval gates, pgvector RAG, NeMo Guardrails PII redaction, and Langfuse tracing</li>
         <li>Threat modeled the OpenClaw gateway (Claude Fable <span class="m">5</span>) against the OWASP LLM Top 10 and MITRE ATLAS, then set the guardrail and access requirements the platform shipped with</li>
-        <li>Ran structured red team assessments on production AI stacks and web applications: prompt injection, jailbreaks, data leakage, excessive agency, and OWASP web risks. Remediated all <span class="m">6</span> high and medium findings in <span class="m">5</span> attack classes before launch</li>
-        <li>Embedded Semgrep SAST, Trivy container image and dependency scanning, Gitleaks secrets scanning, and OPA policy gates for infrastructure as code into CI/CD. Added OWASP ZAP DAST against staging and Cosign signature verification of upstream images in CI</li>
-        <li>Placed every admin surface behind Cloudflare Zero Trust, defined in Terraform with <span class="m">zero</span> public ports and separate policies for human and service accounts</li>
+        <li>Ran structured red team cycles against my own production AI stack and its web surfaces: prompt injection, jailbreaks, data leakage, excessive agency, and OWASP web risks. Closed all <span class="m">6</span> high and medium findings across <span class="m">5</span> attack classes before launch</li>
+        <li>Embedded Semgrep SAST, Trivy container image and dependency scanning, Gitleaks secrets scanning, and OPA policy gates for infrastructure as code into CI/CD. Added OWASP ZAP DAST against staging and Cosign checks of upstream images in CI, advisory until the ARM rebuild lands</li>
+        <li>Placed every admin surface behind Cloudflare Zero Trust, defined in Terraform with no public application ports, one allowlisted break-glass SSH rule, and separate policies for human and service accounts</li>
         <li>Tuned Falco eBPF container runtime detection shipped to Datadog and mapped to MITRE ATT&amp;CK, cutting alert noise without losing coverage</li>
         <li>Authored <span class="m"><!-- METRIC:grc.total_documents -->57<!-- /METRIC --></span> GRC documents mapping <span class="m"><!-- METRIC:grc.nist_800_53_controls_cited -->133<!-- /METRIC --></span> NIST 800-53 controls plus NIST AI RMF, SOC 2, and ISO 27001, and built a Promptfoo eval harness that regression tests the AI guardrail controls</li>
       </ul>
@@ -1916,35 +1895,9 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <div class="section-header reveal-left">
       <h2 style="color:var(--red);">Security Engineering</h2>
       <div class="line-red"></div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:16px;margin-bottom:8px;letter-spacing:1px;">Jump to a subsection</div>
-      <div class="sec-eng-nav" style="display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="#tm-model" class="sec-eng-link">Threat Model</a>
-        <a href="#tm-stride" class="sec-eng-link">STRIDE Analysis</a>
-        <a href="#tm-attacks" class="sec-eng-link">Attack Paths</a>
-        <a href="#tm-redteam" class="sec-eng-link">Red Team</a>
-        <a href="#tm-identity" class="sec-eng-link">Identity &amp; Access</a>
-        <a href="#tm-frameworks" class="sec-eng-link">Frameworks</a>
-        <a href="#tm-appsec" class="sec-eng-link sec-eng-link-cyan">App Security</a>
-      </div>
     </div>
 
-    <p class="reveal body-text" style="max-width:720px;margin-bottom:12px;line-height:1.8;">
-      Adversarial analysis of an <span style="color:var(--red);font-weight:600;">autonomous AI agent with tool-use capabilities</span>: an LLM that can browse the web, execute code, query databases, trigger SOAR workflows, and push to GitHub. One compromised prompt can chain through 6 active skills into 16 downstream service integrations.
-    </p>
-    <p class="reveal body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
-      Every threat below was identified through STRIDE decomposition of the full agentic pipeline, then cross-referenced against MITRE ATT&amp;CK/ATLAS, OWASP LLM Top 10, NIST 800-53, and ISO 42001. The result: <!-- METRIC:grc.stride_threats -->29<!-- /METRIC --> categorized threats, <!-- METRIC:grc.attack_paths_total -->7<!-- /METRIC --> attack paths (4 base plus 3 Squire-specific roots added in Phase 17), and a clear picture of where the controls hold and where the gaps remain.
-    </p>
-
-    <p class="body-text" style="max-width:720px;margin-bottom:24px;line-height:1.8;">The views and controls on this page are the reference design. Which controls are live today, partial, or planned is tracked control by control in the POA&amp;M linked from the GRC section, and the red team results below are the receipts.</p>
-    <!-- STATS ROW -->
-    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:16px;margin-bottom:40px;">
-      <div class="tm-stat stagger-card"><div class="num"><!-- METRIC:grc.stride_threats -->29<!-- /METRIC --></div><div class="desc">STRIDE Threats</div></div>
-      <div class="tm-stat stagger-card"><div class="num"><!-- METRIC:grc.ai_threats_cataloged -->10<!-- /METRIC --></div><div class="desc">AI Threats</div></div>
-      <div class="tm-stat stagger-card"><div class="num"><!-- METRIC:grc.attack_paths_total -->7<!-- /METRIC --></div><div class="desc">Attack Paths</div></div>
-      <div class="tm-stat stagger-card"><div class="num"><!-- METRIC:grc.trust_boundaries_defined -->7<!-- /METRIC --></div><div class="desc">Trust Boundaries</div></div>
-      <div class="tm-stat stagger-card"><div class="num"><!-- METRIC:grc.data_flows_cataloged -->40<!-- /METRIC --></div><div class="desc">Data Flows</div></div>
-      <div class="tm-stat stagger-card"><div class="num">6</div><div class="desc">Frameworks</div></div>
-    </div>
+    <p class="reveal body-text" style="max-width:760px;margin-bottom:28px;line-height:1.8;">This section takes apart an autonomous AI agent that can browse, run code, query databases, trigger SOAR workflows, and push to GitHub. One compromised prompt can chain through 6 skills into 16 downstream integrations. I decomposed the pipeline with STRIDE, cross-referenced MITRE ATT&amp;CK and ATLAS, OWASP Top 10 for LLM Applications (2026), NIST 800-53, and ISO 42001, and came out with <!-- METRIC:grc.stride_threats -->29<!-- /METRIC --> threats, <!-- METRIC:grc.attack_paths_total -->7<!-- /METRIC --> attack paths, and a clear line between the controls that hold and the gaps that remain.</p>
 
     <div class="cd-view-wrap" id="tm-model" style="scroll-margin-top:80px;">
 <!-- VIEW:threat-model -->
@@ -1952,8 +1905,8 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
   <div class="cd-view-head"><span class="cd-view-title">Threat model</span><span class="cd-view-sub">six attacker positions, the wall that meets each one, and what remains after the walls</span><a class="cd-view-open" href="views/threat-model.html">Open full view</a></div>
   <a class="cd-view-frame" href="views/threat-model.html" aria-label="Open the threat model view full size">
 <svg viewBox="0 0 1700 656" role="img" aria-label="Threat model view of the CoreDirective platform. Six attacker positions run as columns, each attack drawn top to bottom, each control drawn as a wall across the column with the layer it lives in, the NIST 800-53 control it satisfies, and the STRIDE category it answers. An internet scanner meets no origin address in DNS, WAF and DDoS absorption at the edge, no published ports because the tunnel dials out, and SSH restricted to an allowlist; it reaches the edge login page and public webhook paths, never the host. A webhook caller meets the WAF and per-IP rate limit, identity checks at the edge with one carve-out, a token header on the agent, a typed schema-checked payload, and a recommend-only action set, with every call traced and a human reading anything rated HIGH. A hostile prompt inside a real alert meets a PII scrub before the graph, a jailbreak and PII input rail, an output rail with a citation guard, a forbidden-verb filter, and a human gate on HIGH and CRITICAL, with a daily spend cap and a trace on every call; it reaches the allowlist, text advice only, twenty red-team cases fired with zero bypasses. A compromised container meets three bridge networks with a sealed AI segment, no-new-privileges with one documented exemption and PID caps, the Docker socket mounted read-only into two sensors and no application container, Falco reading syscalls from the kernel, token-gated secrets, and a credential-gated database; it reaches its own segment and environment. A stolen operator credential meets a one-time PIN at the edge, a second factor on the SSH gateway, just-in-time access that expires in four hours, roles reviewed quarterly, and session recordings shipped off-host over mTLS; it reaches a recorded session with a four hour clock. A poisoned upstream image meets digest pinning on security-boundary images, a reviewed pull request for any change, vulnerability scanning with an SBOM and signature verification, and a sealed segment with no route home. A right rail carries the counts: 29 STRIDE threats across 7 trust boundaries, 7 attack paths, 10 AI threats cataloged, 20 red-team cases with 0 bypasses, 11 pentest findings with 0 critical and 4 accepted with compensating controls, and 0 application ports open to the internet. Residual ratings come from the STRIDE register after controls.">
-    <defs><marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b5e"/></marker></defs>
-    <line x1="131" y1="70" x2="131" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-red)"/>
+    <defs><marker id="m-threat-model-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b5e"/></marker></defs>
+    <line x1="131" y1="70" x2="131" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-threat-model-red)"/>
     <line x1="131" y1="166" x2="131" y2="516" stroke="#ff6b5e" stroke-width="2" stroke-dasharray="5 5" opacity="0.9"/>
     <rect x="28" y="30" width="206" height="40" rx="5" fill="#141b16" stroke="#ff6b5e" stroke-width="1.5"/>
     <text x="131" y="55" font-size="15" fill="#e6ebe4" font-weight="500" text-anchor="middle">internet scanner</text>
@@ -1987,7 +1940,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <rect x="28" y="598" width="64" height="20" rx="3" fill="none" stroke="#3dff8b" stroke-width="1.5"/>
     <text x="60" y="612" font-size="11" fill="#3dff8b" font-weight="700" text-anchor="middle">LOW</text>
     <text x="102" y="612" font-size="11" fill="#a3ada1" text-anchor="start">D-01  S-05</text>
-    <line x1="357" y1="70" x2="357" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-red)"/>
+    <line x1="357" y1="70" x2="357" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-threat-model-red)"/>
     <line x1="357" y1="166" x2="357" y2="516" stroke="#ff6b5e" stroke-width="2" stroke-dasharray="5 5" opacity="0.9"/>
     <rect x="254" y="30" width="206" height="40" rx="5" fill="#141b16" stroke="#ff6b5e" stroke-width="1.5"/>
     <text x="357" y="55" font-size="15" fill="#e6ebe4" font-weight="500" text-anchor="middle">webhook caller</text>
@@ -2031,7 +1984,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <rect x="254" y="598" width="64" height="20" rx="3" fill="none" stroke="#ffc247" stroke-width="1.5"/>
     <text x="286" y="612" font-size="11" fill="#ffc247" font-weight="700" text-anchor="middle">MEDIUM</text>
     <text x="328" y="612" font-size="11" fill="#a3ada1" text-anchor="start">S-01</text>
-    <line x1="583" y1="70" x2="583" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-red)"/>
+    <line x1="583" y1="70" x2="583" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-threat-model-red)"/>
     <line x1="583" y1="166" x2="583" y2="516" stroke="#ff6b5e" stroke-width="2" stroke-dasharray="5 5" opacity="0.9"/>
     <rect x="480" y="30" width="206" height="40" rx="5" fill="#141b16" stroke="#ff6b5e" stroke-width="1.5"/>
     <text x="583" y="55" font-size="15" fill="#e6ebe4" font-weight="500" text-anchor="middle">hostile prompt</text>
@@ -2075,7 +2028,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <rect x="480" y="598" width="64" height="20" rx="3" fill="none" stroke="#ffc247" stroke-width="1.5"/>
     <text x="512" y="612" font-size="11" fill="#ffc247" font-weight="700" text-anchor="middle">MEDIUM</text>
     <text x="554" y="612" font-size="11" fill="#a3ada1" text-anchor="start">T-01  I-01</text>
-    <line x1="809" y1="70" x2="809" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-red)"/>
+    <line x1="809" y1="70" x2="809" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-threat-model-red)"/>
     <line x1="809" y1="166" x2="809" y2="516" stroke="#ff6b5e" stroke-width="2" stroke-dasharray="5 5" opacity="0.9"/>
     <rect x="706" y="30" width="206" height="40" rx="5" fill="#141b16" stroke="#ff6b5e" stroke-width="1.5"/>
     <text x="809" y="55" font-size="15" fill="#e6ebe4" font-weight="500" text-anchor="middle">compromised container</text>
@@ -2119,7 +2072,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <rect x="706" y="598" width="64" height="20" rx="3" fill="none" stroke="#ffc247" stroke-width="1.5"/>
     <text x="738" y="612" font-size="11" fill="#ffc247" font-weight="700" text-anchor="middle">MEDIUM</text>
     <text x="780" y="612" font-size="11" fill="#a3ada1" text-anchor="start">E-04  E-01  S-03</text>
-    <line x1="1035" y1="70" x2="1035" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-red)"/>
+    <line x1="1035" y1="70" x2="1035" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-threat-model-red)"/>
     <line x1="1035" y1="166" x2="1035" y2="516" stroke="#ff6b5e" stroke-width="2" stroke-dasharray="5 5" opacity="0.9"/>
     <rect x="932" y="30" width="206" height="40" rx="5" fill="#141b16" stroke="#ff6b5e" stroke-width="1.5"/>
     <text x="1035" y="55" font-size="15" fill="#e6ebe4" font-weight="500" text-anchor="middle">stolen credential</text>
@@ -2160,7 +2113,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <rect x="932" y="598" width="64" height="20" rx="3" fill="none" stroke="#3dff8b" stroke-width="1.5"/>
     <text x="964" y="612" font-size="11" fill="#3dff8b" font-weight="700" text-anchor="middle">LOW</text>
     <text x="1006" y="612" font-size="11" fill="#a3ada1" text-anchor="start">R-02  E-03</text>
-    <line x1="1261" y1="70" x2="1261" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-red)"/>
+    <line x1="1261" y1="70" x2="1261" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-threat-model-red)"/>
     <line x1="1261" y1="166" x2="1261" y2="516" stroke="#ff6b5e" stroke-width="2" stroke-dasharray="5 5" opacity="0.9"/>
     <rect x="1158" y="30" width="206" height="40" rx="5" fill="#141b16" stroke="#ff6b5e" stroke-width="1.5"/>
     <text x="1261" y="55" font-size="15" fill="#e6ebe4" font-weight="500" text-anchor="middle">poisoned image</text>
@@ -2241,6 +2194,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
   </figcaption>
 </figure>
 <!-- /VIEW -->
+    <p class="cd-view-note">This is the reference design. Live, partial, or planned status per control is in the <a href="#grc">POA&amp;M in the GRC section</a>. The red team cards further down are the evidence.</p>
     </div>
 
     <!-- THREAT MODELS I AUTHORED -->
@@ -2258,7 +2212,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/AI_THREAT_CATALOG.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
         <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">AI Catalog / OWASP LLM + MITRE ATLAS</div>
         <div style="font-size:15px;font-weight:700;margin-bottom:8px;">AI Threat Catalog</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;"><!-- METRIC:grc.ai_threats_cataloged -->10<!-- /METRIC --> AI-specific threats mapped to OWASP LLM Top 10 (2025), MITRE ATLAS v4, NIST AI RMF, and ISO 42001 Annex A.</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;"><!-- METRIC:grc.ai_threats_cataloged -->10<!-- /METRIC --> AI-specific threats mapped to OWASP Top 10 for LLM Applications (2026), MITRE ATLAS v4, NIST AI RMF, and ISO 42001 Annex A.</div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);margin-top:12px;opacity:0.7;">View on GitHub &rarr;</div>
       </div></a>
 
@@ -2286,11 +2240,13 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/REDTEAM_RESULTS.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--mid)'">
         <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;">Red Team Results / Receipts</div>
         <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Red Team Cycle 1 + 2</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">I red-teamed Squire. Multiple attempts at prompt injection, role hijack, and severity flip. Most RESISTED with regression tests now in CI. Failures documented as POA&amp;M findings P17-01 through P17-15.</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">20 red team cases across prompt injection, role hijack, and severity flip. No case bypassed the guardrails. Every weakness the cycles exposed is a POA&amp;M finding, P17-01 through P17-15, each with a regression test now in CI.</div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);margin-top:12px;opacity:0.7;">View on GitHub &rarr;</div>
       </div></a>
 
     </div>
+
+    <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);margin:-8px 0 36px;">Also in the library: AI Supply Chain Risk Assessment and the AI Incident Response Playbook. <a href="https://github.com/ET-sec/cyber-squire1/tree/main/docs/grc" target="_blank" rel="noopener noreferrer" style="color:var(--green);">View the full GRC library on GitHub &rarr;</a></p>
 
     <!-- COMPROMISES I ACCEPTED -->
     <h3 class="sub" style="color:var(--gold);">Compromises I Accepted</h3>
@@ -2330,8 +2286,8 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     </div>
 
     <!-- AGENTIC AI THREAT SURFACE -->
-    <h3 class="sub" style="color:var(--red);">Agentic AI Threat Surface: Tool-Use Risk Map</h3>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:16px;" class="reveal">Click any skill node to expand abuse scenarios and control mappings</div>
+    <h3 class="sub" style="color:var(--red);">What the agent can reach</h3>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:16px;" class="reveal">Select any skill node to expand abuse scenarios and control mappings</div>
 
     <div class="agent-surface-grid reveal">
       <div class="agent-core">
@@ -2415,13 +2371,12 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
       </div>
 
       <div class="agent-chain-warning">
-        <strong>COMPOUND RISK:</strong> 6 skills &times; 16 service integrations = 96 potential chain paths. One compromised prompt reaches every tool the agent can touch, so the attack surface multiplies instead of adding.
-      </div>
+        <strong>COMPOUND RISK:</strong> One compromised prompt reaches every tool the agent can call, and every tool reaches the integrations behind it, so the surface multiplies with each skill added.</div>
     </div>
 
     <!-- STRIDE INTERACTIVE GRID -->
-    <h3 id="tm-stride" class="sub" style="color:var(--red);">Interactive: STRIDE Threat Decomposition</h3>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--light);margin-bottom:16px;" class="reveal">Click any category to expand findings, 29 threats identified across the full platform design</div>
+    <h3 id="tm-stride" class="sub" style="color:var(--red);">Threats by STRIDE category</h3>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--light);margin-bottom:16px;" class="reveal">Select any category to expand findings, 29 threats identified across the full platform design</div>
 
     <div class="stride-grid reveal">
       <div class="hud-red stride-card stagger-card" onclick="strideToggle(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
@@ -2515,10 +2470,10 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
       </div>
     </div>
 
-    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Click any card to expand, Data sourced from <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-size:10px;">THREAT_MODEL_STRIDE.md</a> (629 lines)</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Select any card to expand, Data sourced from <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-size:10px;">THREAT_MODEL_STRIDE.md</a> (629 lines)</div>
 
     <!-- ATTACK PATH CARDS -->
-    <h3 id="tm-attacks" class="sub" style="color:var(--red);">Attack Tree: AI Pipeline Kill Chains</h3>
+    <h3 id="tm-attacks" class="sub" style="color:var(--red);">Attack paths through the AI pipeline</h3>
 
     <div style="display:grid;gap:12px;margin-bottom:32px;" class="reveal">
       <div class="hud-red attack-path-card stagger-card" onclick="apToggle(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
@@ -2625,8 +2580,8 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Full decomposition in <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/ATTACK_TREE_AI_PIPELINE.md" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-size:10px;">ATTACK_TREE_AI_PIPELINE.md</a> (344 lines)</div>
 
     <!-- ATTACK WALKTHROUGH -->
-    <h3 id="tm-redteam" class="sub" style="color:var(--red);">Red Team Walkthrough: Prompt Injection &rarr; Skill Chain &rarr; Infrastructure Impact</h3>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:20px;" class="reveal">Step through the highest-probability attack path. Click each phase to see detection status and control gaps.</div>
+    <h3 id="tm-redteam" class="sub" style="color:var(--red);">One attack, phase by phase</h3>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:20px;" class="reveal">Step through the highest-probability attack path. Select each phase to see detection status and control gaps.</div>
 
     <div class="atk-walkthrough reveal" id="atk-walkthrough">
 
@@ -2724,7 +2679,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <!-- FRAMEWORK CROSS-REFERENCE MATRIX -->
     <div id="tm-frameworks" class="hud-red reveal" style="transition:border-color 0.3s,box-shadow 0.3s;scroll-margin-top:80px;">
       <span class="bl"></span><span class="br"></span>
-      <h3 class="sub" style="color:var(--red);">Framework Coverage Matrix</h3>
+      <h3 class="sub" style="color:var(--red);">Which frameworks cover which threats</h3>
       <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:16px;">How each framework maps to STRIDE threat categories</div>
       <div class="fw-matrix">
         <div class="fw-matrix-header"></div>
@@ -2796,7 +2751,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
   <div class="cd-view-head"><span class="cd-view-title">Identity and access</span><span class="cd-view-sub">four privilege tiers, every credential named with its lifetime</span><a class="cd-view-open" href="views/identity-access.html">Open full view</a></div>
   <a class="cd-view-frame" href="views/identity-access.html" aria-label="Open the identity and access view full size">
 <svg viewBox="0 0 1700 790" role="img" aria-label="Identity and access view of the CoreDirective platform. Four privilege tiers drawn as horizontal bands, each with principals on the left, decision points in the middle, resources on the right, and a note on what a stolen credential reaches. Tier 0, break-glass: an allowlisted source range reaches the host SSH daemon with a static key and lands on the host shell with no broker in the path. Tier 1, operator: humans reach admin consoles through an email one-time PIN with a 24 hour session, and reach host SSH and the database through Keycloak single sign-on into Teleport with TOTP, recorded sessions, and just-in-time elevation that expires after four hours. Tier 2, service: n8n and services fetch dynamic database credentials from Vault by AppRole on a one hour lease; the CI runner trades a signed JWT from the main branch for a cloud token that lives minutes and is read-only; Telegram reaches one webhook path through an Access bypass limited to its published ranges with a chat ID check. Tier 3, agent: alert sources reach Squire with a rotated shared-secret webhook header and a schema-checked payload; Squire reaches the Claude API only through Guardrails, which holds the API key and the spend cap; Squire notifies Telegram through a typed actions allowlist. A perfect prompt injection reaches the allowlist, never the operator or cloud planes.">
-    <defs><marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b5e"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3dff8b"/></marker><marker id="m-bone" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8dcc0"/></marker><marker id="m-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff9b3d"/></marker></defs>
+    <defs><marker id="m-identity-access-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b5e"/></marker><marker id="m-identity-access-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3dff8b"/></marker><marker id="m-identity-access-bone" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8dcc0"/></marker><marker id="m-identity-access-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff9b3d"/></marker></defs>
     <g font-size="12" font-weight="700" letter-spacing="2" fill="#a3ada1"><text x="60" y="24">PRINCIPAL</text><text x="675" y="24">DECISION POINT</text><text x="1180" y="24">RESOURCE</text><text x="1410" y="24">IF THE CREDENTIAL IS STOLEN</text></g>
     <!-- ===== TIER 0  BREAK-GLASS ===== -->
     <rect x="28" y="44" width="1644" height="88" rx="7" fill="rgba(255,107,94,0.035)" stroke="#27342b" stroke-width="1.5"/>
@@ -2804,9 +2759,9 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <text x="237" y="62" font-size="11.5" fill="#a3ada1">static key, source-restricted, last resort, no broker in the path</text>
     <rect x="60" y="74" width="190" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="155" y="99" font-size="14" font-weight="500" fill="#e6ebe4" text-anchor="middle">allowlisted source</text>
     <rect x="675" y="74" width="200" height="40" rx="5" fill="#141b16" stroke="#ff6b5e" stroke-width="1.5"/><text x="775" y="99" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">host sshd</text>
-    <line x1="250" y1="94" x2="674" y2="94" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-red)"/>
+    <line x1="250" y1="94" x2="674" y2="94" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-identity-access-red)"/>
     <text x="462.5" y="85" font-size="11.5" fill="#ff6b5e" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">Ed25519 key, static</text>
-    <line x1="875" y1="94" x2="1179" y2="94" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-red)"/>
+    <line x1="875" y1="94" x2="1179" y2="94" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-identity-access-red)"/>
     <text x="1027.5" y="85" font-size="11.5" fill="#ff6b5e" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">root path, no broker</text>
     <rect x="1180" y="74" width="200" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="1280" y="99" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">host shell</text>
     <text x="1410" y="90" font-size="11.5" fill="#a3ada1">whole host, from one source range</text><text x="1410" y="106" font-size="11.5" fill="#a3ada1">Falco sees the session after the fact</text>
@@ -2816,19 +2771,19 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <text x="209" y="160" font-size="11.5" fill="#a3ada1">humans, three realm roles: admin, operator, auditor</text>
     <rect x="60" y="172" width="190" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="155" y="197" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">operator</text>
     <rect x="675" y="172" width="200" height="40" rx="5" fill="#141b16" stroke="#3dff8b" stroke-width="1.5"/><text x="775" y="197" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">Access</text>
-    <line x1="250" y1="192" x2="674" y2="192" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
+    <line x1="250" y1="192" x2="674" y2="192" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-identity-access-green)"/>
     <text x="462.5" y="183" font-size="11.5" fill="#3dff8b" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">email one-time PIN, 24h session</text>
-    <line x1="875" y1="192" x2="1179" y2="192" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
+    <line x1="875" y1="192" x2="1179" y2="192" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-identity-access-green)"/>
     <text x="1027.5" y="183" font-size="11.5" fill="#3dff8b" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">identity checked before origin</text>
     <rect x="1180" y="172" width="200" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="1280" y="197" font-size="15" font-weight="500" fill="#e6ebe4" text-anchor="middle">admin consoles</text>
     <rect x="60" y="232" width="190" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="155" y="257" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">operator</text>
     <rect x="600" y="232" width="140" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="670" y="257" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">Keycloak</text>
     <rect x="810" y="232" width="140" height="40" rx="5" fill="#141b16" stroke="#3dff8b" stroke-width="1.5"/><text x="880" y="257" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">Teleport</text>
-    <line x1="250" y1="252" x2="599" y2="252" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
+    <line x1="250" y1="252" x2="599" y2="252" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-identity-access-green)"/>
     <text x="425" y="243" font-size="11.5" fill="#3dff8b" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">password, lockout on failures</text>
-    <line x1="740" y1="252" x2="809" y2="252" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
+    <line x1="740" y1="252" x2="809" y2="252" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-identity-access-green)"/>
     <text x="775" y="283" font-size="11.5" fill="#3dff8b" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">OIDC, 5-min token</text>
-    <line x1="950" y1="252" x2="1179" y2="252" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
+    <line x1="950" y1="252" x2="1179" y2="252" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-identity-access-green)"/>
     <text x="1065" y="243" font-size="11.5" fill="#3dff8b" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">TOTP, recorded, JIT 4h</text>
     <rect x="1180" y="232" width="200" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="1280" y="257" font-size="14" font-weight="500" fill="#e6ebe4" text-anchor="middle">host SSH, database</text>
     <text x="1410" y="188" font-size="11.5" fill="#a3ada1">consoles until the 24h session ends</text><text x="1410" y="204" font-size="11.5" fill="#a3ada1">SSH recorded, elevation ends at 4h</text>
@@ -2838,23 +2793,23 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <text x="200" y="318" font-size="11.5" fill="#a3ada1">machines trade one bootstrap secret for a short-lived credential</text>
     <rect x="60" y="330" width="190" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="155" y="355" font-size="14" font-weight="500" fill="#e6ebe4" text-anchor="middle">n8n and services</text>
     <rect x="675" y="330" width="200" height="40" rx="5" fill="#141b16" stroke="#e8dcc0" stroke-width="1.5"/><text x="775" y="355" font-size="15" font-weight="500" fill="#e6ebe4" text-anchor="middle">Vault AppRole</text>
-    <line x1="250" y1="350" x2="674" y2="350" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-bone)"/>
+    <line x1="250" y1="350" x2="674" y2="350" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-identity-access-bone)"/>
     <text x="462.5" y="341" font-size="11.5" fill="#e8dcc0" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">role ID and secret ID</text>
-    <line x1="875" y1="350" x2="1179" y2="350" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-bone)"/>
+    <line x1="875" y1="350" x2="1179" y2="350" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-identity-access-bone)"/>
     <text x="1027.5" y="341" font-size="11.5" fill="#e8dcc0" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">dynamic creds, 1h lease</text>
     <rect x="1180" y="330" width="200" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="1280" y="355" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">Postgres</text>
     <rect x="60" y="390" width="190" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="155" y="415" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">CI runner</text>
     <rect x="675" y="390" width="200" height="40" rx="5" fill="#141b16" stroke="#e8dcc0" stroke-width="1.5"/><text x="775" y="415" font-size="15" font-weight="500" fill="#e6ebe4" text-anchor="middle">OIDC exchange</text>
-    <line x1="250" y1="410" x2="674" y2="410" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-bone)"/>
+    <line x1="250" y1="410" x2="674" y2="410" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-identity-access-bone)"/>
     <text x="462.5" y="401" font-size="11.5" fill="#e8dcc0" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">signed JWT, main branch only</text>
-    <line x1="875" y1="410" x2="1179" y2="410" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-bone)"/>
+    <line x1="875" y1="410" x2="1179" y2="410" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-identity-access-bone)"/>
     <text x="1027.5" y="401" font-size="11.5" fill="#e8dcc0" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">minutes-lived token, read-only</text>
     <rect x="1180" y="390" width="200" height="40" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1280" y="415" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">cloud API</text>
     <rect x="60" y="450" width="190" height="40" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="155" y="475" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">Telegram</text>
     <rect x="675" y="450" width="200" height="40" rx="5" fill="#141b16" stroke="#e8dcc0" stroke-width="1.5"/><text x="775" y="475" font-size="15" font-weight="500" fill="#e6ebe4" text-anchor="middle">Access bypass</text>
-    <line x1="250" y1="470" x2="674" y2="470" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-bone)"/>
+    <line x1="250" y1="470" x2="674" y2="470" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-identity-access-bone)"/>
     <text x="462.5" y="461" font-size="11.5" fill="#e8dcc0" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">published egress ranges only</text>
-    <line x1="875" y1="470" x2="1179" y2="470" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-bone)"/>
+    <line x1="875" y1="470" x2="1179" y2="470" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-identity-access-bone)"/>
     <text x="1027.5" y="461" font-size="11.5" fill="#e8dcc0" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">chat ID checked, rate limited</text>
     <rect x="1180" y="450" width="200" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="1280" y="475" font-size="14" font-weight="500" fill="#e6ebe4" text-anchor="middle">one webhook path</text>
     <text x="1410" y="346" font-size="11.5" fill="#a3ada1">one database, for one hour</text><text x="1410" y="362" font-size="11.5" fill="#a3ada1">no stored cloud key exists to leak</text>
@@ -2864,23 +2819,23 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <text x="182" y="536" font-size="11.5" fill="#a3ada1">six agent roles in the realm, five-minute tokens, screened on the way out</text>
     <rect x="60" y="548" width="190" height="40" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="155" y="573" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">alert source</text>
     <rect x="675" y="548" width="200" height="40" rx="5" fill="#141b16" stroke="#ff9b3d" stroke-width="1.5"/><text x="775" y="573" font-size="15" font-weight="500" fill="#e6ebe4" text-anchor="middle">webhook token</text>
-    <line x1="250" y1="568" x2="674" y2="568" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <line x1="250" y1="568" x2="674" y2="568" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-identity-access-orange)"/>
     <text x="462.5" y="559" font-size="11.5" fill="#ff9b3d" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">shared-secret header, rotated</text>
-    <line x1="875" y1="568" x2="1179" y2="568" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <line x1="875" y1="568" x2="1179" y2="568" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-identity-access-orange)"/>
     <text x="1027.5" y="559" font-size="11.5" fill="#ff9b3d" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">typed payload, schema checked</text>
     <rect x="1180" y="548" width="200" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="1280" y="573" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">Squire</text>
     <rect x="60" y="608" width="190" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="155" y="633" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">Squire</text>
     <rect x="675" y="608" width="200" height="40" rx="5" fill="#141b16" stroke="#ff9b3d" stroke-width="1.5"/><text x="775" y="633" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">Guardrails</text>
-    <line x1="250" y1="628" x2="674" y2="628" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <line x1="250" y1="628" x2="674" y2="628" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-identity-access-orange)"/>
     <text x="462.5" y="619" font-size="11.5" fill="#ff9b3d" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">no model key in the agent</text>
-    <line x1="875" y1="628" x2="1179" y2="628" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <line x1="875" y1="628" x2="1179" y2="628" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-identity-access-orange)"/>
     <text x="1027.5" y="619" font-size="11.5" fill="#ff9b3d" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">API key held here, spend cap</text>
     <rect x="1180" y="608" width="200" height="40" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1280" y="633" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">Claude API</text>
     <rect x="60" y="668" width="190" height="40" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="155" y="693" font-size="16" font-weight="500" fill="#e6ebe4" text-anchor="middle">Squire</text>
     <rect x="675" y="668" width="200" height="40" rx="5" fill="#141b16" stroke="#ff9b3d" stroke-width="1.5"/><text x="775" y="693" font-size="14" font-weight="500" fill="#e6ebe4" text-anchor="middle">actions allowlist</text>
-    <line x1="250" y1="688" x2="674" y2="688" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <line x1="250" y1="688" x2="674" y2="688" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-identity-access-orange)"/>
     <text x="462.5" y="679" font-size="11.5" fill="#ff9b3d" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">typed actions, deny by default</text>
-    <line x1="875" y1="688" x2="1179" y2="688" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <line x1="875" y1="688" x2="1179" y2="688" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-identity-access-orange)"/>
     <text x="1027.5" y="679" font-size="11.5" fill="#ff9b3d" text-anchor="middle" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">webhook token, one chat ID</text>
     <rect x="1180" y="668" width="200" height="40" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1280" y="693" font-size="14" font-weight="500" fill="#e6ebe4" text-anchor="middle">Telegram notify</text>
     <text x="1410" y="564" font-size="11.5" fill="#a3ada1">an injection reaches the allowlist,</text><text x="1410" y="580" font-size="11.5" fill="#a3ada1">not the operator or cloud planes</text>
@@ -2902,61 +2857,10 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 <!-- /VIEW -->
     </div>
 
-    <!-- DELIVERABLES -->
-    <div style="margin-top:32px;" class="reveal">
-      <h3 class="sub" style="color:var(--red);">Threat Modeling Deliverables</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;">
-        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
-          <span class="bl"></span><span class="br"></span>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">STRIDE Threat Model</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">29 threats, 7 trust boundaries, 40 data flows, AI extensions</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
-        </div></a>
-        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/ATTACK_TREE_AI_PIPELINE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
-          <span class="bl"></span><span class="br"></span>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">Attack Tree // AI Pipeline</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">4 kill chains, MITRE ATLAS, OWASP LLM mapping</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
-        </div></a>
-        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/AI_THREAT_CATALOG.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
-          <span class="bl"></span><span class="br"></span>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">AI Threat Catalog</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">10 AI threats, 4 frameworks cross-referenced</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
-        </div></a>
-        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/DATA_FLOW_DIAGRAM.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
-          <span class="bl"></span><span class="br"></span>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">Data Flow Diagram</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">30+ data flows, 7 trust boundaries, NIST SP 800-154</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
-        </div></a>
-        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/AI_SUPPLY_CHAIN_RISK.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
-          <span class="bl"></span><span class="br"></span>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">AI Supply Chain Risk Assessment</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">ML-BOM, Model provenance, Integrity verification</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
-        </div></a>
-        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/AI_RED_TEAM_PLAN.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
-          <span class="bl"></span><span class="br"></span>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">AI Red Team Plan</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">2 cycles, 20 test cases, OWASP LLM01, LLM03, LLM07 (2026 numbering) covered</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
-        </div></a>
-        <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/PLAYBOOK_AI_INCIDENT.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-red" style="padding:16px;transition:border-color 0.3s,box-shadow 0.3s;">
-          <span class="bl"></span><span class="br"></span>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">AI Incident Response Playbook</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">4 scenarios, Prompt injection, Excessive agency, Supply chain</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
-        </div></a>
-      </div>
-    </div>
-
-    <a href="https://github.com/ET-sec/cyber-squire1/tree/main/docs/grc" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--red);letter-spacing:1px;" class="reveal">View Full GRC Library on GitHub &rarr;</a>
-
     <!-- APPLICATION SECURITY -->
     <div id="tm-appsec" style="margin-top:60px;scroll-margin-top:80px;" class="reveal">
-      <h3 class="sub" style="color:var(--cyan);">Application Security: Assessments &amp; Pipeline</h3>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:24px;">Vulnerability research, secure SDLC, code review, and IAM governance. Click any card for full documentation.</div>
+      <h3 class="sub" style="color:var(--cyan);">Application security</h3>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:24px;">Vulnerability research, secure SDLC, code review, and IAM governance. Select any card for full documentation.</div>
 
       <!-- SECURE SDLC PIPELINE VISUALIZATION -->
       <div class="hud reveal" style="padding:20px;margin-bottom:24px;overflow-x:auto;">
@@ -2998,10 +2902,10 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
             <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:1px;margin-bottom:8px;">SECURE SDLC</div>
             <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--white);font-weight:700;margin-bottom:6px;">CI/CD Security Pipeline</div>
             <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--cyan);color:var(--void);padding:2px 8px;font-weight:700;">7 PR GATES</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--cyan);color:var(--void);padding:2px 8px;font-weight:700;">4 PR GATES</span>
               <span style="font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--cyan);color:var(--void);padding:2px 8px;font-weight:700;">5 MERGE GATES</span>
             </div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:8px;">Gitleaks, Trivy, Semgrep, Checkov, OPA, Cosign, SBOM. 8 custom Rego policies.</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-bottom:8px;">Gitleaks, Trivy, Semgrep, Checkov, OPA, Cosign (advisory), SBOM. 8 Rego policies.</div>
             <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
               <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--light);border:1px solid var(--mid);padding:1px 6px;">SA-11</span>
               <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--light);border:1px solid var(--mid);padding:1px 6px;">SA-15</span>
@@ -3101,12 +3005,11 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal-left">
       <h2 style="color:var(--purple);">AI Security &amp; Governance</h2>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--light);margin-top:8px;letter-spacing:1px;">Aligned to three frameworks: ISO 42001, ISO 27701, NIST AI RMF</div>
       <div class="line-purple"></div>
     </div>
 
     <p class="reveal body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
-      AI Governance Policy aligned to three international frameworks, governing the five AI systems registered in its inventory, each with a documented risk profile, prompt injection defenses, and behavioral monitoring. The trust view below draws every crossing out of the host and what stands in front of it.
+      One AI governance policy covers the five AI systems in the inventory. Each has a risk profile, prompt injection defenses, and behavioral monitoring on record. The trust view draws every crossing out of the host and what stands in front of it.
     </p>
 
     <!-- FRAMEWORK CARDS -->
@@ -3140,7 +3043,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
   <div class="cd-view-head"><span class="cd-view-title">AI trust</span><span class="cd-view-sub">five models, one search API, three trust levels; every crossing out of the host drawn with what stands in front of it</span><a class="cd-view-open" href="views/ai-trust.html">Open full view</a></div>
   <a class="cd-view-frame" href="views/ai-trust.html" aria-label="Open the ai trust view full size">
 <svg viewBox="0 0 1700 664" role="img" aria-label="AI trust view of the CoreDirective platform. Three trust levels drawn as bands. Outside the host, vendor models: a frontier model for the three reasoning nodes, a classifier for one structured call, an embeddings model, and a web search API; a data processing agreement is on file for the model and embeddings vendors, terms of service for search. A host boundary line separates them; five crossings go out, each one drawn: the prompt, alert queries and corpus chunks to the embeddings model, search terms, and a text notification. Inside net-core, guardrails stand in front of the model calls, with the PII model baked into the guardrails image and offline enforced: an alert payload, attacker-influenced by definition, passes a shared-secret token check and typed schema, a regex PII scrub before the graph, and an input rail with NER PII detection as a second pass, then reaches the model egress point with a daily spend cap and a trace on every call. The completion returns through output checks for PII, citations, and verbs, a recommend-only allowlist, and a human gate where HIGH and CRITICAL findings wait, then a notification with the chat ID checked reaches the operator, who reads, decides, and acts. The embed step sends corpus chunks at ingest and alert queries per run to the embeddings model and stores vectors in a bridge-only Postgres. The enrich node sends indicators and the rule name to web search. A voice note from the operator goes down to speech to text on the sealed segment; the audio never comes back up, only the transcript does. Below a sealed boundary, net-ai holds a local LLM used as fallback when the spend cap trips and the speech to text model, both with no internet route. Tags under the screens are the OWASP Top 10 for LLM Applications 2026 (LLM) and the OWASP Top 10 for Agentic Applications 2026 (ASI).">
-    <defs><marker id="m-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff9b3d"/></marker><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3dff8b"/></marker><marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a3ada1"/></marker></defs>
+    <defs><marker id="m-ai-trust-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff9b3d"/></marker><marker id="m-ai-trust-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3dff8b"/></marker><marker id="m-ai-trust-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a3ada1"/></marker></defs>
     <rect x="28" y="56" width="1644" height="118" rx="9" fill="rgba(232,220,192,0.03)" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/>
     <text x="46" y="78" font-size="12" fill="#e8dcc0" font-weight="700" letter-spacing="2" text-anchor="start">VENDOR MODELS, OUTSIDE THE HOST</text>
     <text x="46" y="94" font-size="11.5" fill="#a3ada1" text-anchor="start">frontier reasoning and classification, embeddings, search; DPA on file for the model and embeddings vendors, terms of service for search</text>
@@ -3158,31 +3061,31 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <line x1="28" y1="514" x2="1672" y2="514" stroke="#a3ada1" stroke-width="2" stroke-dasharray="10 6"/>
     <text x="46" y="509" font-size="12" fill="#e6ebe4" font-weight="700" letter-spacing="2" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">SEALED BOUNDARY</text>
     <text x="190" y="509" font-size="11.5" fill="#a3ada1" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">audio never comes back up; only text does</text>
-    <path d="M198,292 H227" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
-    <path d="M378,292 H407" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
-    <path d="M558,292 H587" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
-    <path d="M738,292 H767" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
-    <path d="M843,271 V153" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-start="url(#m-orange)" marker-end="url(#m-orange)"/>
-    <path d="M800,271 V240 H655 V153" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-start="url(#m-orange)" marker-end="url(#m-orange)"/>
+    <path d="M198,292 H227" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-ai-trust-orange)"/>
+    <path d="M378,292 H407" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-ai-trust-orange)"/>
+    <path d="M558,292 H587" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-ai-trust-orange)"/>
+    <path d="M738,292 H767" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-ai-trust-orange)"/>
+    <path d="M843,271 V153" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-start="url(#m-ai-trust-orange)" marker-end="url(#m-ai-trust-orange)"/>
+    <path d="M800,271 V240 H655 V153" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-start="url(#m-ai-trust-orange)" marker-end="url(#m-ai-trust-orange)"/>
     <text x="858" y="229" font-size="11.5" fill="#ff9b3d" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">prompt up, completion down</text>
-    <path d="M843,313 V391" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <path d="M843,313 V391" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-ai-trust-orange)"/>
     <text x="858" y="357" font-size="11.5" fill="#ff9b3d" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">completion</text>
-    <path d="M918,292 H1023 V579" fill="none" stroke="#ff9b3d" stroke-width="2.5" stroke-dasharray="6 5" marker-start="url(#m-orange)" marker-end="url(#m-orange)"/>
+    <path d="M918,292 H1023 V579" fill="none" stroke="#ff9b3d" stroke-width="2.5" stroke-dasharray="6 5" marker-start="url(#m-ai-trust-orange)" marker-end="url(#m-ai-trust-orange)"/>
     <text x="1037" y="487" font-size="11.5" fill="#ff9b3d" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">fallback when the cap trips</text>
-    <path d="M1203,271 V153" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-start="url(#m-orange)" marker-end="url(#m-orange)"/>
+    <path d="M1203,271 V153" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-start="url(#m-ai-trust-orange)" marker-end="url(#m-ai-trust-orange)"/>
     <text x="1217" y="229" font-size="11.5" fill="#ff9b3d" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">text up, vectors down</text>
-    <path d="M1203,313 V391" fill="none" stroke="#a3ada1" stroke-width="2.5" marker-end="url(#m-gray)"/>
+    <path d="M1203,313 V391" fill="none" stroke="#a3ada1" stroke-width="2.5" marker-end="url(#m-ai-trust-gray)"/>
     <text x="1217" y="357" font-size="11.5" fill="#a3ada1" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">vectors, DC-4</text>
-    <path d="M1383,271 V153" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-start="url(#m-orange)" marker-end="url(#m-orange)"/>
+    <path d="M1383,271 V153" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-start="url(#m-ai-trust-orange)" marker-end="url(#m-ai-trust-orange)"/>
     <text x="1397" y="229" font-size="11.5" fill="#ff9b3d" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">terms up, results down</text>
-    <path d="M1563,313 V579" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <path d="M1563,313 V579" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-ai-trust-orange)"/>
     <text x="1549" y="472" font-size="11.5" fill="#ff9b3d" text-anchor="end" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">audio, never leaves</text>
-    <path d="M1488,600 H1383 V433" fill="none" stroke="#a3ada1" stroke-width="2.5" marker-end="url(#m-gray)"/>
+    <path d="M1488,600 H1383 V433" fill="none" stroke="#a3ada1" stroke-width="2.5" marker-end="url(#m-ai-trust-gray)"/>
     <text x="1369" y="484" font-size="11.5" fill="#a3ada1" text-anchor="end" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">text only</text>
-    <path d="M767,412 H739" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
-    <path d="M587,412 H559" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
-    <path d="M407,412 H379" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
-    <path d="M227,412 H199" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
+    <path d="M767,412 H739" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-ai-trust-orange)"/>
+    <path d="M587,412 H559" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-ai-trust-orange)"/>
+    <path d="M407,412 H379" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-ai-trust-green)"/>
+    <path d="M227,412 H199" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-ai-trust-green)"/>
     <rect x="700" y="628" width="34" height="14" rx="4" fill="#141b16" stroke="#ff9b3d" stroke-width="1.5"/><text x="744" y="639" font-size="11.5" fill="#a3ada1" text-anchor="start">orange box: data leaves here</text>
     <line x1="700" y1="550" x2="734" y2="550" stroke="#ff9b3d" stroke-width="2.5"/><text x="744" y="554" font-size="11.5" fill="#a3ada1" text-anchor="start">AI path, screened first</text>
     <line x1="700" y1="567" x2="734" y2="567" stroke="#ff9b3d" stroke-width="2.5" stroke-dasharray="6 5"/><text x="744" y="571" font-size="11.5" fill="#a3ada1" text-anchor="start">fallback, sealed segment</text>
@@ -3231,12 +3134,12 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
     <!-- DETECTION RULE SHOWCASE -->
     <div class="rule-showcase reveal" style="margin-top:32px;">
-      <h3 class="sub" style="color:var(--purple);">Runtime Detection: Falco Custom Rule</h3>
+      <h3 class="sub" style="color:var(--purple);">One Falco rule, explained</h3>
       <div class="rule-block hud-purple">
         <span class="bl"></span><span class="br"></span>
         <div class="rule-block-header">
           <span>falco-rules/n8n-outbound.yaml</span>
-          <span class="rule-block-badge">SHIPPED RULE</span>
+          <span class="rule-block-badge">IN THE REPO</span>
         </div>
         <pre><span class="yk">- rule</span>: <span class="yv">Unexpected outbound connection from n8n</span>
   <span class="yk">desc</span>: <span class="yv">Detects n8n container making connections to non-whitelisted IPs</span>
@@ -3276,8 +3179,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <div class="ai-tree reveal" style="margin-top:32px;">
       <div class="hud-purple" style="transition:border-color 0.3s,box-shadow 0.3s;">
         <span class="bl"></span><span class="br"></span>
-        <h3 class="sub" style="color:var(--purple);">Interactive: AI Deployment Decision Tree</h3>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);margin-bottom:20px;">Based on the AI Governance Policy (ISO 42001, ISO 27701, NIST AI RMF)</div>
+        <h3 class="sub" style="color:var(--purple);">Should this AI system ship?</h3>
         <div id="ai-tree-container">
           <div class="ai-tree-node active" id="ai-q0">
             <div class="ai-tree-question">Does the AI system process, store, or have access to personal data (PII)?</div>
@@ -3299,7 +3201,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 <section id="grc">
   <div class="container">
     <div class="section-header reveal-left">
-      <h2>GRC at a Glance</h2>
+      <h2>Governance, Risk, and Compliance</h2>
       <div class="line-gold"></div>
     </div>
 
@@ -3614,7 +3516,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
           </div></a>
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/SSP_SYSTEM_SECURITY_PLAN.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border:1px solid var(--mid);background:var(--void);transition:border-color 0.3s;cursor:pointer;min-height:44px;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--mid)'">
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">FedRAMP Moderate</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;">INHERITED, via NIST 800-53</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;">ALIGNED, self-assessed baseline</span>
           </div></a>
         </div>
 
@@ -3623,11 +3525,11 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
         <!-- SECURITY POSTURE SCORECARD -->
         <div class="scorecard reveal" id="scorecard">
-          <h3 class="sub" style="color:var(--gold);">Control Implementation Status</h3>
+          <h3 class="sub" style="color:var(--gold);">Control status</h3>
           <div class="scorecard-header">
             <div class="scorecard-overall">
               <div class="overall-num" id="sc-overall-num">0%</div>
-              <div class="overall-label">Implementation Coverage</div>
+              <div class="overall-label">Documented and evidenced</div><div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);line-height:1.6;margin-top:8px;max-width:420px;">Share of the 133 SSP controls with an implementation statement and evidence filed in the repository. Whether each control runs on the host today is its own column in the POA&amp;M.</div>
             </div>
           </div>
           <div class="scorecard-bars" id="scorecard-bars">
@@ -3695,7 +3597,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
       <!-- RIGHT: Key Deliverables + IR Flowchart -->
       <div>
-        <h3 class="sub" style="color:var(--gold);">Key Deliverables</h3>
+        <h3 class="sub" style="color:var(--gold);">What is in the library</h3>
         <div style="display:grid;gap:8px;">
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/SSP_SYSTEM_SECURITY_PLAN.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View System Security Plan on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s,box-shadow 0.3s;">
             <span class="bl"></span><span class="br"></span>
@@ -3742,14 +3644,14 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/REDTEAM_RESULTS.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Red Team Results on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s,box-shadow 0.3s;">
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);">Red Team + Pen Test Results</div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">20 test cases across OWASP LLM01, LLM03, LLM07 (2026 numbering), zero injection bypasses, pen test self-assessment</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:4px;">20 test cases across OWASP LLM01, LLM03, LLM07, zero injection bypasses, pen test self-assessment</div>
             <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);margin-top:6px;opacity:0.7;">View on GitHub &rarr;</div>
           </div></a>
         </div>
 
         <!-- IR PLAYBOOK FLOWCHART -->
         <div class="ir-flowchart reveal" style="margin-top:28px;">
-          <h3 class="sub" style="color:var(--gold);">IR Playbook: Compromised Container</h3>
+          <h3 class="sub" style="color:var(--gold);">When a container is compromised</h3>
           <div class="hud-gold" style="padding:20px;transition:border-color 0.3s,box-shadow 0.3s;">
             <span class="bl"></span><span class="br"></span>
 
@@ -3820,7 +3722,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
               <div class="ir-detail-panel green">Post-incident review within 48 hours. Update Falco rules to close detection gap. Document in POA&M. File entry in GRC risk register. Close incident ticket with RCA summary.</div>
             </div>
 
-            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:16px;text-align:center;letter-spacing:1px;">Click any node to expand details</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);margin-top:16px;text-align:center;letter-spacing:1px;">Select any node to expand details</div>
           </div>
         </div>
 
@@ -3833,7 +3735,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
   <div class="cd-view-head"><span class="cd-view-title">Authorization boundary</span><span class="cd-view-sub">what is inside the boundary, what the providers carry, and every crossing with its control</span><a class="cd-view-open" href="views/authorization-boundary.html">Open full view</a></div>
   <a class="cd-view-frame" href="views/authorization-boundary.html" aria-label="Open the authorization boundary view full size">
 <svg viewBox="0 0 1700 770" role="img" aria-label="Authorization boundary view of the CoreDirective platform. A dashed boundary encloses one hardened host running 19 services across three segments, the cloud resources under Terraform on the runtime cloud (compute, a virtual network with one inbound port, object storage for state and backups, a customer managed key, an identity domain for pipeline tokens, and an instance identity that writes backups but cannot delete them), a security plane account on a second provider (OIDC federation, an evidence vault with object lock, a sealed break-glass key whose reads page on-call, an account trail, a region guard), and configuration items, edge policy, 14 SHA-pinned workflow definitions, 8 policy gates, and a nightly drift check, versioned inside the boundary and executed by the providers. Outside on the left: users reach the edge platform with a one-time PIN; the host dials an outbound tunnel to that edge and requests ride it in, so nothing listens publicly; operators reach the host through the edge on recorded SSH with a second factor, and hold one break-glass exception: key-based SSH from allowlisted sources straight to the host; Telegram enters through an edge carve-out scoped to its published address ranges and receives notifications. Outside on the right, seven external services, each crossing labeled with direction, protocol, and control: image registries in, pulled by digest with signatures checked; a secrets manager injecting environment variables at deploy; Datadog receiving audit records and telemetry over TLS; the Claude API receiving screened prompts from Guardrails; an embeddings API receiving corpus chunks and alert query text; a web search API receiving indicator terms from two nodes; and GitHub presenting a signed, minutes-lived JWT to both clouds. Inherited from the providers: physical, hypervisor, and backbone controls from the two cloud providers, and DDoS, WAF engine, tunnel edge, and secure DNS from the edge provider, six control rows marked inherited in the system security plan. The Teleport event shipper spans net-core and net-monitoring.">
-    <defs><marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3dff8b"/></marker><marker id="m-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff9b3d"/></marker><marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ffc247"/></marker><marker id="m-bone" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8dcc0"/></marker><marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b5e"/></marker><marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a3ada1"/></marker></defs>
+    <defs><marker id="m-authorization-boundary-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3dff8b"/></marker><marker id="m-authorization-boundary-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff9b3d"/></marker><marker id="m-authorization-boundary-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ffc247"/></marker><marker id="m-authorization-boundary-bone" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8dcc0"/></marker><marker id="m-authorization-boundary-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b5e"/></marker><marker id="m-authorization-boundary-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a3ada1"/></marker></defs>
     <rect x="350" y="30" width="900" height="660" rx="10" fill="rgba(232,220,192,0.015)" stroke="#e8dcc0" stroke-width="3" stroke-dasharray="18 9"/>
     <text x="372" y="58" font-size="13" fill="#e8dcc0" font-weight="700" letter-spacing="2" text-anchor="start">AUTHORIZATION BOUNDARY</text>
     <text x="372" y="76" font-size="11.5" fill="#a3ada1" text-anchor="start">one hardened host, 19 services, three Terraform modules, the configuration that changes them; Moderate baseline, 133 controls cited in the SSP</text>
@@ -3914,25 +3816,25 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <rect x="20" y="196" width="160" height="44" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="100" y="214" font-size="13.0" fill="#e6ebe4" font-weight="500" text-anchor="middle">edge platform</text><text x="100" y="230" font-size="11" fill="#a3ada1" text-anchor="middle">Access, WAF, tunnel</text>
     <rect x="20" y="290" width="160" height="44" rx="5" fill="#141b16" stroke="#2c3a30" stroke-width="1.5"/><text x="100" y="308" font-size="13.0" fill="#e6ebe4" font-weight="500" text-anchor="middle">operators</text><text x="100" y="324" font-size="11" fill="#a3ada1" text-anchor="middle">workstation, SSH, IaC</text>
     <rect x="20" y="380" width="160" height="44" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="100" y="398" font-size="13.0" fill="#e6ebe4" font-weight="500" text-anchor="middle">Telegram</text><text x="100" y="414" font-size="11" fill="#a3ada1" text-anchor="middle">bot API, on-call channel</text>
-    <path d="M100,150 V195" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
+    <path d="M100,150 V195" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-authorization-boundary-green)"/>
     <text x="108" y="178" font-size="11.5" fill="#3dff8b" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">HTTPS, one-time PIN  IA-2</text>
-    <path d="M100,290 V241" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
+    <path d="M100,290 V241" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-authorization-boundary-green)"/>
     <text x="108" y="270" font-size="11.5" fill="#3dff8b" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">recorded SSH, TOTP  IA-2</text>
-    <path d="M401,228 H181" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
+    <path d="M401,228 H181" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-authorization-boundary-green)"/>
     <rect x="345" y="223" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="190" y="250" font-size="11.5" fill="#3dff8b" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">out: tunnel, TLS  SC-7 SC-8</text>
     <text x="190" y="265" font-size="11.5" fill="#a3ada1" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">requests ride it in</text>
-    <path d="M559,124 H290 V206 H181" fill="none" stroke="#a3ada1" stroke-width="2" marker-end="url(#m-gray)"/>
+    <path d="M559,124 H290 V206 H181" fill="none" stroke="#a3ada1" stroke-width="2" marker-end="url(#m-authorization-boundary-gray)"/>
     <rect x="345" y="119" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="344" y="118" font-size="11.5" fill="#a3ada1" text-anchor="end" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">configures, TLS  CM-3</text>
-    <path d="M181,312 H357" fill="none" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-red)"/>
+    <path d="M181,312 H357" fill="none" stroke="#ff6b5e" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#m-authorization-boundary-red)"/>
     <rect x="345" y="307" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="190" y="345" font-size="11.5" fill="#ff6b5e" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">in: break-glass, key</text>
     <text x="190" y="360" font-size="11.5" fill="#a3ada1" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">allowlist  SC-7 MA-4</text>
-    <path d="M181,392 H369" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-green)"/>
+    <path d="M181,392 H369" fill="none" stroke="#3dff8b" stroke-width="2.5" marker-end="url(#m-authorization-boundary-green)"/>
     <rect x="345" y="387" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="190" y="384" font-size="11.5" fill="#3dff8b" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">in: carve-out, IP ranges  AC-3</text>
-    <path d="M370,412 H181" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <path d="M370,412 H181" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-authorization-boundary-orange)"/>
     <rect x="345" y="407" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="190" y="428" font-size="11.5" fill="#ff9b3d" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">out: notify, TLS  SC-8</text>
     <text x="20" y="470" font-size="12" fill="#e8dcc0" font-weight="700" letter-spacing="2" text-anchor="start">INHERITED</text>
@@ -3948,37 +3850,37 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
     <text x="1480" y="60" font-size="11" fill="#a3ada1" text-anchor="start">commercial, no federal data</text>
     <text x="1480" y="74" font-size="11" fill="#a3ada1" text-anchor="start">SA-9 providers, CA-3 documented</text>
     <rect x="1480" y="170" width="200" height="44" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1580" y="188" font-size="13.0" fill="#e6ebe4" font-weight="500" text-anchor="middle">image registries</text><text x="1580" y="204" font-size="11" fill="#a3ada1" text-anchor="middle">upstream images, pinned</text>
-    <path d="M1479,192 H1231" fill="none" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-bone)"/>
+    <path d="M1479,192 H1231" fill="none" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-authorization-boundary-bone)"/>
     <rect x="1245" y="187" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="1262" y="185" font-size="11.5" fill="#e8dcc0" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">in: image pull, TLS, by digest</text>
     <text x="1262" y="208" font-size="11.5" fill="#a3ada1" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">signatures checked  CM-5 SI-7</text>
     <rect x="1480" y="227" width="200" height="44" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1580" y="245" font-size="13.0" fill="#e6ebe4" font-weight="500" text-anchor="middle">secrets manager</text><text x="1580" y="261" font-size="11" fill="#a3ada1" text-anchor="middle">deploy-time injection</text>
-    <path d="M1479,249 H1231" fill="none" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-bone)"/>
+    <path d="M1479,249 H1231" fill="none" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-authorization-boundary-bone)"/>
     <rect x="1245" y="244" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="1262" y="242" font-size="11.5" fill="#e8dcc0" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">in at deploy: TLS, env vars</text>
     <text x="1262" y="265" font-size="11.5" fill="#a3ada1" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">chmod 600, none in git  IA-5</text>
     <rect x="1480" y="284" width="200" height="44" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1580" y="302" font-size="13.0" fill="#e6ebe4" font-weight="500" text-anchor="middle">Datadog</text><text x="1580" y="318" font-size="11" fill="#a3ada1" text-anchor="middle">SIEM, events, logs</text>
-    <path d="M1230,306 H1479" fill="none" stroke="#ffc247" stroke-width="2.5" marker-end="url(#m-amber)"/>
+    <path d="M1230,306 H1479" fill="none" stroke="#ffc247" stroke-width="2.5" marker-end="url(#m-authorization-boundary-amber)"/>
     <rect x="1245" y="301" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="1262" y="299" font-size="11.5" fill="#ffc247" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">out: TLS, agent key</text>
     <text x="1262" y="322" font-size="11.5" fill="#a3ada1" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">audit off-host  AU-9 SI-4</text>
     <rect x="1480" y="341" width="200" height="44" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1580" y="359" font-size="13.0" fill="#e6ebe4" font-weight="500" text-anchor="middle">Claude API</text><text x="1580" y="375" font-size="11" fill="#a3ada1" text-anchor="middle">frontier model</text>
-    <path d="M1230,363 H1479" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <path d="M1230,363 H1479" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-authorization-boundary-orange)"/>
     <rect x="1245" y="358" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="1262" y="356" font-size="11.5" fill="#ff9b3d" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">out: TLS, bearer, screened</text>
     <text x="1262" y="379" font-size="11.5" fill="#a3ada1" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">from Guardrails  SI-10 SA-9</text>
     <rect x="1480" y="398" width="200" height="44" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1580" y="416" font-size="13.0" fill="#e6ebe4" font-weight="500" text-anchor="middle">embeddings API</text><text x="1580" y="432" font-size="11" fill="#a3ada1" text-anchor="middle">index and query text</text>
-    <path d="M1230,420 H1479" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <path d="M1230,420 H1479" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-authorization-boundary-orange)"/>
     <rect x="1245" y="415" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="1262" y="413" font-size="11.5" fill="#ff9b3d" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">out: TLS, text to embed</text>
     <text x="1262" y="436" font-size="11.5" fill="#a3ada1" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">chunks and queries  SA-9</text>
     <rect x="1480" y="455" width="200" height="44" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1580" y="473" font-size="13.0" fill="#e6ebe4" font-weight="500" text-anchor="middle">web search API</text><text x="1580" y="489" font-size="11" fill="#a3ada1" text-anchor="middle">enrichment</text>
-    <path d="M1230,477 H1479" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-orange)"/>
+    <path d="M1230,477 H1479" fill="none" stroke="#ff9b3d" stroke-width="2.5" marker-end="url(#m-authorization-boundary-orange)"/>
     <rect x="1245" y="472" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="1262" y="470" font-size="11.5" fill="#ff9b3d" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">out: TLS, indicator terms</text>
     <text x="1262" y="493" font-size="11.5" fill="#a3ada1" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">two nodes, skippable  SA-9</text>
     <rect x="1480" y="512" width="200" height="44" rx="5" fill="none" stroke="#4a5a4e" stroke-width="1.5" stroke-dasharray="5 4"/><text x="1580" y="530" font-size="13.0" fill="#e6ebe4" font-weight="500" text-anchor="middle">GitHub</text><text x="1580" y="546" font-size="11" fill="#a3ada1" text-anchor="middle">repo, runners, OIDC issuer</text>
-    <path d="M1479,534 H1231" fill="none" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-bone)"/>
+    <path d="M1479,534 H1231" fill="none" stroke="#e8dcc0" stroke-width="2.5" marker-end="url(#m-authorization-boundary-bone)"/>
     <rect x="1245" y="529" width="10" height="10" fill="#0a0d0b" stroke="#e8dcc0" stroke-width="1.5"/>
     <text x="1262" y="527" font-size="11.5" fill="#e8dcc0" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">in: signed JWT, both clouds</text>
     <text x="1262" y="550" font-size="11.5" fill="#a3ada1" text-anchor="start" paint-order="stroke" stroke="#0a0d0b" stroke-width="4" stroke-linejoin="round">minutes, main only  IA-5 AC-6</text>
