@@ -1077,6 +1077,40 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 #grc a > div[style*="justify-content:space-between"] { flex-wrap: wrap; gap: 4px 12px; }
 #grc a > div[style*="justify-content:space-between"] > span:first-child { white-space: nowrap; }
 .scorecard { margin-top: 28px; }
+/* BRAND MOTION (restored 2026-09-05 per Emmanuel: rain, particle mesh, cursor glow, hover glow; ROE exception) */
+#matrix-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.08; pointer-events: none; }
+
+#particle-bg {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1; pointer-events: none; opacity: 0.4;
+}
+
+#ai-particle-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.5; }
+
+.cursor-glow {
+  position: fixed; width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(61,255,139,0.04) 0%, transparent 70%);
+  pointer-events: none; z-index: 0; transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+.glitch-hover { position: relative; display: inline-block; }
+.glitch-hover:hover { animation: glitch 0.3s ease-in-out; }
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); text-shadow: 2px 0 var(--red), -2px 0 var(--cyan); }
+  40% { transform: translate(3px, -2px); text-shadow: -2px 0 var(--red), 2px 0 var(--cyan); }
+  60% { transform: translate(-2px, 1px); text-shadow: 1px 0 var(--red), -1px 0 var(--cyan); }
+  80% { transform: translate(2px, -1px); text-shadow: -1px 0 var(--red), 1px 0 var(--cyan); }
+  100% { transform: translate(0); text-shadow: none; }
+}
+
+
+.btn-outline:hover { box-shadow: 0 0 20px rgba(232,220,192,0.3); }
+
+.hud:hover, .hud-purple:hover, .hud-gold:hover, .hud-red:hover, .pow-stat:hover, .cert-card:hover .hud { border-color: var(--green); box-shadow: 0 0 16px color-mix(in srgb, var(--green) 25%, transparent); }
+html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, html.light #ai-particle-bg, html.light .cursor-glow { display: none; }
+@media (prefers-reduced-motion: reduce) { #matrix-bg, #particle-bg, #threat-particle-bg, #ai-particle-bg, .cursor-glow { display: none; } }
 </style>
 <script type="application/ld+json">
 {
@@ -1124,6 +1158,8 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
 <!-- SCROLL PROGRESS -->
 <div class="scroll-progress" id="scroll-progress"></div>
+<div class="cursor-glow" id="cursor-glow"></div>
+<canvas id="particle-bg"></canvas>
 
 
 
@@ -1222,8 +1258,9 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 <main>
 <!-- HERO -->
 <section class="hero">
+  <canvas id="matrix-bg"></canvas>
   <div class="container" style="position:relative;z-index:1;">
-    <h1>EMMANUEL TIGOUE</h1>
+    <h1><span class="glitch-hover">EMMANUEL TIGOUE</span></h1>
     <div class="sub-tagline" style="margin-bottom:10px;font-size:17px;letter-spacing:3px;text-transform:uppercase;">AI Security Engineer</div>
     <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);letter-spacing:2px;margin-bottom:20px;">CISSP, SecurityX, CCNA</div>
     <p class="intro">I build and break agentic AI systems, then ship the guardrails and audit trails that survive a compliance review. The controls map to NIST 800-53 and ISO 42001, from the cloud edge to the local model.</p>
@@ -1897,6 +1934,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
 <!-- THREAT MODELING & ADVERSARIAL ANALYSIS -->
 <section id="threat-modeling" style="position:relative;overflow:hidden;">
+  <canvas id="threat-particle-bg"></canvas>
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal-left">
       <h2 style="color:var(--red);">Security Engineering</h2>
@@ -3003,6 +3041,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
 <!-- AI SECURITY & GOVERNANCE -->
 <section id="ai-security" style="position:relative;overflow:hidden;">
+  <canvas id="ai-particle-bg"></canvas>
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal-left">
       <h2 style="color:var(--purple);">AI Security &amp; Governance</h2>
@@ -4797,6 +4836,235 @@ function atkToggle(step) {
     if (!window.matchMedia('(max-width: 960px)').matches) return;
     e.preventDefault(); p.classList.toggle('open'); a.setAttribute('aria-expanded', p.classList.contains('open'));
   });
+})();
+
+// MATRIX RAIN
+(function() {
+  const canvas = document.getElementById('matrix-bg');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, columns, drops;
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>{}[]';
+  function resize() {
+    w = canvas.width = canvas.parentElement.offsetWidth;
+    h = canvas.height = canvas.parentElement.offsetHeight;
+    columns = Math.floor(w / 14);
+    drops = Array(columns).fill(1);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  let running = true;
+  const heroEl = canvas.parentElement;
+  const matrixObs = new IntersectionObserver(entries => {
+    running = entries[0].isIntersecting;
+    if (running) requestAnimationFrame(draw);
+  }, { threshold: 0 });
+  matrixObs.observe(heroEl);
+  function draw() {
+    if (!running) return;
+    ctx.fillStyle = 'rgba(10,10,10,0.15)';
+    ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = '#3dff8b';
+    ctx.font = '12px JetBrains Mono, monospace';
+    for (let i = 0; i < drops.length; i++) {
+      const char = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(char, i * 14, drops[i] * 14);
+      if (drops[i] * 14 > h && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// CURSOR GLOW (ambient scanner light following mouse)
+(function() {
+  var glow = document.getElementById('cursor-glow');
+  if (!glow || window.innerWidth < 768) return;
+  document.addEventListener('mousemove', function(e) {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+})();
+
+// PARTICLE NETWORK
+(function() {
+  var canvas = document.getElementById('particle-bg');
+  if (!canvas || window.innerWidth < 768) return;
+  var ctx = canvas.getContext('2d');
+  var w, h, particles = [], mouseX = -1000, mouseY = -1000;
+  var N = 40, DIST = 120;
+  var particleRunning = true;
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', function(e) { mouseX = e.clientX; mouseY = e.clientY; });
+  document.addEventListener('visibilitychange', function() {
+    particleRunning = !document.hidden;
+    if (particleRunning) requestAnimationFrame(draw);
+  });
+  for (var i = 0; i < N; i++) {
+    particles.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4
+    });
+  }
+  function draw() {
+    if (document.hidden || !particleRunning) return;
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      var dx = mouseX - p.x, dy = mouseY - p.y;
+      var md = Math.sqrt(dx * dx + dy * dy);
+      if (md < 200) {
+        p.x -= dx * 0.008;
+        p.y -= dy * 0.008;
+      }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(61,255,139,0.5)';
+      ctx.fill();
+      for (var j = i + 1; j < particles.length; j++) {
+        var q = particles[j];
+        var ddx = p.x - q.x, ddy = p.y - q.y;
+        var dist = Math.sqrt(ddx * ddx + ddy * ddy);
+        if (dist < DIST) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(61,255,139,' + (0.15 * (1 - dist / DIST)) + ')';
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// AI SECTION PARTICLE EFFECT (purple particles connecting between cards)
+(function() {
+  var canvas = document.getElementById('ai-particle-bg');
+  if (!canvas || window.innerWidth < 768) return;
+  var ctx = canvas.getContext('2d');
+  var section = canvas.parentElement;
+  var w, h, particles = [];
+  var N = 25, DIST = 140;
+  function resize() {
+    var rect = section.getBoundingClientRect();
+    w = canvas.width = rect.width;
+    h = canvas.height = rect.height;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  for (var i = 0; i < N; i++) {
+    particles.push({
+      x: Math.random() * (w || 800),
+      y: Math.random() * (h || 600),
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3
+    });
+  }
+  var running = false;
+  var obs = new IntersectionObserver(function(entries) {
+    running = entries[0].isIntersecting;
+    if (running) { resize(); requestAnimationFrame(draw); }
+  }, { threshold: 0 });
+  obs.observe(section);
+  function draw() {
+    if (!running) return;
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,155,61,0.5)';
+      ctx.fill();
+      for (var j = i + 1; j < particles.length; j++) {
+        var q = particles[j];
+        var dx = p.x - q.x, dy = p.y - q.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < DIST) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(255,155,61,' + (0.12 * (1 - dist / DIST)) + ')';
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+})();
+
+// THREAT MODELING SECTION , Red particle network
+(function() {
+  var canvas = document.getElementById('threat-particle-bg');
+  if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var running = false;
+  var mouse = { x: -1000, y: -1000 };
+  function resize() {
+    canvas.width = canvas.parentElement.offsetWidth;
+    canvas.height = canvas.parentElement.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  for (var i = 0; i < 40; i++) {
+    particles.push({
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 2 + 1
+    });
+  }
+  canvas.parentElement.addEventListener('mousemove', function(e) {
+    var rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left; mouse.y = e.clientY - rect.top;
+  });
+  canvas.parentElement.addEventListener('mouseleave', function() { mouse.x = -1000; mouse.y = -1000; });
+  function draw() {
+    if (!running) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(function(p) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      var dx = p.x - mouse.x, dy = p.y - mouse.y, dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 120) { p.x += dx * 0.02; p.y += dy * 0.02; }
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,107,94,0.4)'; ctx.fill();
+    });
+    for (var i = 0; i < particles.length; i++) {
+      for (var j = i + 1; j < particles.length; j++) {
+        var dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+        var d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 120) {
+          ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = 'rgba(255,107,94,' + (0.12 * (1 - d / 120)) + ')';
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  var tmObs = new IntersectionObserver(function(entries) {
+    running = entries[0].isIntersecting;
+    if (running) requestAnimationFrame(draw);
+  }, { threshold: 0 });
+  tmObs.observe(canvas.parentElement);
 })();
 
 // LIGHT/DARK THEME TOGGLE
