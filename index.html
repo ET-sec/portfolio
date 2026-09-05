@@ -2546,8 +2546,8 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
         </div>
         <div class="ap-detail"><div class="ap-detail-inner">
           <strong>Technique:</strong> Exploit the AI agent's tool-use capabilities to chain actions across browser, GitHub, and n8n. 16 service integrations in the SOAR platform create a wide action surface. Attacker crafts prompts that cause the AI to trigger destructive workflows.<br>
-          <strong>Controls:</strong> Skill allowlisting, workflow-level approval gates, Falco detection for unexpected n8n execution patterns, action audit logging in PostgreSQL.<br>
-          <strong>Gap:</strong> No human-in-the-loop gate for sensitive workflow triggers (database operations, infrastructure changes).
+          <strong>Controls:</strong> skill allowlisting, human approval gates on destructive workflow actions, Falco detection for unexpected n8n execution patterns, action audit logging.<br>
+          <strong>Gap:</strong> no prompt classifier ahead of the trigger.
         </div></div>
       </div>
 
