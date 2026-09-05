@@ -30,7 +30,7 @@ Control layers view, 57-document library stats, NIST 800-53 coverage by family, 
 ## How the numbers and drawings stay true
 
 - Numbers on the page sit inside `<!-- METRIC:key -->` markers and are written from `metrics.yaml` in the [cyber-squire1](https://github.com/ET-sec/cyber-squire1) repo by `scripts/sync_portfolio.py`.
-- Six views are generated from Python data files in `docs/grc/diagrams/views/` of the same repo (`render_views.py`); the topology view is hand-authored beside them. `scripts/sync_views.py` publishes them here, writing `views/*.html` and the inline `<!-- VIEW:slug -->` blocks in `index.html`. `--check` fails on drift and runs in that repo's `portfolio-sync` workflow.
+- Six views are generated from Python data files in `docs/architecture/views/` of the same repo (`render_views.py`); the topology view is hand-authored beside them. `scripts/sync_views.py` publishes them here, writing `views/*.html` and the inline `<!-- VIEW:slug -->` blocks in `index.html`. `--check` fails on drift and runs in that repo's `portfolio-sync` workflow.
 - Change a fact once in the source repo, regenerate, sync, open a PR.
 
 ## Stack
