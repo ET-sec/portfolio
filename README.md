@@ -6,13 +6,21 @@
 [![SSCP](https://img.shields.io/badge/SSCP-Certified-3dff8b?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
 [![CCNA](https://img.shields.io/badge/CCNA-Certified-3dff8b?style=flat-square)](https://www.credly.com/users/emmanuel-tigoue)
 
-Portfolio for AI security engineering work: a multi-cloud reference platform, its threat model, the AI trust boundary, and the GRC library that documents it. One Terraform codebase proven on AWS, DigitalOcean, and Oracle Cloud ARM.
+Portfolio for AI security engineering work: a multi-cloud reference platform, its threat model, the AI trust boundary, and the GRC library that documents it. The same platform design carried across three clouds as Terraform: AWS, then DigitalOcean, now Oracle Cloud ARM.
 
 ## What's Here
 
 ### Platform
-Seven architecture views drawn from the reference design, each with its own full-size page under `views/`:
-topology and flows, multi-cloud planes, threat model, identity and access, AI trust, control layers, authorization boundary.
+Seven architecture views drawn from the reference design, each with its own full-size page under `views/`. Every box is clickable and opens the controls behind it, its status today, and the file that proves it:
+
+- [Topology and flows](https://et-sec.github.io/portfolio/views/topology.html)
+- [Multi-cloud planes](https://et-sec.github.io/portfolio/views/multi-cloud.html)
+- [Threat model](https://et-sec.github.io/portfolio/views/threat-model.html)
+- [Identity and access](https://et-sec.github.io/portfolio/views/identity-access.html)
+- [AI trust boundary](https://et-sec.github.io/portfolio/views/ai-trust.html)
+- [Control layers](https://et-sec.github.io/portfolio/views/control-layers.html)
+- [Authorization boundary](https://et-sec.github.io/portfolio/views/authorization-boundary.html)
+
 Every view is sanitized: no addresses, ports, hostnames, account IDs, or image versions. Live state per control lives in the POA&M, not on the drawings.
 
 ### Certifications, Experience, Education
@@ -37,9 +45,18 @@ Control layers view, 57-document library stats, NIST 800-53 coverage by family, 
 
 Single `index.html` with CSS and JS inline, plus seven standalone view pages. No build step, no dependencies. Google Fonts (IBM Plex Sans, JetBrains Mono). Dark and light themes.
 
+## What is in this repo
+
+- `index.html`: the whole site, one page.
+- `views/`: the seven full-size view pages, generated upstream (do not hand-edit).
+- `Emmanuel_Tigoue_AISecurity_Engineer.pdf`: the resume the site links to.
+- `emmanuel-tigoue.jpg`, `favicon.svg`: the photo on the page and the tab icon.
+- `robots.txt`, `sitemap.xml`, `.well-known/security.txt`: crawler rules, the page list for search engines, and the security contact.
+
 ## Links
 
 - **Live:** [et-sec.github.io/portfolio](https://et-sec.github.io/portfolio/)
+- **Resume:** [PDF](Emmanuel_Tigoue_AISecurity_Engineer.pdf)
 - **Infrastructure repo:** [cyber-squire1](https://github.com/ET-sec/cyber-squire1) (GRC library, CI/CD pipelines, Terraform, view generators)
 - **LinkedIn:** [Emmanuel Tigoue](https://www.linkedin.com/in/emmanuel-tigoue)
 - **Credly:** [Certifications](https://www.credly.com/users/emmanuel-tigoue)
