@@ -1688,7 +1688,7 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
 
     <!-- CLOUD MIGRATION CASE STUDY -->
     <div class="reveal" style="margin-top:40px;">
-      <h3 class="sub" style="color:var(--cyan);">What it costs to run</h3>
+      <h3 class="sub" style="color:var(--cyan);">What it takes to run</h3>
       <div class="migration-card">
         <div class="mc-col">
           <h4 style="color:var(--red);">$135/mo before</h4>
@@ -1699,8 +1699,8 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
           <p>Terraform builds the whole stack, Docker Compose runs it, and Cloudflare handles identity at the edge, so the same platform can stand up on a new provider in an afternoon. The evidence copies, backups, and break-glass credential are designed to live in a separate AWS account behind Object Lock, so the watcher never shares a failure domain with the workloads. That plane is written and waiting on apply.</p>
         </div>
         <div class="mc-col">
-          <h4 style="color:var(--green);">$0/mo now</h4>
-          <p>65% cut on DigitalOcean, then to zero on Oracle Cloud Always Free ARM. Same compose stack, same controls, a Terraform root per provider, three providers so far.</p>
+          <h4 style="color:var(--green);">One ARM shape now</h4>
+          <p>65% cut on DigitalOcean, then onto one Oracle Cloud Ampere A1 Flex shape, 4 OCPU and 24 GB. Same compose stack, same controls, a Terraform root per provider, three providers so far.</p>
         </div>
       </div>
     </div>
@@ -4209,7 +4209,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         {t:'output', m:'  Cloudflare Tunnel     Zero Trust Access'},
         {t:'output', m:'  Event Handler         Audit Trail'},
         {t:'output', m:''},
-        {t:'', m:'  Cost: $0/mo target on OCI Always Free (prior: AWS $135, DO $48)'}
+        {t:'', m:'  Host: one Ampere A1 Flex shape, 4 OCPU / 24 GB, single tenancy'}
       ];
     },
     grc: function() {
@@ -4243,7 +4243,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         {t:'output', m:'  Platform:     Oracle Cloud (Ampere ARM)'},
         {t:'output', m:'  Containers:   core services online'},
         {t:'output', m:'  Workflows:    14 configured'},
-        {t:'output', m:'  Cost:         $0/mo (Always Free)'},
+        {t:'output', m:'  Capacity:     4 OCPU / 24 GB, one host'},
         {t:'output', m:'  Threat Level: LOW'},
         {t:'output', m:'  Last Scan:    ' + new Date().toISOString().slice(0,19) + 'Z'}
       ];
