@@ -1908,29 +1908,29 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;">
         <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);">65%</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Cost Reduction</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);">4h</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Detection Time</div>
         </div>
         <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
           <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);">90m</div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Containment Time</div>
         </div>
         <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);">86%</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Fewer Audit Findings</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);">12/14</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">PCI DSS Gaps Closed</div>
         </div>
         <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);">12h</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Recovered Weekly</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);">$18K</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Card Fraud Traced</div>
         </div>
       </div>
       <ul class="exp-bullets">
-        <li>Led incident response for <span class="m">3</span> retail locations: POS skimmer attempts, credential compromise, unauthorized vendor access. Wrote a <span class="m">6</span> step IR runbook that cut containment from <span class="m">8</span> hours to <span class="m">90</span> minutes</li>
-        <li>Deployed Splunk as the SIEM with log ingestion from <span class="m">45+</span> endpoints and network devices across <span class="m">3</span> sites, then built correlation rules and response automations on top. Detection time fell from <span class="m">48</span> hours to under <span class="m">4</span></li>
-        <li>Segmented a flat network into isolated VLANs for POS, back office, guest WiFi, and management traffic, then proved the separation with Nmap scans</li>
-        <li>Hardened Active Directory with GPO baselines, stale account cleanup, removal of standing admin rights, and automated credential rotation. Closed <span class="m">12</span> of <span class="m">14</span> critical audit findings</li>
-        <li>Uncovered <span class="m">$18K</span> a year in card fraud losses tied to payment terminals that failed PCI compliance; closed the exposure across <span class="m">45+</span> endpoints with a quarterly vulnerability management cycle of internal Nessus scans, risk ranked fixes, and a current SAQ</li>
-        <li>Automated patch deployment, user provisioning, and compliance reporting with Python, PowerShell, and REST APIs, freeing <span class="m">12</span> hours a week of manual ops work</li>
+        <li>Deployed Splunk Enterprise SIEM across <span class="m">3</span> sites, centralizing FortiGate, Cisco switch, and Windows logs with on call alerting and a one year AWS S3 archive under Object Lock. Detection time fell from <span class="m">48</span> hours to under <span class="m">4</span></li>
+        <li>Owned incident response for <span class="m">45</span> endpoints, covering card skimming, credential compromise, and unauthorized vendor access. Wrote a <span class="m">6</span> step IR runbook that reduced containment from <span class="m">8</span> hours to <span class="m">90</span> minutes</li>
+        <li>Traced <span class="m">$18K</span> a year in card fraud to skimming on outdated, tamper prone payment terminals and drove their replacement with current models on automatic vendor updates</li>
+        <li>Segmented a flat network into <span class="m">6</span> VLANs behind FortiGate zones with default deny, isolating payment systems and tank gauges. Verified with Nmap and closed <span class="m">12</span> of <span class="m">14</span> critical PCI DSS gaps</li>
+        <li>Built a quarterly Nessus vulnerability management cycle with patch reporting automated in Python and PowerShell, and brought critical patching from <span class="m">90</span> to <span class="m">30</span> days</li>
+        <li>Removed standing admin rights and hardened Active Directory and Entra ID with MFA, FIDO2 admin keys, GPO baselines, stale account cleanup, and credential rotation</li>
       </ul>
     </div>
 
@@ -4633,7 +4633,7 @@ function aiTreeReset() {
   var track = document.getElementById('timeline-track');
   if (!track) return;
   var events = [
-    { date: 'Mar 2022', title: 'IT Security & Operations Manager', sub: 'Texaco', detail: '4-year role managing multi-location retail IT security. VLAN segmentation, AD hardening, POS security, Splunk SIEM.', status: 'done' },
+    { date: 'Mar 2022', title: 'IT Security & Operations Manager', sub: 'Texaco', detail: '4-year role securing 3 sites open 24/7. Splunk SIEM, incident response, VLAN segmentation, payment terminal security, AD and Entra ID hardening.', status: 'done' },
     { date: 'Oct 2024', title: 'Cisco CCNA', sub: '200-301 v1.1', detail: 'Enterprise networking. Routing, switching, network automation. Verified on Credly.', status: 'done' },
     { date: 'Nov 2024', title: 'CompTIA Network+', sub: 'N10-008', detail: 'Networking fundamentals, infrastructure foundation. Expires Jun 2028. Verified on Credly.', status: 'done' },
     { date: 'Dec 2024', title: 'ISC\u00B2 CC', sub: 'Certified in Cybersecurity', detail: 'Security foundations. Entry-level ISC\u00B2 certification. Verified on Credly.', status: 'done' },
