@@ -1346,6 +1346,8 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 .tm-more > summary::before { content: '+'; display: inline-block; width: 22px; font-weight: 700; }
 .tm-more[open] > summary::before { content: '\2212'; }
 .tm-more[open] { padding-bottom: 32px; }
+nav .nav-dropdown { min-width: 0; }
+nav .nav-dropdown a { white-space: nowrap; }
 </style>
 <script type="application/ld+json">
 {
@@ -1469,12 +1471,12 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
         <a href="#threat-modeling" style="display:block;" aria-expanded="false">Security &#9662;</a>
         <div class="nav-dropdown">
           <a href="#tm-model">Threat model</a>
-          <a href="#tm-stride">STRIDE analysis</a>
-          <a href="#tm-attacks">Attack paths</a>
-          <a href="#tm-redteam">Attack walkthrough</a>
-          <a href="#tm-accepted">Accepted risks</a>
-          <a href="#tm-frameworks">Framework coverage</a>
-          <a href="#tm-identity">Identity and access</a>
+          <a href="#tm-stride">Threat inventory (STRIDE)</a>
+          <a href="#tm-attacks">Attack path analysis</a>
+          <a href="#tm-redteam">Kill chain walkthrough</a>
+          <a href="#tm-accepted">Risk acceptances</a>
+          <a href="#tm-frameworks">Control framework mapping</a>
+          <a href="#tm-identity">Identity and privilege model</a>
           <a href="#tm-appsec">Application security</a>
         </div>
       </div>
@@ -2344,7 +2346,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     </div>
 
     <!-- STRIDE INTERACTIVE GRID -->
-    <h3 id="tm-stride" class="sub" style="color:var(--red);">Threats by STRIDE category</h3>
+    <h3 id="tm-stride" class="sub" style="color:var(--red);">Threat inventory (STRIDE)</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:16px;" class="reveal">Select any category to expand findings, 29 threats identified across the full platform design</div>
 
     <div class="stride-grid reveal">
@@ -2442,7 +2444,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Select any card to expand, Data sourced from <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-size:10px;">THREAT_MODEL_STRIDE.md</a></div>
 
     <!-- ATTACK PATH CARDS -->
-    <h3 id="tm-attacks" class="sub" style="color:var(--red);">Attack paths through the AI pipeline</h3>
+    <h3 id="tm-attacks" class="sub" style="color:var(--red);">Attack path analysis</h3>
 
     <div style="display:grid;gap:12px;margin-bottom:32px;" class="reveal">
       <div class="hud-red attack-path-card stagger-card" onclick="apToggle(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
@@ -2549,7 +2551,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Full decomposition in <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/ATTACK_TREE_AI_PIPELINE.md" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-size:10px;">ATTACK_TREE_AI_PIPELINE.md</a></div>
 
     <!-- ATTACK WALKTHROUGH -->
-    <h3 id="tm-redteam" class="sub" style="color:var(--red);">One attack, phase by phase</h3>
+    <h3 id="tm-redteam" class="sub" style="color:var(--red);">Kill chain walkthrough</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;" class="reveal">Step through the highest-probability attack path. Select each phase to see detection status and control gaps.</div>
 
     <div class="atk-walkthrough reveal" id="atk-walkthrough">
@@ -2647,7 +2649,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 
     <div id="tm-accepted" style="scroll-margin-top:80px;"></div>
     <!-- COMPROMISES I ACCEPTED -->
-    <h3 class="sub" style="color:var(--gold);">Compromises I accepted</h3>
+    <h3 class="sub" style="color:var(--gold);">Risk acceptances</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;" class="reveal">Every senior engineering decision is a tradeoff. These are mine, in writing, with compensating controls.</div>
     <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px;">
 
@@ -2686,7 +2688,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     <!-- FRAMEWORK CROSS-REFERENCE MATRIX -->
     <div id="tm-frameworks" class="hud-red reveal" style="transition:border-color 0.3s;scroll-margin-top:80px;">
       <span class="bl"></span><span class="br"></span>
-      <h3 class="sub" style="color:var(--red);">Which frameworks cover which threats</h3>
+      <h3 class="sub" style="color:var(--red);">Control framework mapping</h3>
       <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:16px;">How each framework maps to STRIDE threat categories</div>
       <div class="fw-matrix">
         <div class="fw-matrix-header"></div>
@@ -2867,10 +2869,10 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     </div>
 
     <details class="tm-more" id="tm-more">
-      <summary>More from this section: what the agent can reach, application security, and the threat model documents</summary>
+      <summary>More: agent blast radius, application security, threat model library</summary>
     <div id="tm-agent" style="scroll-margin-top:80px;"></div>
     <!-- AGENTIC AI THREAT SURFACE -->
-    <h3 class="sub" style="color:var(--red);">What the agent can reach</h3>
+    <h3 class="sub" style="color:var(--red);">Agent blast radius</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:16px;" class="reveal">Select any skill node to expand abuse scenarios and control mappings</div>
 
     <div class="agent-surface-grid reveal">
@@ -3092,7 +3094,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     </div>
     <div id="tm-docs" style="scroll-margin-top:80px;"></div>
     <!-- THREAT MODELS I AUTHORED -->
-    <h3 class="sub" style="color:var(--red);">Threat models I authored</h3>
+    <h3 class="sub" style="color:var(--red);">Threat model library</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;" class="reveal">Each model targets a system I deployed and covers the attack surface those agents created.</div>
     <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px;">
 
