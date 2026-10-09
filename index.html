@@ -1338,6 +1338,15 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 .hero .btn { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 14px 28px; }
 .hero .sub-tagline { font-family: 'JetBrains Mono', monospace; letter-spacing: 3px !important; text-transform: uppercase !important; }
 .hero .container > div:nth-of-type(2) { font-family: 'JetBrains Mono', monospace !important; letter-spacing: 2px !important; }
+/* story order, 2026-10-09 */
+.story-lead { font-size: clamp(19px, 2.2vw, 23px); line-height: 1.5; font-weight: 500; color: var(--white); max-width: 820px; margin: -8px 0 28px; }
+.tm-figures { margin: 8px 0 40px; }
+.tm-more { margin-top: 48px; border-top: 1px solid var(--mid); border-bottom: 1px solid var(--mid); }
+.tm-more > summary { cursor: pointer; list-style: none; padding: 18px 0; font-size: 17px; font-weight: 600; color: var(--green); }
+.tm-more > summary::-webkit-details-marker { display: none; }
+.tm-more > summary::before { content: '+'; display: inline-block; width: 22px; font-weight: 700; }
+.tm-more[open] > summary::before { content: '\2212'; }
+.tm-more[open] { padding-bottom: 32px; }
 </style>
 <script type="application/ld+json">
 {
@@ -1456,23 +1465,23 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation menu">Menu</button>
     <div class="nav-links">
       <a href="#proof">Platform</a>
-      <a href="#certs">Certs</a>
       <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
       <div class="nav-dropdown-parent" style="position:relative;display:inline-block;">
         <a href="#threat-modeling" style="display:block;" aria-expanded="false">Security &#9662;</a>
         <div class="nav-dropdown">
-          <a href="#tm-model">Threat Model</a>
-          <a href="#tm-stride">STRIDE Analysis</a>
-          <a href="#tm-attacks">Attack Paths</a>
-          <a href="#tm-redteam">Red Team</a>
-          <a href="#tm-identity">Identity &amp; Access</a>
-          <a href="#tm-frameworks">Frameworks</a>
-          <a href="#tm-appsec">App Security</a>
+          <a href="#tm-model">Threat model</a>
+          <a href="#tm-stride">STRIDE analysis</a>
+          <a href="#tm-attacks">Attack paths</a>
+          <a href="#tm-redteam">Attack walkthrough</a>
+          <a href="#tm-accepted">Accepted risks</a>
+          <a href="#tm-frameworks">Framework coverage</a>
+          <a href="#tm-identity">Identity and access</a>
+          <a href="#tm-appsec">Application security</a>
         </div>
       </div>
+      <a href="#ai-security">AI security</a>
       <a href="#grc">GRC</a>
-      <a href="#blog">Blog</a>
+      <a href="#certs">Certs</a>
       <a href="#contact">Contact</a>
       <a href="Emmanuel_Tigoue_AISecurity_Engineer.pdf" download class="nav-resume">Resume PDF</a>
     </div>
@@ -1507,6 +1516,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
       <h2>What I built</h2>
       <div class="line"></div>
     </div>
+    <p class="story-lead">It starts with a platform I built and still run: the system every other section on this page protects, attacks, or audits.</p>
     <p class="reveal body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
       A security platform I designed, threat modeled, and run. Terraform in one repository has stood the stack up on AWS, DigitalOcean, and Oracle Cloud, one root module per provider, and runs on Oracle Cloud today. <!-- METRIC:stack.containers_designed -->19<!-- /METRIC --> services designed, <!-- METRIC:stack.containers_live -->13<!-- /METRIC --> live, and every number on this page traces to the <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer">public repository</a>.
     </p>
@@ -1964,85 +1974,6 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 </section>
 
 
-<!-- CERTIFICATIONS -->
-<section id="certs">
-  <div class="container">
-    <div class="section-header reveal-left">
-      <h2>Certifications</h2>
-      <div class="line"></div>
-    </div>
-    <div class="cert-grid">
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3bf52a18-c630-4a8f-a170-56ca462f3608" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify CISSP on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">Verified</span>
-        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> CISSP</h3>
-        <div class="cert-meta">Information Systems Security Professional</div>
-        <div class="cert-meta">Security Architecture &amp; Risk Management</div>
-        <div class="cert-note">Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card cert-card-blue stagger-card"><a href="https://aws.amazon.com/certification/certified-security-specialty/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Learn about AWS Certified Security Specialty"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-blue">In progress</span>
-        <h3>AWS Security Specialty</h3>
-        <div class="cert-meta">AWS Certified Security Specialty</div>
-        <div class="cert-meta">Cloud Security Engineering</div>
-        <div class="cert-note">Click to view exam details</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/15cf6f50-9a78-4405-9cde-3998c8117f84/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify SecurityX on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">Verified</span>
-        <h3>CompTIA SecurityX</h3>
-        <div class="cert-meta">Advanced Security Practitioner (CASP+)</div>
-        <div class="cert-meta">Enterprise Security Engineering</div>
-        <div class="cert-note">Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3d58011f-2130-4a86-818d-f8bc414bbb41/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify SSCP on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">Verified</span>
-        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> SSCP</h3>
-        <div class="cert-meta">Systems Security Certified Practitioner</div>
-        <div class="cert-meta">Operational Security</div>
-        <div class="cert-note">Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/6b1b0280-9d26-4b26-a368-0094ee0096b4/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify CCNA on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">Verified</span>
-        <h3>Cisco CCNA</h3>
-        <div class="cert-meta">Certified Network Associate</div>
-        <div class="cert-meta">Enterprise Networking</div>
-        <div class="cert-note">Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/9277770f-fe46-481b-912d-caed05b03034/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Security+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">Verified</span>
-        <h3>CompTIA Security+</h3>
-        <div class="cert-meta">Security Operations Fundamentals</div>
-        <div class="cert-meta">DoD 8140 Baseline</div>
-        <div class="cert-note">Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3b1a8cb0-61b8-48c9-9f74-86db203e942d/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify ISC2 CC on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">Verified</span>
-        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> CC</h3>
-        <div class="cert-meta">Certified in Cybersecurity</div>
-        <div class="cert-meta">Security Foundations</div>
-        <div class="cert-note">Click to verify on Credly</div>
-      </div></a></div>
-
-      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/a92ce870-953e-49a0-ab8c-c929121e00e0/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Network+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">Verified</span>
-        <h3>CompTIA Network+</h3>
-        <div class="cert-meta">Networking Fundamentals</div>
-        <div class="cert-meta">Infrastructure Foundation</div>
-        <div class="cert-note">Click to verify on Credly</div>
-      </div></a></div>
-
-    </div>
-  </div>
-</section>
-
-
-
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
@@ -2050,6 +1981,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
       <h2>Experience</h2>
       <div class="line"></div>
     </div>
+    <p class="story-lead">Where the skills were earned: four years securing three sites open around the clock, then an AI security practice of my own.</p>
 
     <div class="exp-entry reveal">
       <div class="exp-header">
@@ -2097,38 +2029,6 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 </section>
 
 
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <div class="section-header reveal-left">
-      <h2>Education</h2>
-      <div class="line"></div>
-    </div>
-    <div class="exp-entry reveal">
-      <div class="exp-header">
-        <div>
-          <span class="exp-company">Georgia State University, Andrew Young School of Policy Studies</span>
-          <span class="exp-role">Atlanta, GA</span>
-        </div>
-        <div>
-          <span class="exp-date">GPA: <span class="m">3.7</span>, Dean's List</span>
-        </div>
-      </div>
-      <ul class="exp-bullets">
-        <li><strong>Bachelor of Arts in Economics</strong> | 2026</li>
-        <li><strong>Associate of Science in Business Administration</strong> | 2025</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
 <!-- THREAT MODELING & ADVERSARIAL ANALYSIS -->
 <section id="threat-modeling" style="position:relative;overflow:hidden;">
   <canvas id="threat-particle-bg"></canvas>
@@ -2137,8 +2037,16 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
       <h2 style="color:var(--red);">Security engineering</h2>
       <div class="line-red"></div>
     </div>
+    <p class="story-lead">Then I attacked it. I mapped every way in, tried the worst of them, fixed what mattered, and wrote down what I chose to live with.</p>
 
     <p class="reveal body-text" style="max-width:760px;margin-bottom:28px;line-height:1.8;">This section takes apart an autonomous AI agent that can browse, run code, query databases, trigger SOAR workflows, and push to GitHub. One compromised prompt can chain through 6 skills into 16 downstream integrations. I decomposed the pipeline with STRIDE, cross-referenced MITRE ATT&amp;CK and ATLAS, OWASP Top 10 for LLM Applications (2026), NIST 800-53, and ISO 42001, and came out with <!-- METRIC:grc.stride_threats -->29<!-- /METRIC --> threats, <!-- METRIC:grc.attack_paths_total -->7<!-- /METRIC --> attack paths, and a clear line between the controls that hold and the gaps that remain. The views and controls on this page are the reference design. Which controls are live today is a column in the <a href=\"#grc\">POA&amp;M in the GRC section</a>.</p>
+
+    <div class="pow-stats tm-figures">
+      <div class="pow-stat"><div class="num">29</div><div class="lbl">Threats found across 8 trust boundaries</div></div>
+      <div class="pow-stat"><div class="num">7</div><div class="lbl">Attack paths traced end to end</div></div>
+      <div class="pow-stat"><div class="num">20</div><div class="lbl">Red team cases, zero true bypasses</div></div>
+      <div class="pow-stat"><div class="num">5</div><div class="lbl">Risks accepted in writing, with controls</div></div>
+    </div>
 
     <div class="cd-view-wrap" id="tm-model" style="scroll-margin-top:80px;">
 <!-- VIEW:threat-model -->
@@ -2437,177 +2345,6 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 </figure>
 <!-- /VIEW -->
     <p class="cd-view-note">This is the reference design. Live, partial, or planned status per control is in the <a href="#grc">POA&amp;M in the GRC section</a>. The red team cards further down are the evidence.</p>
-    </div>
-
-    <!-- THREAT MODELS I AUTHORED -->
-    <h3 class="sub" style="color:var(--red);">Threat models I authored</h3>
-    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;" class="reveal">Each model targets a system I deployed and covers the attack surface those agents created.</div>
-    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px;">
-
-      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">STRIDE / Full Platform</div>
-        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Platform STRIDE Threat Model</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">Spoofing, Tampering, Repudiation, Information Disclosure, DoS, Elevation of Privilege across the full platform design. <!-- METRIC:grc.stride_threats -->29<!-- /METRIC --> categorized threats, <!-- METRIC:grc.trust_boundaries_defined -->8<!-- /METRIC --> trust boundaries.</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
-      </div></a>
-
-      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/AI_THREAT_CATALOG.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">AI Catalog / OWASP LLM + MITRE ATLAS</div>
-        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">AI Threat Catalog</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;"><!-- METRIC:grc.ai_threats_cataloged -->10<!-- /METRIC --> AI-specific threats mapped to OWASP Top 10 for LLM Applications (2026), MITRE ATLAS v4, NIST AI RMF, and ISO 42001 Annex A.</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
-      </div></a>
-
-      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/ATTACK_TREE_AI_PIPELINE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">Attack Tree / AI Inference Pipeline</div>
-        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">AI Pipeline Attack Tree</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">Root goal: compromise the AI inference pipeline. <!-- METRIC:grc.attack_paths_total -->7<!-- /METRIC --> paths total (<!-- METRIC:grc.attack_paths_base -->4<!-- /METRIC --> base plus <!-- METRIC:grc.attack_paths_squire_ai -->3<!-- /METRIC --> Squire-specific roots added in Phase 17).</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
-      </div></a>
-
-      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/SQUIRE_THREAT_MODEL.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">Agent-Specific / I built the surface</div>
-        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Squire Autonomous SOC Analyst</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">Threat model for the autonomous SOC analyst I deployed. LangGraph agent with pgvector RAG, NeMo Guardrails sidecar, critique-consistency override, and human-in-the-loop gates on destructive actions.</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
-      </div></a>
-
-      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/DATA_FLOW_DIAGRAM.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">Data Flow Diagram / DFD Levels 0-2</div>
-        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Data Flow Diagram</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;"><!-- METRIC:grc.data_flows_cataloged -->40<!-- /METRIC --> data flows cataloged across <!-- METRIC:grc.trust_boundaries_defined -->8<!-- /METRIC --> trust boundaries. Sensitive data mapping, encryption coverage, and DFD-to-STRIDE crosswalk.</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
-      </div></a>
-
-      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/REDTEAM_RESULTS.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;">Red Team Results / Receipts</div>
-        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Red Team Cycle 1 + 2</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">20 red team cases across prompt injection, role hijack, PII exfiltration, and severity flip. Zero true bypasses after remediation: the one cycle 1 miss, an SSN that passed the NeMo rail, was closed the same day by the pre-graph scanner. P17-01 through P17-06 are closed with regression tests in CI; P17-07 through P17-15 are open residuals on the POA&amp;M.</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
-      </div></a>
-
-    </div>
-
-    <p style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin:-8px 0 36px;">Also in the library: AI Supply Chain Risk Assessment and the AI Incident Response Playbook. <a href="https://github.com/ET-sec/cyber-squire1/tree/main/docs/grc" target="_blank" rel="noopener noreferrer" style="color:var(--green);">View the full GRC library on GitHub &rarr;</a></p>
-
-    <!-- COMPROMISES I ACCEPTED -->
-    <h3 class="sub" style="color:var(--gold);">Compromises I accepted</h3>
-    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;" class="reveal">Every senior engineering decision is a tradeoff. These are mine, in writing, with compensating controls.</div>
-    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px;">
-
-      <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-07 / Cost Tradeoff</div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Deferred Lakera Guard.</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">NeMo Guardrails plus a custom pre-graph PII scanner cover the same input rails the commercial add-on would. The gap and its revisit gate are documented for the next budget cycle.</div>
-      </div>
-
-      <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-15 / Throughput Tradeoff</div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Sequenced red-team cycles under API quotas.</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">Parallel runs hit provider rate limits, and the local fallback could not be reached because Squire has no route onto the sealed net-ai segment. That route is a queued compose change. Classified as an availability failure, not an integrity failure, and the cycles completed sequenced.</div>
-      </div>
-
-      <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-001, 002, 004, 006 / Container Privilege</div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Accepted root in 5 vendor containers.</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">Compensating controls: <code>no-new-privileges</code>, <code>cap_drop: ALL</code> plus explicit minimum <code>cap_add</code>, AppArmor profiles, and Falco eBPF syscall tracing on every container.</div>
-      </div>
-
-      <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-007 / Host Audit Coverage</div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Falco eBPF instead of auditd.</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">One kernel-level detector, not two overlapping ones. eBPF covers the same syscall surface auditd would at a fraction of the overhead, with disk monitoring alerting at an 80% threshold.</div>
-      </div>
-
-      <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-13 / RAG Trust Surface</div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">External enrichment treated as hostile input.</div>
-        <div style="font-size:12px;color:var(--light);line-height:1.6;">A poisoned index entry could inject directives at the enrichment merge point. Critique-consistency check is the sole behavioral override. Attack tree leaf A.3.a is queued for the next red-team round to quantify.</div>
-      </div>
-
-    </div>
-
-    <!-- AGENTIC AI THREAT SURFACE -->
-    <h3 class="sub" style="color:var(--red);">What the agent can reach</h3>
-    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:16px;" class="reveal">Select any skill node to expand abuse scenarios and control mappings</div>
-
-    <div class="agent-surface-grid reveal">
-      <div class="agent-core">
-        <div class="agent-core-label">Claude Fable 5, agentic gateway</div>
-        <div class="agent-core-sub">Autonomous AI agent with 6 tool-use skills, Telegram-facing, baseline assessed with no human-in-the-loop; HITL gates added after this review</div>
-      </div>
-      <div class="agent-skills-grid">
-
-        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-          <span class="skill-name">Tavily Search</span>
-          <div class="skill-capability">Real-time web search, content extraction</div>
-          <div class="skill-abuse">Indirect prompt injection via fetched content, data exfiltration through crafted queries</div>
-          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
-            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Search result &rarr; context poisoning &rarr; behavioral override</span></div>
-            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0051 (LLM Prompt Injection)</span></div>
-            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">Output filtering, domain allowlist</span></div>
-          </div></div>
-        </div>
-
-        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-          <span class="skill-name">Browser</span>
-          <div class="skill-capability">Navigate websites, extract content, fill forms</div>
-          <div class="skill-abuse">SSRF to internal services, credential harvesting via phishing pages, JS execution</div>
-          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
-            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Browse &rarr; discover internal endpoints &rarr; exfiltrate data</span></div>
-            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0040 (ML Supply Chain Compromise)</span></div>
-            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">URL allowlisting, no localhost access, content sanitization</span></div>
-          </div></div>
-        </div>
-
-        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-          <span class="skill-name">Python Interpreter</span>
-          <div class="skill-capability">Execute arbitrary Python, file I/O, network calls</div>
-          <div class="skill-abuse">Remote code execution, filesystem traversal, reverse shell, crypto mining</div>
-          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
-            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Code exec &rarr; filesystem access &rarr; credential theft &rarr; lateral movement</span></div>
-            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0043 (Craft Adversarial Data)</span></div>
-            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">Sandboxed execution, no network by default, file path restrictions</span></div>
-          </div></div>
-        </div>
-
-        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-          <span class="skill-name">GitHub</span>
-          <div class="skill-capability">Create repos, push code, manage issues, read source</div>
-          <div class="skill-abuse">Malicious code injection, supply chain poisoning, secret extraction from repos</div>
-          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
-            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Read source &rarr; identify secrets &rarr; push backdoored code</span></div>
-            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0042 (Verify Attack)</span></div>
-            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">Token scope limitation, branch protection, Gitleaks scanning</span></div>
-          </div></div>
-        </div>
-
-        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-          <span class="skill-name">Notion</span>
-          <div class="skill-capability">Create/read pages and databases, content management</div>
-          <div class="skill-abuse">Data exfiltration to external workspace, PII harvesting, social engineering content creation</div>
-          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
-            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Read sensitive docs &rarr; exfiltrate via new page &rarr; cover tracks</span></div>
-            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0048.002 (Exfiltration via ML Inference API)</span></div>
-            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">Workspace isolation, API token scope, audit logging</span></div>
-          </div></div>
-        </div>
-
-        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-          <span class="skill-name">Gemini</span>
-          <div class="skill-capability">Cross-model inference, content generation, analysis</div>
-          <div class="skill-abuse">Model-to-model prompt injection relay, response manipulation, oracle attacks</div>
-          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
-            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Query Gemini with poisoned context &rarr; use response to manipulate primary agent</span></div>
-            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0051 (LLM Prompt Injection)</span></div>
-            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">Model output validation, response filtering</span></div>
-          </div></div>
-        </div>
-
-      </div>
-
-      <div class="agent-chain-warning">
-        <strong>Compound risk:</strong> One compromised prompt reaches every tool the agent can call, and every tool reaches the integrations behind it, so the surface multiplies with each skill added.</div>
     </div>
 
     <!-- STRIDE INTERACTIVE GRID -->
@@ -2912,6 +2649,44 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 
     </div>
 
+    <div id="tm-accepted" style="scroll-margin-top:80px;"></div>
+    <!-- COMPROMISES I ACCEPTED -->
+    <h3 class="sub" style="color:var(--gold);">Compromises I accepted</h3>
+    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;" class="reveal">Every senior engineering decision is a tradeoff. These are mine, in writing, with compensating controls.</div>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px;">
+
+      <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-07 / Cost Tradeoff</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Deferred Lakera Guard.</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">NeMo Guardrails plus a custom pre-graph PII scanner cover the same input rails the commercial add-on would. The gap and its revisit gate are documented for the next budget cycle.</div>
+      </div>
+
+      <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-15 / Throughput Tradeoff</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Sequenced red-team cycles under API quotas.</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">Parallel runs hit provider rate limits, and the local fallback could not be reached because Squire has no route onto the sealed net-ai segment. That route is a queued compose change. Classified as an availability failure, not an integrity failure, and the cycles completed sequenced.</div>
+      </div>
+
+      <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-001, 002, 004, 006 / Container Privilege</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Accepted root in 5 vendor containers.</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">Compensating controls: <code>no-new-privileges</code>, <code>cap_drop: ALL</code> plus explicit minimum <code>cap_add</code>, AppArmor profiles, and Falco eBPF syscall tracing on every container.</div>
+      </div>
+
+      <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-007 / Host Audit Coverage</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Falco eBPF instead of auditd.</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">One kernel-level detector, not two overlapping ones. eBPF covers the same syscall surface auditd would at a fraction of the overhead, with disk monitoring alerting at an 80% threshold.</div>
+      </div>
+
+      <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-13 / RAG Trust Surface</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">External enrichment treated as hostile input.</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">A poisoned index entry could inject directives at the enrichment merge point. Critique-consistency check is the sole behavioral override. Attack tree leaf A.3.a is queued for the next red-team round to quantify.</div>
+      </div>
+
+    </div>
+
     <!-- FRAMEWORK CROSS-REFERENCE MATRIX -->
     <div id="tm-frameworks" class="hud-red reveal" style="transition:border-color 0.3s;scroll-margin-top:80px;">
       <span class="bl"></span><span class="br"></span>
@@ -3095,8 +2870,94 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     <p class="cd-view-note">Reference design. Live, partial, or planned status per control is in the <a href="#grc">POA&amp;M</a>.</p>
     </div>
 
+    <details class="tm-more" id="tm-more">
+      <summary>More from this section: what the agent can reach, application security, and the threat model documents</summary>
+    <div id="tm-agent" style="scroll-margin-top:80px;"></div>
+    <!-- AGENTIC AI THREAT SURFACE -->
+    <h3 class="sub" style="color:var(--red);">What the agent can reach</h3>
+    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:16px;" class="reveal">Select any skill node to expand abuse scenarios and control mappings</div>
+
+    <div class="agent-surface-grid reveal">
+      <div class="agent-core">
+        <div class="agent-core-label">Claude Fable 5, agentic gateway</div>
+        <div class="agent-core-sub">Autonomous AI agent with 6 tool-use skills, Telegram-facing, baseline assessed with no human-in-the-loop; HITL gates added after this review</div>
+      </div>
+      <div class="agent-skills-grid">
+
+        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
+          <span class="skill-name">Tavily Search</span>
+          <div class="skill-capability">Real-time web search, content extraction</div>
+          <div class="skill-abuse">Indirect prompt injection via fetched content, data exfiltration through crafted queries</div>
+          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
+            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Search result &rarr; context poisoning &rarr; behavioral override</span></div>
+            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0051 (LLM Prompt Injection)</span></div>
+            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">Output filtering, domain allowlist</span></div>
+          </div></div>
+        </div>
+
+        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
+          <span class="skill-name">Browser</span>
+          <div class="skill-capability">Navigate websites, extract content, fill forms</div>
+          <div class="skill-abuse">SSRF to internal services, credential harvesting via phishing pages, JS execution</div>
+          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
+            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Browse &rarr; discover internal endpoints &rarr; exfiltrate data</span></div>
+            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0040 (ML Supply Chain Compromise)</span></div>
+            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">URL allowlisting, no localhost access, content sanitization</span></div>
+          </div></div>
+        </div>
+
+        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
+          <span class="skill-name">Python Interpreter</span>
+          <div class="skill-capability">Execute arbitrary Python, file I/O, network calls</div>
+          <div class="skill-abuse">Remote code execution, filesystem traversal, reverse shell, crypto mining</div>
+          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
+            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Code exec &rarr; filesystem access &rarr; credential theft &rarr; lateral movement</span></div>
+            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0043 (Craft Adversarial Data)</span></div>
+            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">Sandboxed execution, no network by default, file path restrictions</span></div>
+          </div></div>
+        </div>
+
+        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
+          <span class="skill-name">GitHub</span>
+          <div class="skill-capability">Create repos, push code, manage issues, read source</div>
+          <div class="skill-abuse">Malicious code injection, supply chain poisoning, secret extraction from repos</div>
+          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
+            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Read source &rarr; identify secrets &rarr; push backdoored code</span></div>
+            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0042 (Verify Attack)</span></div>
+            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">Token scope limitation, branch protection, Gitleaks scanning</span></div>
+          </div></div>
+        </div>
+
+        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
+          <span class="skill-name">Notion</span>
+          <div class="skill-capability">Create/read pages and databases, content management</div>
+          <div class="skill-abuse">Data exfiltration to external workspace, PII harvesting, social engineering content creation</div>
+          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
+            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Read sensitive docs &rarr; exfiltrate via new page &rarr; cover tracks</span></div>
+            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0048.002 (Exfiltration via ML Inference API)</span></div>
+            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">Workspace isolation, API token scope, audit logging</span></div>
+          </div></div>
+        </div>
+
+        <div class="agent-skill-node stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="skillToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
+          <span class="skill-name">Gemini</span>
+          <div class="skill-capability">Cross-model inference, content generation, analysis</div>
+          <div class="skill-abuse">Model-to-model prompt injection relay, response manipulation, oracle attacks</div>
+          <div class="agent-skill-detail"><div class="agent-skill-detail-inner">
+            <div class="asd-row"><span class="asd-label">Chain</span><span class="asd-value">Query Gemini with poisoned context &rarr; use response to manipulate primary agent</span></div>
+            <div class="asd-row"><span class="asd-label">ATLAS</span><span class="asd-value">AML.T0051 (LLM Prompt Injection)</span></div>
+            <div class="asd-row"><span class="asd-label">Control</span><span class="asd-value">Model output validation, response filtering</span></div>
+          </div></div>
+        </div>
+
+      </div>
+
+      <div class="agent-chain-warning">
+        <strong>Compound risk:</strong> One compromised prompt reaches every tool the agent can call, and every tool reaches the integrations behind it, so the surface multiplies with each skill added.</div>
+    </div>
+
     <!-- APPLICATION SECURITY -->
-    <div id="tm-appsec" style="margin-top:60px;scroll-margin-top:80px;" class="reveal">
+    <div id="tm-appsec" style="margin-top:32px;scroll-margin-top:80px;" class="reveal">
       <h3 class="sub" style="color:var(--cyan);">Application security</h3>
       <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:24px;">Vulnerability research, secure SDLC, code review, and IAM governance. Select any card for full documentation.</div>
 
@@ -3233,9 +3094,62 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 
       </div>
     </div>
+    <div id="tm-docs" style="scroll-margin-top:80px;"></div>
+    <!-- THREAT MODELS I AUTHORED -->
+    <h3 class="sub" style="color:var(--red);">Threat models I authored</h3>
+    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;" class="reveal">Each model targets a system I deployed and covers the attack surface those agents created.</div>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px;">
+
+      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">STRIDE / Full Platform</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Platform STRIDE Threat Model</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">Spoofing, Tampering, Repudiation, Information Disclosure, DoS, Elevation of Privilege across the full platform design. <!-- METRIC:grc.stride_threats -->29<!-- /METRIC --> categorized threats, <!-- METRIC:grc.trust_boundaries_defined -->8<!-- /METRIC --> trust boundaries.</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
+      </div></a>
+
+      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/AI_THREAT_CATALOG.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">AI Catalog / OWASP LLM + MITRE ATLAS</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">AI Threat Catalog</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;"><!-- METRIC:grc.ai_threats_cataloged -->10<!-- /METRIC --> AI-specific threats mapped to OWASP Top 10 for LLM Applications (2026), MITRE ATLAS v4, NIST AI RMF, and ISO 42001 Annex A.</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
+      </div></a>
+
+      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/ATTACK_TREE_AI_PIPELINE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">Attack Tree / AI Inference Pipeline</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">AI Pipeline Attack Tree</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">Root goal: compromise the AI inference pipeline. <!-- METRIC:grc.attack_paths_total -->7<!-- /METRIC --> paths total (<!-- METRIC:grc.attack_paths_base -->4<!-- /METRIC --> base plus <!-- METRIC:grc.attack_paths_squire_ai -->3<!-- /METRIC --> Squire-specific roots added in Phase 17).</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
+      </div></a>
+
+      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/SQUIRE_THREAT_MODEL.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">Agent-Specific / I built the surface</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Squire Autonomous SOC Analyst</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">Threat model for the autonomous SOC analyst I deployed. LangGraph agent with pgvector RAG, NeMo Guardrails sidecar, critique-consistency override, and human-in-the-loop gates on destructive actions.</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
+      </div></a>
+
+      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/DATA_FLOW_DIAGRAM.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">Data Flow Diagram / DFD Levels 0-2</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Data Flow Diagram</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;"><!-- METRIC:grc.data_flows_cataloged -->40<!-- /METRIC --> data flows cataloged across <!-- METRIC:grc.trust_boundaries_defined -->8<!-- /METRIC --> trust boundaries. Sensitive data mapping, encryption coverage, and DFD-to-STRIDE crosswalk.</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
+      </div></a>
+
+      <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/REDTEAM_RESULTS.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--mid)'">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;">Red Team Results / Receipts</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Red Team Cycle 1 + 2</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.6;">20 red team cases across prompt injection, role hijack, PII exfiltration, and severity flip. Zero true bypasses after remediation: the one cycle 1 miss, an SSN that passed the NeMo rail, was closed the same day by the pre-graph scanner. P17-01 through P17-06 are closed with regression tests in CI; P17-07 through P17-15 are open residuals on the POA&amp;M.</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
+      </div></a>
+
+    </div>
+
+    <p style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin:-8px 0 36px;">Also in the library: AI Supply Chain Risk Assessment and the AI Incident Response Playbook. <a href="https://github.com/ET-sec/cyber-squire1/tree/main/docs/grc" target="_blank" rel="noopener noreferrer" style="color:var(--green);">View the full GRC library on GitHub &rarr;</a></p>
+
+    </details>
+
   </div>
 </section>
-
 
 
 <!-- AI SECURITY & GOVERNANCE -->
@@ -3246,6 +3160,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
       <h2 style="color:var(--white);">AI security and governance</h2>
       <div class="line-purple"></div>
     </div>
+    <p class="story-lead">Then the AI itself: the rules that decide whether an AI system is safe enough to ship.</p>
 
     <p class="reveal body-text" style="max-width:720px;margin-bottom:32px;line-height:1.8;">
       One AI governance policy covers the five AI systems in the inventory. Each has a risk profile, prompt injection defenses, and behavioral monitoring on record. The trust view draws every crossing out of the host and what stands in front of it.
@@ -3435,7 +3350,6 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 </section>
 
 
-
 <!-- GRC AT A GLANCE -->
 <section id="grc">
   <div class="container">
@@ -3443,6 +3357,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
       <h2>Governance, Risk, and Compliance</h2>
       <div class="line-gold"></div>
     </div>
+    <p class="story-lead">And the paper trail: the policies and controls an auditor checks, tied to what actually runs.</p>
 
     <div class="cd-view-wrap">
 <!-- VIEW:control-layers -->
@@ -4129,6 +4044,110 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 </section>
 
 
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="container">
+    <div class="section-header reveal-left">
+      <h2>Certifications</h2>
+      <div class="line"></div>
+    </div>
+    <div class="cert-grid">
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3bf52a18-c630-4a8f-a170-56ca462f3608" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify CISSP on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">Verified</span>
+        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> CISSP</h3>
+        <div class="cert-meta">Information Systems Security Professional</div>
+        <div class="cert-meta">Security Architecture &amp; Risk Management</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card cert-card-blue stagger-card"><a href="https://aws.amazon.com/certification/certified-security-specialty/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Learn about AWS Certified Security Specialty"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-blue">In progress</span>
+        <h3>AWS Security Specialty</h3>
+        <div class="cert-meta">AWS Certified Security Specialty</div>
+        <div class="cert-meta">Cloud Security Engineering</div>
+        <div class="cert-note">Click to view exam details</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/15cf6f50-9a78-4405-9cde-3998c8117f84/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify SecurityX on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">Verified</span>
+        <h3>CompTIA SecurityX</h3>
+        <div class="cert-meta">Advanced Security Practitioner (CASP+)</div>
+        <div class="cert-meta">Enterprise Security Engineering</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3d58011f-2130-4a86-818d-f8bc414bbb41/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify SSCP on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">Verified</span>
+        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> SSCP</h3>
+        <div class="cert-meta">Systems Security Certified Practitioner</div>
+        <div class="cert-meta">Operational Security</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/6b1b0280-9d26-4b26-a368-0094ee0096b4/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify CCNA on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">Verified</span>
+        <h3>Cisco CCNA</h3>
+        <div class="cert-meta">Certified Network Associate</div>
+        <div class="cert-meta">Enterprise Networking</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/9277770f-fe46-481b-912d-caed05b03034/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Security+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">Verified</span>
+        <h3>CompTIA Security+</h3>
+        <div class="cert-meta">Security Operations Fundamentals</div>
+        <div class="cert-meta">DoD 8140 Baseline</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3b1a8cb0-61b8-48c9-9f74-86db203e942d/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify ISC2 CC on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">Verified</span>
+        <h3>ISC<sup style="font-weight:300;font-size:0.65em;">2</sup> CC</h3>
+        <div class="cert-meta">Certified in Cybersecurity</div>
+        <div class="cert-meta">Security Foundations</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/a92ce870-953e-49a0-ab8c-c929121e00e0/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="Verify Network+ on Credly"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">Verified</span>
+        <h3>CompTIA Network+</h3>
+        <div class="cert-meta">Networking Fundamentals</div>
+        <div class="cert-meta">Infrastructure Foundation</div>
+        <div class="cert-note">Click to verify on Credly</div>
+      </div></a></div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header reveal-left">
+      <h2>Education</h2>
+      <div class="line"></div>
+    </div>
+    <div class="exp-entry reveal">
+      <div class="exp-header">
+        <div>
+          <span class="exp-company">Georgia State University, Andrew Young School of Policy Studies</span>
+          <span class="exp-role">Atlanta, GA</span>
+        </div>
+        <div>
+          <span class="exp-date">GPA: <span class="m">3.7</span>, Dean's List</span>
+        </div>
+      </div>
+      <ul class="exp-bullets">
+        <li><strong>Bachelor of Arts in Economics</strong> | 2026</li>
+        <li><strong>Associate of Science in Business Administration</strong> | 2025</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- VIDEO SECTION REMOVED - add back when content is ready -->
 
@@ -4261,6 +4280,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (a.matches('.nav-dropdown-parent > a') && window.matchMedia('(max-width: 960px)').matches) return;
     e.preventDefault();
     var target = document.querySelector(href);
+    var fold = target && target.closest('details'); if (fold) fold.open = true;
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     if (target && history.replaceState) history.replaceState(null, '', href);
     document.querySelector('.nav-links').classList.remove('open');
@@ -4570,7 +4590,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // KEYBOARD NAVIGATION
 (function() {
-  var sections = ['experience', 'education', 'certs', 'proof', 'threat-modeling', 'ai-security', 'grc', 'contact'];
+  var sections = ['proof', 'experience', 'threat-modeling', 'ai-security', 'grc', 'certs', 'education', 'contact'];
   var kbOverlay = document.getElementById('kb-overlay');
   var termOverlay = document.getElementById('terminal-overlay');
   var konamiOverlay = document.getElementById('konami-overlay');
