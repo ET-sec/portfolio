@@ -161,12 +161,10 @@ html.light .nav-dropdown-parent > a:hover { color: var(--green); }
 .section-header .line-red { width: 60px; height: 2px; background: var(--red); margin-top: 12px; }
 
 /* PROOF OF WORK STATS */
-.pow-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; margin: 32px 0; }
-.pow-stat { background: var(--void); border: 1px solid var(--mid); padding: 20px; text-align: center; transition: border-color 0.3s; }
-.pow-stat:hover { border-color: var(--green);  }
-.pow-stat .num { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--green); }
-.pow-stat .num-gold { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--gold); }
-.pow-stat .lbl { font-size: 11px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; font-family: 'JetBrains Mono', monospace; }
+.pow-stats { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 32px; margin: 32px 0; border-bottom: 1px solid var(--mid); }
+.pow-stat { border-top: 1px solid var(--mid); padding: 16px 0 18px; text-align: left; }
+.pow-stat .num, .pow-stat .num-gold { font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 600; color: var(--white); line-height: 1.2; }
+.pow-stat .lbl { font-size: 14px; color: var(--light); margin-top: 4px; }
 
 /* CERTS */
 .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; grid-auto-rows: 1fr; }
@@ -307,10 +305,7 @@ html.light .cert-card-blue .hud:hover {  }
 html.light .cert-badge { opacity: 1; }
 
 /* Light: stat blocks */
-html.light .pow-stat { background: var(--dark); border-color: var(--mid);  }
-html.light .pow-stat:hover { border-color: var(--green);  }
-html.light .pow-stat .num { color: var(--green); }
-html.light .pow-stat .num-gold { color: var(--gold); }
+html.light .pow-stat .num, html.light .pow-stat .num-gold { color: var(--white); }
 
 /* Light: text & links */
 html.light a { color: var(--green); }
@@ -1084,7 +1079,7 @@ html.light .cd-node-panel { background: #0a0d0b; color: #e6ebe4; } html.light .c
   [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
 }
 /* Three-of-a-kind rows carry uneven weight */
-.pow-stats { grid-template-columns: repeat(3, 1fr); }
+.pow-stats { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 960px) {
   .nav-links { display: none !important; }
   .nav-links.open { display: flex !important; position: absolute; top: 100%; left: 0; right: 0; background: var(--void); flex-direction: column; padding: 16px 20px; border-bottom: 1px solid var(--mid); gap: 12px; }
@@ -1102,7 +1097,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 .trio { grid-template-columns: 1.6fr 1fr 1fr !important; }
 @media (max-width: 960px) { .trio { grid-template-columns: 1fr 1fr !important; } }
 @media (max-width: 600px) { .trio { grid-template-columns: 1fr !important; } }
-@media (max-width: 600px) { .code-grid { display: none; } .pow-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; } .pow-stat .num, .pow-stat .num-gold { font-size: 22px; } .pow-stat .lbl { font-size: 10px; } }
+@media (max-width: 600px) { .code-grid { display: none; } .pow-stats { grid-template-columns: 1fr 1fr; column-gap: 20px; } .pow-stat .num, .pow-stat .num-gold { font-size: 22px; } .pow-stat .lbl { font-size: 13px; } }
 .menu-toggle { padding: 12px 14px; min-height: 44px; }
 #theme-toggle::before { content: ''; position: absolute; inset: -11px 0; }
 .cd-view-open { display: inline-block; padding: 12px 0; margin: -12px 0; }
@@ -1143,7 +1138,7 @@ html.light .cd-view-sub::after { color: #e8dcc0; }
 
 .btn-outline:hover { box-shadow: 0 0 20px rgba(232,220,192,0.3); }
 
-.hud:hover, .hud-purple:hover, .hud-gold:hover, .hud-red:hover, .pow-stat:hover, .cert-card:hover .hud { border-color: var(--green); box-shadow: 0 0 16px color-mix(in srgb, var(--green) 25%, transparent); }
+.hud:hover, .hud-purple:hover, .hud-gold:hover, .hud-red:hover, .cert-card:hover .hud { border-color: var(--green); box-shadow: 0 0 16px color-mix(in srgb, var(--green) 25%, transparent); }
 html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, html.light #ai-particle-bg, html.light .cursor-glow { display: none; }
 @media (prefers-reduced-motion: reduce) { #matrix-bg, #particle-bg, #threat-particle-bg, #ai-particle-bg, .cursor-glow { display: none; } }
 .cd-packet { pointer-events: none; opacity: .9; stroke-dashoffset: var(--cdlen); }
@@ -1588,18 +1583,18 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
     </div>
     <!-- STATS GRID -->
     <div class="pow-stats">
-      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:stack.containers_designed -->19<!-- /METRIC --></div><div class="lbl">Containers Built</div></div>
-      <div class="pow-stat stagger-card"><div class="num-gold"><!-- METRIC:grc.attack_paths_total -->7<!-- /METRIC --></div><div class="lbl">Attack Paths Modeled</div></div>
-      <div class="pow-stat stagger-card"><div class="num-gold"><!-- METRIC:grc.poam_findings_closed -->9<!-- /METRIC --></div><div class="lbl">POA&amp;M Findings Closed</div></div>
-      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:infra.opa_policies -->8<!-- /METRIC --></div><div class="lbl">OPA Policies</div></div>
-      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:stack.workflows_n8n_exported -->14<!-- /METRIC --></div><div class="lbl">SOAR Workflows as Code</div></div>
-      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:workload.events_handled_per_week -->20<!-- /METRIC --></div><div class="lbl">Events Handled / Week</div></div>
-      <div class="pow-stat stagger-card"><div class="num-gold"><!-- METRIC:workload.operator_hours_saved_per_week -->0<!-- /METRIC --></div><div class="lbl">Operator Hours Saved / Week</div></div>
-      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:workload.workflows_active -->8<!-- /METRIC --></div><div class="lbl">SOAR Workflows Active</div></div>
-      <div class="pow-stat stagger-card"><div class="num-gold"><!-- METRIC:detection.sigma_rules -->17<!-- /METRIC --></div><div class="lbl">Sigma Detection Rules</div></div>
-      <div class="pow-stat stagger-card"><div class="num-gold"><!-- METRIC:grc.total_documents -->57<!-- /METRIC --></div><div class="lbl">GRC Documents</div></div>
-      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:grc.nist_800_53_controls_cited -->140<!-- /METRIC --></div><div class="lbl">NIST Controls Mapped</div></div>
-      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:grc.ir_playbooks -->5<!-- /METRIC --></div><div class="lbl">IR Playbooks</div></div>
+      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:stack.containers_designed -->19<!-- /METRIC --></div><div class="lbl">Containers built</div></div>
+      <div class="pow-stat stagger-card"><div class="num-gold"><!-- METRIC:grc.attack_paths_total -->7<!-- /METRIC --></div><div class="lbl">Attack paths modeled</div></div>
+      <div class="pow-stat stagger-card"><div class="num-gold"><!-- METRIC:grc.poam_findings_closed -->9<!-- /METRIC --></div><div class="lbl">POA&amp;M findings closed</div></div>
+      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:infra.opa_policies -->8<!-- /METRIC --></div><div class="lbl">OPA policies</div></div>
+      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:stack.workflows_n8n_exported -->14<!-- /METRIC --></div><div class="lbl">SOAR workflows as code</div></div>
+      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:workload.events_handled_per_week -->20<!-- /METRIC --></div><div class="lbl">Events handled / week</div></div>
+      <div class="pow-stat stagger-card"><div class="num-gold"><!-- METRIC:workload.operator_hours_saved_per_week -->0<!-- /METRIC --></div><div class="lbl">Operator hours saved / week</div></div>
+      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:workload.workflows_active -->8<!-- /METRIC --></div><div class="lbl">SOAR workflows active</div></div>
+      <div class="pow-stat stagger-card"><div class="num-gold"><!-- METRIC:detection.sigma_rules -->17<!-- /METRIC --></div><div class="lbl">Sigma detection rules</div></div>
+      <div class="pow-stat stagger-card"><div class="num-gold"><!-- METRIC:grc.total_documents -->57<!-- /METRIC --></div><div class="lbl">GRC documents</div></div>
+      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:grc.nist_800_53_controls_cited -->140<!-- /METRIC --></div><div class="lbl">NIST controls mapped</div></div>
+      <div class="pow-stat stagger-card"><div class="num"><!-- METRIC:grc.ir_playbooks -->5<!-- /METRIC --></div><div class="lbl">IR playbooks</div></div>
     </div>
     <p class="cd-view-note">Workload figures measured over the <!-- METRIC:workload.window_days -->7<!-- /METRIC --> days ending <!-- METRIC:workload.measured_at -->2026-09-10<!-- /METRIC -->. One event is one successful top level automation run. Hours saved is the timed manual equivalent of the runs in that window; a workflow that has not been timed counts as zero.</p>
 
