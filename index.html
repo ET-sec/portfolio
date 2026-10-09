@@ -1142,7 +1142,6 @@ nav .nav-links { align-items: center; }
 nav .nav-links a { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--white); }
 nav .nav-links a.nav-resume { background: var(--green); color: var(--void) !important; font-weight: 600; padding: 9px 14px; }
 nav .nav-links a.nav-resume:hover { background: var(--white); }
-#matrix-bg { display: none; }
 .menu-toggle { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--white); border-color: var(--white); }
 html.light .menu-toggle { color: var(--white); border-color: var(--white); }
 .btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; font-weight: 600; text-transform: none; letter-spacing: 0; padding: 14px 22px; }
@@ -1348,6 +1347,13 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 .tm-more[open] { padding-bottom: 32px; }
 nav .nav-dropdown { min-width: 0; }
 nav .nav-dropdown a { white-space: nowrap; }
+.attack-path-card { min-width: 0; }
+#tm-attacks + * , #tm-attacks ~ div[style*="display:grid"] { min-width: 0; }
+.exp-date { display: inline; }
+#experience .exp-date { display: flex; flex-wrap: wrap; gap: 4px 28px; }
+.fw-dot.partial { background: var(--gold); }
+.cd-view-wrap > .cd-view-note { max-width: 1060px; padding: 0; }
+@media (max-width: 1100px) { .cd-view-wrap > .cd-view-note { padding: 0 4px; } }
 </style>
 <script type="application/ld+json">
 {
@@ -1904,7 +1910,7 @@ nav .nav-dropdown a { white-space: nowrap; }
         </div>
         <div class="mc-col" style="border-right:1px solid var(--mid);">
           <h4 style="color:var(--cyan);">Multi-cloud IaC</h4>
-          <p>Terraform builds the whole stack, Docker Compose runs it, and Cloudflare handles identity at the edge, so the same platform can stand up on a new provider in an afternoon. The evidence copies, backups, and break-glass credential are designed to live in a separate AWS account behind Object Lock, so the watcher never shares a failure domain with the workloads. That plane is written and waiting on apply.</p>
+          <p>Terraform builds the whole stack, Docker Compose runs it, and Cloudflare handles identity at the edge, so the same platform can stand up on a new provider in an afternoon. The evidence copies, backups, and break-glass credential are designed to live in a separate AWS account behind Object Lock, so the watcher never shares a failure domain with the workloads.</p>
         </div>
         <div class="mc-col">
           <h4 style="color:var(--green);">One ARM shape now</h4>
@@ -1996,8 +2002,8 @@ nav .nav-dropdown a { white-space: nowrap; }
       <ul class="exp-bullets">
         <li>Architected Squire, an AI SOC analyst that drafts a triage verdict for every alert and holds HIGH and CRITICAL for a human approval row. Built on LangGraph with human approval gates, pgvector RAG, NeMo Guardrails PII redaction, and Langfuse tracing</li>
         <li>Threat modeled the OpenClaw gateway (Claude Fable <span class="m">5</span>) against the OWASP LLM Top 10 and MITRE ATLAS, then set the guardrail and access requirements the platform shipped with</li>
-        <li>Ran structured red team cycles against my own production AI stack and its web surfaces: prompt injection, jailbreaks, data leakage, excessive agency, and OWASP web risks. Remediated <span class="m">6</span> of <span class="m">11</span> pen test findings, the single High the same day, and accepted the other <span class="m">4</span> with compensating controls. Ran <span class="m">20</span> red team cases across <span class="m">5</span> attack classes with zero true bypasses</li>
-        <li>Embedded Semgrep SAST, Trivy container image and dependency scanning, Gitleaks secrets scanning, and OPA policy gates for infrastructure as code into CI/CD. Added OWASP ZAP DAST against a CI-spun n8n instance and Cosign checks of upstream images, both advisory until the ARM rebuild lands</li>
+        <li>Ran structured red team cycles against my own production AI stack and its web surfaces: prompt injection, jailbreaks, data leakage, excessive agency, and OWASP web risks. Remediated <span class="m">6</span> of <span class="m">11</span> pen test findings, the single High the same day, accepted <span class="m">4</span> with compensating controls, and closed <span class="m">1</span> as a false positive. Ran <span class="m">20</span> red team cases across <span class="m">5</span> attack classes with zero true bypasses</li>
+        <li>Embedded Semgrep SAST, Trivy container image and dependency scanning, Gitleaks secrets scanning, and OPA policy gates for infrastructure as code into CI/CD. Added OWASP ZAP DAST against a CI-spun n8n instance and Cosign checks of upstream images</li>
         <li>Placed every admin surface behind Cloudflare Zero Trust, defined in Terraform with no public application ports, one allowlisted break-glass SSH rule, and separate policies for human and service accounts</li>
         <li>Tuned Falco eBPF container runtime detection shipped to Datadog and mapped to MITRE ATT&amp;CK, cutting alert noise without losing coverage</li>
         <li>Authored <span class="m"><!-- METRIC:grc.total_documents -->57<!-- /METRIC --></span> GRC documents mapping <span class="m"><!-- METRIC:grc.nist_800_53_controls_cited -->140<!-- /METRIC --></span> NIST 800-53 controls plus NIST AI RMF, SOC 2, and ISO 27001, and built a Promptfoo eval harness that regression tests the AI guardrail controls</li>
@@ -2041,7 +2047,7 @@ nav .nav-dropdown a { white-space: nowrap; }
 
     <div class="pow-stats tm-figures">
       <div class="pow-stat"><div class="num">29</div><div class="lbl">Threats found across 8 trust boundaries</div></div>
-      <div class="pow-stat"><div class="num">7</div><div class="lbl">Attack paths traced end to end</div></div>
+      <div class="pow-stat"><div class="num">7</div><div class="lbl">Attack paths modeled</div></div>
       <div class="pow-stat"><div class="num">20</div><div class="lbl">Red team cases, zero true bypasses</div></div>
       <div class="pow-stat"><div class="num">5</div><div class="lbl">Risks accepted in writing, with controls</div></div>
     </div>
@@ -2085,7 +2091,7 @@ nav .nav-dropdown a { white-space: nowrap; }
     <text x="28" y="566" font-size="12" fill="#e6ebe4" text-anchor="start">public webhook paths, never</text>
     <text x="28" y="583" font-size="12" fill="#e6ebe4" text-anchor="start">the host or its address</text>
     <rect x="28" y="598" width="64" height="20" rx="3" fill="none" stroke="#3dff8b" stroke-width="1.5"/>
-    <text x="60" y="612" font-size="11" fill="#3dff8b" font-weight="700" text-anchor="middle">LOW</text>
+    <text x="60" y="612" font-size="11" fill="#3dff8b" font-weight="700" text-anchor="middle">Low</text>
     <text x="102" y="612" font-size="11" fill="#e6ebe4" text-anchor="start">D-01  S-05</text>
     <line x1="357" y1="70" x2="357" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-threat-model-red)"/>
     <line x1="357" y1="166" x2="357" y2="516" stroke="#ff6b5e" stroke-width="2" stroke-dasharray="5 5" opacity="0.9"/>
@@ -2258,7 +2264,7 @@ nav .nav-dropdown a { white-space: nowrap; }
     <text x="932" y="566" font-size="12" fill="#e6ebe4" text-anchor="start">four hour clock; evidence</text>
     <text x="932" y="583" font-size="12" fill="#e6ebe4" text-anchor="start">lands beyond their reach</text>
     <rect x="932" y="598" width="64" height="20" rx="3" fill="none" stroke="#3dff8b" stroke-width="1.5"/>
-    <text x="964" y="612" font-size="11" fill="#3dff8b" font-weight="700" text-anchor="middle">LOW</text>
+    <text x="964" y="612" font-size="11" fill="#3dff8b" font-weight="700" text-anchor="middle">Low</text>
     <text x="1006" y="612" font-size="11" fill="#e6ebe4" text-anchor="start">R-02  E-03</text>
     <line x1="1261" y1="70" x2="1261" y2="121" stroke="#ff6b5e" stroke-width="2.5" marker-end="url(#m-threat-model-red)"/>
     <line x1="1261" y1="166" x2="1261" y2="516" stroke="#ff6b5e" stroke-width="2" stroke-dasharray="5 5" opacity="0.9"/>
@@ -2290,7 +2296,7 @@ nav .nav-dropdown a { white-space: nowrap; }
     <text x="1158" y="566" font-size="12" fill="#e6ebe4" text-anchor="start">reviewed PR; a bad runtime</text>
     <text x="1158" y="583" font-size="12" fill="#e6ebe4" text-anchor="start">has no route home</text>
     <rect x="1158" y="598" width="64" height="20" rx="3" fill="none" stroke="#3dff8b" stroke-width="1.5"/>
-    <text x="1190" y="612" font-size="11" fill="#3dff8b" font-weight="700" text-anchor="middle">LOW</text>
+    <text x="1190" y="612" font-size="11" fill="#3dff8b" font-weight="700" text-anchor="middle">Low</text>
     <text x="1232" y="612" font-size="11" fill="#e6ebe4" text-anchor="start">T-05  T-03</text>
     <text x="1400" y="48" font-size="11" fill="#e6ebe4" font-weight="700" text-anchor="start">By the numbers</text>
     <text x="1400" y="84" font-size="24" fill="#e6ebe4" font-weight="700" text-anchor="start">29</text>
@@ -2346,7 +2352,7 @@ nav .nav-dropdown a { white-space: nowrap; }
     </div>
 
     <!-- STRIDE INTERACTIVE GRID -->
-    <h3 id="tm-stride" class="sub" style="color:var(--red);">Threat inventory (STRIDE)</h3>
+    <h3 id="tm-stride" class="sub" style="scroll-margin-top:80px;color:var(--red);">Threat inventory (STRIDE)</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:16px;" class="reveal">Select any category to expand findings, 29 threats identified across the full platform design</div>
 
     <div class="stride-grid reveal">
@@ -2441,10 +2447,10 @@ nav .nav-dropdown a { white-space: nowrap; }
       </div>
     </div>
 
-    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Select any card to expand, Data sourced from <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-size:10px;">THREAT_MODEL_STRIDE.md</a></div>
+    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Select any card to expand. Data sourced from <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-size:10px;">THREAT_MODEL_STRIDE.md</a></div>
 
     <!-- ATTACK PATH CARDS -->
-    <h3 id="tm-attacks" class="sub" style="color:var(--red);">Attack path analysis</h3>
+    <h3 id="tm-attacks" class="sub" style="scroll-margin-top:80px;color:var(--red);">Attack path analysis</h3>
 
     <div style="display:grid;gap:12px;margin-bottom:32px;" class="reveal">
       <div class="hud-red attack-path-card stagger-card" onclick="apToggle(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
@@ -2455,9 +2461,9 @@ nav .nav-dropdown a { white-space: nowrap; }
         </div>
         <div class="ap-flow">
           <span class="ap-node">Telegram</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node">Cloudflare Tunnel</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node">OpenClaw Gateway</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node" style="border-color:var(--red);color:var(--red);">Override System Instructions</span>
+          <span class="ap-node">Cloudflare tunnel</span><span class="ap-arrow">&rarr;</span>
+          <span class="ap-node">OpenClaw gateway</span><span class="ap-arrow">&rarr;</span>
+          <span class="ap-node" style="border-color:var(--red);color:var(--red);">Override system instructions</span>
         </div>
         <div class="ap-meta">
           <span class="ap-badge medium">Skill: low</span>
@@ -2479,10 +2485,10 @@ nav .nav-dropdown a { white-space: nowrap; }
           <div class="ap-badge high">High impact</div>
         </div>
         <div class="ap-flow">
-          <span class="ap-node">Prompt Injection</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node">Credential Disclosure</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node">n8n Workflows</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node" style="border-color:var(--red);color:var(--red);">Lateral Movement</span>
+          <span class="ap-node">Prompt injection</span><span class="ap-arrow">&rarr;</span>
+          <span class="ap-node">Credential disclosure</span><span class="ap-arrow">&rarr;</span>
+          <span class="ap-node">n8n workflows</span><span class="ap-arrow">&rarr;</span>
+          <span class="ap-node" style="border-color:var(--red);color:var(--red);">Lateral movement</span>
         </div>
         <div class="ap-meta">
           <span class="ap-badge medium">Skill: medium</span>
@@ -2504,10 +2510,10 @@ nav .nav-dropdown a { white-space: nowrap; }
           <div class="ap-badge high">High impact</div>
         </div>
         <div class="ap-flow">
-          <span class="ap-node">Excessive Agency</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node">Skill Chaining</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node">n8n SOAR Trigger</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node" style="border-color:var(--red);color:var(--red);">Unauthorized Actions</span>
+          <span class="ap-node">Excessive agency</span><span class="ap-arrow">&rarr;</span>
+          <span class="ap-node">Skill chaining</span><span class="ap-arrow">&rarr;</span>
+          <span class="ap-node">n8n SOAR trigger</span><span class="ap-arrow">&rarr;</span>
+          <span class="ap-node" style="border-color:var(--red);color:var(--red);">Unauthorized actions</span>
         </div>
         <div class="ap-meta">
           <span class="ap-badge medium">Skill: medium</span>
@@ -2529,10 +2535,10 @@ nav .nav-dropdown a { white-space: nowrap; }
           <div class="ap-badge medium">Medium probability</div>
         </div>
         <div class="ap-flow">
-          <span class="ap-node">Ollama Registry</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node">Poisoned Model Pull</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node">Backdoored Inference</span><span class="ap-arrow">&rarr;</span>
-          <span class="ap-node" style="border-color:var(--red);color:var(--red);">Manipulated Outputs</span>
+          <span class="ap-node">Ollama registry</span><span class="ap-arrow">&rarr;</span>
+          <span class="ap-node">Poisoned model pull</span><span class="ap-arrow">&rarr;</span>
+          <span class="ap-node">Backdoored inference</span><span class="ap-arrow">&rarr;</span>
+          <span class="ap-node" style="border-color:var(--red);color:var(--red);">Manipulated outputs</span>
         </div>
         <div class="ap-meta">
           <span class="ap-badge medium">Skill: high</span>
@@ -2551,14 +2557,14 @@ nav .nav-dropdown a { white-space: nowrap; }
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Full decomposition in <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/ATTACK_TREE_AI_PIPELINE.md" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-size:10px;">ATTACK_TREE_AI_PIPELINE.md</a></div>
 
     <!-- ATTACK WALKTHROUGH -->
-    <h3 id="tm-redteam" class="sub" style="color:var(--red);">Kill chain walkthrough</h3>
+    <h3 id="tm-redteam" class="sub" style="scroll-margin-top:80px;color:var(--red);">Kill chain walkthrough</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;" class="reveal">Step through the highest-probability attack path. Select each phase to see detection status and control gaps.</div>
 
     <div class="atk-walkthrough reveal" id="atk-walkthrough">
 
       <!-- PHASE 01 -->
       <div class="atk-step stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="atkToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-        <div class="atk-step-title">Target Identification</div>
+        <div class="atk-step-title">Target identification</div>
         <div class="atk-step-label">Phase 1, reconnaissance</div>
         <div class="atk-step-brief">Attacker identifies public-facing AI agent with tool-use capabilities via messaging platform</div>
         <div class="atk-detail">
@@ -2570,7 +2576,7 @@ nav .nav-dropdown a { white-space: nowrap; }
 
       <!-- PHASE 02 -->
       <div class="atk-step stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="atkToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-        <div class="atk-step-title">Crafted Prompt Delivery</div>
+        <div class="atk-step-title">Crafted prompt delivery</div>
         <div class="atk-step-label">Phase 2, initial access</div>
         <div class="atk-step-brief">Adversarial prompt designed to override system instructions using encoding evasion techniques</div>
         <div class="atk-detail">
@@ -2582,7 +2588,7 @@ nav .nav-dropdown a { white-space: nowrap; }
 
       <!-- PHASE 03 -->
       <div class="atk-step stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="atkToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-        <div class="atk-step-title">System Instruction Override</div>
+        <div class="atk-step-title">System instruction override</div>
         <div class="atk-step-label">Phase 3, execution</div>
         <div class="atk-step-brief">AI agent&rsquo;s behavioral constraints bypassed. Attacker gains indirect control of tool-use capabilities</div>
         <div class="atk-detail">
@@ -2594,7 +2600,7 @@ nav .nav-dropdown a { white-space: nowrap; }
 
       <!-- PHASE 04 -->
       <div class="atk-step stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="atkToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-        <div class="atk-step-title">Internal Reconnaissance via Skill Chain</div>
+        <div class="atk-step-title">Internal reconnaissance via skill chain</div>
         <div class="atk-step-label">Phase 4, discovery</div>
         <div class="atk-step-brief">Compromised agent uses browser + GitHub skills to enumerate internal infrastructure and source code</div>
         <div class="atk-detail">
@@ -2606,7 +2612,7 @@ nav .nav-dropdown a { white-space: nowrap; }
 
       <!-- PHASE 05 -->
       <div class="atk-step stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="atkToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-        <div class="atk-step-title">Data Staging via Knowledge Base</div>
+        <div class="atk-step-title">Data staging via knowledge base</div>
         <div class="atk-step-label">Phase 5, collection</div>
         <div class="atk-step-brief">Sensitive data aggregated into workspace pages for exfiltration staging</div>
         <div class="atk-detail">
@@ -2618,11 +2624,11 @@ nav .nav-dropdown a { white-space: nowrap; }
 
       <!-- PHASE 06 -->
       <div class="atk-step stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="atkToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-        <div class="atk-step-title">SOAR Workflow Trigger</div>
+        <div class="atk-step-title">SOAR workflow trigger</div>
         <div class="atk-step-label">Phase 6, impact</div>
         <div class="atk-step-brief">Agent triggers orchestration platform to execute unauthorized infrastructure actions</div>
         <div class="atk-detail">
-          POST to master orchestrator webhook with valid format. 16 available service actions. Agent executes database queries, sends messages, modifies cloud infrastructure via API.<br><br>
+          POST to master orchestrator webhook with valid format. 18 available service actions. Agent executes database queries, sends messages, modifies cloud infrastructure via API.<br><br>
           <div class="atk-status"><span class="atk-status-dot partial"></span><span class="atk-status-text partial">PARTIAL, approval gates on destructive workflow actions, no prompt classifier ahead of the webhook</span></div>
         </div>
       </div>
@@ -2630,7 +2636,7 @@ nav .nav-dropdown a { white-space: nowrap; }
 
       <!-- PHASE 07 -->
       <div class="atk-step stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="atkToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
-        <div class="atk-step-title">Backdoor via Code Push</div>
+        <div class="atk-step-title">Backdoor via code push</div>
         <div class="atk-step-label">Phase 7, persistence</div>
         <div class="atk-step-brief">Agent pushes modified workflow code to public repo, establishing persistent access independent of AI agent</div>
         <div class="atk-detail">
@@ -2654,25 +2660,25 @@ nav .nav-dropdown a { white-space: nowrap; }
     <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px;">
 
       <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-07 / Cost Tradeoff</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-07 / Cost tradeoff</div>
         <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Deferred Lakera Guard.</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">NeMo Guardrails plus a custom pre-graph PII scanner cover the same input rails the commercial add-on would. The gap and its revisit gate are documented for the next budget cycle.</div>
       </div>
 
       <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-15 / Throughput Tradeoff</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-15 / Throughput tradeoff</div>
         <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Sequenced red-team cycles under API quotas.</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">Parallel runs hit provider rate limits, and the local fallback could not be reached because Squire has no route onto the sealed net-ai segment. That route is a queued compose change. Classified as an availability failure, not an integrity failure, and the cycles completed sequenced.</div>
       </div>
 
       <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-001, 002, 004, 006 / Container Privilege</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-001, 002, 004, 006 / Container privilege</div>
         <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Accepted root in 5 vendor containers.</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">Compensating controls: <code>no-new-privileges</code>, <code>cap_drop: ALL</code> plus explicit minimum <code>cap_add</code>, AppArmor profiles, and Falco eBPF syscall tracing on every container.</div>
       </div>
 
       <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-007 / Host Audit Coverage</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-007 / Host audit coverage</div>
         <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Falco eBPF instead of auditd.</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">One kernel-level detector, not two overlapping ones. eBPF covers the same syscall surface auditd would at a fraction of the overhead, with disk monitoring alerting at an 80% threshold.</div>
       </div>
@@ -2748,9 +2754,9 @@ nav .nav-dropdown a { white-space: nowrap; }
         <div class="fw-matrix-cell"><span class="fw-dot active"></span></div>
       </div>
       <div style="display:flex;gap:16px;margin-top:12px;font-family:'IBM Plex Sans',sans-serif;font-size:12px;">
-        <span style="display:flex;align-items:center;gap:6px;"><span class="fw-dot active" style="width:8px;height:8px;display:inline-block;"></span><span style="color:var(--light);">Full Coverage</span></span>
+        <span style="display:flex;align-items:center;gap:6px;"><span class="fw-dot active" style="width:8px;height:8px;display:inline-block;"></span><span style="color:var(--light);">Full coverage</span></span>
         <span style="display:flex;align-items:center;gap:6px;"><span class="fw-dot partial" style="width:8px;height:8px;display:inline-block;"></span><span style="color:var(--light);">Partial</span></span>
-        <span style="display:flex;align-items:center;gap:6px;"><span class="fw-dot none" style="width:8px;height:8px;display:inline-block;"></span><span style="color:var(--light);">Not Applicable</span></span>
+        <span style="display:flex;align-items:center;gap:6px;"><span class="fw-dot none" style="width:8px;height:8px;display:inline-block;"></span><span style="color:var(--light);">Not applicable</span></span>
       </div>
     </div>
 
@@ -3099,7 +3105,7 @@ nav .nav-dropdown a { white-space: nowrap; }
     <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px;">
 
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">STRIDE / Full Platform</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">STRIDE / Full platform</div>
         <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Platform STRIDE Threat Model</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">Spoofing, Tampering, Repudiation, Information Disclosure, DoS, Elevation of Privilege across the full platform design. <!-- METRIC:grc.stride_threats -->29<!-- /METRIC --> categorized threats, <!-- METRIC:grc.trust_boundaries_defined -->8<!-- /METRIC --> trust boundaries.</div>
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
@@ -3167,10 +3173,10 @@ nav .nav-dropdown a { white-space: nowrap; }
     <div class="trio" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:32px;">
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/POLICY_AI_GOVERNANCE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-purple" style="transition:border-color 0.3s;height:100%;">
         <span class="bl"></span><span class="br"></span>
-        <h3 style="font-size:24px;font-weight:700;margin-bottom:8px;">ISO 42001</h3>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">ISO 42001</h3>
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);margin-bottom:12px;">AI Management System</div>
         <p style="font-size:13px;color:var(--light);line-height:1.7;">AI system inventory, risk classification, responsible AI principles, lifecycle management, human oversight requirements, and continuous monitoring controls.</p>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--purple);margin-top:12px;">View Policy on GitHub &rarr;</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--purple);margin-top:12px;">View policy on GitHub &rarr;</div>
       </div></a>
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/POLICY_AI_GOVERNANCE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-purple" style="transition:border-color 0.3s;height:100%;">
         <span class="bl"></span><span class="br"></span>
@@ -3839,7 +3845,7 @@ nav .nav-dropdown a { white-space: nowrap; }
             <!-- END -->
             <div class="ir-flow-node node-end stagger-card" tabindex="0" role="button" aria-expanded="false" onclick="irToggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
               <div class="ir-flow-node-label">Close</div>
-              Update detection rules, Document lessons learned
+              Update detection rules, document lessons learned
               <div class="ir-detail-panel green">Post-incident review within 48 hours. Update Falco rules to close detection gap. Document in POA&M. File entry in GRC risk register. Close incident ticket with RCA summary.</div>
             </div>
 
@@ -4586,7 +4592,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // KEYBOARD NAVIGATION
 (function() {
-  var sections = ['proof', 'experience', 'threat-modeling', 'ai-security', 'grc', 'certs', 'education', 'contact'];
+  var sections = ['proof', 'experience', 'threat-modeling', 'ai-security', 'grc', 'certs', 'education', 'blog', 'contact'];
   var kbOverlay = document.getElementById('kb-overlay');
   var termOverlay = document.getElementById('terminal-overlay');
   var konamiOverlay = document.getElementById('konami-overlay');
