@@ -38,9 +38,9 @@
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
-  --void: #0a0d0b; --dark: #141b16; --mid: #27342b; --light: #a3ada1; --white: #e6ebe4;
+  --void: #0a0d0b; --dark: #141b16; --mid: #27342b; --light: #cfc5aa; --white: #e6ebe4;
   --green: #3dff8b; --red: #ff6b5e; --gold: #ffc247; --cyan: #e8dcc0; --purple: #ff9b3d;
-  --bone: #e8dcc0; --orange: #ff9b3d; --amber: #ffc247; --ink: #0a0d0b; --node: #141b16; --line: #27342b; --text: #e6ebe4; --dim: #a3ada1;
+  --bone: #e8dcc0; --orange: #ff9b3d; --amber: #ffc247; --ink: #0a0d0b; --node: #141b16; --line: #27342b; --text: #e6ebe4; --dim: #cfc5aa;
 }
 html { scroll-behavior: smooth; }
 body { background: var(--void); color: var(--white); font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
@@ -197,9 +197,15 @@ html.light .nav-dropdown-parent > a:hover { color: var(--green); }
 .exp-role { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--green); }
 .exp-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); }
 .exp-bullets { list-style: none; }
-.exp-bullets li { font-size: 14px; color: #ccc; padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.7; }
+.exp-bullets li { font-size: 14px; color: var(--white); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.7; }
 .exp-bullets li::before { content: '\203A'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 18px; line-height: 1.4; }
-.exp-bullets .m { color: var(--green); font-weight: 600; }
+.exp-bullets .m { color: var(--white); font-weight: 600; }
+.exp-figures { display: flex; flex-wrap: wrap; margin: 0 0 20px; border-top: 1px solid var(--mid); border-bottom: 1px solid var(--mid); }
+.exp-fig { flex: 1 1 150px; padding: 14px 20px 14px 0; }
+.exp-fig + .exp-fig { padding-left: 20px; border-left: 1px solid var(--mid); }
+.exp-fig b { display: block; font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 600; color: var(--white); line-height: 1.2; }
+.exp-fig span { display: block; font-size: 13px; color: var(--light); margin-top: 4px; }
+@media (max-width: 600px) { .exp-fig { flex-basis: 45%; } .exp-fig:nth-child(3) { padding-left: 0; border-left: 0; } }
 
 /* CONTACT */
 .contact-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
@@ -1868,22 +1874,11 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
         </div>
       </div>
       <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);margin-bottom:20px;">Independent AI security practice. The reference platform at the top of this page is its infrastructure, built and operated end to end.</p>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;">
-        <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--green);"><!-- METRIC:stack.containers_designed -->19<!-- /METRIC --></div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Container Stack</div>
-        </div>
-        <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--green);"><!-- METRIC:grc.total_documents -->57<!-- /METRIC --></div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">GRC Documents</div>
-        </div>
-        <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--green);">20</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Red Team Cases</div>
-        </div>
-        <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--green);">0</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">App Ports Exposed</div>
-        </div>
+      <div class="exp-figures">
+        <div class="exp-fig"><b><!-- METRIC:stack.containers_designed -->19<!-- /METRIC --></b><span>Container stack</span></div>
+        <div class="exp-fig"><b><!-- METRIC:grc.total_documents -->57<!-- /METRIC --></b><span>GRC documents</span></div>
+        <div class="exp-fig"><b>20</b><span>Red team cases</span></div>
+        <div class="exp-fig"><b>0</b><span>App ports exposed</span></div>
       </div>
       <ul class="exp-bullets">
         <li>Architected Squire, an AI SOC analyst that drafts a triage verdict for every alert and holds HIGH and CRITICAL for a human approval row. Built on LangGraph with human approval gates, pgvector RAG, NeMo Guardrails PII redaction, and Langfuse tracing</li>
@@ -1906,23 +1901,11 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
           <span class="exp-date">Atlanta, GA&ensp;Mar 2022 to Mar 2026</span>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;">
-        <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);">4h</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Detection Time</div>
-        </div>
-        <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);">90m</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Containment Time</div>
-        </div>
-        <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);">12/14</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">PCI DSS Gaps Closed</div>
-        </div>
-        <div style="background:var(--void);border:1px solid var(--mid);padding:16px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);">$18K</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Card Fraud Traced</div>
-        </div>
+      <div class="exp-figures">
+        <div class="exp-fig"><b>4h</b><span>Detection time</span></div>
+        <div class="exp-fig"><b>90m</b><span>Containment time</span></div>
+        <div class="exp-fig"><b>12/14</b><span>Gaps closed</span></div>
+        <div class="exp-fig"><b>$18K</b><span>Card fraud traced</span></div>
       </div>
       <ul class="exp-bullets">
         <li>Deployed Splunk Enterprise SIEM across <span class="m">3</span> sites, centralizing FortiGate, Cisco switch, and Windows logs with on call alerting and a one year AWS S3 archive under Object Lock. Detection time fell from <span class="m">48</span> hours to under <span class="m">4</span></li>
