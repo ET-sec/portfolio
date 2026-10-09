@@ -3688,9 +3688,12 @@ nav .nav-dropdown a { white-space: nowrap; }
             </div>
           </div>
         </div>
+      </div>
 
+      <!-- RIGHT: Status by family -->
+      <div>
         <!-- NIST COVERAGE HEATMAP -->
-        <div class="nist-heatmap">
+        <div class="nist-heatmap" style="margin-top:0;">
           <h3 class="sub" style="color:var(--gold);">NIST 800-53 status by family</h3>
           <div class="nist-grid">
             <div class="nist-cell nist-med stagger-card"><div class="nist-abbr">AC</div><div class="nist-name">Access Control</div><div class="nist-bar"></div></div>
@@ -3718,8 +3721,10 @@ nav .nav-dropdown a { white-space: nowrap; }
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- RIGHT: Key Deliverables + IR Flowchart -->
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin-top:48px;">
+      <!-- LEFT: Key Deliverables -->
       <div>
         <h3 class="sub" style="color:var(--gold);">What is in the library</h3>
         <div style="display:grid;gap:8px;">
@@ -3772,9 +3777,12 @@ nav .nav-dropdown a { white-space: nowrap; }
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:6px;">View on GitHub &rarr;</div>
           </div></a>
         </div>
+      </div>
 
+      <!-- RIGHT: IR Flowchart -->
+      <div>
         <!-- IR PLAYBOOK FLOWCHART -->
-        <div class="ir-flowchart reveal" style="margin-top:28px;">
+        <div class="ir-flowchart reveal">
           <h3 class="sub" style="color:var(--gold);">When a container is compromised</h3>
           <div class="hud-gold" style="padding:20px;transition:border-color 0.3s;">
             <span class="bl"></span><span class="br"></span>
@@ -3849,7 +3857,6 @@ nav .nav-dropdown a { white-space: nowrap; }
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-top:16px;text-align:center;letter-spacing:1px;">Select any node to expand details</div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -4210,8 +4217,10 @@ nav .nav-dropdown a { white-space: nowrap; }
         </div>
       </div>
       <div style="background:var(--dark);border:1px solid var(--mid);padding:24px;">
-        <img src="emmanuel-tigoue.jpg" alt="Emmanuel Tigoue" style="width:100%;border-radius:0;border:1px solid var(--mid);object-fit:cover;display:block;margin:0 0 24px;" loading="lazy">
-        <h3 class="sub" style="color:var(--cyan);">Current status</h3>
+        <div style="display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:20px;align-items:start;margin-bottom:24px;">
+        <img src="emmanuel-tigoue.jpg" alt="Emmanuel Tigoue" style="width:100%;aspect-ratio:4/5;border-radius:0;border:1px solid var(--mid);object-fit:cover;object-position:center top;display:block;margin:0;" loading="lazy">
+        <div>
+        <h3 class="sub" style="color:var(--cyan);margin-top:0;">Current status</h3>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;animation:pulse 2s infinite;"></span>
           <span style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);">Open to opportunities</span>
@@ -4220,7 +4229,9 @@ nav .nav-dropdown a { white-space: nowrap; }
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;color:var(--white);margin-bottom:4px;">Atlanta, GA</div>
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;">Open to relocation</div>
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);letter-spacing:1px;margin-bottom:4px;">Clearance</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;color:var(--white);margin-bottom:24px;">Eligible</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;color:var(--white);">Eligible</div>
+        </div>
+        </div>
         <a href="Emmanuel_Tigoue_AISecurity_Engineer.pdf" download style="display:block;text-align:center;padding:14px;background:var(--cyan);color:var(--void);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Download resume</a>
       </div>
     </div>
