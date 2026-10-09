@@ -38,9 +38,9 @@
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
-  --void: #0a0d0b; --dark: #141b16; --mid: #27342b; --light: #cfc5aa; --white: #e6ebe4;
+  --void: #0a0d0b; --dark: #141b16; --mid: #27342b; --light: #eef2ec; --white: #eef2ec;
   --green: #3dff8b; --red: #ff6b5e; --gold: #ffc247; --cyan: #e8dcc0; --purple: #ff9b3d;
-  --bone: #e8dcc0; --orange: #ff9b3d; --amber: #ffc247; --ink: #0a0d0b; --node: #141b16; --line: #27342b; --text: #e6ebe4; --dim: #cfc5aa;
+  --bone: #e8dcc0; --orange: #ff9b3d; --amber: #ffc247; --ink: #0a0d0b; --node: #141b16; --line: #27342b; --text: #eef2ec; --dim: #eef2ec;
 }
 html { scroll-behavior: smooth; }
 body { background: var(--void); color: var(--white); font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
@@ -198,12 +198,6 @@ html.light .nav-dropdown-parent > a:hover { color: var(--green); }
 .exp-bullets li { font-size: 14px; color: var(--white); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.7; }
 .exp-bullets li::before { content: '\203A'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 18px; line-height: 1.4; }
 .exp-bullets .m { color: var(--white); font-weight: 600; }
-.exp-figures { display: flex; flex-wrap: wrap; margin: 0 0 20px; border-top: 1px solid var(--mid); border-bottom: 1px solid var(--mid); }
-.exp-fig { flex: 1 1 150px; padding: 14px 20px 14px 0; }
-.exp-fig + .exp-fig { padding-left: 20px; border-left: 1px solid var(--mid); }
-.exp-fig b { display: block; font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 600; color: var(--white); line-height: 1.2; }
-.exp-fig span { display: block; font-size: 13px; color: var(--light); margin-top: 4px; }
-@media (max-width: 600px) { .exp-fig { flex-basis: 45%; } .exp-fig:nth-child(3) { padding-left: 0; border-left: 0; } }
 
 /* CONTACT */
 .contact-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
@@ -271,9 +265,9 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
    Text: high contrast. Accents: deeper for readability.
    ═══════════════════════════════════════════ */
 html.light {
-  --void: #f1f3ee; --dark: #ffffff; --mid: #c9d1c8; --light: #3f4b43; --white: #111511;
+  --void: #f1f3ee; --dark: #ffffff; --mid: #c9d1c8; --light: #111511; --white: #111511;
   --green: #025929; --red: #8d2c20; --gold: #6a4700; --cyan: #5e4a1c; --purple: #7d3a00;
-  --bone: #5e4a1c; --orange: #7d3a00; --amber: #6a4700; --ink: #f1f3ee; --node: #ffffff; --line: #c9d1c8; --text: #111511; --dim: #3f4b43;
+  --bone: #5e4a1c; --orange: #7d3a00; --amber: #6a4700; --ink: #f1f3ee; --node: #ffffff; --line: #c9d1c8; --text: #111511; --dim: #111511;
 }
 html.light body { background: #e9ece6; color: #111511; }
 
@@ -1144,6 +1138,42 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
 .cd-packet { pointer-events: none; opacity: .9; stroke-dashoffset: var(--cdlen); }
 @keyframes cdpacket { to { stroke-dashoffset: 0; } }
 @media (prefers-reduced-motion: reduce) { .cd-packet { display: none; } }
+
+/* Option A, 2026-10-09: one ink color, sentence case, plain hierarchy */
+nav .brand { font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; }
+nav .nav-links { align-items: center; }
+nav .nav-links a { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--white); }
+nav .nav-links a.nav-resume { background: var(--green); color: var(--void) !important; font-weight: 600; padding: 9px 14px; }
+nav .nav-links a.nav-resume:hover { background: var(--white); }
+.hero { text-align: left; justify-content: flex-start; min-height: 88vh; }
+.hero .container { width: 100%; }
+#matrix-bg { display: none; }
+.hero h1 { font-family: 'IBM Plex Sans', sans-serif; font-size: clamp(48px, 8vw, 96px); line-height: 1; font-weight: 700; letter-spacing: -2px; margin: 0 0 28px; color: var(--white); }
+.hero .intro { max-width: 760px; margin: 0 0 18px; color: var(--white); font-size: clamp(18px, 2.2vw, 22px); line-height: 1.55; }
+.hero-id { font-size: 16px; font-weight: 600; margin: 0 0 36px; color: var(--white); }
+.hero-buttons { justify-content: flex-start; align-items: flex-start; }
+.menu-toggle { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--white); border-color: var(--white); }
+html.light .menu-toggle { color: var(--white); border-color: var(--white); }
+.btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; font-weight: 600; text-transform: none; letter-spacing: 0; padding: 14px 22px; }
+.btn-outline { color: var(--white); border-color: var(--white); }
+.btn-outline:hover { background: var(--white); color: var(--void); box-shadow: none; }
+html.light .btn-outline { color: var(--white); border-color: var(--white); }
+html.light .btn-outline:hover { background: var(--white); color: var(--void); }
+.pow-stat .num, .pow-stat .num-gold { color: var(--green); }
+.pow-stat .lbl { font-weight: 500; }
+.exp-header { display: block; margin-bottom: 20px; }
+.exp-header > div + div { margin-top: 4px; }
+.exp-company { display: block; font-size: 26px; }
+.exp-role { display: block; margin-top: 6px; font-family: 'IBM Plex Sans', sans-serif; font-size: 18px; }
+.exp-date { font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; color: var(--white); }
+.exp-bullets { list-style: disc; padding-left: 22px; max-width: 880px; }
+.exp-bullets li { font-size: 17px; line-height: 1.65; padding: 7px 0 7px 6px; }
+.exp-bullets li::before { content: none; }
+.exp-bullets .m, html.light .exp-bullets .m { color: inherit; font-weight: inherit; }
+html.light .hero { background: var(--void); }
+html.light .exp-bullets li, html.light .exp-date, html.light nav .nav-links a { color: var(--white); }
+nav .nav-dropdown-parent { padding: 3px 0; }
+nav .nav-dropdown a { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; letter-spacing: 0; text-transform: none; color: var(--white); }
 </style>
 <script type="application/ld+json">
 {
@@ -1258,8 +1288,8 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
 
 <nav>
   <div class="nav-inner">
-    <div class="brand" aria-label="Emmanuel Tigoue"><span class="g">&#9673;</span> EMMANUEL TIGOUE</div>
-    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation menu">MENU</button>
+    <div class="brand" aria-label="Emmanuel Tigoue">Emmanuel Tigoue</div>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation menu">Menu</button>
     <div class="nav-links">
       <a href="#proof">Platform</a>
       <a href="#certs">Certs</a>
@@ -1280,7 +1310,7 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
       <a href="#grc">GRC</a>
       <a href="#blog">Blog</a>
       <a href="#contact">Contact</a>
-      <a href="Emmanuel_Tigoue_AISecurity_Engineer.pdf" download style="color:var(--green) !important;border:1px solid var(--green);padding:4px 10px;">Resume &#8595;</a>
+      <a href="Emmanuel_Tigoue_AISecurity_Engineer.pdf" download class="nav-resume">Resume PDF</a>
     </div>
     <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode" style="background:var(--mid);border:none;width:44px;height:22px;border-radius:11px;position:relative;cursor:pointer;transition:background 0.3s;flex-shrink:0;">
       <span id="toggle-knob" style="position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:var(--green);transition:left 0.3s,background 0.3s;"></span>
@@ -1293,13 +1323,12 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
 <section class="hero">
   <canvas id="matrix-bg"></canvas>
   <div class="container" style="position:relative;z-index:1;">
-    <h1><span class="glitch-hover">EMMANUEL TIGOUE</span></h1>
-    <div class="sub-tagline" style="margin-bottom:10px;font-size:17px;letter-spacing:3px;text-transform:uppercase;">AI Security Engineer</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);letter-spacing:2px;margin-bottom:20px;">CISSP, SecurityX, CCNA</div>
+    <h1>Build. Break. Guard. Deploy.</h1>
     <p class="intro">I build and break agentic AI systems, then ship the guardrails and audit trails that survive a compliance review. The controls map to NIST 800-53 and ISO 42001, from the cloud edge to the local model.</p>
+    <p class="hero-id">AI Security Engineer, Atlanta. CISSP, SecurityX, CCNA.</p>
     <div class="hero-buttons">
-      <a href="#contact" class="btn btn-solid" aria-label="Get in touch">Get In Touch</a>
-      <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="View project on GitHub">View on GitHub</a>
+      <a href="#contact" class="btn btn-solid" aria-label="Get in touch">Get in touch</a>
+      <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="Read the code on GitHub">Read the code</a>
     </div>
   </div>
 </section>
@@ -1862,19 +1891,13 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
       <div class="exp-header">
         <div>
           <span class="exp-company">CoreDirective</span>
-          <span class="exp-role"> | AI Security Engineer</span>
+          <span class="exp-role">AI Security Engineer</span>
         </div>
         <div>
-          <span class="exp-date">Atlanta, GA&ensp;Sep 2025 to Present</span>
+          <span class="exp-date">Atlanta, GA. Sep 2025 to Present</span>
         </div>
       </div>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);margin-bottom:20px;">Independent AI security practice. The reference platform at the top of this page is its infrastructure, built and operated end to end.</p>
-      <div class="exp-figures">
-        <div class="exp-fig"><b><!-- METRIC:stack.containers_designed -->19<!-- /METRIC --></b><span>Container stack</span></div>
-        <div class="exp-fig"><b><!-- METRIC:grc.total_documents -->57<!-- /METRIC --></b><span>GRC documents</span></div>
-        <div class="exp-fig"><b>20</b><span>Red team cases</span></div>
-        <div class="exp-fig"><b>0</b><span>App ports exposed</span></div>
-      </div>
+      <p style="font-size:17px;line-height:1.65;max-width:880px;margin-bottom:16px;">Independent AI security practice. The reference platform at the top of this page is its infrastructure, built and operated end to end.</p>
       <ul class="exp-bullets">
         <li>Architected Squire, an AI SOC analyst that drafts a triage verdict for every alert and holds HIGH and CRITICAL for a human approval row. Built on LangGraph with human approval gates, pgvector RAG, NeMo Guardrails PII redaction, and Langfuse tracing</li>
         <li>Threat modeled the OpenClaw gateway (Claude Fable <span class="m">5</span>) against the OWASP LLM Top 10 and MITRE ATLAS, then set the guardrail and access requirements the platform shipped with</li>
@@ -1890,17 +1913,11 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
       <div class="exp-header">
         <div>
           <span class="exp-company">Texaco</span>
-          <span class="exp-role"> | IT Security &amp; Operations Manager</span>
+          <span class="exp-role">IT Security &amp; Operations Manager</span>
         </div>
         <div>
-          <span class="exp-date">Atlanta, GA&ensp;Mar 2022 to Mar 2026</span>
+          <span class="exp-date">Atlanta, GA. Mar 2022 to Mar 2026</span>
         </div>
-      </div>
-      <div class="exp-figures">
-        <div class="exp-fig"><b>4h</b><span>Detection time</span></div>
-        <div class="exp-fig"><b>90m</b><span>Containment time</span></div>
-        <div class="exp-fig"><b>12/14</b><span>Gaps closed</span></div>
-        <div class="exp-fig"><b>$18K</b><span>Card fraud traced</span></div>
       </div>
       <ul class="exp-bullets">
         <li>Deployed Splunk Enterprise SIEM across <span class="m">3</span> sites, centralizing FortiGate, Cisco switch, and Windows logs with on call alerting and a one year AWS S3 archive under Object Lock. Detection time fell from <span class="m">48</span> hours to under <span class="m">4</span></li>
@@ -1928,7 +1945,7 @@ html.light #matrix-bg, html.light #particle-bg, html.light #threat-particle-bg, 
       <div class="exp-header">
         <div>
           <span class="exp-company">Georgia State University, Andrew Young School of Policy Studies</span>
-          <span class="exp-role"> | Atlanta, GA</span>
+          <span class="exp-role">Atlanta, GA</span>
         </div>
         <div>
           <span class="exp-date">GPA: <span class="m">3.7</span>, Dean's List</span>
