@@ -24,7 +24,7 @@ Seven architecture views drawn from the reference design, each with its own full
 Every view is sanitized: no addresses, ports, hostnames, account IDs, or image versions. Live state per control lives in the POA&M, not on the drawings.
 
 ### Certifications, Experience, Education
-Cert cards with Credly verification links. Two roles with metric grids: CoreDirective (AI Security Engineer) and Texaco (IT Security and Operations Manager).
+Cert cards with Credly verification links. Two roles, each a plain list of results: CoreDirective (AI Security Engineer) and Texaco (IT Security and Operations Manager).
 
 ### Security Engineering
 Threat model view, STRIDE decomposition (29 threats), attack trees (7 paths), red team walkthrough, framework coverage matrix, identity and access view, application security proof cards linking to the GRC documents.
