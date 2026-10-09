@@ -1317,20 +1317,12 @@ footer .logo,
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .cd-view-hint, .cd-view-sub::after, html.light .cd-view-sub::after { color: #eef2ec; }
 
-/* Option A accent pass: red, amber and orange stay only where they mean severity or status */
-.section-header .line, .section-header .line-purple, .section-header .line-gold, .section-header .line-red,
-html.light .section-header .line-purple, html.light .section-header .line-gold, html.light .section-header .line-red { background: var(--green); }
-.section-header h2, main h3.sub, #proof h4, #threat-modeling strong,
-.stride-detail-inner .sd-label, .stride-detail-inner .sd-value, .agent-skill-detail-inner .asd-label, .agent-skill-node .skill-abuse,
-.stride-card .stride-count, .agent-core-label, .rule-explanation-title, .ir-flow-node-label, .scorecard-overall .overall-num { color: var(--white) !important; }
-#threat-modeling a, .ai-tree-btn { color: var(--green); border-color: var(--green); }
-.rule-block-badge { color: var(--green); border-color: var(--green); }
+/* section colors kept from the original design */
 .sub { font-family: 'IBM Plex Sans', sans-serif; font-size: 18px; letter-spacing: 0; }
 .ap-badge, .ap-node { white-space: normal; }
 .ap-meta { flex-wrap: wrap; gap: 8px 12px; }
 .attack-path-card > div[style*="justify-content:space-between"] { flex-wrap: wrap; gap: 8px; }
 .ap-badge { white-space: nowrap; }
-html.light .overall-num, html.light .scorecard-overall .overall-num, html.light .ir-flow-node-label, html.light .agent-skill-detail-inner .asd-label, html.light .skill-abuse, html.light .agent-skill-node .skill-abuse { color: var(--white) !important; }
 .rule-block-header span, html.light .rule-block-header span { color: var(--white); letter-spacing: 0; }
 html.light footer { background: var(--void); }
 .fw-dot.none { background: transparent; border: 1px solid var(--white); box-sizing: border-box; }
@@ -1343,7 +1335,6 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 .exp-date { display: flex; flex-wrap: wrap; gap: 4px 28px; }
 .cd-view-frame svg { font-family: 'IBM Plex Sans', sans-serif; }
 /* Original hero kept, 2026-10-09: its layout and type, the new ink color */
-.hero .sub-tagline, html.light .sub-tagline { color: var(--white); }
 .hero .btn { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 14px 28px; }
 .hero .sub-tagline { font-family: 'JetBrains Mono', monospace; letter-spacing: 3px !important; text-transform: uppercase !important; }
 .hero .container > div:nth-of-type(2) { font-family: 'JetBrains Mono', monospace !important; letter-spacing: 2px !important; }
@@ -1441,7 +1432,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     <p>Callsign: DIRECTED_SIGNAL<br>Base of Operations: Atlanta, GA<br>Specialty: agentic AI security, adversarial testing, the paperwork that proves it</p>
     <p>Objective: make autonomous AI systems safe enough to trust in production.</p>
     <p>Current Status: OPERATIONAL, accepting new missions.</p>
-    <p style="color:var(--white);">// If you found this, you're probably an engineer.</p>
+    <p style="color:var(--gold);">// If you found this, you're probably an engineer.</p>
     <a href="#contact" onclick="document.getElementById('konami-overlay').classList.remove('open')" class="sig" style="display:inline-block;text-decoration:none;border:1px solid var(--green);padding:8px 16px;letter-spacing:1px;">We should talk &rarr;</a>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-top:20px;">Press ESC or click to close</div>
   </div>
@@ -1898,7 +1889,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
       <h3 class="sub" style="color:var(--cyan);">What it takes to run</h3>
       <div class="migration-card">
         <div class="mc-col">
-          <h4 style="color:var(--white);">$135/mo before</h4>
+          <h4 style="color:var(--red);">$135/mo before</h4>
           <p>One AWS EC2 instance with a NAT Gateway in front of it, most of the compute idle, and every control tied to one vendor.</p>
         </div>
         <div class="mc-col" style="border-right:1px solid var(--mid);">
@@ -2143,7 +2134,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
   <canvas id="threat-particle-bg"></canvas>
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal-left">
-      <h2 style="color:var(--white);">Security engineering</h2>
+      <h2 style="color:var(--red);">Security engineering</h2>
       <div class="line-red"></div>
     </div>
 
@@ -2449,50 +2440,50 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     </div>
 
     <!-- THREAT MODELS I AUTHORED -->
-    <h3 class="sub" style="color:var(--white);">Threat models I authored</h3>
+    <h3 class="sub" style="color:var(--red);">Threat models I authored</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;" class="reveal">Each model targets a system I deployed and covers the attack surface those agents created.</div>
     <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px;">
 
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);letter-spacing:2px;margin-bottom:8px;">STRIDE / Full Platform</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">STRIDE / Full Platform</div>
         <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Platform STRIDE Threat Model</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">Spoofing, Tampering, Repudiation, Information Disclosure, DoS, Elevation of Privilege across the full platform design. <!-- METRIC:grc.stride_threats -->29<!-- /METRIC --> categorized threats, <!-- METRIC:grc.trust_boundaries_defined -->8<!-- /METRIC --> trust boundaries.</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:12px;">View on GitHub &rarr;</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
       </div></a>
 
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/AI_THREAT_CATALOG.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);letter-spacing:2px;margin-bottom:8px;">AI Catalog / OWASP LLM + MITRE ATLAS</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">AI Catalog / OWASP LLM + MITRE ATLAS</div>
         <div style="font-size:15px;font-weight:700;margin-bottom:8px;">AI Threat Catalog</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;"><!-- METRIC:grc.ai_threats_cataloged -->10<!-- /METRIC --> AI-specific threats mapped to OWASP Top 10 for LLM Applications (2026), MITRE ATLAS v4, NIST AI RMF, and ISO 42001 Annex A.</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:12px;">View on GitHub &rarr;</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
       </div></a>
 
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/ATTACK_TREE_AI_PIPELINE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);letter-spacing:2px;margin-bottom:8px;">Attack Tree / AI Inference Pipeline</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">Attack Tree / AI Inference Pipeline</div>
         <div style="font-size:15px;font-weight:700;margin-bottom:8px;">AI Pipeline Attack Tree</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">Root goal: compromise the AI inference pipeline. <!-- METRIC:grc.attack_paths_total -->7<!-- /METRIC --> paths total (<!-- METRIC:grc.attack_paths_base -->4<!-- /METRIC --> base plus <!-- METRIC:grc.attack_paths_squire_ai -->3<!-- /METRIC --> Squire-specific roots added in Phase 17).</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:12px;">View on GitHub &rarr;</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
       </div></a>
 
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/SQUIRE_THREAT_MODEL.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);letter-spacing:2px;margin-bottom:8px;">Agent-Specific / I built the surface</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">Agent-Specific / I built the surface</div>
         <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Squire Autonomous SOC Analyst</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">Threat model for the autonomous SOC analyst I deployed. LangGraph agent with pgvector RAG, NeMo Guardrails sidecar, critique-consistency override, and human-in-the-loop gates on destructive actions.</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:12px;">View on GitHub &rarr;</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
       </div></a>
 
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/DATA_FLOW_DIAGRAM.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);letter-spacing:2px;margin-bottom:8px;">Data Flow Diagram / DFD Levels 0-2</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:8px;">Data Flow Diagram / DFD Levels 0-2</div>
         <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Data Flow Diagram</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;"><!-- METRIC:grc.data_flows_cataloged -->40<!-- /METRIC --> data flows cataloged across <!-- METRIC:grc.trust_boundaries_defined -->8<!-- /METRIC --> trust boundaries. Sensitive data mapping, encryption coverage, and DFD-to-STRIDE crosswalk.</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:12px;">View on GitHub &rarr;</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
       </div></a>
 
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/REDTEAM_RESULTS.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div style="background:var(--void);border:1px solid var(--mid);padding:20px;height:100%;transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--mid)'">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);letter-spacing:2px;margin-bottom:8px;">Red Team Results / Receipts</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;">Red Team Results / Receipts</div>
         <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Red Team Cycle 1 + 2</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">20 red team cases across prompt injection, role hijack, PII exfiltration, and severity flip. Zero true bypasses after remediation: the one cycle 1 miss, an SSN that passed the NeMo rail, was closed the same day by the pre-graph scanner. P17-01 through P17-06 are closed with regression tests in CI; P17-07 through P17-15 are open residuals on the POA&amp;M.</div>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:12px;">View on GitHub &rarr;</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:12px;">View on GitHub &rarr;</div>
       </div></a>
 
     </div>
@@ -2500,36 +2491,36 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     <p style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin:-8px 0 36px;">Also in the library: AI Supply Chain Risk Assessment and the AI Incident Response Playbook. <a href="https://github.com/ET-sec/cyber-squire1/tree/main/docs/grc" target="_blank" rel="noopener noreferrer" style="color:var(--green);">View the full GRC library on GitHub &rarr;</a></p>
 
     <!-- COMPROMISES I ACCEPTED -->
-    <h3 class="sub" style="color:var(--white);">Compromises I accepted</h3>
+    <h3 class="sub" style="color:var(--gold);">Compromises I accepted</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;" class="reveal">Every senior engineering decision is a tradeoff. These are mine, in writing, with compensating controls.</div>
     <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px;">
 
       <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);letter-spacing:1px;margin-bottom:8px;">POAM-P17-07 / Cost Tradeoff</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-07 / Cost Tradeoff</div>
         <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Deferred Lakera Guard.</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">NeMo Guardrails plus a custom pre-graph PII scanner cover the same input rails the commercial add-on would. The gap and its revisit gate are documented for the next budget cycle.</div>
       </div>
 
       <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);letter-spacing:1px;margin-bottom:8px;">POAM-P17-15 / Throughput Tradeoff</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-15 / Throughput Tradeoff</div>
         <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Sequenced red-team cycles under API quotas.</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">Parallel runs hit provider rate limits, and the local fallback could not be reached because Squire has no route onto the sealed net-ai segment. That route is a queued compose change. Classified as an availability failure, not an integrity failure, and the cycles completed sequenced.</div>
       </div>
 
       <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);letter-spacing:1px;margin-bottom:8px;">POAM-001, 002, 004, 006 / Container Privilege</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-001, 002, 004, 006 / Container Privilege</div>
         <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Accepted root in 5 vendor containers.</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">Compensating controls: <code>no-new-privileges</code>, <code>cap_drop: ALL</code> plus explicit minimum <code>cap_add</code>, AppArmor profiles, and Falco eBPF syscall tracing on every container.</div>
       </div>
 
       <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);letter-spacing:1px;margin-bottom:8px;">POAM-007 / Host Audit Coverage</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-007 / Host Audit Coverage</div>
         <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Falco eBPF instead of auditd.</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">One kernel-level detector, not two overlapping ones. eBPF covers the same syscall surface auditd would at a fraction of the overhead, with disk monitoring alerting at an 80% threshold.</div>
       </div>
 
       <div style="background:var(--void);border:1px solid var(--mid);padding:20px;" class="stagger-card">
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);letter-spacing:1px;margin-bottom:8px;">POAM-P17-13 / RAG Trust Surface</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">POAM-P17-13 / RAG Trust Surface</div>
         <div style="font-size:14px;font-weight:700;margin-bottom:8px;">External enrichment treated as hostile input.</div>
         <div style="font-size:12px;color:var(--light);line-height:1.6;">A poisoned index entry could inject directives at the enrichment merge point. Critique-consistency check is the sole behavioral override. Attack tree leaf A.3.a is queued for the next red-team round to quantify.</div>
       </div>
@@ -2537,7 +2528,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     </div>
 
     <!-- AGENTIC AI THREAT SURFACE -->
-    <h3 class="sub" style="color:var(--white);">What the agent can reach</h3>
+    <h3 class="sub" style="color:var(--red);">What the agent can reach</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:16px;" class="reveal">Select any skill node to expand abuse scenarios and control mappings</div>
 
     <div class="agent-surface-grid reveal">
@@ -2620,7 +2611,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     </div>
 
     <!-- STRIDE INTERACTIVE GRID -->
-    <h3 id="tm-stride" class="sub" style="color:var(--white);">Threats by STRIDE category</h3>
+    <h3 id="tm-stride" class="sub" style="color:var(--red);">Threats by STRIDE category</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:16px;" class="reveal">Select any category to expand findings, 29 threats identified across the full platform design</div>
 
     <div class="stride-grid reveal">
@@ -2635,7 +2626,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
           <div class="sd-row"><span class="sd-label">AI Extension</span><span class="sd-value">Model impersonation. Compromised gateway returning attacker-controlled responses</span></div>
           <div class="sd-row"><span class="sd-label">Controls</span><span class="sd-value">Telegram token auth, Cloudflare WAF, API key rotation, mTLS</span></div>
           <div class="sd-row"><span class="sd-label">NIST 800-53</span><span class="sd-value">IA-2, IA-5, IA-8, SC-8</span></div>
-          <div class="sd-row"><span class="sd-label">Risk Level</span><span class="sd-value" style="color:var(--white);">Medium</span></div>
+          <div class="sd-row"><span class="sd-label">Risk Level</span><span class="sd-value" style="color:var(--gold);">Medium</span></div>
         </div></div>
       </div>
 
@@ -2650,7 +2641,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
           <div class="sd-row"><span class="sd-label">AI Extension</span><span class="sd-value">Ollama model weight alteration. Poisoned model producing backdoored outputs</span></div>
           <div class="sd-row"><span class="sd-label">Controls</span><span class="sd-value">Cosign signature check (blocking for the four publishers that sign; the rest recorded unsigned and digest-pinned), Trivy scanning, model hash verification, net-ai air gap</span></div>
           <div class="sd-row"><span class="sd-label">NIST 800-53</span><span class="sd-value">SI-7, CM-3, CM-5, CM-14, SR-3</span></div>
-          <div class="sd-row"><span class="sd-label">Risk Level</span><span class="sd-value" style="color:var(--white);">Medium</span></div>
+          <div class="sd-row"><span class="sd-label">Risk Level</span><span class="sd-value" style="color:var(--gold);">Medium</span></div>
         </div></div>
       </div>
 
@@ -2680,7 +2671,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
           <div class="sd-row"><span class="sd-label">AI Extension</span><span class="sd-value">PII in AI responses, system prompt extraction, side-channel inference attacks</span></div>
           <div class="sd-row"><span class="sd-label">Controls</span><span class="sd-value">Prompt sanitization, output filtering, local inference fallback, Vault secret isolation</span></div>
           <div class="sd-row"><span class="sd-label">NIST 800-53</span><span class="sd-value">SC-8, SC-13, SC-28, SI-4</span></div>
-          <div class="sd-row"><span class="sd-label">Risk Level</span><span class="sd-value" style="color:var(--white);">High</span></div>
+          <div class="sd-row"><span class="sd-label">Risk Level</span><span class="sd-value" style="color:var(--red);">High</span></div>
         </div></div>
       </div>
 
@@ -2695,7 +2686,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
           <div class="sd-row"><span class="sd-label">AI Extension</span><span class="sd-value">Context window stuffing, model loading attacks against Ollama</span></div>
           <div class="sd-row"><span class="sd-label">Controls</span><span class="sd-value">Rate limiting, API budget caps, container resource limits, Cloudflare DDoS protection</span></div>
           <div class="sd-row"><span class="sd-label">NIST 800-53</span><span class="sd-value">SC-5, SI-4, CP-2, AU-6</span></div>
-          <div class="sd-row"><span class="sd-label">Risk Level</span><span class="sd-value" style="color:var(--white);">Medium</span></div>
+          <div class="sd-row"><span class="sd-label">Risk Level</span><span class="sd-value" style="color:var(--gold);">Medium</span></div>
         </div></div>
       </div>
 
@@ -2710,15 +2701,15 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
           <div class="sd-row"><span class="sd-label">AI Extension</span><span class="sd-value">Prompt injection &rarr; skill chaining &rarr; n8n workflow trigger &rarr; unauthorized DB/infra actions</span></div>
           <div class="sd-row"><span class="sd-label">Controls</span><span class="sd-value">Skill allowlisting, n8n workflow approval, Falco runtime detection, least privilege</span></div>
           <div class="sd-row"><span class="sd-label">NIST 800-53</span><span class="sd-value">AC-6, CM-7, SI-3, SC-7</span></div>
-          <div class="sd-row"><span class="sd-label">Risk Level</span><span class="sd-value" style="color:var(--white);">High</span></div>
+          <div class="sd-row"><span class="sd-label">Risk Level</span><span class="sd-value" style="color:var(--red);">High</span></div>
         </div></div>
       </div>
     </div>
 
-    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Select any card to expand, Data sourced from <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-size:10px;">THREAT_MODEL_STRIDE.md</a></div>
+    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Select any card to expand, Data sourced from <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-size:10px;">THREAT_MODEL_STRIDE.md</a></div>
 
     <!-- ATTACK PATH CARDS -->
-    <h3 id="tm-attacks" class="sub" style="color:var(--white);">Attack paths through the AI pipeline</h3>
+    <h3 id="tm-attacks" class="sub" style="color:var(--red);">Attack paths through the AI pipeline</h3>
 
     <div style="display:grid;gap:12px;margin-bottom:32px;" class="reveal">
       <div class="hud-red attack-path-card stagger-card" onclick="apToggle(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
@@ -2822,10 +2813,10 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
       </div>
     </div>
 
-    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Full decomposition in <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/ATTACK_TREE_AI_PIPELINE.md" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-size:10px;">ATTACK_TREE_AI_PIPELINE.md</a></div>
+    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:40px;letter-spacing:0.5px;" class="reveal">Full decomposition in <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/ATTACK_TREE_AI_PIPELINE.md" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-size:10px;">ATTACK_TREE_AI_PIPELINE.md</a></div>
 
     <!-- ATTACK WALKTHROUGH -->
-    <h3 id="tm-redteam" class="sub" style="color:var(--white);">One attack, phase by phase</h3>
+    <h3 id="tm-redteam" class="sub" style="color:var(--red);">One attack, phase by phase</h3>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:20px;" class="reveal">Step through the highest-probability attack path. Select each phase to see detection status and control gaps.</div>
 
     <div class="atk-walkthrough reveal" id="atk-walkthrough">
@@ -2915,7 +2906,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 
       <!-- BLAST RADIUS SUMMARY -->
       <div class="atk-summary" style="margin-top:20px;">
-        <strong style="color:var(--white);font-family:'IBM Plex Sans',sans-serif;font-size:12px;letter-spacing:1px;">Blast radius:</strong><br>
+        <strong style="color:var(--red);font-family:'IBM Plex Sans',sans-serif;font-size:12px;letter-spacing:1px;">Blast radius:</strong><br>
         16 service integrations compromised, Database access (PostgreSQL), Cloud infrastructure (CDN, DNS), Communication channels (messaging, email), Code repositories, Knowledge bases
       </div>
 
@@ -2924,7 +2915,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     <!-- FRAMEWORK CROSS-REFERENCE MATRIX -->
     <div id="tm-frameworks" class="hud-red reveal" style="transition:border-color 0.3s;scroll-margin-top:80px;">
       <span class="bl"></span><span class="br"></span>
-      <h3 class="sub" style="color:var(--white);">Which frameworks cover which threats</h3>
+      <h3 class="sub" style="color:var(--red);">Which frameworks cover which threats</h3>
       <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-bottom:16px;">How each framework maps to STRIDE threat categories</div>
       <div class="fw-matrix">
         <div class="fw-matrix-header"></div>
@@ -3265,20 +3256,20 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/POLICY_AI_GOVERNANCE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-purple" style="transition:border-color 0.3s;height:100%;">
         <span class="bl"></span><span class="br"></span>
         <h3 style="font-size:24px;font-weight:700;margin-bottom:8px;">ISO 42001</h3>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);margin-bottom:12px;">AI Management System</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);margin-bottom:12px;">AI Management System</div>
         <p style="font-size:13px;color:var(--light);line-height:1.7;">AI system inventory, risk classification, responsible AI principles, lifecycle management, human oversight requirements, and continuous monitoring controls.</p>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:12px;">View Policy on GitHub &rarr;</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--purple);margin-top:12px;">View Policy on GitHub &rarr;</div>
       </div></a>
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/POLICY_AI_GOVERNANCE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-purple" style="transition:border-color 0.3s;height:100%;">
         <span class="bl"></span><span class="br"></span>
         <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">ISO 27701</h3>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);margin-bottom:12px;">Privacy Information Management</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);margin-bottom:12px;">Privacy Information Management</div>
         <p style="font-size:13px;color:var(--light);line-height:1.7;">Data protection in AI pipelines, PII handling controls, consent management, data retention policies, privacy impact assessments for AI systems.</p>
       </div></a>
       <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/POLICY_AI_GOVERNANCE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" class="stagger-card"><div class="hud-purple" style="transition:border-color 0.3s;height:100%;">
         <span class="bl"></span><span class="br"></span>
         <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">NIST AI RMF</h3>
-        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);margin-bottom:12px;">AI Risk Management Framework</div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--gold);margin-bottom:12px;">AI Risk Management Framework</div>
         <p style="font-size:13px;color:var(--light);line-height:1.7;">Govern, Map, Measure, Manage functions applied to the five registered AI systems. Risk tiering, bias evaluation, performance monitoring, and incident response procedures.</p>
       </div></a>
     </div>
@@ -3382,7 +3373,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 
     <!-- DETECTION RULE SHOWCASE -->
     <div class="rule-showcase reveal" style="margin-top:32px;">
-      <h3 class="sub" style="color:var(--white);">One Falco rule, explained</h3>
+      <h3 class="sub" style="color:var(--purple);">One Falco rule, explained</h3>
       <div class="rule-block hud-purple">
         <span class="bl"></span><span class="br"></span>
         <div class="rule-block-header">
@@ -3427,7 +3418,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     <div class="ai-tree reveal" style="margin-top:32px;">
       <div class="hud-purple" style="transition:border-color 0.3s;">
         <span class="bl"></span><span class="br"></span>
-        <h3 class="sub" style="color:var(--white);">Should this AI system ship?</h3>
+        <h3 class="sub" style="color:var(--purple);">Should this AI system ship?</h3>
         <div id="ai-tree-container">
           <div class="ai-tree-node active" id="ai-q0">
             <div class="ai-tree-question">Does the AI system process, store, or have access to personal data (PII)?</div>
@@ -3736,7 +3727,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
     <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
       <!-- LEFT: Stats & Bars -->
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--white);margin-bottom:4px;"><!-- METRIC:grc.total_documents -->57<!-- /METRIC --> Documents</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--gold);margin-bottom:4px;"><!-- METRIC:grc.total_documents -->57<!-- /METRIC --> Documents</div>
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:var(--light);margin-bottom:24px;">28,000+ lines of compliance documentation</div>
 
         <div style="display:grid;gap:8px;">
@@ -3775,7 +3766,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 
         <!-- SECURITY POSTURE SCORECARD -->
         <div class="scorecard reveal" id="scorecard">
-          <h3 class="sub" style="color:var(--white);">Control status</h3>
+          <h3 class="sub" style="color:var(--gold);">Control status</h3>
           <div class="scorecard-header">
             <div class="scorecard-overall">
               <div class="overall-num" id="sc-overall-num">0%</div>
@@ -3786,7 +3777,7 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 
         <!-- NIST COVERAGE HEATMAP -->
         <div class="nist-heatmap">
-          <h3 class="sub" style="color:var(--white);">NIST 800-53 status by family</h3>
+          <h3 class="sub" style="color:var(--gold);">NIST 800-53 status by family</h3>
           <div class="nist-grid">
             <div class="nist-cell nist-med stagger-card"><div class="nist-abbr">AC</div><div class="nist-name">Access Control</div><div class="nist-bar"></div></div>
             <div class="nist-cell nist-high stagger-card"><div class="nist-abbr">AU</div><div class="nist-name">Audit &amp; Accountability</div><div class="nist-bar"></div></div>
@@ -3816,61 +3807,61 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 
       <!-- RIGHT: Key Deliverables + IR Flowchart -->
       <div>
-        <h3 class="sub" style="color:var(--white);">What is in the library</h3>
+        <h3 class="sub" style="color:var(--gold);">What is in the library</h3>
         <div style="display:grid;gap:8px;">
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/SSP_SYSTEM_SECURITY_PLAN.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View System Security Plan on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s;">
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);">System Security Plan (SSP)</div>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-top:4px;">NIST 800-53, <!-- METRIC:grc.nist_800_53_controls_cited -->140<!-- /METRIC --> controls, 17 families</div>
-            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:6px;">View on GitHub &rarr;</div>
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:6px;">View on GitHub &rarr;</div>
           </div></a>
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/POAM_PLAN_OF_ACTION.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View POA&amp;M on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s;">
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);">POA&amp;M + Risk Assessment</div>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-top:4px;"><!-- METRIC:grc.poam_findings_total -->42<!-- /METRIC --> findings, 17 threats, MITRE ATT&amp;CK mapped</div>
-            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:6px;">View on GitHub &rarr;</div>
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:6px;">View on GitHub &rarr;</div>
           </div></a>
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/README.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Security Policies on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s;">
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);">10 Security Policies</div>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-top:4px;">Including AI Governance (ISO 42001 + 27701 + NIST AI RMF)</div>
-            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:6px;">View on GitHub &rarr;</div>
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:6px;">View on GitHub &rarr;</div>
           </div></a>
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/TABLETOP_EXERCISE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Tabletop Exercise on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s;">
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);">5 IR Playbooks + 2 Tabletop Exercises</div>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-top:4px;">Compromised container, DDoS, leaked credential, unauthorized access, AI system compromise</div>
-            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:6px;">View on GitHub &rarr;</div>
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:6px;">View on GitHub &rarr;</div>
           </div></a>
           <a href="https://github.com/ET-sec/cyber-squire1/tree/main/terraform/cd-oci-infrastructure/policy" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View OPA Policies on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s;">
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);">8 OPA/Rego Policies</div>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-top:4px;">Infrastructure enforcement, conftest on every PR</div>
-            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:6px;">View on GitHub &rarr;</div>
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:6px;">View on GitHub &rarr;</div>
           </div></a>
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/THREAT_MODEL_STRIDE.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Threat Modeling Suite on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s;">
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);">Threat Modeling Suite</div>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-top:4px;">STRIDE (29 threats, 8 trust boundaries), AI Threat Catalog, Attack trees, Squire threat model</div>
-            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:6px;">View on GitHub &rarr;</div>
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:6px;">View on GitHub &rarr;</div>
           </div></a>
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/AGENT_SIGNING.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View AI Governance Engineering on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s;">
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);">AI Governance Engineering</div>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-top:4px;">Agent signing, AI audit trail spec, Supply chain register, OWASP MCP Top 10 audit, HITL policy</div>
-            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:6px;">View on GitHub &rarr;</div>
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:6px;">View on GitHub &rarr;</div>
           </div></a>
           <a href="https://github.com/ET-sec/cyber-squire1/blob/main/docs/grc/REDTEAM_RESULTS.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;" aria-label="View Red Team Results on GitHub"><div class="hud-gold stagger-card" style="padding:14px;transition:border-color 0.3s;">
             <span class="bl"></span><span class="br"></span>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--white);">Red Team + Pen Test Results</div>
             <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--light);margin-top:4px;">20 test cases across OWASP LLM01, LLM02, LLM03, LLM07 (2026 IDs), zero true bypasses, pen test self-assessment</div>
-            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--green);margin-top:6px;">View on GitHub &rarr;</div>
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);margin-top:6px;">View on GitHub &rarr;</div>
           </div></a>
         </div>
 
         <!-- IR PLAYBOOK FLOWCHART -->
         <div class="ir-flowchart reveal" style="margin-top:28px;">
-          <h3 class="sub" style="color:var(--white);">When a container is compromised</h3>
+          <h3 class="sub" style="color:var(--gold);">When a container is compromised</h3>
           <div class="hud-gold" style="padding:20px;transition:border-color 0.3s;">
             <span class="bl"></span><span class="br"></span>
 
