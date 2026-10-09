@@ -326,8 +326,7 @@ html.light .cert-card .cert-meta { color: var(--light); }
 html.light .hero { background: #E4E4E4; }
 html.light .hero::before { background: none; }
 html.light .hero::after { background: none; }
-html.light #matrix-bg { display: none; }
-html.light .boot-overlay { display: none !important; }
+html.light html.light .boot-overlay { display: none !important; }
 html.light .hero h1 { color: var(--white); }
 html.light .hero h1 .icon { color: var(--green); }
 html.light .sub-tagline { color: var(--gold); }
@@ -1143,13 +1142,7 @@ nav .nav-links { align-items: center; }
 nav .nav-links a { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--white); }
 nav .nav-links a.nav-resume { background: var(--green); color: var(--void) !important; font-weight: 600; padding: 9px 14px; }
 nav .nav-links a.nav-resume:hover { background: var(--white); }
-.hero { text-align: left; justify-content: flex-start; min-height: 88vh; }
-.hero .container { width: 100%; }
 #matrix-bg { display: none; }
-.hero h1 { font-family: 'IBM Plex Sans', sans-serif; font-size: clamp(48px, 8vw, 96px); line-height: 1; font-weight: 700; letter-spacing: -2px; margin: 0 0 28px; color: var(--white); }
-.hero .intro { max-width: 760px; margin: 0 0 18px; color: var(--white); font-size: clamp(18px, 2.2vw, 22px); line-height: 1.55; }
-.hero-id { font-size: 16px; font-weight: 600; margin: 0 0 36px; color: var(--white); }
-.hero-buttons { justify-content: flex-start; align-items: flex-start; }
 .menu-toggle { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--white); border-color: var(--white); }
 html.light .menu-toggle { color: var(--white); border-color: var(--white); }
 .btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; font-weight: 600; text-transform: none; letter-spacing: 0; padding: 14px 22px; }
@@ -1168,7 +1161,6 @@ html.light .btn-outline:hover { background: var(--white); color: var(--void); }
 .exp-bullets li { font-size: 17px; line-height: 1.65; padding: 7px 0 7px 6px; }
 .exp-bullets li::before { content: none; }
 .exp-bullets .m, html.light .exp-bullets .m { color: inherit; font-weight: inherit; }
-html.light .hero { background: var(--void); }
 html.light .exp-bullets li, html.light .exp-date, html.light nav .nav-links a { color: var(--white); }
 nav .nav-dropdown-parent { padding: 3px 0; }
 nav .nav-dropdown a { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; letter-spacing: 0; text-transform: none; color: var(--white); }
@@ -1348,9 +1340,13 @@ html.light .atk-connector .atk-line, html.light .ir-flow-connector .conn-line { 
 html.light .atk-connector .atk-arrow, html.light .ir-flow-connector .conn-arrow { color: var(--white) !important; opacity: 0.8; }
 .cd-view-wrap > .cd-view-note { max-width: 1060px; margin-left: auto; margin-right: auto; padding: 0 20px; font-size: 14px; }
 html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overall { background: transparent !important; }
-.hero-certs { display: block; font-weight: 400; margin-top: 4px; }
 .exp-date { display: flex; flex-wrap: wrap; gap: 4px 28px; }
 .cd-view-frame svg { font-family: 'IBM Plex Sans', sans-serif; }
+/* Original hero kept, 2026-10-09: its layout and type, the new ink color */
+.hero .sub-tagline, html.light .sub-tagline { color: var(--white); }
+.hero .btn { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 14px 28px; }
+.hero .sub-tagline { font-family: 'JetBrains Mono', monospace; letter-spacing: 3px !important; text-transform: uppercase !important; }
+.hero .container > div:nth-of-type(2) { font-family: 'JetBrains Mono', monospace !important; letter-spacing: 2px !important; }
 </style>
 <script type="application/ld+json">
 {
@@ -1498,13 +1494,15 @@ html.light .scorecard, html.light .scorecard-header, html.light .scorecard-overa
 <main>
 <!-- HERO -->
 <section class="hero">
+  <canvas id="matrix-bg"></canvas>
   <div class="container" style="position:relative;z-index:1;">
-    <h1><span class="sr-only">Emmanuel Tigoue, AI Security Engineer. </span>Build. Break. Guard. Deploy.</h1>
+    <h1><span class="glitch-hover">EMMANUEL TIGOUE</span></h1>
+    <div class="sub-tagline" style="margin-bottom:10px;font-size:17px;letter-spacing:3px;text-transform:uppercase;">AI Security Engineer</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);letter-spacing:2px;margin-bottom:20px;">CISSP, SecurityX, CCNA</div>
     <p class="intro">I build and break agentic AI systems, then ship the guardrails and audit trails that survive a compliance review. The controls map to NIST 800-53 and ISO 42001, from the cloud edge to the local model.</p>
-    <p class="hero-id">AI Security Engineer in Atlanta<span class="hero-certs">CISSP, SecurityX, CCNA</span></p>
     <div class="hero-buttons">
-      <a href="#contact" class="btn btn-solid" aria-label="Get in touch">Get in touch</a>
-      <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="Read the code on GitHub">Read the code</a>
+      <a href="#contact" class="btn btn-solid" aria-label="Get in touch">Get In Touch</a>
+      <a href="https://github.com/ET-sec/cyber-squire1" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="View project on GitHub">View on GitHub</a>
     </div>
   </div>
 </section>
