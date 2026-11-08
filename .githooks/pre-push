@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# pre-push hook: the leak guard (.githooks/leak-guard/) at the last exit before public.
+# Refuses pushed commits that add secret file types (.pem, .env, env.sh, .tfvars, .tfstate, plan
+# files), a file over 5 MB, or a private IPv4 address, and runs gitleaks over exactly those
+# commits. Fails closed: a missing rule file or a missing gitleaks refuses the push.
+#
+# Install: git config core.hooksPath .githooks
+# Bypass:  git push --no-verify   (do not)
+set -euo pipefail
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+python3 -I "$REPO_ROOT/.githooks/leak-guard/leak_guard.py" --deny "$REPO_ROOT/.githooks/leak-guard/deny.txt"
